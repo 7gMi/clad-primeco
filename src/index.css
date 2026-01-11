@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply overflow-x-hidden;
+  }
+
+  body {
+    @apply bg-black;
+  }
+
+  #root {
+    @apply min-h-screen w-full;
+  }
+}
+
+@layer utilities {
+  .aspect-full-hd {
+    aspect-ratio: 16 / 9;
+  }
+}
