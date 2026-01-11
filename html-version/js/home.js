@@ -1,6 +1,3 @@
-// JavaScript for Clad Primeco Website
-
-// State Management
 let state = {
   currentSlide: 0,
   isTransitioning: false,
@@ -10,7 +7,6 @@ let state = {
   activeButton: 'projects'
 };
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
   initializeHeader();
   initializeSlider();
@@ -19,26 +15,24 @@ document.addEventListener('DOMContentLoaded', () => {
   setupScrollListener();
 });
 
-// Header Initialization
 function initializeHeader() {
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const mobileMenu = document.querySelector('.mobile-menu');
-  const navButtons = document.querySelectorAll('nav button');
+  const navLinks = document.querySelectorAll('.mobile-menu nav a');
 
   mobileMenuBtn.addEventListener('click', () => {
     state.mobileMenuOpen = !state.mobileMenuOpen;
     mobileMenu.classList.toggle('open');
   });
 
-  navButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
       state.mobileMenuOpen = false;
       mobileMenu.classList.remove('open');
     });
   });
 }
 
-// Scroll Listener
 function setupScrollListener() {
   const homeScrollContainer = document.querySelector('.home-scroll-container');
   const header = document.querySelector('header');
@@ -53,7 +47,6 @@ function setupScrollListener() {
     }
   });
 
-  // Fallback for regular window scroll
   window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY;
     const isScrolled = scrollPosition > 100;
@@ -65,7 +58,6 @@ function setupScrollListener() {
   });
 }
 
-// Update Header
 function updateHeader() {
   const header = document.querySelector('header');
   if (state.isScrolled) {
@@ -77,7 +69,6 @@ function updateHeader() {
   }
 }
 
-// Slider Initialization
 function initializeSlider() {
   initializeSlideIndicators();
 
@@ -86,7 +77,6 @@ function initializeSlider() {
   }, 6000);
 }
 
-// Initialize Slide Indicators
 function initializeSlideIndicators() {
   document.querySelectorAll('.slide-dot').forEach(dot => {
     dot.addEventListener('click', () => {
@@ -96,7 +86,6 @@ function initializeSlideIndicators() {
   });
 }
 
-// Update Button States
 function updateButtonStates() {
   document.querySelectorAll('.hero-btn').forEach(btn => {
     const button = btn.getAttribute('data-button');
@@ -108,7 +97,6 @@ function updateButtonStates() {
   });
 }
 
-// Handle Slide Change
 function handleSlideChange(index) {
   if (state.isTransitioning) return;
 
@@ -142,7 +130,6 @@ function handleSlideChange(index) {
   }, 800);
 }
 
-// Update Slide Indicators
 function updateSlideIndicators() {
   document.querySelectorAll('.slide-dot').forEach((dot, i) => {
     if (i === state.currentSlide) {
@@ -153,7 +140,6 @@ function updateSlideIndicators() {
   });
 }
 
-// Initialize Buttons
 function initializeButtons() {
   document.querySelectorAll('.hero-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -164,7 +150,6 @@ function initializeButtons() {
   });
 }
 
-// Initialize Process
 function initializeProcess() {
   const processItems = document.querySelectorAll('.process-item');
 
@@ -180,7 +165,6 @@ function initializeProcess() {
   updateProcessStates();
 }
 
-// Update Process States
 function updateProcessStates() {
   const processItems = document.querySelectorAll('.process-item');
 

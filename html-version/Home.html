@@ -10,25 +10,24 @@
 <body>
   <div id="root">
     <div class="home-scroll-container">
-      <!-- Header -->
       <header class="not-scrolled">
         <div class="header-content">
-          <div class="logo-container">
+          <a href="Home.html" class="logo-container">
             <picture>
               <source media="(min-width: 1024px)" srcset="/images/logo/logo-desktop.png">
               <source media="(min-width: 768px)" srcset="/images/logo/logo-tab.png">
               <img src="/images/logo/logo-mobile.png" alt="Company Logo">
             </picture>
             <p class="logo-tagline">CLADDING PROFESSIONALS</p>
-          </div>
+          </a>
 
           <nav>
             <ul>
-              <li><button>Home</button></li>
-              <li><button>About</button></li>
+              <li><a href="Home.html">Home</a></li>
+              <li><a href="About.html">About</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#projects">Projects</a></li>
-              <li><button>Contact</button></li>
+              <li><a href="Contact.html">Contact</a></li>
             </ul>
           </nav>
 
@@ -40,32 +39,28 @@
         <div class="mobile-menu">
           <nav>
             <ul>
-              <li><button>Home</button></li>
-              <li><button>About</button></li>
+              <li><a href="Home.html">Home</a></li>
+              <li><a href="About.html">About</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#projects">Projects</a></li>
-              <li><button>Contact</button></li>
+              <li><a href="Contact.html">Contact</a></li>
             </ul>
           </nav>
         </div>
       </header>
 
-      <!-- Hero Slider Section -->
       <section class="slider-container">
         <div class="slider-background">
-          <!-- Slide 1 -->
           <div class="slide-item active" data-slide="0">
-            <img src="/images/backgrounds/kingspan-panel copy.jpg" alt="Professional Kingspan Cladding Systems">
+            <img src="/images/backgrounds/kingspan-panel.jpg" alt="Professional Kingspan Cladding Systems">
             <div class="slide-overlay"></div>
           </div>
 
-          <!-- Slide 2 -->
           <div class="slide-item" data-slide="1">
-            <img src="/images/architectural-panels/architectural-panels.jpg" alt="Build Your Architectural Vision">
+            <img src="/images/backgrounds/architectural-panels.jpg" alt="Build Your Architectural Vision">
             <div class="slide-overlay"></div>
           </div>
 
-          <!-- Slide 3 -->
           <div class="slide-item" data-slide="2">
             <img src="/images/backgrounds/school_carrigtohil.png" alt="Durable Aluminium Cladding Systems">
             <div class="slide-overlay"></div>
@@ -74,7 +69,6 @@
 
         <div class="hero-content-wrapper">
           <div class="hero-text">
-            <!-- Slide 1 Content -->
             <div class="slide-content active" data-slide="0">
               <div class="hero-card">
                 <p>Professional Grade / Guaranteed Quality</p>
@@ -87,7 +81,6 @@
               </div>
             </div>
 
-            <!-- Slide 2 Content -->
             <div class="slide-content inactive" data-slide="1">
               <div class="hero-card">
                 <p>Trusted Partner / Certified Solutions</p>
@@ -100,7 +93,6 @@
               </div>
             </div>
 
-            <!-- Slide 3 Content -->
             <div class="slide-content inactive" data-slide="2">
               <div class="hero-card">
                 <p>Eco-Friendly Materials / Sustainable Building</p>
@@ -124,8 +116,7 @@
         </div>
       </section>
 
-      <!-- About Section -->
-      <section class="about-section">
+      <section class="about-section" id="about">
         <div class="section-container">
           <div class="section-header">
             <div class="section-header-line">
@@ -179,8 +170,7 @@
         </div>
       </section>
 
-      <!-- Solutions Section -->
-      <section class="solutions-section">
+      <section class="solutions-section" id="services">
         <div class="section-container">
           <div class="section-header">
             <p class="solutions-header-label">What We Offer</p>
@@ -194,7 +184,6 @@
           </div>
 
           <div class="solutions-grid">
-            <!-- Kingspan Panels Card -->
             <div class="solution-card">
               <div class="solution-card-image">
                 <img src="/images/kingspan-panel.jpg" alt="Kingspan Panels">
@@ -211,7 +200,6 @@
               </div>
             </div>
 
-            <!-- Architectural Panels Card -->
             <div class="solution-card">
               <div class="solution-card-image">
                 <img src="/images/architectural-panels/amazon4.jpg" alt="Architectural Panels">
@@ -228,7 +216,6 @@
               </div>
             </div>
 
-            <!-- Aluminium Copings Card -->
             <div class="solution-card">
               <div class="solution-card-image">
                 <img src="/images/aluminium-copings/aluminium-copings.jpg" alt="Aluminium Copings">
@@ -248,7 +235,6 @@
         </div>
       </section>
 
-      <!-- Process Section -->
       <section class="process-section">
         <div class="section-container">
           <div class="process-header">
@@ -260,7 +246,6 @@
           </div>
 
           <div class="process-grid">
-            <!-- Planning Step -->
             <div class="process-item">
               <div class="process-item-content">
                 <button class="process-button">
@@ -276,7 +261,6 @@
               </div>
             </div>
 
-            <!-- Design Step -->
             <div class="process-item">
               <div class="process-item-content">
                 <button class="process-button">
@@ -292,7 +276,6 @@
               </div>
             </div>
 
-            <!-- Construct Step -->
             <div class="process-item">
               <div class="process-item-content">
                 <button class="process-button">
@@ -308,7 +291,6 @@
               </div>
             </div>
 
-            <!-- Finishing Step -->
             <div class="process-item">
               <div class="process-item-content">
                 <button class="process-button">
@@ -324,11 +306,9 @@
         </div>
       </section>
 
-      <!-- Contact Section -->
       <section class="contact-section">
         <div class="section-container">
           <div class="contact-grid">
-            <!-- Phone Contact -->
             <div class="contact-item">
               <div class="contact-item-icon">
                 <svg class="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
@@ -340,7 +320,6 @@
               <div class="contact-divider"></div>
             </div>
 
-            <!-- Email Contact -->
             <div class="contact-item">
               <div class="contact-item-icon">
                 <svg class="icon-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 6l10 7.5L22 6"></path></svg>
@@ -352,7 +331,6 @@
               <div class="contact-divider"></div>
             </div>
 
-            <!-- Instagram Contact -->
             <div class="contact-item">
               <div class="contact-item-icon">
                 <svg class="icon-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8" fill="none"></path><circle cx="18.5" cy="5.5" r="1.5" fill="currentColor"></circle></svg>
@@ -365,16 +343,9 @@
         </div>
       </section>
 
-      <!-- Footer -->
-      <!--
-        SLIDER IMAGES PATHS:
-        slide 1: images/backgrounds/kingspan-panel.jpg
-        slide 2: images/backgrounds/architectural-panels.jpg
-        slide 3: images/backgrounds/school_carrigtohil.png
-      -->
       <footer class="main-footer">
         <div class="main-footer-content">
-          <p>©2025 Clad Primeco Professional Cladding - Industrial Building Solutions. All rights reserved.</p>
+          <p>&copy;2025 Clad Primeco Professional Cladding - Industrial Building Solutions. All rights reserved.</p>
         </div>
       </footer>
     </div>
