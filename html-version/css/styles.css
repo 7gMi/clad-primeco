@@ -432,11 +432,29 @@ header.not-scrolled .mobile-menu-btn svg {
   color: white;
 }
 
+/* Slide Content */
+.slide-content {
+  transition: all 0.8s ease-in-out;
+}
+
+.slide-content.active {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+}
+
+.slide-content.inactive {
+  opacity: 0;
+  transform: translateY(2rem);
+  position: absolute;
+  pointer-events: none;
+}
+
 /* Slide Indicators */
 .slide-indicators {
   display: flex;
   gap: 0.75rem;
-  justify-content: flex-start;
+  justify-content: center;
   margin-top: 2rem;
 }
 
@@ -519,7 +537,7 @@ header.not-scrolled .mobile-menu-btn svg {
 .hero-indicators-wrapper {
   flex-shrink: 0;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
 }
 
