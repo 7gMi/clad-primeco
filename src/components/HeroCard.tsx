@@ -26,13 +26,21 @@ export default function HeroCard({ tagline, title, subtitle }: HeroCardProps) {
       <div className="flex flex-wrap gap-4">
         <button
           onClick={() => setActiveButton('projects')}
-          className="bg-transparent hover:bg-white/10 border-2 border-white text-white px-8 py-4 rounded-3xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap focus:outline-none focus:ring-0 active:bg-transparent"
+          className={`border-2 px-8 py-4 rounded-3xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap focus:outline-none focus:ring-0 ${
+            activeButton === 'projects'
+              ? 'bg-blue-600 border-blue-600 text-white'
+              : 'bg-transparent hover:bg-white/10 border-white text-white'
+          }`}
         >
           Our Projects
         </button>
         <button
           onClick={() => setActiveButton('quote')}
-          className="bg-transparent hover:bg-white/10 border-2 border-white text-white px-8 py-4 rounded-3xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap focus:outline-none focus:ring-0 active:bg-transparent"
+          className={`border-2 px-8 py-4 rounded-3xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap focus:outline-none focus:ring-0 ${
+            activeButton === 'quote'
+              ? 'bg-blue-600 border-blue-600 text-white'
+              : 'bg-transparent hover:bg-white/10 border-white text-white'
+          }`}
         >
           Free Consultation
         </button>
