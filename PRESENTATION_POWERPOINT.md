@@ -1,4 +1,4 @@
-# Présentation PowerPoint - Professional Cladding Solutions
+# Présentation PowerPoint - Solutions Professionnelles de Bardage
 
 ## Guide pour créer votre présentation PowerPoint
 
@@ -12,8 +12,8 @@ Ce document contient tout le contenu structuré pour créer votre présentation 
 **Image de fond:** `public/images/backgrounds/kingspan-panel.jpg`
 
 **Contenu:**
-- **Titre principal:** Professional Cladding Solutions
-- **Sous-titre:** Excellence in Building Envelope Systems
+- **Titre principal:** Solutions Professionnelles de Bardage
+- **Sous-titre:** Excellence dans les Systèmes d'Enveloppe du Bâtiment
 
 **Design:** Fond sombre avec overlay, texte blanc centré
 
@@ -24,13 +24,13 @@ Ce document contient tout le contenu structuré pour créer votre présentation 
 
 **Fond:** Blanc ou gris clair
 
-**Titre:** Our Expertise
+**Titre:** Notre Expertise
 
 **Contenu:**
-- Kingspan Insulated Panels
-- Architectural Cladding Systems
-- Aluminium Copings & Trims
-- Complete Installation Services
+- Panneaux Isolés Kingspan
+- Systèmes de Bardage Architectural
+- Couronnements et Profilés en Aluminium
+- Services d'Installation Complets
 
 ---
 
@@ -40,8 +40,8 @@ Ce document contient tout le contenu structuré pour créer votre présentation 
 **Image:** `public/images/backgrounds/kingspan-panel copy.jpg`
 
 **Contenu:**
-- **Titre:** Kingspan Panel Systems
-- **Sous-titre:** Industry-leading thermal performance and fire safety
+- **Titre:** Systèmes de Panneaux Kingspan
+- **Sous-titre:** Performance thermique et sécurité incendie de pointe
 
 **Design:** Image en fond avec dégradé sombre en bas, texte en blanc
 
@@ -50,7 +50,7 @@ Ce document contient tout le contenu structuré pour créer votre présentation 
 ## SLIDE 4 - Projets de Qualité
 **Type:** Deux images côte à côte
 
-**Titre:** Quality Projects
+**Titre:** Projets de Qualité
 
 **Images:**
 - **Gauche:** `public/images/architectural-panels/amazon1.jpg`
@@ -66,8 +66,8 @@ Ce document contient tout le contenu structuré pour créer votre présentation 
 **Image:** `public/images/architectural-panels/architectural-panels.jpg`
 
 **Contenu:**
-- **Titre:** Architectural Excellence
-- **Sous-titre:** Custom solutions for distinctive buildings
+- **Titre:** Excellence Architecturale
+- **Sous-titre:** Solutions sur mesure pour des bâtiments distinctifs
 
 **Design:** Image en fond avec dégradé sombre en bas
 
@@ -78,14 +78,14 @@ Ce document contient tout le contenu structuré pour créer votre présentation 
 
 **Fond:** Blanc ou gris clair
 
-**Titre:** Why Choose Us?
+**Titre:** Pourquoi Nous Choisir?
 
 **Contenu:**
-- Certified & Approved Materials
-- Expert Installation Teams
-- On-Time Project Delivery
-- Comprehensive Warranties
-- Dedicated Support
+- Matériaux Certifiés et Approuvés
+- Équipes d'Installation Expertes
+- Livraison de Projets Dans les Délais
+- Garanties Complètes
+- Support Dédié
 
 ---
 
@@ -95,8 +95,8 @@ Ce document contient tout le contenu structuré pour créer votre présentation 
 **Image:** `public/images/backgrounds/school_carrigtohil.png`
 
 **Contenu:**
-- **Titre:** Sustainable Solutions
-- **Sous-titre:** Eco-friendly materials for modern construction
+- **Titre:** Solutions Durables
+- **Sous-titre:** Matériaux écologiques pour la construction moderne
 
 **Design:** Image en fond avec dégradé sombre
 
@@ -108,14 +108,14 @@ Ce document contient tout le contenu structuré pour créer votre présentation 
 **Image de fond:** `public/images/backgrounds/4k.jpg`
 
 **Contenu:**
-- **Titre principal:** Let's Build Together
-- **Sous-titre:** Contact us for your next project
+- **Titre principal:** Construisons Ensemble
+- **Sous-titre:** Contactez-nous pour votre prochain projet
 
 **Points en grille (2x2):**
-- Professional consultation
-- Detailed quotations
-- Project management
-- Quality assurance
+- Consultation professionnelle
+- Devis détaillés
+- Gestion de projet
+- Assurance qualité
 
 **Design:** Fond sombre avec overlay, texte blanc
 
@@ -125,21 +125,21 @@ Ce document contient tout le contenu structuré pour créer votre présentation 
 
 ### Slide Alternative 1 - Page d'Accueil
 **Image:** `public/images/backgrounds/kingspan-panel copy.jpg`
-**Tagline:** Professional Grade / Guaranteed Quality
-**Titre:** Professional Kingspan Cladding Systems
-**Description:** Ireland's trusted partner for high-performance insulated panels. From small projects to large-scale developments, we deliver quality materials on time, every time.
+**Slogan:** Qualité Professionnelle / Qualité Garantie
+**Titre:** Systèmes Professionnels de Bardage Kingspan
+**Description:** Le partenaire de confiance de l'Irlande pour les panneaux isolés haute performance. Des petits projets aux grands développements, nous livrons des matériaux de qualité dans les délais, à chaque fois.
 
 ### Slide Alternative 2 - Vision Architecturale
 **Image:** `public/images/architectural-panels/architectural-panels.jpg`
-**Tagline:** Trusted Partner / Certified Solutions
-**Titre:** Build Your Architectural Vision
-**Description:** Our drive to succeed comes from delivering trusted cladding solutions. From concept to completion, we transform your designs into stunning, durable facades.
+**Slogan:** Partenaire de Confiance / Solutions Certifiées
+**Titre:** Réalisez Votre Vision Architecturale
+**Description:** Notre volonté de réussir vient de la livraison de solutions de bardage fiables. Du concept à la réalisation, nous transformons vos conceptions en façades magnifiques et durables.
 
 ### Slide Alternative 3 - Systèmes Aluminium
 **Image:** `public/images/backgrounds/school_carrigtohil.png`
-**Tagline:** Eco-Friendly Materials / Sustainable Building
-**Titre:** Durable Aluminium Cladding Systems
-**Description:** Modern, eco-conscious cladding made from sustainable materials. Zero maintenance, maximum durability and safe for both your project and the environment.
+**Slogan:** Matériaux Écologiques / Construction Durable
+**Titre:** Systèmes Durables de Bardage en Aluminium
+**Description:** Bardage moderne et éco-responsable fabriqué à partir de matériaux durables. Zéro entretien, durabilité maximale et sûr pour votre projet et l'environnement.
 
 ---
 
@@ -161,18 +161,101 @@ Pour enrichir votre présentation:
 1. **Design cohérent:** Utilisez les couleurs bleu (#3B82F6) et gris pour la cohérence
 2. **Typographie:** Polices grandes et lisibles (titres 44-60pt, texte 24-32pt)
 3. **Transitions:** Transitions simples et professionnelles
-4. **Animations:** Fade in pour les listes à puces
+4. **Animations:** Fondu d'entrée (Fade in) pour les listes à puces
 5. **Durée:** 1-2 minutes par slide pour une présentation de 10-15 minutes
+
+---
 
 ## STRUCTURE RECOMMANDÉE POUR LA PRÉSENTATION ORALE
 
-1. **Introduction** (Slide 1) - 1 min
-2. **Notre expertise** (Slide 2) - 2 min
-3. **Produits Kingspan** (Slide 3) - 2 min
-4. **Projets réalisés** (Slide 4) - 2 min
-5. **Excellence architecturale** (Slide 5) - 2 min
-6. **Nos avantages** (Slide 6) - 2 min
-7. **Engagement durable** (Slide 7) - 2 min
-8. **Conclusion** (Slide 8) - 1 min
+### Déroulement de la présentation (14 minutes au total):
 
-**Total: ~14 minutes**
+**1. Introduction** (Slide 1) - 1 minute
+- Présenter l'entreprise et le secteur d'activité
+- Mentionner l'importance du bardage dans la construction moderne
+
+**2. Notre Expertise** (Slide 2) - 2 minutes
+- Détailler chaque domaine d'expertise
+- Expliquer ce que sont les panneaux Kingspan
+- Parler des différents systèmes de bardage
+
+**3. Systèmes Kingspan** (Slide 3) - 2 minutes
+- Expliquer les avantages des panneaux Kingspan
+- Parler de la performance thermique
+- Mentionner la sécurité incendie
+
+**4. Projets Réalisés** (Slide 4) - 2 minutes
+- Présenter les projets illustrés
+- Donner des exemples concrets
+- Parler de la qualité des réalisations
+
+**5. Excellence Architecturale** (Slide 5) - 2 minutes
+- Montrer la diversité des applications
+- Expliquer comment les solutions sont personnalisées
+- Parler de l'esthétique et de la fonctionnalité
+
+**6. Nos Avantages** (Slide 6) - 2 minutes
+- Détailler chaque point fort
+- Expliquer ce qui différencie l'entreprise
+- Parler de la certification et des garanties
+
+**7. Engagement Durable** (Slide 7) - 2 minutes
+- Expliquer l'importance de la durabilité
+- Parler des matériaux écologiques
+- Mentionner l'impact environnemental positif
+
+**8. Conclusion** (Slide 8) - 1 minute
+- Résumer les points clés
+- Encourager les questions
+- Donner les coordonnées de contact
+
+---
+
+## NOTES POUR L'ORAL
+
+### Points importants à mentionner:
+
+**Introduction:**
+- "Aujourd'hui, je vais vous présenter les solutions professionnelles de bardage"
+- "Le bardage joue un rôle essentiel dans l'isolation et l'esthétique des bâtiments modernes"
+
+**Expertise:**
+- "Kingspan est un leader mondial dans les panneaux isolés"
+- "Nous proposons une gamme complète de services, de la consultation à l'installation"
+
+**Durabilité:**
+- "Les matériaux que nous utilisons sont non seulement performants mais aussi respectueux de l'environnement"
+- "L'aluminium est recyclable à 100% sans perte de qualité"
+
+**Conclusion:**
+- "Ces solutions de bardage représentent l'avenir de la construction durable"
+- "N'hésitez pas à me poser des questions"
+
+---
+
+## VOCABULAIRE TECHNIQUE À CONNAÎTRE
+
+- **Bardage:** Revêtement extérieur d'un bâtiment
+- **Panneau isolé:** Panneau composite avec isolation intégrée
+- **Performance thermique:** Capacité d'isolation du matériau
+- **Couronnement:** Élément de finition en haut d'un mur
+- **Enveloppe du bâtiment:** Ensemble des éléments séparant l'intérieur de l'extérieur
+- **Sécurité incendie:** Résistance au feu des matériaux
+
+---
+
+## QUESTIONS POSSIBLES ET RÉPONSES
+
+**Q: Combien coûte une installation typique?**
+R: Le coût varie selon la surface et les matériaux, mais nous fournissons des devis détaillés gratuits.
+
+**Q: Combien de temps prend une installation?**
+R: Cela dépend de la taille du projet, mais nous respectons toujours les délais convenus.
+
+**Q: Les matériaux sont-ils garantis?**
+R: Oui, tous nos matériaux viennent avec des garanties complètes du fabricant.
+
+**Q: Peut-on installer du bardage sur un bâtiment existant?**
+R: Absolument, c'est une excellente solution de rénovation.
+
+Bonne chance pour votre présentation demain!
