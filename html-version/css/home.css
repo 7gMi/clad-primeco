@@ -658,6 +658,7 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  outline: none;
 }
 
 .process-circle {
@@ -691,7 +692,7 @@
   color: #2563eb;
 }
 
-.process-item.selected::before {
+.process-item.selected .process-button::before {
   content: '';
   position: absolute;
   width: 112px;
@@ -699,9 +700,10 @@
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.3);
   animation: pulse 2s infinite;
-  top: 0;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
 @keyframes pulse {
