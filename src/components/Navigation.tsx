@@ -12,7 +12,8 @@ const navItems = [
   { label: 'About', page: 'about' as Page },
   { label: 'Services', href: '#services' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Contact', page: 'contact' as Page }
+  { label: 'Contact', page: 'contact' as Page },
+  { label: 'Presentation', page: 'presentation' as Page }
 ];
 
 export default function Navigation({ onNavigate, isScrolled }: NavigationProps) {
