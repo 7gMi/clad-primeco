@@ -744,7 +744,6 @@
   left: calc(50% + 50px);
   width: calc(100% - 100px);
   height: 2px;
-  background-color: #475569;
 }
 
 @media (min-width: 768px) {
@@ -753,9 +752,18 @@
   }
 }
 
+.process-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 24px;
+  height: 2px;
+  background-color: #475569;
+}
+
 .process-connector svg {
   position: absolute;
-  right: -12px;
+  right: 0;
   top: -12px;
   width: 24px;
   height: 24px;

@@ -14,9 +14,9 @@
         <div class="header-content">
           <a href="Home.html" class="logo-container">
             <picture>
-              <source media="(min-width: 1024px)" srcset="/images/logo/logo-desktop.png">
-              <source media="(min-width: 768px)" srcset="/images/logo/logo-tab.png">
-              <img src="/images/logo/logo-mobile.png" alt="Company Logo">
+              <source media="(min-width: 1024px)" srcset="./images/logo/logo-desktop.png">
+              <source media="(min-width: 768px)" srcset="./images/logo/logo-tab.png">
+              <img src="./images/logo/logo-mobile.png" alt="Company Logo">
             </picture>
             <p class="logo-tagline">CLADDING PROFESSIONALS</p>
           </a>
@@ -33,6 +33,7 @@
 
           <button class="mobile-menu-btn" aria-label="Toggle menu">
             <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" style="display: none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
         </div>
 
@@ -52,17 +53,17 @@
       <section class="slider-container">
         <div class="slider-background">
           <div class="slide-item active" data-slide="0">
-            <img src="/images/backgrounds/kingspan-panel.jpg" alt="Professional Kingspan Cladding Systems">
+            <img src="./images/backgrounds/kingspan-panel.jpg" alt="Professional Kingspan Cladding Systems">
             <div class="slide-overlay"></div>
           </div>
 
           <div class="slide-item" data-slide="1">
-            <img src="/images/backgrounds/architectural-panels.jpg" alt="Build Your Architectural Vision">
+            <img src="./images/backgrounds/architectural.jpg" alt="Build Your Architectural Vision">
             <div class="slide-overlay"></div>
           </div>
 
           <div class="slide-item" data-slide="2">
-            <img src="/images/backgrounds/school_carrigtohil.png" alt="Durable Aluminium Cladding Systems">
+            <img src="./images/backgrounds/school_carrigtohil.jpg" alt="Durable Aluminium Cladding Systems">
             <div class="slide-overlay"></div>
           </div>
         </div>
@@ -71,7 +72,7 @@
           <div class="hero-text">
             <div class="slide-content active" data-slide="0">
               <div class="hero-card">
-                <p>Professional Grade / Guaranteed Quality</p>
+                <p class="hero-tagline">Professional Grade / Guaranteed Quality</p>
                 <h1>Professional Kingspan Cladding Systems</h1>
                 <h2>Ireland's trusted partner for high-performance insulated panels. From small projects to large-scale developments, we deliver quality materials on time, every time.</h2>
                 <div class="hero-buttons">
@@ -83,7 +84,7 @@
 
             <div class="slide-content inactive" data-slide="1">
               <div class="hero-card">
-                <p>Trusted Partner / Certified Solutions</p>
+                <p class="hero-tagline">Trusted Partner / Certified Solutions</p>
                 <h1>Build Your Architectural Vision</h1>
                 <h2>Our drive to succeed comes from delivering trusted cladding solutions. From concept to completion, we transform your designs into stunning, durable facades.</h2>
                 <div class="hero-buttons">
@@ -95,7 +96,7 @@
 
             <div class="slide-content inactive" data-slide="2">
               <div class="hero-card">
-                <p>Eco-Friendly Materials / Sustainable Building</p>
+                <p class="hero-tagline">Eco-Friendly Materials / Sustainable Building</p>
                 <h1>Durable Aluminium Cladding Systems</h1>
                 <h2>Modern, eco-conscious cladding made from sustainable materials. Zero maintenance, maximum durability and safe for both your project and the environment.</h2>
                 <div class="hero-buttons">
@@ -153,12 +154,12 @@
               </ul>
             </div>
 
-            <div>
+            <div class="about-image-container">
               <div class="image-wrapper">
                 <div class="image-wrapper-absolute image-wrapper-top-left"></div>
                 <div class="image-wrapper-absolute image-wrapper-bottom-right"></div>
                 <div class="image-box">
-                  <img src="/images/backgrounds/school_carrigtohil.png" alt="Our Strategic Goals">
+                  <img src="./images/backgrounds/school_carrigtohil.jpg" alt="Our Strategic Goals">
                   <div class="image-overlay">
                     <h4>Excellence</h4>
                     <p>Building tomorrow's industrial solutions with precision and dedication</p>
@@ -186,11 +187,11 @@
           <div class="solutions-grid">
             <div class="solution-card">
               <div class="solution-card-image">
-                <img src="/images/kingspan-panel.jpg" alt="Kingspan Panels">
+                <img src="./images/backgrounds/kingspan-panel.jpg" alt="Kingspan Panels">
               </div>
               <div class="solution-card-content">
                 <div class="solution-card-icon">
-                  <svg class="icon-building" viewBox="0 0 24 24"><path d="M4 20V10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"></path><rect x="4" y="3" width="4" height="4"></rect><rect x="10" y="3" width="4" height="4"></rect><rect x="16" y="3" width="4" height="4"></rect></svg>
+                  <svg class="icon-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>
                 </div>
                 <h3>Kingspan Panels</h3>
                 <button class="btn-icon">
@@ -202,11 +203,11 @@
 
             <div class="solution-card">
               <div class="solution-card-image">
-                <img src="/images/architectural-panels/amazon4.jpg" alt="Architectural Panels">
+                <img src="./images/backgrounds/amazon_3.jpg" alt="Architectural Panels">
               </div>
               <div class="solution-card-content">
                 <div class="solution-card-icon">
-                  <svg class="icon-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 2 12 12 17 22 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 7 12 12 22 7"></polyline></svg>
+                  <svg class="icon-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                 </div>
                 <h3>Architectural Panels</h3>
                 <button class="btn-icon">
@@ -218,7 +219,7 @@
 
             <div class="solution-card">
               <div class="solution-card-image">
-                <img src="/images/aluminium-copings/aluminium-copings.jpg" alt="Aluminium Copings">
+                <img src="./images/backgrounds/aluminium-copings.jpg" alt="Aluminium Copings">
               </div>
               <div class="solution-card-content">
                 <div class="solution-card-icon">
@@ -246,52 +247,55 @@
           </div>
 
           <div class="process-grid">
-            <div class="process-item">
+            <div class="process-item" data-index="0">
               <div class="process-item-content">
                 <button class="process-button">
                   <div class="process-circle">
-                    <svg class="icon-file-text" viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="15" y2="17"></line></svg>
+                    <svg class="icon-file-text" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                   </div>
                 </button>
                 <div class="process-number">01</div>
                 <h3 class="process-title-text">Planning</h3>
               </div>
               <div class="process-connector">
+                <div class="process-line"></div>
                 <svg class="icon-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </div>
             </div>
 
-            <div class="process-item">
+            <div class="process-item" data-index="1">
               <div class="process-item-content">
                 <button class="process-button">
                   <div class="process-circle">
-                    <svg class="icon-pen-tool" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3S5 2 2 5l3 3 7 7"></path><path d="M18.5 9.5l-1.5-1.5"></path></svg>
+                    <svg class="icon-pen-tool" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                   </div>
                 </button>
                 <div class="process-number">02</div>
                 <h3 class="process-title-text">Design</h3>
               </div>
               <div class="process-connector">
+                <div class="process-line"></div>
                 <svg class="icon-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </div>
             </div>
 
-            <div class="process-item">
+            <div class="process-item" data-index="2">
               <div class="process-item-content">
                 <button class="process-button">
                   <div class="process-circle">
-                    <svg class="icon-building" viewBox="0 0 24 24"><path d="M4 20V10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"></path><rect x="4" y="3" width="4" height="4"></rect><rect x="10" y="3" width="4" height="4"></rect><rect x="16" y="3" width="4" height="4"></rect></svg>
+                    <svg class="icon-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>
                   </div>
                 </button>
                 <div class="process-number">03</div>
                 <h3 class="process-title-text">Construct</h3>
               </div>
               <div class="process-connector">
+                <div class="process-line"></div>
                 <svg class="icon-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </div>
             </div>
 
-            <div class="process-item">
+            <div class="process-item" data-index="3">
               <div class="process-item-content">
                 <button class="process-button">
                   <div class="process-circle">
@@ -322,7 +326,7 @@
 
             <div class="contact-item">
               <div class="contact-item-icon">
-                <svg class="icon-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 6l10 7.5L22 6"></path></svg>
+                <svg class="icon-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               </div>
               <div class="contact-item-content">
                 <div class="contact-item-label">Email</div>
@@ -333,7 +337,7 @@
 
             <div class="contact-item">
               <div class="contact-item-icon">
-                <svg class="icon-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8" fill="none"></path><circle cx="18.5" cy="5.5" r="1.5" fill="currentColor"></circle></svg>
+                <svg class="icon-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </div>
               <div class="contact-item-content">
                 <a href="https://www.instagram.com/cladprimeco/" target="_blank" rel="noopener noreferrer" class="contact-item-value no-underline">Follow Us</a>
@@ -351,6 +355,7 @@
     </div>
   </div>
 
+  <script src="js/main.js"></script>
   <script src="js/home.js"></script>
 </body>
 </html>

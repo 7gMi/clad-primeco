@@ -1,50 +1,17 @@
-let state = {
-  isScrolled: false,
-  mobileMenuOpen: false
-};
-
 document.addEventListener('DOMContentLoaded', () => {
-  initializeHeader();
-  setupScrollListener();
+  initializeProcessHover();
 });
 
-function initializeHeader() {
-  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  const navLinks = document.querySelectorAll('.mobile-menu nav a');
+function initializeProcessHover() {
+  const processCircles = document.querySelectorAll('.process-circle');
 
-  mobileMenuBtn.addEventListener('click', () => {
-    state.mobileMenuOpen = !state.mobileMenuOpen;
-    mobileMenu.classList.toggle('open');
-  });
+  processCircles.forEach(circle => {
+    circle.addEventListener('mouseenter', () => {
+      circle.style.transform = 'scale(1.1)';
+    });
 
-  navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      state.mobileMenuOpen = false;
-      mobileMenu.classList.remove('open');
+    circle.addEventListener('mouseleave', () => {
+      circle.style.transform = 'scale(1)';
     });
   });
-}
-
-function setupScrollListener() {
-  window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
-    const isScrolled = scrollPosition > 100;
-
-    if (isScrolled !== state.isScrolled) {
-      state.isScrolled = isScrolled;
-      updateHeader();
-    }
-  });
-}
-
-function updateHeader() {
-  const header = document.querySelector('header');
-  if (state.isScrolled) {
-    header.classList.add('scrolled');
-    header.classList.remove('not-scrolled');
-  } else {
-    header.classList.remove('scrolled');
-    header.classList.add('not-scrolled');
-  }
 }
