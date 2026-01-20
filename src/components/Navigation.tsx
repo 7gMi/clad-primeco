@@ -10,8 +10,8 @@ interface NavigationProps {
 const navItems = [
   { label: 'Home', page: 'home' as Page },
   { label: 'About', page: 'about' as Page },
-  { label: 'Services', href: '#services' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Services', page: 'services' as Page },
+  { label: 'Projects', page: 'projects' as Page },
   { label: 'Contact', page: 'contact' as Page }
 ];
 
@@ -33,21 +33,12 @@ export default function Navigation({ onNavigate, isScrolled }: NavigationProps) 
         <ul className="flex gap-8 lg:gap-10">
           {navItems.map((item) => (
             <li key={item.label}>
-              {item.page ? (
-                <button
-                  onClick={() => onNavigate?.(item.page)}
-                  className={`${textColor} ${hoverColor} text-[14px] md:text-[16px] lg:text-[18px] transition-colors duration-300 font-medium`}
-                >
-                  {item.label}
-                </button>
-              ) : (
-                <a
-                  href={item.href}
-                  className={`${textColor} ${hoverColor} text-[14px] md:text-[16px] lg:text-[18px] transition-colors duration-300 font-medium`}
-                >
-                  {item.label}
-                </a>
-              )}
+              <button
+                onClick={() => onNavigate?.(item.page)}
+                className={`${textColor} ${hoverColor} text-[14px] md:text-[16px] lg:text-[18px] transition-colors duration-300 font-medium`}
+              >
+                {item.label}
+              </button>
             </li>
           ))}
         </ul>
@@ -67,22 +58,12 @@ export default function Navigation({ onNavigate, isScrolled }: NavigationProps) 
             <ul className="flex flex-col items-center gap-8">
               {navItems.map((item) => (
                 <li key={item.label}>
-                  {item.page ? (
-                    <button
-                      onClick={() => handleNavClick(item.page)}
-                      className="text-white hover:text-blue-400 text-2xl font-medium transition-colors duration-300"
-                    >
-                      {item.label}
-                    </button>
-                  ) : (
-                    <a
-                      href={item.href}
-                      onClick={() => handleNavClick()}
-                      className="text-white hover:text-blue-400 text-2xl font-medium transition-colors duration-300"
-                    >
-                      {item.label}
-                    </a>
-                  )}
+                  <button
+                    onClick={() => handleNavClick(item.page)}
+                    className="text-white hover:text-blue-400 text-2xl font-medium transition-colors duration-300"
+                  >
+                    {item.label}
+                  </button>
                 </li>
               ))}
             </ul>
