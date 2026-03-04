@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ArrowRight, Phone, Mail, Instagram, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Header from './Header';
+import BackToTop from './BackToTop';
 import { Page } from '../App';
 
 interface ProjectsProps {
@@ -413,6 +414,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
           </div>
         </div>
       </section>
+      <BackToTop />
     </div>
   );
 }

@@ -53,7 +53,7 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
           )}
         </div>
 
-        <Navigation onNavigate={onNavigate} isScrolled={isScrolled} />
+        <Navigation onNavigate={onNavigate} isScrolled={isScrolled} currentPage={currentPage} />
       </div>
     </header>
   );

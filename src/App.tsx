@@ -1,5 +1,6 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import Home from './components/Home';
+import FloatingCTA from './components/FloatingCTA';
 import { useAuth } from './hooks/useAuth';
 
 export type Page = 'home' | 'about' | 'contact' | 'services' | 'projects' | 'admin';
@@ -21,13 +22,36 @@ function PageLoader() {
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [displayedPage, setDisplayedPage] = useState<Page>('home');
+  const [isVisible, setIsVisible] = useState(true);
   const { session, loading, logout } = useAuth();
 
   useEffect(() => {
     if (window.location.hash === '#admin') {
       setCurrentPage('admin');
+      setDisplayedPage('admin');
     }
   }, []);
+
+  // Scroll to top on page change
+  useEffect(() => {
+    if (displayedPage === 'home') {
+      const container = document.querySelector('.home-scroll-container');
+      container?.scrollTo({ top: 0, behavior: 'instant' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [displayedPage]);
+
+  const handleNavigate = useCallback((page: Page) => {
+    if (page === displayedPage) return;
+    setCurrentPage(page);
+    setIsVisible(false);
+    setTimeout(() => {
+      setDisplayedPage(page);
+      setIsVisible(true);
+    }, 200);
+  }, [displayedPage]);
 
   if (currentPage === 'admin') {
     if (loading) return <PageLoader />;
@@ -40,11 +64,14 @@ function App() {
 
   return (
     <Suspense fallback={<PageLoader />}>
-      {currentPage === 'home' && <Home onNavigate={setCurrentPage} />}
-      {currentPage === 'about' && <About onNavigate={setCurrentPage} />}
-      {currentPage === 'services' && <Services onNavigate={setCurrentPage} />}
-      {currentPage === 'projects' && <Projects onNavigate={setCurrentPage} />}
-      {currentPage === 'contact' && <Contact onNavigate={setCurrentPage} />}
+      <div className={`transition-opacity duration-200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        {displayedPage === 'home' && <Home onNavigate={handleNavigate} />}
+        {displayedPage === 'about' && <About onNavigate={handleNavigate} />}
+        {displayedPage === 'services' && <Services onNavigate={handleNavigate} />}
+        {displayedPage === 'projects' && <Projects onNavigate={handleNavigate} />}
+        {displayedPage === 'contact' && <Contact onNavigate={handleNavigate} />}
+      </div>
+      <FloatingCTA currentPage={displayedPage} onNavigate={handleNavigate} />
     </Suspense>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ArrowRight, Building2, Layers, Shield, Zap, Phone, Mail, Instagram } from 'lucide-react';
 import Header from './Header';
+import BackToTop from './BackToTop';
 import { Page } from '../App';
 
 interface ServicesProps {
@@ -342,6 +343,7 @@ export default function Services({ onNavigate }: ServicesProps) {
           </div>
         </div>
       </section>
+      <BackToTop />
     </div>
   );
 }

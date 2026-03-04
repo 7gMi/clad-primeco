@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 interface NavigationProps {
   onNavigate?: (page: Page) => void;
   isScrolled?: boolean;
+  currentPage?: Page;
 }
 
 const navItems = [
@@ -15,16 +16,21 @@ const navItems = [
   { label: 'Contact', page: 'contact' as Page }
 ];
 
-export default function Navigation({ onNavigate, isScrolled }: NavigationProps) {
+export default function Navigation({ onNavigate, isScrolled, currentPage }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const textColor = isScrolled ? 'text-slate-900' : 'text-white';
   const hoverColor = isScrolled ? 'hover:text-blue-600' : 'hover:text-blue-400';
 
   const handleNavClick = (page?: Page) => {
-    if (page) {
-      onNavigate?.(page);
-    }
+    if (page) onNavigate?.(page);
     setMobileMenuOpen(false);
+  };
+
+  const getActiveClass = (page: Page): string => {
+    if (currentPage !== page) return '';
+    return isScrolled
+      ? 'text-blue-600 border-b-2 border-blue-600 pb-0.5'
+      : 'text-blue-400 border-b-2 border-blue-400 pb-0.5';
   };
 
   return (
@@ -35,7 +41,8 @@ export default function Navigation({ onNavigate, isScrolled }: NavigationProps) 
             <li key={item.label}>
               <button
                 onClick={() => onNavigate?.(item.page)}
-                className={`${textColor} ${hoverColor} text-[14px] md:text-[16px] lg:text-[18px] transition-colors duration-300 font-medium`}
+                aria-current={currentPage === item.page ? 'page' : undefined}
+                className={`${textColor} ${hoverColor} ${getActiveClass(item.page)} text-[14px] md:text-[16px] lg:text-[18px] transition-colors duration-300 font-medium`}
               >
                 {item.label}
               </button>
@@ -60,7 +67,12 @@ export default function Navigation({ onNavigate, isScrolled }: NavigationProps) 
                 <li key={item.label}>
                   <button
                     onClick={() => handleNavClick(item.page)}
-                    className="text-white hover:text-blue-400 text-2xl font-medium transition-colors duration-300"
+                    aria-current={currentPage === item.page ? 'page' : undefined}
+                    className={`text-2xl font-medium transition-colors duration-300 ${
+                      currentPage === item.page
+                        ? 'text-blue-400 border-b-2 border-blue-400 pb-1'
+                        : 'text-white hover:text-blue-400'
+                    }`}
                   >
                     {item.label}
                   </button>

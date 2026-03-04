@@ -79,7 +79,7 @@ export default function Home({ onNavigate }: HomeProps) {
             )}
           </div>
 
-          <Navigation onNavigate={onNavigate} isScrolled={isScrolled} />
+          <Navigation onNavigate={onNavigate} isScrolled={isScrolled} currentPage="home" />
         </div>
       </header>
 
