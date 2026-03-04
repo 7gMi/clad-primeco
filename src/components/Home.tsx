@@ -225,7 +225,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   Kingspan Panels
                 </h3>
 
-                <button className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn">
+                <button
+                  onClick={() => onNavigate('services')}
+                  className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn"
+                >
                   View service
                   <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform" />
                 </button>
@@ -252,7 +255,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   Architectural Panels
                 </h3>
 
-                <button className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn">
+                <button
+                  onClick={() => onNavigate('services')}
+                  className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn"
+                >
                   View service
                   <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform" />
                 </button>
@@ -279,7 +285,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   Aluminium Copings
                 </h3>
 
-                <button className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn">
+                <button
+                  onClick={() => onNavigate('services')}
+                  className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn"
+                >
                   View service
                   <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform" />
                 </button>

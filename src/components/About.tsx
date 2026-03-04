@@ -1,5 +1,6 @@
 import { ArrowRight, Building2, PenTool, FileText, CheckCircle, Check, Phone, Mail, Instagram } from 'lucide-react';
 import Header from './Header';
+import BackToTop from './BackToTop';
 import { Page } from '../App';
 
 interface AboutProps {
@@ -280,6 +281,7 @@ export default function About({ onNavigate }: AboutProps) {
           </div>
         </div>
       </section>
+      <BackToTop />
     </div>
   );
 }
