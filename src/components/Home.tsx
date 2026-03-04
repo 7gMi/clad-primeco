@@ -288,10 +288,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   High-performance insulated panels delivering exceptional thermal efficiency and fast installation — keeping your programme on track.
                 </p>
                 <button
-                  onClick={() => onNavigate('services')}
+                  onClick={() => onNavigate('contact')}
                   className="text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
-                  Learn more
+                  Get Kingspan Pricing
                   <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -327,10 +327,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   Striking, durable facades that perform for decades — full weatherproofing with the aesthetic finish your design demands.
                 </p>
                 <button
-                  onClick={() => onNavigate('services')}
+                  onClick={() => onNavigate('contact')}
                   className="text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
-                  Learn more
+                  Discuss Your Facade
                   <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -366,10 +366,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   Watertight, low-maintenance roof deck and copings — lightweight aluminium profiles to your exact specifications.
                 </p>
                 <button
-                  onClick={() => onNavigate('services')}
+                  onClick={() => onNavigate('contact')}
                   className="text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
-                  Learn more
+                  Request Specifications
                   <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>

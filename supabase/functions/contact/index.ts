@@ -59,7 +59,7 @@ Deno.serve(async (req: Request) => {
   }
 
   // --- 3. Verify hCaptcha token ---
-  const hcaptchaSecret = Deno.env.get("HCAPTCHA_SECRET_KEY") ?? "";
+  const hcaptchaSecret = Deno.env.get("HCAPTCHA_SECRET") ?? "";
   let hcaptchaVerified = false;
   try {
     const verifyRes = await fetch("https://hcaptcha.com/siteverify", {
@@ -72,6 +72,9 @@ Deno.serve(async (req: Request) => {
     });
     const verifyData = await verifyRes.json();
     hcaptchaVerified = verifyData.success === true;
+    if (!hcaptchaVerified) {
+      console.warn("[contact] hCaptcha failed. error-codes:", verifyData["error-codes"] ?? "none", "secret set:", !!hcaptchaSecret);
+    }
   } catch {
     // If hCaptcha verification call fails, reject the request
     return new Response(

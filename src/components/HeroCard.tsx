@@ -1,3 +1,4 @@
+import { Phone } from 'lucide-react';
 import { Page } from '../App';
 
 interface HeroCardProps {
@@ -24,18 +25,26 @@ export default function HeroCard({ tagline, title, subtitle, onNavigate }: HeroC
 
       <div className="flex flex-wrap gap-4">
         <button
-          onClick={() => onNavigate('projects')}
+          onClick={() => onNavigate('contact')}
           className="bg-blue-600 border-2 border-blue-600 text-white px-8 py-4 rounded-3xl text-lg font-semibold transition-all duration-300 hover:bg-blue-700 hover:border-blue-700 hover:scale-105 shadow-lg whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent"
         >
-          Our Projects
+          Get a Quote — 24h Response
         </button>
         <button
-          onClick={() => onNavigate('contact')}
+          onClick={() => onNavigate('projects')}
           className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-3xl text-lg font-semibold transition-all duration-300 hover:bg-white/10 hover:scale-105 shadow-lg whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
         >
-          Free Consultation
+          See Our Work
         </button>
       </div>
+
+      <a
+        href="tel:0833468913"
+        className="mt-5 inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors duration-200 text-sm"
+      >
+        <Phone className="w-4 h-4" />
+        Or call directly: 083 346 8913
+      </a>
     </div>
   );
 }

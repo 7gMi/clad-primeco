@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowRight, Building2, PenTool, FileText, CheckCircle, Check, Phone, Mail, Instagram } from 'lucide-react';
 import Header from './Header';
 import BackToTop from './BackToTop';
+import Footer from './Footer';
 import { Page } from '../App';
 
 interface AboutProps {
@@ -75,7 +76,11 @@ export default function About({ onNavigate }: AboutProps) {
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <img
                     src="/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.jpg"
-                    alt="Clad Primeco team at work"
+                    alt="Clad Primeco team at work on Carrigtwohil College"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
@@ -134,7 +139,11 @@ export default function About({ onNavigate }: AboutProps) {
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <img
                     src="/images/about_image_droite_.jpeg"
-                    alt="Clad Primeco construction site"
+                    alt="Clad Primeco cladding installation in progress"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
@@ -145,7 +154,7 @@ export default function About({ onNavigate }: AboutProps) {
                       <div className="text-white/70 text-[10px] tracking-wide uppercase mt-1">Projects</div>
                     </div>
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2.5 flex-1 text-center">
-                      <div className="text-white font-bold text-xl leading-none">10k+</div>
+                      <div className="text-white font-bold text-xl leading-none">20k+</div>
                       <div className="text-white/70 text-[10px] tracking-wide mt-1">m² installed</div>
                     </div>
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2.5 flex-1 text-center">
@@ -235,6 +244,10 @@ export default function About({ onNavigate }: AboutProps) {
                   <img
                     src={service.image}
                     alt={service.title}
+                    width="600"
+                    height="256"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -330,6 +343,7 @@ export default function About({ onNavigate }: AboutProps) {
           </div>
         </div>
       </section>
+      <Footer />
       <BackToTop />
     </div>
   );

@@ -3,6 +3,7 @@ import HCaptcha from '@hcaptcha/react-hcaptcha'
 import { Send, User, Mail, MessageSquare, CheckCircle, AlertCircle, Phone, Instagram, MapPin, ChevronDown } from 'lucide-react'
 import Header from './Header'
 import BackToTop from './BackToTop'
+import Footer from './Footer'
 import { Page } from '../App'
 
 type FormData = { name: string; email: string; phone: string; service: string; message: string }
@@ -39,17 +40,13 @@ export default function Contact({ onNavigate }: ContactProps) {
 
     setLoading(true)
     try {
-      const messageWithService = form.service
-        ? `Service: ${form.service}\n\n${form.message}`
-        : form.message
-
       const res = await fetch(`${SUPABASE_URL}/functions/v1/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
         },
-        body: JSON.stringify({ ...form, message: messageWithService, hcaptchaToken: token }),
+        body: JSON.stringify({ ...form, hcaptchaToken: token }),
       })
 
       const body = await res.json().catch(() => ({}))
@@ -58,7 +55,7 @@ export default function Contact({ onNavigate }: ContactProps) {
         throw new Error(body?.message || 'Server error')
       }
 
-      setSuccess('Message sent successfully. We will get back to you as soon as possible.')
+      setSuccess('Message received. A member of our team will come back to you within 24 hours — usually sooner.')
       setForm({ name: '', email: '', phone: '', service: '', message: '' })
       captchaRef.current?.resetCaptcha()
       setToken(null)
@@ -204,12 +201,13 @@ export default function Contact({ onNavigate }: ContactProps) {
             <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-4 sm:p-8 md:p-10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Name</label>
+                  <label htmlFor="contact-name" className="block text-sm font-semibold text-slate-700 mb-2">Name</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                       <User className="w-5 h-5 text-slate-400" />
                     </div>
                     <input
+                      id="contact-name"
                       name="name"
                       value={form.name}
                       onChange={handleChange}
@@ -221,12 +219,13 @@ export default function Contact({ onNavigate }: ContactProps) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+                  <label htmlFor="contact-email" className="block text-sm font-semibold text-slate-700 mb-2">Email</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                       <Mail className="w-5 h-5 text-slate-400" />
                     </div>
                     <input
+                      id="contact-email"
                       name="email"
                       value={form.email}
                       onChange={handleChange}
@@ -239,7 +238,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label htmlFor="contact-phone" className="block text-sm font-semibold text-slate-700 mb-2">
                     Phone <span className="text-slate-400 font-normal">(optional)</span>
                   </label>
                   <div className="relative">
@@ -247,6 +246,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                       <Phone className="w-5 h-5 text-slate-400" />
                     </div>
                     <input
+                      id="contact-phone"
                       name="phone"
                       value={form.phone}
                       onChange={handleChange}
@@ -258,11 +258,12 @@ export default function Contact({ onNavigate }: ContactProps) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label htmlFor="contact-service" className="block text-sm font-semibold text-slate-700 mb-2">
                     Service <span className="text-slate-400 font-normal">(optional)</span>
                   </label>
                   <div className="relative">
                     <select
+                      id="contact-service"
                       name="service"
                       value={form.service}
                       onChange={handleChange}
@@ -281,12 +282,13 @@ export default function Contact({ onNavigate }: ContactProps) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Message</label>
+                  <label htmlFor="contact-message" className="block text-sm font-semibold text-slate-700 mb-2">Message</label>
                   <div className="relative">
                     <div className="absolute top-3.5 left-0 pl-4 flex items-start pointer-events-none">
                       <MessageSquare className="w-5 h-5 text-slate-400" />
                     </div>
                     <textarea
+                      id="contact-message"
                       name="message"
                       value={form.message}
                       onChange={handleChange}
@@ -298,7 +300,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                   </div>
                 </div>
 
-                <div className="flex justify-start">
+                <div className="flex flex-col gap-3">
                   <HCaptcha
                     sitekey={HCAPTCHA_SITEKEY}
                     onVerify={setToken}
@@ -306,6 +308,9 @@ export default function Contact({ onNavigate }: ContactProps) {
                     ref={captchaRef}
                     languageOverride="en"
                   />
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    By submitting this form, you agree to our Privacy Policy. Your data is used solely to respond to your enquiry and is never shared with third parties.
+                  </p>
                 </div>
 
                 {success && (
@@ -401,6 +406,7 @@ export default function Contact({ onNavigate }: ContactProps) {
         </div>
       </section>
 
+      <Footer />
       <BackToTop />
     </div>
   )

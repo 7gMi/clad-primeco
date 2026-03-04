@@ -24,8 +24,8 @@ export const slides: Slide[] = [
   {
     id: 3,
     background: '/images/backgrounds/school_carrigtohil.jpg',
-    tagline: 'Ireland-Wide. Project-Ready.',
-    title: 'Commercial Roofing & Cladding Specialists',
-    subtitle: 'Aluminium copings, roof deck, and cladding systems for industrial and commercial builds across Ireland. One trusted contractor — from brief to handover.'
+    tagline: 'From Cork to Dublin. Brief to Handover.',
+    title: 'One Contractor. Every System. Zero Delays.',
+    subtitle: 'Kingspan panels, architectural facades, aluminium roof deck — managed by one specialist team. We protect your programme from first fixing to final sign-off.'
   }
 ];

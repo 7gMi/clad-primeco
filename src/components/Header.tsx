@@ -35,7 +35,7 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
             <source media="(min-width: 768px)" srcSet="/images/logo/logo-tab.png" />
             <img
               src="/images/logo/logo-mobile.png"
-              alt="Company Logo"
+              alt="Clad-Primeco logo"
               className={`h-auto transition-all duration-300 ${
                 isScrolled
                   ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'

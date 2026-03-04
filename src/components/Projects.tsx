@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowRight, Phone, Mail, Instagram, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Header from './Header';
 import BackToTop from './BackToTop';
+import Footer from './Footer';
 import { Page } from '../App';
 
 interface ProjectsProps {
@@ -280,6 +281,10 @@ export default function Projects({ onNavigate }: ProjectsProps) {
                   <img
                     src={project.images[0]}
                     alt={project.title}
+                    width="600"
+                    height="256"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -326,12 +331,14 @@ export default function Projects({ onNavigate }: ProjectsProps) {
                   />
                   <button
                     onClick={prevImage}
+                    aria-label="Previous image"
                     className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full transition-all"
                   >
                     <ChevronLeft className="w-6 h-6 text-slate-900" />
                   </button>
                   <button
                     onClick={nextImage}
+                    aria-label="Next image"
                     className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full transition-all"
                   >
                     <ChevronRight className="w-6 h-6 text-slate-900" />
@@ -354,7 +361,11 @@ export default function Projects({ onNavigate }: ProjectsProps) {
                     >
                       <img
                         src={image}
-                        alt={`Thumbnail ${index + 1}`}
+                        alt={`${currentProject.title} — photo ${index + 1} of ${currentProject.images.length}`}
+                        width="200"
+                        height="80"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                     </button>
@@ -431,7 +442,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
 
       <section className="bg-black text-white min-h-[33vh] flex items-center justify-center py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 border border-white/30 rounded-lg p-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 border border-white/30 rounded-lg p-4 sm:p-6 md:p-8">
             <div className="flex flex-col md:flex-row items-center justify-center group relative">
               <div className="w-16 h-16 rounded-full bg-black border-2 border-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                 <Phone className="w-8 h-8 text-blue-500" />
@@ -483,6 +494,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
           </div>
         </div>
       </section>
+      <Footer />
       <BackToTop />
     </div>
   );

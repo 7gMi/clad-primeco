@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { ArrowRight, Building2, Layers, Shield, Phone, Mail, Instagram } from 'lucide-react';
+import { ArrowRight, Thermometer, Palette, Umbrella, Phone, Mail, Instagram, Check } from 'lucide-react';
 import Header from './Header';
 import BackToTop from './BackToTop';
+import Footer from './Footer';
 import { Page } from '../App';
 
 interface ServicesProps {
@@ -10,97 +11,117 @@ interface ServicesProps {
 
 type ServiceType = 'kingspan' | 'architectural' | 'aluminium';
 
+const servicesData = {
+  kingspan: {
+    title: 'Kingspan Cladding Systems',
+    tagline: 'High-performance insulated panels — fast, precise, on programme.',
+    subtitle: 'The Industry Standard — Installed by Specialists',
+    description: 'Kingspan insulated panels deliver the thermal performance, fire resistance, and installation speed that demanding commercial and industrial projects require. We supply and install the full Kingspan range — ensuring your building envelope meets spec, on time, and without rework.',
+    features: [
+      'Outstanding thermal performance — U-values as low as 0.11 W/m²K',
+      'Non-combustible fire rating: A2-s1, d0 for full compliance',
+      'Lightweight panels that reduce structural load and material costs',
+      'Fast installation sequences that protect your programme',
+      'Weather-resistant finish built to perform for decades',
+      'Minimal ongoing maintenance — lower lifetime cost for your client'
+    ],
+    applications: [
+      'Industrial warehouses',
+      'Data centres',
+      'Manufacturing facilities',
+      'Cold storage facilities',
+      'Commercial buildings'
+    ],
+    image: '/images/kingspan-panel.jpg',
+    icon: Thermometer,
+    projectCount: 4,
+    projects: [
+      { name: 'Vantage Power Station', location: 'Dublin 01', surface: '2,400 m²', image: '/images/projects/dub01-vantage/12_Dub01_Vantage_Power_Station.jpg' },
+      { name: 'Carrigtwohil College', location: 'Cork', surface: '3,000 m²', image: '/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.jpg' },
+      { name: 'Bausch & Lomb', location: 'Waterford', surface: '3,000 m²', image: '/images/projects/bausch-lomb/1_Bauschandlomb.jpg' },
+      { name: 'Sandyford Warehouse', location: 'Dublin', surface: '1,700 m²', image: '/images/projects/sandyford-warehouse/1_Sandyford_Warehouse_Depot.JPG' },
+    ],
+    specifications: [
+      { label: 'Panel Thickness', value: '40-200mm' },
+      { label: 'Width Options', value: 'Custom up to 1150mm' },
+      { label: 'Fire Rating', value: 'A2-s1, d0' },
+      { label: 'Thermal Performance', value: 'U-values 0.11-0.28 W/m²K' }
+    ]
+  },
+  architectural: {
+    title: 'Architectural Panels',
+    tagline: 'Striking facades that perform for decades — full weatherproofing.',
+    subtitle: 'A Facade That Works as Hard as It Looks',
+    description: 'Architectural cladding panels give your building a distinctive, professional finish while delivering full weatherproofing and long-term durability. Whether you are working to a tight design brief or an open specification, we will match the right system to your project and install it to a high standard.',
+    features: [
+      'Broad range of finishes and colours — match any design intent',
+      'Weather-resistant fibre cement: no rust, no rot, no repainting',
+      'Superior fire performance for full Building Regulations compliance',
+      'Zero maintenance required — low lifetime cost for the end user',
+      'Bespoke dimensions and profiles to suit any facade geometry',
+      'Responsibly sourced, low-impact materials'
+    ],
+    applications: [
+      'Commercial office buildings',
+      'Retail centres',
+      'Educational institutions',
+      'Healthcare facilities',
+      'Mixed-use developments',
+      'Residential buildings'
+    ],
+    image: '/images/architectural-panels/amazon4.jpg',
+    icon: Palette,
+    projectCount: 2,
+    projects: [
+      { name: 'Amazon Dublin 104', location: 'Dublin', surface: '5,000 m²', image: '/images/projects/dub104-amazon/1_Dub104_Amazon.jpg' },
+      { name: 'Lily Superstore', location: 'Limerick', surface: '4,000 m²', image: '/images/projects/lily-superstore/14_Lily_Superstore_Limerick.jpg' },
+    ],
+    specifications: [
+      { label: 'Panel Size', value: 'Up to 3000mm length' },
+      { label: 'Thickness', value: '10-25mm' },
+      { label: 'Finishes', value: '50+ color options' },
+      { label: 'Fire Rating', value: 'A2-s1, d0' }
+    ]
+  },
+  aluminium: {
+    title: 'Aluminium Copings & Roof Deck',
+    tagline: 'Custom aluminium systems — watertight, maintenance-free, built to spec.',
+    subtitle: 'The Right Finish. Built to Last.',
+    description: 'Aluminium copings and roof deck systems complete your building envelope — sealing exposed edges, protecting parapets, and delivering a clean, professional finish. Designed to your exact project specifications, our aluminium systems integrate seamlessly with any cladding installation and require zero ongoing maintenance.',
+    features: [
+      'Corrosion-resistant aluminium — performs in all Irish weather conditions',
+      'Lightweight profile reduces structural demands and speeds installation',
+      'Custom-designed to your specified sizes, shapes, and profiles',
+      'Engineered to integrate seamlessly with adjacent cladding systems',
+      'Anodised or powder-coated finish — long-life, maintenance-free',
+      'Effective weather exclusion protecting the full building envelope'
+    ],
+    applications: [
+      'Roof edge protection',
+      'Parapet coping',
+      'Fascia systems',
+      'Soffit applications',
+      'Window and door surrounds',
+      'Architectural trim details'
+    ],
+    image: '/images/aluminium-copings/aluminium-copings.jpg',
+    icon: Umbrella,
+    projectCount: 2,
+    projects: [
+      { name: 'ABP Rathkeale', location: 'Co. Limerick', surface: '1,600 m²', image: '/images/projects/abp-rathkeale/1_ABP_Rathkeale.jpg' },
+      { name: 'Europort Rosslare', location: 'Co. Wexford', surface: '2,400 m²', image: '/images/projects/europort-rosslare/12_Europort_Rosslare_Wexford.jpg' },
+    ],
+    specifications: [
+      { label: 'Material', value: 'Aluminium 6063-T5' },
+      { label: 'Thickness', value: '1.5-3mm' },
+      { label: 'Profiles', value: '15+ standard options' },
+      { label: 'Finish', value: 'Anodized or painted' }
+    ]
+  },
+};
+
 export default function Services({ onNavigate }: ServicesProps) {
   const [selectedService, setSelectedService] = useState<ServiceType>('kingspan');
-
-  const servicesData = {
-    kingspan: {
-      title: 'Kingspan Cladding Systems',
-      subtitle: 'The Industry Standard — Installed by Specialists',
-      description: 'Kingspan insulated panels deliver the thermal performance, fire resistance, and installation speed that demanding commercial and industrial projects require. We supply and install the full Kingspan range — ensuring your building envelope meets spec, on time, and without rework.',
-      features: [
-        'Outstanding thermal performance — U-values as low as 0.11 W/m²K',
-        'Non-combustible fire rating: A2-s1, d0 for full compliance',
-        'Lightweight panels that reduce structural load and material costs',
-        'Fast installation sequences that protect your programme',
-        'Weather-resistant finish built to perform for decades',
-        'Minimal ongoing maintenance — lower lifetime cost for your client'
-      ],
-      applications: [
-        'Industrial warehouses',
-        'Data centres',
-        'Manufacturing facilities',
-        'Cold storage facilities',
-        'Commercial buildings'
-      ],
-      image: '/images/kingspan-panel.jpg',
-      icon: Building2,
-      specifications: [
-        { label: 'Panel Thickness', value: '40-200mm' },
-        { label: 'Width Options', value: 'Custom up to 1150mm' },
-        { label: 'Fire Rating', value: 'A2-s1, d0' },
-        { label: 'Thermal Performance', value: 'U-values 0.11-0.28 W/m²K' }
-      ]
-    },
-    architectural: {
-      title: 'Architectural Panels',
-      subtitle: 'A Facade That Works as Hard as It Looks',
-      description: 'Architectural cladding panels give your building a distinctive, professional finish while delivering full weatherproofing and long-term durability. Whether you are working to a tight design brief or an open specification, we will match the right system to your project and install it to a high standard.',
-      features: [
-        'Broad range of finishes and colours — match any design intent',
-        'Weather-resistant fibre cement: no rust, no rot, no repainting',
-        'Superior fire performance for full Building Regulations compliance',
-        'Zero maintenance required — low lifetime cost for the end user',
-        'Bespoke dimensions and profiles to suit any facade geometry',
-        'Responsibly sourced, low-impact materials'
-      ],
-      applications: [
-        'Commercial office buildings',
-        'Retail centres',
-        'Educational institutions',
-        'Healthcare facilities',
-        'Mixed-use developments',
-        'Residential buildings'
-      ],
-      image: '/images/architectural-panels/amazon4.jpg',
-      icon: Layers,
-      specifications: [
-        { label: 'Panel Size', value: 'Up to 3000mm length' },
-        { label: 'Thickness', value: '10-25mm' },
-        { label: 'Finishes', value: '50+ color options' },
-        { label: 'Fire Rating', value: 'A2-s1, d0' }
-      ]
-    },
-    aluminium: {
-      title: 'Aluminium Copings & Roof Deck',
-      subtitle: 'The Right Finish. Built to Last.',
-      description: 'Aluminium copings and roof deck systems complete your building envelope — sealing exposed edges, protecting parapets, and delivering a clean, professional finish. Designed to your exact project specifications, our aluminium systems integrate seamlessly with any cladding installation and require zero ongoing maintenance.',
-      features: [
-        'Corrosion-resistant aluminium — performs in all Irish weather conditions',
-        'Lightweight profile reduces structural demands and speeds installation',
-        'Custom-designed to your specified sizes, shapes, and profiles',
-        'Engineered to integrate seamlessly with adjacent cladding systems',
-        'Anodised or powder-coated finish — long-life, maintenance-free',
-        'Effective weather exclusion protecting the full building envelope'
-      ],
-      applications: [
-        'Roof edge protection',
-        'Parapet coping',
-        'Fascia systems',
-        'Soffit applications',
-        'Window and door surrounds',
-        'Architectural trim details'
-      ],
-      image: '/images/aluminium-copings/aluminium-copings.jpg',
-      icon: Shield,
-      specifications: [
-        { label: 'Material', value: 'Aluminium 6063-T5' },
-        { label: 'Thickness', value: '1.5-3mm' },
-        { label: 'Profiles', value: '15+ standard options' },
-        { label: 'Finish', value: 'Anodized or painted' }
-      ]
-    },
-  };
 
   const currentService = servicesData[selectedService];
   const CurrentIcon = currentService.icon;
@@ -108,8 +129,10 @@ export default function Services({ onNavigate }: ServicesProps) {
   const allServices = Object.entries(servicesData).map(([key, data]) => ({
     key: key as ServiceType,
     title: data.title,
+    tagline: data.tagline,
     icon: data.icon,
-    image: data.image
+    image: data.image,
+    projectCount: data.projectCount,
   }));
 
   return (
@@ -126,7 +149,7 @@ export default function Services({ onNavigate }: ServicesProps) {
             <div className="flex items-center gap-4 mb-4">
               <div className="h-px w-16 bg-blue-500/50"></div>
               <p className="text-white text-base md:text-lg font-light">
-                Three Systems. One Specialist Contractor.
+                Three Systems. One Team. One Less Subcontractor to Manage.
               </p>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
@@ -136,9 +159,10 @@ export default function Services({ onNavigate }: ServicesProps) {
         </div>
       </div>
 
-      <section className="bg-white py-20">
+      {/* ── Service selector cards ── */}
+      <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {allServices.map((service) => {
               const Icon = service.icon;
               const isActive = selectedService === service.key;
@@ -146,23 +170,66 @@ export default function Services({ onNavigate }: ServicesProps) {
                 <button
                   key={service.key}
                   onClick={() => setSelectedService(service.key)}
-                  className={`group relative rounded-xl overflow-hidden transition-all duration-300 h-48 ${
+                  className={`group relative rounded-2xl overflow-hidden transition-all duration-300 h-72 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                     isActive
-                      ? 'ring-2 ring-blue-600 shadow-xl'
-                      : 'hover:shadow-lg'
+                      ? 'ring-2 ring-blue-600 shadow-2xl scale-[1.02]'
+                      : 'hover:shadow-xl hover:scale-[1.01]'
                   }`}
                 >
+                  {/* Background image */}
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    width="600"
+                    height="288"
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                  <div className="relative h-full flex flex-col items-center justify-end pb-4">
-                    <Icon className={`w-8 h-8 mb-3 transition-all ${isActive ? 'text-blue-400' : 'text-white'}`} />
-                    <h3 className={`text-sm md:text-base font-semibold text-center px-2 ${isActive ? 'text-blue-400' : 'text-white'}`}>
-                      {service.title.split(' ')[0]}
+
+                  {/* Gradient overlay — stronger when active */}
+                  <div className={`absolute inset-0 transition-all duration-300 ${
+                    isActive
+                      ? 'bg-gradient-to-t from-blue-900/95 via-blue-900/60 to-black/20'
+                      : 'bg-gradient-to-t from-black/90 via-black/50 to-black/10'
+                  }`} />
+
+                  {/* Project count badge */}
+                  <div className="absolute top-4 right-4">
+                    <span className={`text-xs font-bold px-3 py-1.5 rounded-full tracking-wider ${
+                      isActive
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-white/20 backdrop-blur-sm text-white border border-white/30'
+                    }`}>
+                      {service.projectCount} projects
+                    </span>
+                  </div>
+
+                  {/* Active indicator top bar */}
+                  {isActive && (
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-blue-500" />
+                  )}
+
+                  {/* Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    {/* Icon with ring + glow */}
+                    <div className="mb-4 relative inline-flex">
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 ${
+                        isActive
+                          ? 'bg-blue-600 shadow-lg shadow-blue-500/50 ring-2 ring-blue-400 ring-offset-2 ring-offset-transparent'
+                          : 'bg-white/15 backdrop-blur-sm group-hover:bg-blue-600 group-hover:shadow-lg group-hover:shadow-blue-500/40'
+                      }`}>
+                        <Icon className="w-7 h-7 text-white" />
+                      </div>
+                    </div>
+                    <h3 className="text-white font-bold text-lg leading-snug mb-2">
+                      {service.title}
                     </h3>
+                    <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+                      isActive ? 'text-blue-100' : 'text-white/70'
+                    }`}>
+                      {service.tagline}
+                    </p>
                   </div>
                 </button>
               );
@@ -171,20 +238,34 @@ export default function Services({ onNavigate }: ServicesProps) {
         </div>
       </section>
 
+      {/* ── Service detail panel ── */}
       <section className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+
+            {/* Left — image */}
             <div className="relative h-64 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={currentService.image}
                 alt={currentService.title}
+                width="800"
+                height="500"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute top-8 left-8 bg-blue-600 p-6 rounded-xl shadow-xl">
-                <CurrentIcon className="w-12 h-12 text-white" />
+              <div className="absolute top-8 left-8 bg-blue-600 p-5 rounded-2xl shadow-xl shadow-blue-600/40 ring-4 ring-blue-400/30">
+                <CurrentIcon className="w-10 h-10 text-white" />
+              </div>
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="bg-black/60 backdrop-blur-sm rounded-xl px-4 py-3">
+                  <p className="text-white/60 text-xs font-semibold tracking-wider uppercase mb-1">Completed projects</p>
+                  <p className="text-white font-bold text-lg">{currentService.projectCount} projects delivered</p>
+                </div>
               </div>
             </div>
 
+            {/* Right — content */}
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="h-px bg-blue-600 w-12"></div>
@@ -203,13 +284,14 @@ export default function Services({ onNavigate }: ServicesProps) {
                 {currentService.description}
               </p>
 
+              {/* Specs grid */}
               <div className="bg-white rounded-xl p-6 mb-8 border border-slate-200">
                 <h3 className="font-bold text-slate-900 mb-4 text-lg">Key Specifications</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4">
                   {currentService.specifications.map((spec, index) => (
-                    <div key={index}>
-                      <p className="text-sm text-slate-600 font-medium">{spec.label}</p>
-                      <p className="text-base font-semibold text-slate-900">{spec.value}</p>
+                    <div key={index} className="border-l-2 border-blue-600 pl-3">
+                      <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">{spec.label}</p>
+                      <p className="text-base font-bold text-slate-900 mt-0.5">{spec.value}</p>
                     </div>
                   ))}
                 </div>
@@ -224,9 +306,46 @@ export default function Services({ onNavigate }: ServicesProps) {
               </button>
             </div>
           </div>
+
+          {/* ── Completed projects for this service ── */}
+          <div className="mt-16">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="h-px bg-slate-300 flex-1" />
+              <p className="text-slate-500 font-semibold text-sm uppercase tracking-wider">
+                Completed with this system
+              </p>
+              <div className="h-px bg-slate-300 flex-1" />
+            </div>
+            <div className={`grid gap-6 ${currentService.projects.length === 2 ? 'grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto' : 'grid-cols-2 lg:grid-cols-4'}`}>
+              {currentService.projects.map((project, index) => (
+                <button
+                  key={index}
+                  onClick={() => onNavigate('projects')}
+                  className="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-44 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    width="400"
+                    height="176"
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 to-black/10" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-blue-400 text-xs font-semibold mb-1">{project.surface}</p>
+                    <p className="text-white font-bold text-sm leading-snug">{project.name}</p>
+                    <p className="text-white/60 text-xs mt-0.5">{project.location}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* ── Features & Applications ── */}
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
@@ -236,7 +355,7 @@ export default function Services({ onNavigate }: ServicesProps) {
                 {currentService.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-4 group">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center mt-1 group-hover:scale-110 transition-transform">
-                      <ArrowRight className="w-4 h-4 text-white" />
+                      <Check className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-lg text-slate-700">{feature}</span>
                   </li>
@@ -270,10 +389,7 @@ export default function Services({ onNavigate }: ServicesProps) {
               </div>
               <div className="md:ml-4 mt-4 md:mt-0 text-center md:text-left">
                 <div className="text-lg font-semibold text-gray-300 mb-1">Phone</div>
-                <a
-                  href="tel:0833468913"
-                  className="text-xl text-white hover:text-blue-500 transition-colors duration-300"
-                >
+                <a href="tel:0833468913" className="text-xl text-white hover:text-blue-500 transition-colors duration-300">
                   083 346 8913
                 </a>
               </div>
@@ -286,10 +402,7 @@ export default function Services({ onNavigate }: ServicesProps) {
               </div>
               <div className="md:ml-4 mt-4 md:mt-0 text-center md:text-left">
                 <div className="text-lg font-semibold text-gray-300 mb-1">Email</div>
-                <a
-                  href="mailto:cladprimeco@outlook.com"
-                  className="text-base md:text-lg text-white hover:text-blue-500 transition-colors duration-300"
-                >
+                <a href="mailto:cladprimeco@outlook.com" className="text-base md:text-lg text-white hover:text-blue-500 transition-colors duration-300">
                   cladprimeco@outlook.com
                 </a>
               </div>
@@ -315,6 +428,8 @@ export default function Services({ onNavigate }: ServicesProps) {
           </div>
         </div>
       </section>
+
+      <Footer />
       <BackToTop />
     </div>
   );
