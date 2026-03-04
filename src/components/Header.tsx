@@ -48,7 +48,7 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
             </picture>
             {!isScrolled && (
               <p
-                className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[13px] tracking-widest text-slate-700 font-semibold leading-tight border-l border-slate-300 pl-3 hidden sm:block"
+                className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[13px] tracking-widest text-slate-700 font-semibold leading-tight border-l border-slate-300 pl-3"
                 style={{ fontFamily: 'Georgia, serif' }}
               >
                 CLADDING<br />AND ROOFING<br />PROFESSIONALS
