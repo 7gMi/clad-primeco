@@ -154,7 +154,7 @@ export default function About({ onNavigate }: AboutProps) {
                         <Icon className="w-12 h-12 text-white" />
                       </div>
                     </div>
-                    <div className="text-6xl font-bold mb-3 text-slate-700">
+                    <div className="text-6xl font-bold mb-3 text-blue-400">
                       {step.number}
                     </div>
                     <h3 className="text-2xl font-semibold">{step.title}</h3>

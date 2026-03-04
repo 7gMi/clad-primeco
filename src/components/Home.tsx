@@ -340,7 +340,7 @@ export default function Home({ onNavigate }: HomeProps) {
                       </div>
                     </button>
                     <div className={`text-6xl font-bold mb-2 transition-colors duration-300 ${
-                      isSelected ? 'text-blue-400' : 'text-slate-800'
+                      isSelected ? 'text-blue-400' : 'text-slate-600'
                     }`}>
                       {step.number}
                     </div>

@@ -234,7 +234,7 @@ export default function Services({ onNavigate }: ServicesProps) {
 
               <div className="bg-white rounded-xl p-6 mb-8 border border-slate-200">
                 <h3 className="font-bold text-slate-900 mb-4 text-lg">Key Specifications</h3>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {currentService.specifications.map((spec, index) => (
                     <div key={index}>
                       <p className="text-sm text-slate-600 font-medium">{spec.label}</p>
