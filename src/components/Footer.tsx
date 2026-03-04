@@ -63,11 +63,11 @@ export default function Footer({ onNavigate }: FooterProps) {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="tel:+353833469813"
+                  href="tel:0833468913"
                   className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-sm"
                 >
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  +353 83 346 9813
+                  083 346 8913
                 </a>
               </li>
               <li>
