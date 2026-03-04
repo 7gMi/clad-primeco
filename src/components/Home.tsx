@@ -1,5 +1,5 @@
 import { Page } from '../App';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { slides } from '../data/slides';
 import HeroCard from './HeroCard';
 import SlideIndicators from './SlideIndicators';
@@ -12,38 +12,56 @@ interface HomeProps {
 
 export default function Home({ onNavigate }: HomeProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [selectedProcess, setSelectedProcess] = useState<number | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  // Use a ref for the transitioning flag to avoid stale closure issues in
+  // setInterval and to prevent unnecessary re-renders on every transition tick.
+  const isTransitioningRef = useRef(false);
+
+  // PERFORMANCE: stable handleSlideChange — no re-creation on every render.
+  // Using a ref for isTransitioning means this callback never goes stale
+  // and the setInterval below doesn't need it in its dependency array.
+  const handleSlideChange = useCallback((index: number) => {
+    if (isTransitioningRef.current) return;
+    isTransitioningRef.current = true;
+    setCurrentSlide(index);
+    setTimeout(() => {
+      isTransitioningRef.current = false;
+    }, 800);
+  }, []); // empty deps — safe because we read/write via ref
 
   useEffect(() => {
     const timer = setInterval(() => {
-      handleSlideChange((currentSlide + 1) % slides.length);
+      // Read current slide via functional updater to avoid a stale closure,
+      // then advance. handleSlideChange is stable (empty deps, ref-based).
+      setCurrentSlide((prev) => {
+        const next = (prev + 1) % slides.length;
+        if (!isTransitioningRef.current) {
+          isTransitioningRef.current = true;
+          setTimeout(() => { isTransitioningRef.current = false; }, 800);
+          return next;
+        }
+        return prev;
+      });
     }, 6000);
 
     return () => clearInterval(timer);
-  }, [currentSlide]);
+  }, []); // empty deps — all state is read via functional updaters or refs
 
   useEffect(() => {
+    // PERFORMANCE: passive:true tells the browser the handler never calls
+    // preventDefault() — allows smooth scrolling without blocking the main thread.
     const handleScroll = (e: Event) => {
       const target = e.target as HTMLElement;
-      const scrollPosition = target.scrollTop;
-      setIsScrolled(scrollPosition > 100);
+      setIsScrolled(target.scrollTop > 100);
     };
 
     const scrollContainer = document.querySelector('.home-scroll-container');
     if (scrollContainer) {
-      scrollContainer.addEventListener('scroll', handleScroll);
+      scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
       return () => scrollContainer.removeEventListener('scroll', handleScroll);
     }
   }, []);
-
-  const handleSlideChange = (index: number) => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentSlide(index);
-    setTimeout(() => setIsTransitioning(false), 800);
-  };
 
   return (
     <div className="h-screen overflow-y-auto bg-white home-scroll-container">
@@ -56,12 +74,24 @@ export default function Home({ onNavigate }: HomeProps) {
       >
         <div className="flex justify-between items-center">
           <div className="logo-container cursor-pointer" onClick={() => onNavigate('home')}>
+            {/*
+              CLS FIX: Explicit width/height on the picture element wrapper prevents
+              layout shift when the image loads. The container reserves space via
+              the className dimensions that mirror the img sizes below.
+            */}
             <picture>
               <source media="(min-width: 1024px)" srcSet="/images/logo/logo-desktop.png" />
               <source media="(min-width: 768px)" srcSet="/images/logo/logo-tab.png" />
               <img
                 src="/images/logo/logo-mobile.png"
-                alt="Company Logo"
+                alt="Clad-Primeco logo"
+                width="120"
+                height="40"
+                // fetchpriority=high: logo is above the fold and contributes to LCP
+                fetchPriority="high"
+                // decoding=sync: ensures logo renders in the same frame as the
+                // rest of the header rather than causing a flash of missing logo
+                decoding="sync"
                 className={`h-auto transition-all duration-300 ${
                   isScrolled
                     ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
@@ -83,6 +113,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </header>
 
+      {/* Hero slider section */}
       <div className="relative w-full h-screen overflow-hidden bg-black">
         <div className="relative w-full h-full">
           {slides.map((slide, index) => (
@@ -92,6 +123,14 @@ export default function Home({ onNavigate }: HomeProps) {
                 currentSlide === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
               }`}
               style={{ backgroundImage: `url(${slide.background})` }}
+              /*
+                PERFORMANCE NOTE — background-image vs <img>:
+                The hero background is set via CSS background-image so that
+                bg-cover / bg-center work correctly for full-viewport cover.
+                Slide 0's image is preloaded in index.html via <link rel="preload">.
+                Slides 1 and 2 load lazily when the carousel advances.
+              */
+              aria-hidden="true"
             >
               <div className="absolute inset-0 bg-black/40" />
             </div>
@@ -129,6 +168,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </div>
 
+      {/* About section */}
       <section className="min-h-screen bg-white flex items-center pt-32 md:pt-36 lg:pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
           <div className="mb-16">
@@ -171,9 +211,19 @@ export default function Home({ onNavigate }: HomeProps) {
               <div className="absolute -bottom-6 -right-6 w-24 h-24 border-b-4 border-r-4 border-blue-600 rounded-br-3xl"></div>
 
               <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                {/*
+                  CLS FIX: width+height attributes set the intrinsic aspect ratio
+                  so the browser reserves the correct space before the image loads.
+                  loading=lazy: image is below the fold — defer network request
+                  until the user scrolls near it (~1 viewport away).
+                */}
                 <img
                   src="/images/backgrounds/school_carrigtohil.png"
-                  alt="Our Strategic Goals"
+                  alt="Carrigtwohil school project — example of our cladding work"
+                  width="800"
+                  height="500"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center"
                 />
 
@@ -189,6 +239,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
+      {/* Solutions / Services section */}
       <section className="min-h-screen bg-slate-50 flex items-center pt-32 md:pt-36 lg:pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
           <div className="mb-16">
@@ -205,11 +256,21 @@ export default function Home({ onNavigate }: HomeProps) {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
+            {/* Card: Kingspan Panels */}
             <div className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
               <div className="relative h-56 overflow-hidden">
+                {/*
+                  loading=lazy: service cards are far below the fold on all
+                  viewport heights — defer until user scrolls into range.
+                  width/height prevent CLS by reserving the 224px (h-56) card height.
+                */}
                 <img
                   src="/images/kingspan-panel.jpg"
-                  alt="Kingspan Panels"
+                  alt="Kingspan insulated panels"
+                  width="600"
+                  height="224"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -235,11 +296,16 @@ export default function Home({ onNavigate }: HomeProps) {
               </div>
             </div>
 
+            {/* Card: Architectural Panels */}
             <div className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
               <div className="relative h-56 overflow-hidden">
                 <img
                   src="/images/architectural-panels/amazon4.jpg"
-                  alt="Architectural Panels"
+                  alt="Architectural cladding panels"
+                  width="600"
+                  height="224"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -265,11 +331,16 @@ export default function Home({ onNavigate }: HomeProps) {
               </div>
             </div>
 
+            {/* Card: Aluminium Copings */}
             <div className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
               <div className="relative h-56 overflow-hidden">
                 <img
                   src="/images/aluminium-copings/aluminium-copings.jpg"
-                  alt="Aluminium Copings"
+                  alt="Aluminium coping systems"
+                  width="600"
+                  height="224"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -298,6 +369,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
+      {/* Process section */}
       <section className="bg-slate-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -325,6 +397,8 @@ export default function Home({ onNavigate }: HomeProps) {
                     <button
                       onClick={() => setSelectedProcess(isSelected ? null : index)}
                       className="relative inline-flex items-center justify-center mb-6 group cursor-pointer transition-all duration-300"
+                      aria-pressed={isSelected}
+                      aria-label={`Step ${step.number}: ${step.title}`}
                     >
                       {isSelected && (
                         <div className="absolute inset-0 w-28 h-28 -top-4 -left-4 rounded-full bg-white/20 animate-pulse"></div>
@@ -360,6 +434,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
+      {/* Contact bar */}
       <section className="bg-black text-white min-h-[33vh] flex items-center justify-center py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 border border-white/30 rounded-lg p-8">
@@ -417,7 +492,7 @@ export default function Home({ onNavigate }: HomeProps) {
       <footer className="bg-black text-gray-400 py-6 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-sm md:text-base">
-            ©2023-2026 Clad Primeco Professional Cladding - Industrial Building Solutions. All rights reserved.
+            &copy;2023-2026 Clad Primeco Professional Cladding - Industrial Building Solutions. All rights reserved.
           </p>
         </div>
       </footer>

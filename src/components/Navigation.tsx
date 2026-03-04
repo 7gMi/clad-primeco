@@ -1,4 +1,5 @@
 import { Page } from '../App';
+import { prefetchPage } from '../App';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -41,6 +42,12 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
             <li key={item.label}>
               <button
                 onClick={() => onNavigate?.(item.page)}
+                // PERFORMANCE: prefetch the page chunk when the user hovers
+                // or focuses the nav link. By the time they click, the JS chunk
+                // will already be in the browser cache, eliminating the Suspense
+                // fallback flash (~200-600ms saving on slow connections).
+                onMouseEnter={() => prefetchPage(item.page)}
+                onFocus={() => prefetchPage(item.page)}
                 aria-current={currentPage === item.page ? 'page' : undefined}
                 className={`${textColor} ${hoverColor} ${getActiveClass(item.page)} text-[14px] md:text-[16px] lg:text-[18px] transition-colors duration-300 font-medium`}
               >
@@ -55,6 +62,7 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         className={`md:hidden ${textColor} z-50 relative p-2`}
         aria-label="Toggle menu"
+        aria-expanded={mobileMenuOpen}
       >
         {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
       </button>

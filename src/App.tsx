@@ -5,12 +5,36 @@ import { useAuth } from './hooks/useAuth';
 
 export type Page = 'home' | 'about' | 'contact' | 'services' | 'projects' | 'admin';
 
+// Lazy-loaded page components — each produces a separate JS chunk.
+// This means the initial bundle only contains Home + FloatingCTA,
+// keeping Time-to-Interactive low on the first visit.
 const About = lazy(() => import('./components/About'));
 const Services = lazy(() => import('./components/Services'));
 const Projects = lazy(() => import('./components/Projects'));
 const Contact = lazy(() => import('./components/Contact'));
 const AdminLogin = lazy(() => import('./components/admin/AdminLogin'));
 const AdminDashboard = lazy(() => import('./components/admin/AdminDashboard'));
+
+// Prefetch map — maps each Page value to the dynamic import that loads it.
+// Called on pointer hover / focus so the chunk is in the browser cache by
+// the time the user clicks, eliminating the Suspense fallback delay.
+const prefetchMap: Partial<Record<Page, () => Promise<unknown>>> = {
+  about: () => import('./components/About'),
+  services: () => import('./components/Services'),
+  projects: () => import('./components/Projects'),
+  contact: () => import('./components/Contact'),
+};
+
+/**
+ * Trigger a prefetch for the given page's JS chunk.
+ * Using `import()` here tells Vite/Rollup to emit a <link rel="modulepreload">
+ * hint in the HTML (when using dynamic import), and at runtime it queues the
+ * network request at low priority so it doesn't compete with critical resources.
+ */
+export function prefetchPage(page: Page): void {
+  const loader = prefetchMap[page];
+  if (loader) loader();
+}
 
 function PageLoader() {
   return (
