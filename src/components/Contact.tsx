@@ -146,8 +146,8 @@ export default function Contact({ onNavigate }: ContactProps) {
       </section>
 
       {/* Form section */}
-      <section id="contact-form" className="bg-slate-50 py-20">
-        <div className="max-w-7xl mx-auto px-4">
+      <section id="contact-form" className="bg-slate-50 py-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
 
             {/* Left column — premium info block */}
@@ -207,7 +207,7 @@ export default function Contact({ onNavigate }: ContactProps) {
             </div>
 
             {/* Right column — form card */}
-            <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-4 sm:p-8 md:p-10">
+            <div className="bg-white rounded-2xl shadow-md sm:shadow-xl border border-slate-100 p-4 sm:p-8 md:p-10 w-full min-w-0">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="contact-name" className="block text-sm font-semibold text-slate-700 mb-2">Name</label>
