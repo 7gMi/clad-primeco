@@ -112,7 +112,7 @@ const servicesData = {
       { name: 'Europort Rosslare', location: 'Co. Wexford', surface: '2,400 m²', image: '/images/projects/europort-rosslare/12_Europort_Rosslare_Wexford.jpg' },
     ],
     specifications: [
-      { label: 'Material', value: 'Aluminium 6063-T5' },
+      { label: 'Material', value: 'Aluminium 6063-T6' },
       { label: 'Thickness', value: '1.5-3mm' },
       { label: 'Profiles', value: '15+ standard options' },
       { label: 'Finish', value: 'Anodized or painted' }

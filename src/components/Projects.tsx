@@ -134,7 +134,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
       client: 'ABP Group',
       location: 'Rathkeale, Co. Limerick',
       year: 2026,
-      description: 'Roof and facade cladding for ABP\'s food processing facility in Rathkeale. The 1,600 m² contract covered Kingspan roof panels combined with aluminium RW facade cladding — delivered in just 2 months to keep the facility\'s expansion programme on schedule.',
+      description: 'Roof and facade cladding for ABP\'s food processing facility in Rathkeale. The 1,600 m² contract covered Kingspan roof panels combined with aluminium RW facade cladding — delivered in just 3 months to keep the facility\'s expansion programme on schedule.',
       specifications: {
         surface: '1,600 m²',
         materials: 'Kingspan Roof Panels · Aluminium RW Facade Cladding',
@@ -357,7 +357,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   {currentProject.images.map((image, index) => (
                     <button
-                      key={image}
+                      key={`${currentProject.id}-${index}`}
                       aria-label={`View photo ${index + 1} of ${currentProject.images.length}`}
                       onClick={() => setCurrentImageIndex(index)}
                       className={`relative h-20 rounded-lg overflow-hidden border-2 transition-all ${

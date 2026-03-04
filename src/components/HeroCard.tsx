@@ -42,7 +42,7 @@ export default function HeroCard({ tagline, title, subtitle, onNavigate }: HeroC
         href="tel:+353833468913"
         className="mt-5 inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors duration-200 text-sm"
       >
-        <Phone className="w-4 h-4" />
+        <Phone className="w-4 h-4" aria-hidden="true" />
         Or call directly: 083 346 8913
       </a>
     </div>

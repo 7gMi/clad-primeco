@@ -25,27 +25,27 @@ export default function About({ onNavigate }: AboutProps) {
       tagline: 'Thermal performance. Fire rating. On programme.',
       description: 'Kingspan insulated panels give you exceptional thermal performance, fire resistance, and a fast installation sequence — keeping your programme on track while future-proofing the building envelope.',
       image: '/images/kingspan-panel.jpg',
+      imageAlt: 'Kingspan insulated panels installed on a commercial building facade',
       icon: Thermometer,
       badge: '4 projects delivered',
-      link: 'services'
     },
     {
       title: 'Aluminium Roof Deck',
       tagline: 'Watertight. Maintenance-free. Built to spec.',
       description: 'A watertight, low-maintenance roof deck tailored to your project. Lightweight aluminium profiles are designed to your exact specifications — custom sizes, profiles, and finishes available.',
       image: '/images/aluminium-copings/aluminium-copings.jpg',
+      imageAlt: 'Aluminium roof deck and coping system on a commercial building',
       icon: Umbrella,
       badge: '2 projects delivered',
-      link: 'services'
     },
     {
       title: 'Architectural Panels',
       tagline: 'Striking facades that perform for decades.',
       description: 'Give your building a striking, durable facade that performs for decades. Our architectural panels provide full weatherproofing while delivering the aesthetic finish your design demands.',
       image: '/images/architectural-panels/architectural-panels.jpg',
+      imageAlt: 'Architectural cladding panels on a modern building facade',
       icon: Palette,
       badge: '2 projects delivered',
-      link: 'services'
     }
   ];
 
@@ -255,7 +255,7 @@ export default function About({ onNavigate }: AboutProps) {
                   <div className="relative h-56 overflow-hidden">
                     <img
                       src={service.image}
-                      alt={service.title}
+                      alt={service.imageAlt}
                       width="600"
                       height="224"
                       loading="lazy"

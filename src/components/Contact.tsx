@@ -244,6 +244,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                       value={form.name}
                       onChange={handleChange}
                       placeholder="Your full name"
+                      autoComplete="name"
                       required
                       className="w-full pl-12 pr-4 py-3.5 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-slate-50 focus:bg-white"
                     />
@@ -263,6 +264,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                       onChange={handleChange}
                       placeholder="your@email.com"
                       type="email"
+                      autoComplete="email"
                       required
                       className="w-full pl-12 pr-4 py-3.5 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-slate-50 focus:bg-white"
                     />
@@ -284,6 +286,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                       onChange={handleChange}
                       placeholder="+353 xx xxx xxxx"
                       type="tel"
+                      autoComplete="tel"
                       className="w-full pl-12 pr-4 py-3.5 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-slate-50 focus:bg-white"
                     />
                   </div>
@@ -327,7 +330,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                       placeholder="Tell us about your project — location, scope, timeline, or any specific requirements. The more detail, the faster we can respond with an accurate quote."
                       required
                       rows={5}
-                      className="w-full pl-12 pr-4 py-3.5 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-slate-50 hover:bg-white resize-none"
+                      className="w-full pl-12 pr-4 py-3.5 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-slate-50 hover:bg-white focus:bg-white resize-none"
                     />
                   </div>
                 </div>
