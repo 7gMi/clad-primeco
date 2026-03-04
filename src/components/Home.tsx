@@ -3,8 +3,9 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { slides } from '../data/slides';
 import HeroCard from './HeroCard';
 import SlideIndicators from './SlideIndicators';
-import { ArrowRight, Building2, Layers, Shield, PenTool, FileText, CheckCircle, Phone, Mail, Instagram } from 'lucide-react';
+import { ArrowRight, Thermometer, Palette, Droplets, PenTool, FileText, CheckCircle, Phone, Mail, Instagram, Building2 } from 'lucide-react';
 import Navigation from './Navigation';
+import BackToTop from './BackToTop';
 
 interface HomeProps {
   onNavigate: (page: Page) => void;
@@ -256,115 +257,124 @@ export default function Home({ onNavigate }: HomeProps) {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
+
             {/* Card: Kingspan Panels */}
-            <div className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
-              <div className="relative h-56 overflow-hidden">
-                {/*
-                  loading=lazy: service cards are far below the fold on all
-                  viewport heights — defer until user scrolls into range.
-                  width/height prevent CLS by reserving the 224px (h-56) card height.
-                */}
+            <div className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100 hover:-translate-y-1">
+              <div className="relative h-52 overflow-hidden">
                 <img
                   src="/images/kingspan-panel.jpg"
                   alt="Kingspan insulated panels"
                   width="600"
-                  height="224"
+                  height="208"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
-              </div>
-
-              <div className="relative px-8 pt-12 pb-8">
-                <div className="absolute -top-8 left-8">
-                  <div className="bg-blue-600 p-5 rounded-lg shadow-xl transform group-hover:scale-110 transition-all duration-300">
-                    <Building2 className="w-10 h-10 text-white" />
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-white/70 bg-black/30 px-2 py-1 rounded-full backdrop-blur-sm">
+                    Insulated Panels
+                  </span>
                 </div>
-
-                <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-4">
-                  Kingspan Panels
-                </h3>
-
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300 flex-shrink-0">
+                    <Thermometer className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">Kingspan Panels</h3>
+                </div>
+                <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                  High-performance insulated panels delivering exceptional thermal efficiency and fast installation — keeping your programme on track.
+                </p>
                 <button
                   onClick={() => onNavigate('services')}
-                  className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+                  className="text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   Learn more
-                  <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform" />
+                  <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>
 
             {/* Card: Architectural Panels */}
-            <div className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
-              <div className="relative h-56 overflow-hidden">
+            <div className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100 hover:-translate-y-1">
+              <div className="relative h-52 overflow-hidden">
                 <img
                   src="/images/architectural-panels/amazon4.jpg"
                   alt="Architectural cladding panels"
                   width="600"
-                  height="224"
+                  height="208"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
-              </div>
-
-              <div className="relative px-8 pt-12 pb-8">
-                <div className="absolute -top-8 left-8">
-                  <div className="bg-blue-600 p-5 rounded-lg shadow-xl transform group-hover:scale-110 transition-all duration-300">
-                    <Layers className="w-10 h-10 text-white" />
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-white/70 bg-black/30 px-2 py-1 rounded-full backdrop-blur-sm">
+                    Facade Systems
+                  </span>
                 </div>
-
-                <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-4">
-                  Architectural Panels
-                </h3>
-
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300 flex-shrink-0">
+                    <Palette className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">Architectural Panels</h3>
+                </div>
+                <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                  Striking, durable facades that perform for decades — full weatherproofing with the aesthetic finish your design demands.
+                </p>
                 <button
                   onClick={() => onNavigate('services')}
-                  className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+                  className="text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   Learn more
-                  <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform" />
+                  <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>
 
             {/* Card: Aluminium Copings */}
-            <div className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
-              <div className="relative h-56 overflow-hidden">
+            <div className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100 hover:-translate-y-1">
+              <div className="relative h-52 overflow-hidden">
                 <img
                   src="/images/aluminium-copings/aluminium-copings.jpg"
                   alt="Aluminium coping systems"
                   width="600"
-                  height="224"
+                  height="208"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
-              </div>
-
-              <div className="relative px-8 pt-12 pb-8">
-                <div className="absolute -top-8 left-8">
-                  <div className="bg-blue-600 p-5 rounded-lg shadow-xl transform group-hover:scale-110 transition-all duration-300">
-                    <Shield className="w-10 h-10 text-white" />
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-white/70 bg-black/30 px-2 py-1 rounded-full backdrop-blur-sm">
+                    Roof Deck
+                  </span>
                 </div>
-
-                <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-4">
-                  Aluminium Copings & Roof Deck
-                </h3>
-
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300 flex-shrink-0">
+                    <Droplets className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">Aluminium Copings & Roof Deck</h3>
+                </div>
+                <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                  Watertight, low-maintenance roof deck and copings — lightweight aluminium profiles to your exact specifications.
+                </p>
                 <button
                   onClick={() => onNavigate('services')}
-                  className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+                  className="text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   Learn more
-                  <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform" />
+                  <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -497,6 +507,7 @@ export default function Home({ onNavigate }: HomeProps) {
           </p>
         </div>
       </footer>
+      <BackToTop />
     </div>
   );
 }
