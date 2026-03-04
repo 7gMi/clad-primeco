@@ -76,7 +76,7 @@ export default function Contact({ onNavigate }: ContactProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Header onNavigate={onNavigate} currentPage="contact" />
 
       {/* Hero */}
@@ -114,7 +114,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                 Got a project coming up? Send us your brief or drawings and we will come back with a detailed, competitive quote. No sales process — just straight answers from the people who do the work.
               </p>
               <div className="space-y-5">
-                <a href="tel:0833468913" className="flex items-center gap-5 group">
+                <a href="tel:+353833468913" className="flex items-center gap-5 group">
                   <div className="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
@@ -129,7 +129,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                   </div>
                   <div>
                     <p className="text-sm text-slate-500 font-medium">Email</p>
-                    <p className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">cladprimeco@outlook.com</p>
+                    <p className="text-base sm:text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors break-all">cladprimeco@outlook.com</p>
                   </div>
                 </a>
               </div>
