@@ -316,7 +316,7 @@ export default function Services({ onNavigate }: ServicesProps) {
               </p>
               <div className="h-px bg-slate-300 flex-1" />
             </div>
-            <div className={`grid gap-6 ${currentService.projects.length === 2 ? 'grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto' : 'grid-cols-2 lg:grid-cols-4'}`}>
+            <div className={`grid gap-6 ${currentService.projects.length === 2 ? 'grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'}`}>
               {currentService.projects.map((project) => (
                 <button
                   key={project.name}

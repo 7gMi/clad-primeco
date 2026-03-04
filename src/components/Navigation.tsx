@@ -118,7 +118,7 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
                 onMouseEnter={() => prefetchPage(item.page)}
                 onFocus={() => prefetchPage(item.page)}
                 aria-current={currentPage === item.page ? 'page' : undefined}
-                className={`${textColor} ${hoverColor} ${getActiveClass(item.page)} text-[14px] md:text-[16px] lg:text-[18px] transition-colors duration-300 font-medium`}
+                className={`${textColor} ${hoverColor} ${getActiveClass(item.page)} text-[14px] md:text-[16px] lg:text-[18px] transition-colors duration-300 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:rounded`}
               >
                 {item.label}
               </button>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import Home from './components/Home';
 import FloatingCTA from './components/FloatingCTA';
 import { useAuth } from './hooks/useAuth';
@@ -45,33 +45,42 @@ function PageLoader() {
 }
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
   const [displayedPage, setDisplayedPage] = useState<Page>('home');
   const [isVisible, setIsVisible] = useState(true);
   const { session, loading, logout } = useAuth();
+  const transitionRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (window.location.hash === '#admin') {
-      setCurrentPage('admin');
       setDisplayedPage('admin');
+      // M10: clean the hash from the URL immediately
+      history.replaceState(null, '', window.location.pathname);
     }
+    return () => {
+      if (transitionRef.current) clearTimeout(transitionRef.current);
+    };
   }, []);
 
   // Scroll to top on page change
   useEffect(() => {
     if (displayedPage === 'home') {
       const container = document.querySelector('.home-scroll-container');
-      container?.scrollTo({ top: 0, behavior: 'instant' });
+      if (container) {
+        container.scrollTo({ top: 0, behavior: 'instant' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
     } else {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
   }, [displayedPage]);
 
+  // M11: cancel pending transition if user navigates again quickly
   const handleNavigate = useCallback((page: Page) => {
     if (page === displayedPage) return;
-    setCurrentPage(page);
+    if (transitionRef.current) clearTimeout(transitionRef.current);
     setIsVisible(false);
-    setTimeout(() => {
+    transitionRef.current = setTimeout(() => {
       setDisplayedPage(page);
       setIsVisible(true);
     }, 200);

@@ -204,7 +204,7 @@ export default function About({ onNavigate }: AboutProps) {
                       aria-label={`Step ${step.number}: ${step.title}`}
                     >
                       {isSelected && (
-                        <div className="absolute inset-0 w-28 h-28 -top-4 -left-4 rounded-full bg-white/20 animate-pulse"></div>
+                        <div className="absolute -inset-4 rounded-full bg-white/20 animate-pulse"></div>
                       )}
                       <div className={`relative w-20 h-20 rounded-full transition-all duration-300 flex items-center justify-center ${
                         isSelected

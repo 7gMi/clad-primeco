@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import HCaptcha from '@hcaptcha/react-hcaptcha'
 import { Send, User, Mail, MessageSquare, CheckCircle, AlertCircle, Phone, Instagram, MapPin, ChevronDown } from 'lucide-react'
 import Header from './Header'
@@ -23,25 +23,47 @@ export default function Contact({ onNavigate }: ContactProps) {
   const [success, setSuccess] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const captchaRef = useRef<HCaptcha | null>(null)
+  // M8: synchronous in-flight lock — prevents double-submit regardless of render cycle
+  const submittingRef = useRef(false)
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
-  }
+  }, [])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (loading) return
+    if (submittingRef.current || loading) return
+    submittingRef.current = true
     setError(null)
     setSuccess(null)
 
     if (!token) {
       setError('Please complete the hCaptcha.')
+      submittingRef.current = false
       return
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(form.email)) {
       setError('Please enter a valid email address.')
+      submittingRef.current = false
+      return
+    }
+
+    // M7: phone validation (optional field — only validate if non-empty)
+    if (form.phone.trim() !== '') {
+      const phoneRegex = /^(\+353|0)[0-9\s]{7,14}$/
+      if (!phoneRegex.test(form.phone.trim())) {
+        setError('Please enter a valid Irish phone number (e.g. 083 346 8913).')
+        submittingRef.current = false
+        return
+      }
+    }
+
+    // M9: runtime guard for missing env vars
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+      setError('Service configuration error. Please contact us directly at cladprimeco@outlook.com.')
+      submittingRef.current = false
       return
     }
 
@@ -72,6 +94,7 @@ export default function Contact({ onNavigate }: ContactProps) {
       setToken(null)
     } finally {
       setLoading(false)
+      submittingRef.current = false
     }
   }
 
@@ -329,15 +352,15 @@ export default function Contact({ onNavigate }: ContactProps) {
                 </div>
 
                 {success && (
-                  <div className="flex items-start gap-3 bg-green-50 border border-green-200 rounded-xl p-4">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div role="status" aria-live="polite" aria-atomic="true" className="flex items-start gap-3 bg-green-50 border border-green-200 rounded-xl p-4">
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
                     <p className="text-green-700 text-sm font-medium">{success}</p>
                   </div>
                 )}
 
                 {error && (
-                  <div className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-xl p-4">
-                    <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                  <div role="alert" aria-live="assertive" aria-atomic="true" className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-xl p-4">
+                    <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
                     <p className="text-red-700 text-sm font-medium">{error}</p>
                   </div>
                 )}

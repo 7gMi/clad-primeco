@@ -19,9 +19,9 @@ export default function HeroCard({ tagline, title, subtitle, onNavigate }: HeroC
         {title}
       </h1>
 
-      <h2 className="text-gray-200 text-base md:text-lg lg:text-xl mb-8 md:mb-10 leading-relaxed max-w-3xl">
+      <p className="text-gray-200 text-base md:text-lg lg:text-xl mb-8 md:mb-10 leading-relaxed max-w-3xl">
         {subtitle}
-      </h2>
+      </p>
 
       <div className="flex flex-wrap gap-4">
         <button

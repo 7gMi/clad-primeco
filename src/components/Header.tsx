@@ -16,7 +16,7 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
       setIsScrolled(scrollPosition > 100);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
