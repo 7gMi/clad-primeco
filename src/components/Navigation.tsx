@@ -1,5 +1,4 @@
-import { Page } from '../App';
-import { prefetchPage } from '../App';
+import { Page, prefetchPage } from '../App';
 import { useState } from 'react';
 import { Menu, X, Phone, Mail, ArrowRight } from 'lucide-react';
 
@@ -37,7 +36,7 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
   return (
     <>
       {/* ── Desktop nav ── */}
-      <nav className="hidden md:block">
+      <nav aria-label="Main navigation" className="hidden md:block">
         <ul className="flex gap-8 lg:gap-10">
           {navItems.map((item) => (
             <li key={item.label}>
@@ -108,7 +107,7 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
         </div>
 
         {/* Nav items */}
-        <nav className="flex-1 px-4 py-6 overflow-y-auto">
+        <nav aria-label="Mobile navigation" className="flex-1 px-4 py-6 overflow-y-auto">
           <ul className="space-y-1">
             {navItems.map((item) => {
               const isActive = currentPage === item.page;

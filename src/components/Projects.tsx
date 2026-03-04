@@ -351,7 +351,8 @@ export default function Projects({ onNavigate }: ProjectsProps) {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   {currentProject.images.map((image, index) => (
                     <button
-                      key={index}
+                      key={image}
+                      aria-label={`View photo ${index + 1} of ${currentProject.images.length}`}
                       onClick={() => setCurrentImageIndex(index)}
                       className={`relative h-20 rounded-lg overflow-hidden border-2 transition-all ${
                         currentImageIndex === index
@@ -450,7 +451,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
               <div className="md:ml-4 mt-4 md:mt-0 text-center md:text-left">
                 <div className="text-lg font-semibold text-gray-300 mb-1">Phone</div>
                 <a
-                  href="tel:0833468913"
+                  href="tel:+353833468913"
                   className="text-xl text-white hover:text-blue-500 transition-colors duration-300"
                 >
                   083 346 8913

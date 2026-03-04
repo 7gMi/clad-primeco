@@ -227,7 +227,7 @@ export default function About({ onNavigate }: AboutProps) {
                   </div>
                   {index < 3 && (
                     <div className="hidden md:block absolute top-10 left-[calc(50%+50px)] w-[calc(100%-100px)] h-0.5 bg-slate-700">
-                      <ArrowRight className="absolute -right-2 -top-3 w-6 h-6 text-blue-600" />
+                      <ArrowRight className="absolute -right-2 -top-[11px] w-6 h-6 text-blue-600" />
                     </div>
                   )}
                 </div>
@@ -247,10 +247,10 @@ export default function About({ onNavigate }: AboutProps) {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => {
+            {services.map((service) => {
               const Icon = service.icon;
               return (
-                <div key={index} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-slate-100">
+                <div key={service.title} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-slate-100">
                   {/* Image with overlay content */}
                   <div className="relative h-56 overflow-hidden">
                     <img
@@ -289,7 +289,7 @@ export default function About({ onNavigate }: AboutProps) {
                       {service.description}
                     </p>
                     <button
-                      onClick={() => onNavigate(service.link as Page)}
+                      onClick={() => onNavigate('services')}
                       className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded group/btn"
                     >
                       View service
@@ -331,7 +331,7 @@ export default function About({ onNavigate }: AboutProps) {
               <div className="md:ml-4 mt-4 md:mt-0 text-center md:text-left">
                 <div className="text-lg font-semibold text-gray-300 mb-1">Phone</div>
                 <a
-                  href="tel:0833468913"
+                  href="tel:+353833468913"
                   className="text-xl text-white hover:text-blue-500 transition-colors duration-300"
                 >
                   083 346 8913

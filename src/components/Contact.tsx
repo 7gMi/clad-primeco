@@ -30,11 +30,18 @@ export default function Contact({ onNavigate }: ContactProps) {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    if (loading) return
     setError(null)
     setSuccess(null)
 
     if (!token) {
       setError('Please complete the hCaptcha.')
+      return
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(form.email)) {
+      setError('Please enter a valid email address.')
       return
     }
 
@@ -61,6 +68,8 @@ export default function Contact({ onNavigate }: ContactProps) {
       setToken(null)
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to send message')
+      captchaRef.current?.resetCaptcha()
+      setToken(null)
     } finally {
       setLoading(false)
     }
@@ -301,13 +310,17 @@ export default function Contact({ onNavigate }: ContactProps) {
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <HCaptcha
-                    sitekey={HCAPTCHA_SITEKEY}
-                    onVerify={setToken}
-                    onExpire={() => setToken(null)}
-                    ref={captchaRef}
-                    languageOverride="en"
-                  />
+                  {HCAPTCHA_SITEKEY ? (
+                    <HCaptcha
+                      sitekey={HCAPTCHA_SITEKEY}
+                      onVerify={setToken}
+                      onExpire={() => setToken(null)}
+                      ref={captchaRef}
+                      languageOverride="en"
+                    />
+                  ) : (
+                    <p className="text-red-500 text-sm">Captcha configuration error. Please contact us directly at cladprimeco@outlook.com.</p>
+                  )}
                   <p className="text-xs text-slate-400 leading-relaxed">
                     By submitting this form, you agree to our Privacy Policy. Your data is used solely to respond to your enquiry and is never shared with third parties.
                   </p>

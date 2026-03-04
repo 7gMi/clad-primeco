@@ -210,7 +210,7 @@ export function getClientAutoReplyEmail(clientName: string): string {
  * Escapes user-supplied strings before embedding them in HTML to prevent
  * XSS injection in the generated email body.
  */
-function escapeHtml(str: string): string {
+export function escapeHtml(str: string): string {
   return str
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")

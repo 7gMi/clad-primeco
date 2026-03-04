@@ -77,7 +77,7 @@ function App() {
     }, 200);
   }, [displayedPage]);
 
-  if (currentPage === 'admin') {
+  if (displayedPage === 'admin') {
     if (loading) return <PageLoader />;
     return (
       <Suspense fallback={<PageLoader />}>

@@ -4,7 +4,7 @@ import { getCompanyNotificationEmail, getClientAutoReplyEmail } from "./email-te
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Client-Info, Apikey",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Client-Info, Apikey, x-supabase-client",
 };
 
 const RATE_LIMIT_MAX = 3;
@@ -22,6 +22,18 @@ Deno.serve(async (req: Request) => {
       JSON.stringify({ error: "method_not_allowed", message: "Only POST requests are accepted." }),
       { status: 405, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
+  }
+
+  // --- 0. Check required environment variables ---
+  const requiredEnvVars = ["HCAPTCHA_SECRET", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"];
+  for (const key of requiredEnvVars) {
+    if (!Deno.env.get(key)) {
+      console.error(`[contact] Missing required env var: ${key}`);
+      return new Response(
+        JSON.stringify({ error: "server_config_error", message: "Service temporarily unavailable. Please contact us directly at cladprimeco@outlook.com." }),
+        { status: 503, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
   }
 
   // --- 1. Parse body ---
@@ -54,6 +66,20 @@ Deno.serve(async (req: Request) => {
   if (!emailRegex.test(email)) {
     return new Response(
       JSON.stringify({ error: "invalid_email", message: "Please provide a valid email address." }),
+      { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
+  }
+
+  // Message length validation
+  if (message.length < 10) {
+    return new Response(
+      JSON.stringify({ error: "invalid_message", message: "Message must be at least 10 characters." }),
+      { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
+  }
+  if (message.length > 5000) {
+    return new Response(
+      JSON.stringify({ error: "invalid_message", message: "Message must not exceed 5000 characters." }),
       { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
@@ -131,6 +157,10 @@ Deno.serve(async (req: Request) => {
   }
 
   // --- 7. Build the stored message (embed service when provided) ---
+  const VALID_SERVICES = ["Kingspan Cladding", "Architectural Panels", "Aluminium Copings & Roof Deck", "Other", ""];
+  if (service && !VALID_SERVICES.includes(service)) {
+    service = "";
+  }
   const storedMessage = service
     ? `Service: ${service}\n\n${message}`
     : message;

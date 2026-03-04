@@ -29,7 +29,7 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
       }`}
     >
       <div className="flex justify-between items-center">
-        <div className="logo-container cursor-pointer" onClick={() => onNavigate?.('home')}>
+        <button className="logo-container cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded" onClick={() => onNavigate?.('home')} aria-label="Go to homepage">
           <picture>
             <source media="(min-width: 1024px)" srcSet="/images/logo/logo-desktop.png" />
             <source media="(min-width: 768px)" srcSet="/images/logo/logo-tab.png" />
@@ -51,7 +51,7 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
               CLADDING PROFESSIONALS
             </p>
           )}
-        </div>
+        </button>
 
         <Navigation onNavigate={onNavigate} isScrolled={isScrolled} currentPage={currentPage} />
       </div>

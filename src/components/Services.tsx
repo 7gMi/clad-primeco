@@ -288,8 +288,8 @@ export default function Services({ onNavigate }: ServicesProps) {
               <div className="bg-white rounded-xl p-6 mb-8 border border-slate-200">
                 <h3 className="font-bold text-slate-900 mb-4 text-lg">Key Specifications</h3>
                 <div className="grid grid-cols-2 gap-4">
-                  {currentService.specifications.map((spec, index) => (
-                    <div key={index} className="border-l-2 border-blue-600 pl-3">
+                  {currentService.specifications.map((spec) => (
+                    <div key={spec.label} className="border-l-2 border-blue-600 pl-3">
                       <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">{spec.label}</p>
                       <p className="text-base font-bold text-slate-900 mt-0.5">{spec.value}</p>
                     </div>
@@ -317,9 +317,9 @@ export default function Services({ onNavigate }: ServicesProps) {
               <div className="h-px bg-slate-300 flex-1" />
             </div>
             <div className={`grid gap-6 ${currentService.projects.length === 2 ? 'grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto' : 'grid-cols-2 lg:grid-cols-4'}`}>
-              {currentService.projects.map((project, index) => (
+              {currentService.projects.map((project) => (
                 <button
-                  key={index}
+                  key={project.name}
                   onClick={() => onNavigate('projects')}
                   className="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-44 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 >
@@ -352,8 +352,8 @@ export default function Services({ onNavigate }: ServicesProps) {
             <div>
               <h3 className="text-3xl font-bold text-slate-900 mb-8">Key Features</h3>
               <ul className="space-y-4">
-                {currentService.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-4 group">
+                {currentService.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-4 group">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center mt-1 group-hover:scale-110 transition-transform">
                       <Check className="w-4 h-4 text-white" />
                     </div>
@@ -366,9 +366,9 @@ export default function Services({ onNavigate }: ServicesProps) {
             <div>
               <h3 className="text-3xl font-bold text-slate-900 mb-8">Applications</h3>
               <div className="grid grid-cols-2 gap-4">
-                {currentService.applications.map((app, index) => (
+                {currentService.applications.map((app) => (
                   <div
-                    key={index}
+                    key={app}
                     className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 hover:shadow-lg transition-all"
                   >
                     <p className="font-semibold text-slate-900">{app}</p>
@@ -389,7 +389,7 @@ export default function Services({ onNavigate }: ServicesProps) {
               </div>
               <div className="md:ml-4 mt-4 md:mt-0 text-center md:text-left">
                 <div className="text-lg font-semibold text-gray-300 mb-1">Phone</div>
-                <a href="tel:0833468913" className="text-xl text-white hover:text-blue-500 transition-colors duration-300">
+                <a href="tel:+353833468913" className="text-xl text-white hover:text-blue-500 transition-colors duration-300">
                   083 346 8913
                 </a>
               </div>
