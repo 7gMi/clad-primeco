@@ -272,7 +272,6 @@ export default function Contact({ onNavigate }: ContactProps) {
                       <option value="Kingspan Cladding">Kingspan Cladding</option>
                       <option value="Architectural Panels">Architectural Panels</option>
                       <option value="Aluminium Copings & Roof Deck">Aluminium Copings &amp; Roof Deck</option>
-                      <option value="Fire Protection Cladding">Fire Protection Cladding</option>
                       <option value="Other">Other / Not sure</option>
                     </select>
                     <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">

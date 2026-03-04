@@ -417,7 +417,7 @@ export default function Home({ onNavigate }: HomeProps) {
       <footer className="bg-black text-gray-400 py-6 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-sm md:text-base">
-            ©2025 Clad Primeco Professional Cladding - Industrial Building Solutions. All rights reserved.
+            ©2023-2026 Clad Primeco Professional Cladding - Industrial Building Solutions. All rights reserved.
           </p>
         </div>
       </footer>

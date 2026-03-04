@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Building2, Layers, Shield, Zap, Phone, Mail, Instagram } from 'lucide-react';
+import { ArrowRight, Building2, Layers, Shield, Phone, Mail, Instagram } from 'lucide-react';
 import Header from './Header';
 import BackToTop from './BackToTop';
 import { Page } from '../App';
@@ -8,7 +8,7 @@ interface ServicesProps {
   onNavigate: (page: Page) => void;
 }
 
-type ServiceType = 'kingspan' | 'architectural' | 'aluminium' | 'fireproof';
+type ServiceType = 'kingspan' | 'architectural' | 'aluminium';
 
 export default function Services({ onNavigate }: ServicesProps) {
   const [selectedService, setSelectedService] = useState<ServiceType>('kingspan');
@@ -100,35 +100,6 @@ export default function Services({ onNavigate }: ServicesProps) {
         { label: 'Finish', value: 'Anodized or painted' }
       ]
     },
-    fireproof: {
-      title: 'Fire Protection Cladding',
-      subtitle: 'Advanced Fireproofing Solutions',
-      description: 'Our fire protection cladding systems meet the highest fire safety standards. Essential for high-risk environments, these solutions provide superior fire resistance without compromising structural integrity.',
-      features: [
-        'A2-s1, d0 fire classification',
-        'Intumescent coatings available',
-        'Steel structure protection',
-        'Tested to international standards',
-        'Certification for critical applications',
-        'Compliance with building regulations'
-      ],
-      applications: [
-        'Structural steel protection',
-        'High-rise buildings',
-        'Government facilities',
-        'Hospitals and emergency services',
-        'Industrial hazardous areas',
-        'Historical restorations'
-      ],
-      image: '/images/backgrounds/kingspan-panel.jpg',
-      icon: Zap,
-      specifications: [
-        { label: 'Fire Rating', value: 'A2-s1, d0' },
-        { label: 'LPCB Certification', value: 'Available' },
-        { label: 'Application', value: 'Multiple methods' },
-        { label: 'Durability', value: '20+ years' }
-      ]
-    }
   };
 
   const currentService = servicesData[selectedService];
