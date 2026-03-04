@@ -18,19 +18,19 @@ export default function About({ onNavigate }: AboutProps) {
   const services = [
     {
       title: 'Kingspan Cladding',
-      description: 'Kingspan Cladding is a lightweight, high-performance building material with a low carbon footprint. Strong, durable, and versatile, it is suitable for a wide range of applications.',
+      description: 'Kingspan insulated panels give you exceptional thermal performance, fire resistance, and a fast installation sequence — keeping your programme on track while future-proofing the building envelope.',
       image: '/images/kingspan-panel.jpg',
       link: 'services'
     },
     {
       title: 'Aluminium Roof Deck',
-      description: 'Aluminium roof decking offers an attractive and cost-effective solution for roofing applications. Designed specifically for each project, aluminium roof decks can be customized to meet individual specifications, sizes, and profiles.',
+      description: 'A watertight, low-maintenance roof deck tailored to your project. Lightweight aluminium profiles are designed to your exact specifications — custom sizes, profiles, and finishes available.',
       image: '/images/aluminium-copings/aluminium-copings.jpg',
       link: 'services'
     },
     {
       title: 'Architectural Cladding Panels',
-      description: 'The purpose of cladding is to divert water away from any point of entry and to make any building weatherproof. Architectural panels provide both aesthetic appeal and functional protection for modern buildings.',
+      description: 'Give your building a striking, durable facade that performs for decades. Our architectural panels provide full weatherproofing while delivering the aesthetic finish your design demands.',
       image: '/images/architectural-panels/architectural-panels.jpg',
       link: 'services'
     }
@@ -50,7 +50,7 @@ export default function About({ onNavigate }: AboutProps) {
             <div className="flex items-center gap-4 mb-4">
               <div className="h-px w-16 bg-blue-500/50"></div>
               <p className="text-white text-base md:text-lg font-light">
-                Clad Primeco
+                Ireland's Cladding Specialists
               </p>
             </div>
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
@@ -76,28 +76,28 @@ export default function About({ onNavigate }: AboutProps) {
               </div>
 
               <div className="space-y-6 text-slate-700 leading-relaxed">
-                <h3 className="text-2xl md:text-3xl font-bold text-slate-900">Our Strategic Goals</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900">What We Stand For</h3>
                 <p className="text-lg">
-                  As a unified company with cross industry expertise, our customers can be confident that we will deliver trusted building solutions through:
+                  We operate as a focused, specialist contractor — not a generalist. Every project we take on gets the same level of attention, from the first site visit to the final fixing:
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center mt-1">
                       <Check className="w-4 h-4 text-white" />
                     </div>
-                    <p className="text-lg">Customer Excellence.</p>
+                    <p className="text-lg">Delivery on programme — protecting your project timeline.</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center mt-1">
                       <Check className="w-4 h-4 text-white" />
                     </div>
-                    <p className="text-lg">Nurturing the potential of our people.</p>
+                    <p className="text-lg">Experienced site crews with proven cladding expertise.</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center mt-1">
                       <Check className="w-4 h-4 text-white" />
                     </div>
-                    <p className="text-lg">Continually improving performance standards.</p>
+                    <p className="text-lg">Consistent quality standards — every project, every time.</p>
                   </div>
                 </div>
               </div>
@@ -109,9 +109,13 @@ export default function About({ onNavigate }: AboutProps) {
               </h2>
               <div className="space-y-6 text-lg text-slate-700 leading-relaxed mb-8">
                 <p>
-                  We are specialised in Fibre Cement Cladding, Aluminium copings, and Architectural cladding panels.
-                  Our project solutions transform buildings into modern architectural statements, delivering perfect
-                  results from initial concept through to final installation.
+                  Clad Primeco is a specialist cladding and roofing contractor based in Dublin, delivering projects across Ireland for main contractors, developers, and public sector clients.
+                </p>
+                <p>
+                  We specialise in Kingspan insulated panels, architectural cladding systems, and aluminium copings and roof deck — handling supply, installation, and coordination from initial survey through to handover.
+                </p>
+                <p>
+                  Our track record includes large-scale data centres, pharmaceutical facilities, educational buildings, commercial warehouses, and active port environments. If your envelope needs to perform, we deliver it.
                 </p>
               </div>
 
@@ -138,8 +142,7 @@ export default function About({ onNavigate }: AboutProps) {
             </p>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Process</h2>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              As a unified company with cross industry expertise, our customers can be confident that
-              we will deliver trusted building solutions.
+              A clear, structured process — from pre-construction planning through to final inspection. We keep you informed at every stage so there are no surprises on site.
             </p>
           </div>
 
@@ -213,16 +216,16 @@ export default function About({ onNavigate }: AboutProps) {
       <section className="bg-blue-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Start Your Project?
+            Ready to Discuss Your Project?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Get in touch with us today for a consultation
+            Send us your drawings or brief — we'll come back with a detailed, competitive quote.
           </p>
           <button
             onClick={() => onNavigate('contact')}
             className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors inline-flex items-center gap-2 hover:gap-3 transition-all duration-300"
           >
-            Contact Us
+            Request a Quote
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>

@@ -83,7 +83,7 @@ export default function Contact({ onNavigate }: ContactProps) {
           <div className="max-w-7xl">
             <div className="flex items-center gap-4 mb-4">
               <div className="h-px w-16 bg-blue-500/50"></div>
-              <p className="text-white text-base md:text-lg font-light">Get In Touch</p>
+              <p className="text-white text-base md:text-lg font-light">Request a Quote or Ask a Question</p>
             </div>
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
               Contact <span className="text-blue-600">Us</span>
@@ -102,10 +102,10 @@ export default function Contact({ onNavigate }: ContactProps) {
                 <p className="text-blue-600 font-semibold tracking-wider uppercase text-sm">Contact Information</p>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-                We're here to <span className="text-blue-600">help</span>
+                Talk to the <span className="text-blue-600">team</span>
               </h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-10">
-                Have a project in mind or need expert advice on cladding systems? Reach out to our team directly — we respond quickly and always provide clear, detailed answers.
+                Got a project coming up? Send us your brief or drawings and we will come back with a detailed, competitive quote. No sales process — just straight answers from the people who do the work.
               </p>
               <div className="space-y-5">
                 <a href="tel:0833468913" className="flex items-center gap-5 group">
@@ -164,8 +164,8 @@ export default function Contact({ onNavigate }: ContactProps) {
                     <span className="text-white text-sm font-bold">01</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900 mb-1">Fast, detailed quotes</p>
-                    <p className="text-slate-500 text-sm leading-relaxed">We assess your requirements and respond with precise pricing — no vague estimates.</p>
+                    <p className="font-semibold text-slate-900 mb-1">Precise quotes, fast turnaround</p>
+                    <p className="text-slate-500 text-sm leading-relaxed">We review your requirements and respond with accurate, itemised pricing — no ballpark figures, no back-and-forth.</p>
                   </div>
                 </div>
                 <div className="flex gap-5 py-5 border-b border-slate-200">
@@ -173,8 +173,8 @@ export default function Contact({ onNavigate }: ContactProps) {
                     <span className="text-white text-sm font-bold">02</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900 mb-1">Direct access to our team</p>
-                    <p className="text-slate-500 text-sm leading-relaxed">No call centres. You speak directly with the people who will deliver your project.</p>
+                    <p className="font-semibold text-slate-900 mb-1">Direct line to the decision-makers</p>
+                    <p className="text-slate-500 text-sm leading-relaxed">No intermediaries. You deal directly with the team responsible for delivering your project — from quote to completion.</p>
                   </div>
                 </div>
                 <div className="flex gap-5 py-5 border-b border-slate-200">
@@ -182,8 +182,8 @@ export default function Contact({ onNavigate }: ContactProps) {
                     <span className="text-white text-sm font-bold">03</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900 mb-1">Serving all of Ireland</p>
-                    <p className="text-slate-500 text-sm leading-relaxed">Based in Dublin, we deliver commercial and industrial cladding projects nationwide.</p>
+                    <p className="font-semibold text-slate-900 mb-1">Ireland-wide delivery capacity</p>
+                    <p className="text-slate-500 text-sm leading-relaxed">Dublin-based, nationwide reach. We have completed projects from Cork to Wexford to Limerick — and everywhere in between.</p>
                   </div>
                 </div>
               </div>
@@ -290,7 +290,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                       name="message"
                       value={form.message}
                       onChange={handleChange}
-                      placeholder="Describe your project or request..."
+                      placeholder="Tell us about your project — location, scope, timeline, or any specific requirements. The more detail, the faster we can respond with an accurate quote."
                       required
                       rows={5}
                       className="w-full pl-12 pr-4 py-3.5 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-slate-50 hover:bg-white resize-none"

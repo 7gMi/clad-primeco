@@ -16,19 +16,19 @@ export default function Services({ onNavigate }: ServicesProps) {
   const servicesData = {
     kingspan: {
       title: 'Kingspan Cladding Systems',
-      subtitle: 'High-Performance Insulated Panels',
-      description: 'Kingspan panels are lightweight, high-performance building materials designed for maximum efficiency. Our Kingspan cladding systems provide superior thermal performance, fire resistance, and durability for industrial and commercial projects.',
+      subtitle: 'The Industry Standard — Installed by Specialists',
+      description: 'Kingspan insulated panels deliver the thermal performance, fire resistance, and installation speed that demanding commercial and industrial projects require. We supply and install the full Kingspan range — ensuring your building envelope meets spec, on time, and without rework.',
       features: [
-        'Exceptional thermal performance (U-values as low as 0.11 W/m²K)',
-        'Fire rating A2-s1, d0 (non-combustible)',
-        'Lightweight construction reducing structural load',
-        'Rapid installation reducing project timelines',
-        'Excellent weather resistance and durability',
-        'Low maintenance requirements'
+        'Outstanding thermal performance — U-values as low as 0.11 W/m²K',
+        'Non-combustible fire rating: A2-s1, d0 for full compliance',
+        'Lightweight panels that reduce structural load and material costs',
+        'Fast installation sequences that protect your programme',
+        'Weather-resistant finish built to perform for decades',
+        'Minimal ongoing maintenance — lower lifetime cost for your client'
       ],
       applications: [
         'Industrial warehouses',
-        'Data centers',
+        'Data centres',
         'Manufacturing facilities',
         'Cold storage facilities',
         'Commercial buildings'
@@ -44,19 +44,19 @@ export default function Services({ onNavigate }: ServicesProps) {
     },
     architectural: {
       title: 'Architectural Panels',
-      subtitle: 'Aesthetic & Durable Cladding Solutions',
-      description: 'Our architectural panels combine stunning visual appeal with exceptional durability. Perfect for projects where aesthetics are as important as performance, these panels transform building facades into architectural statements.',
+      subtitle: 'A Facade That Works as Hard as It Looks',
+      description: 'Architectural cladding panels give your building a distinctive, professional finish while delivering full weatherproofing and long-term durability. Whether you are working to a tight design brief or an open specification, we will match the right system to your project and install it to a high standard.',
       features: [
-        'Wide range of finishes and colors',
-        'Weather-resistant fibre cement construction',
-        'Superior fire performance',
-        'Minimal maintenance required',
-        'Customizable dimensions and profiles',
-        'Sustainable and eco-friendly materials'
+        'Broad range of finishes and colours — match any design intent',
+        'Weather-resistant fibre cement: no rust, no rot, no repainting',
+        'Superior fire performance for full Building Regulations compliance',
+        'Zero maintenance required — low lifetime cost for the end user',
+        'Bespoke dimensions and profiles to suit any facade geometry',
+        'Responsibly sourced, low-impact materials'
       ],
       applications: [
         'Commercial office buildings',
-        'Retail centers',
+        'Retail centres',
         'Educational institutions',
         'Healthcare facilities',
         'Mixed-use developments',
@@ -73,22 +73,22 @@ export default function Services({ onNavigate }: ServicesProps) {
     },
     aluminium: {
       title: 'Aluminium Copings & Roof Deck',
-      subtitle: 'Premium Finishing & Weatherproofing',
-      description: 'Aluminium copings and roof decking systems provide the perfect finishing touch to any cladding installation. Our premium aluminium products offer superior weather protection and a professional aesthetic finish.',
+      subtitle: 'The Right Finish. Built to Last.',
+      description: 'Aluminium copings and roof deck systems complete your building envelope — sealing exposed edges, protecting parapets, and delivering a clean, professional finish. Designed to your exact project specifications, our aluminium systems integrate seamlessly with any cladding installation and require zero ongoing maintenance.',
       features: [
-        'Corrosion-resistant aluminium construction',
-        'Lightweight and easy to install',
-        'Multiple profile options available',
-        'Seamless integration with cladding systems',
-        'Low-maintenance finish',
-        'Enhanced weather protection'
+        'Corrosion-resistant aluminium — performs in all Irish weather conditions',
+        'Lightweight profile reduces structural demands and speeds installation',
+        'Custom-designed to your specified sizes, shapes, and profiles',
+        'Engineered to integrate seamlessly with adjacent cladding systems',
+        'Anodised or powder-coated finish — long-life, maintenance-free',
+        'Effective weather exclusion protecting the full building envelope'
       ],
       applications: [
         'Roof edge protection',
         'Parapet coping',
         'Fascia systems',
         'Soffit applications',
-        'Window and door frames',
+        'Window and door surrounds',
         'Architectural trim details'
       ],
       image: '/images/aluminium-copings/aluminium-copings.jpg',
@@ -126,7 +126,7 @@ export default function Services({ onNavigate }: ServicesProps) {
             <div className="flex items-center gap-4 mb-4">
               <div className="h-px w-16 bg-blue-500/50"></div>
               <p className="text-white text-base md:text-lg font-light">
-                Our Expertise
+                Three Systems. One Specialist Contractor.
               </p>
             </div>
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
@@ -219,7 +219,7 @@ export default function Services({ onNavigate }: ServicesProps) {
                 onClick={() => onNavigate('contact')}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:gap-3"
               >
-                Request Quote
+                Request a Quote
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>

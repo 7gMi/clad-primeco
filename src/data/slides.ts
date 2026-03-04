@@ -10,22 +10,22 @@ export const slides: Slide[] = [
   {
     id: 1,
     background: '/images/backgrounds/kingspan-panel.jpg',
-    tagline: 'Professional Grade / Guaranteed Quality',
-    title: 'Professional Kingspan Cladding Systems',
-    subtitle: "Ireland's trusted partner for high-performance insulated panels. From small projects to large-scale developments, we deliver quality materials on time, every time."
+    tagline: 'Built to Perform',
+    title: 'Kingspan Cladding. Installed Right.',
+    subtitle: "Trusted by Ireland's leading contractors and developers. We deliver high-performance Kingspan systems on time, on programme, and to specification — every project, every time."
   },
   {
     id: 2,
     background: '/images/architectural-panels/architectural-panels.jpg',
-    tagline: 'Trusted Partner / Certified Solutions',
-    title: 'Build Your Architectural Vision',
-    subtitle: 'Our drive to succeed comes from delivering trusted cladding solutions. From concept to completion, we transform your designs into stunning, durable facades.'
+    tagline: 'Facades That Win Work',
+    title: 'Architectural Cladding That Sets You Apart',
+    subtitle: 'From Amazon Dublin to Vantage Data Centers — we bring precision and pace to every facade. Durable finishes, tight deadlines, zero compromise on quality.'
   },
   {
     id: 3,
     background: '/images/backgrounds/school_carrigtohil.jpg',
-    tagline: 'Eco-Friendly Materials / Sustainable Building',
-    title: 'Durable Aluminium Cladding Systems',
-    subtitle: 'Modern, eco-conscious cladding made from sustainable materials. Zero maintenance, maximum durability and safe for both your project and the environment.'
+    tagline: 'Ireland-Wide. Project-Ready.',
+    title: 'Commercial Roofing & Cladding Specialists',
+    subtitle: 'Aluminium copings, roof deck, and cladding systems for industrial and commercial builds across Ireland. One trusted contractor — from brief to handover.'
   }
 ];

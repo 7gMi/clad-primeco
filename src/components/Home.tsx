@@ -186,23 +186,23 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="flex flex-col lg:flex-row gap-12 md:gap-16">
             <div className="lg:w-1/2">
               <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
-                Our Strategic Goals
+                Why Contractors Choose Us
               </h3>
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed mb-6">
-                As a unified company with cross-industry expertise, our clients can be confident that we will deliver trusted industrial solutions through:
+                We work directly with main contractors, developers, and project managers across Ireland. Our commitment on every project is simple:
               </p>
               <ul className="space-y-4 text-lg md:text-xl text-slate-700">
                 <li className="flex items-start">
                   <ArrowRight className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
-                  <span>Client Excellence</span>
+                  <span>Programme-driven delivery — we protect your schedule</span>
                 </li>
                 <li className="flex items-start">
                   <ArrowRight className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
-                  <span>Nurturing the potential of our people</span>
+                  <span>Experienced crews who get it right first time</span>
                 </li>
                 <li className="flex items-start">
                   <ArrowRight className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
-                  <span>Continually improving performance standards</span>
+                  <span>Clear communication from quote to final inspection</span>
                 </li>
               </ul>
             </div>
@@ -228,9 +228,9 @@ export default function Home({ onNavigate }: HomeProps) {
                 />
 
                 <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-6 max-w-xs border-l-4 border-blue-600">
-                  <h4 className="text-xl font-bold text-slate-900 mb-2">Excellence</h4>
+                  <h4 className="text-xl font-bold text-slate-900 mb-2">Trusted Across Ireland</h4>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    Building tomorrow's industrial solutions with precision and dedication
+                    Amazon, Vantage Data Centers, Bausch & Lomb — completed on time, to specification
                   </p>
                 </div>
               </div>
@@ -244,14 +244,14 @@ export default function Home({ onNavigate }: HomeProps) {
         <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
           <div className="mb-16">
             <p className="text-sm md:text-base lg:text-lg font-semibold text-slate-900 tracking-wider mb-4">
-              What We Offer
+              What We Deliver
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               <span className="text-slate-900">Our </span>
               <span className="text-blue-600">Solutions</span>
             </h2>
             <p className="text-lg md:text-xl text-slate-600 max-w-3xl">
-              We provide comprehensive cladding solutions tailored to meet the unique demands of modern industrial and commercial buildings.
+              Three specialist systems. One reliable team. We handle the full cladding package — so your project stays on track and your building performs for decades.
             </p>
           </div>
 
@@ -290,7 +290,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   onClick={() => onNavigate('services')}
                   className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn"
                 >
-                  View service
+                  Learn more
                   <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform" />
                 </button>
               </div>
@@ -325,7 +325,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   onClick={() => onNavigate('services')}
                   className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn"
                 >
-                  View service
+                  Learn more
                   <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform" />
                 </button>
               </div>
@@ -353,14 +353,14 @@ export default function Home({ onNavigate }: HomeProps) {
                 </div>
 
                 <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-4">
-                  Aluminium Copings
+                  Aluminium Copings & Roof Deck
                 </h3>
 
                 <button
                   onClick={() => onNavigate('services')}
                   className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn"
                 >
-                  View service
+                  Learn more
                   <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform" />
                 </button>
               </div>
@@ -378,7 +378,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </p>
             <h2 className="text-4xl md:text-5xl font-bold">Our Process</h2>
             <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
-              As a unified company with cross-industry expertise, our customers can be confident that we will deliver trusted building solutions.
+              A structured, proven approach — from initial survey through to final sign-off. No surprises. No delays that come from our side.
             </p>
           </div>
 

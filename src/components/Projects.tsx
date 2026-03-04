@@ -254,7 +254,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
             <div className="flex items-center gap-4 mb-4">
               <div className="h-px w-16 bg-blue-500/50"></div>
               <p className="text-white text-base md:text-lg font-light">
-                Our Portfolio
+                Delivered Across Ireland
               </p>
             </div>
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
@@ -421,7 +421,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
                 }}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center justify-center gap-2 transition-all"
               >
-                Interested? Contact Us
+                Request a Quote for a Similar Project
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
