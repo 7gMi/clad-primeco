@@ -129,7 +129,7 @@ export default function Services({ onNavigate }: ServicesProps) {
                 Three Systems. One Specialist Contractor.
               </p>
             </div>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
               Our <span className="text-blue-600">Services</span>
             </h1>
           </div>
@@ -174,7 +174,7 @@ export default function Services({ onNavigate }: ServicesProps) {
       <section className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-64 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={currentService.image}
                 alt={currentService.title}
@@ -263,7 +263,7 @@ export default function Services({ onNavigate }: ServicesProps) {
 
       <section className="bg-black text-white min-h-[33vh] flex items-center justify-center py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 border border-white/30 rounded-lg p-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 border border-white/30 rounded-lg p-4 sm:p-6 md:p-8">
             <div className="flex flex-col md:flex-row items-center justify-center group relative">
               <div className="w-16 h-16 rounded-full bg-black border-2 border-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                 <Phone className="w-8 h-8 text-blue-500" />

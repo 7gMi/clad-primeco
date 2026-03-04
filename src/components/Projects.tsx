@@ -257,7 +257,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
                 Delivered Across Ireland
               </p>
             </div>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
               Featured <span className="text-blue-600">Projects</span>
             </h1>
           </div>
@@ -266,7 +266,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
 
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <button
                 key={project.id}
@@ -299,8 +299,8 @@ export default function Projects({ onNavigate }: ProjectsProps) {
       </section>
 
       {currentProject && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[150] flex items-center justify-center p-4 pt-20 md:pt-4">
-          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[150] flex items-start md:items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[85vh] md:max-h-[90vh] overflow-y-auto mt-16 md:mt-0">
             <div className="sticky top-0 bg-white border-b border-slate-200 px-6 md:px-8 py-4 flex items-center justify-between z-10">
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
                 {currentProject.title}
@@ -318,7 +318,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
 
             <div className="p-6 md:p-8">
               <div className="mb-8">
-                <div className="relative h-96 bg-slate-200 rounded-xl overflow-hidden mb-4">
+                <div className="relative h-56 md:h-96 bg-slate-200 rounded-xl overflow-hidden mb-4">
                   <img
                     src={currentProject.images[currentImageIndex]}
                     alt={`${currentProject.title} - Image ${currentImageIndex + 1}`}

@@ -56,14 +56,14 @@ export default function About({ onNavigate }: AboutProps) {
                 Ireland's Cladding Specialists
               </p>
             </div>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
               About <span className="text-blue-600">Us</span>
             </h1>
           </div>
         </div>
       </div>
 
-      <section className="bg-slate-50 pt-12 md:pt-16 pb-20 md:pb-32">
+      <section className="bg-slate-50 pt-12 md:pt-16 pb-20 md:pb-32 overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
             <div>
@@ -172,7 +172,7 @@ export default function About({ onNavigate }: AboutProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {processSteps.map((step, index) => {
               const Icon = step.icon;
               const isSelected = selectedProcess === index;
@@ -198,12 +198,12 @@ export default function About({ onNavigate }: AboutProps) {
                         }`} />
                       </div>
                     </button>
-                    <div className={`text-6xl font-bold mb-2 transition-colors duration-300 ${
+                    <div className={`text-4xl md:text-6xl font-bold mb-2 transition-colors duration-300 ${
                       isSelected ? 'text-blue-400' : 'text-slate-600'
                     }`}>
                       {step.number}
                     </div>
-                    <h3 className={`text-2xl font-semibold transition-colors duration-300 ${
+                    <h3 className={`text-xl md:text-2xl font-semibold transition-colors duration-300 ${
                       isSelected ? 'text-blue-400' : 'text-white'
                     }`}>{step.title}</h3>
                   </div>
@@ -278,7 +278,7 @@ export default function About({ onNavigate }: AboutProps) {
 
       <section className="bg-black text-white min-h-[33vh] flex items-center justify-center py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 border border-white/30 rounded-lg p-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 border border-white/30 rounded-lg p-4 sm:p-6 md:p-8">
             <div className="flex flex-col md:flex-row items-center justify-center group relative">
               <div className="w-16 h-16 rounded-full bg-black border-2 border-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                 <Phone className="w-8 h-8 text-blue-500" />

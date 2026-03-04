@@ -169,7 +169,7 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
               group-hover:bg-blue-600/40 transition-colors duration-200 flex-shrink-0">
               <Mail className="w-3.5 h-3.5 text-blue-400" />
             </div>
-            <span className="text-sm font-medium">cladprimeco@outlook.com</span>
+            <span className="text-sm font-medium truncate">cladprimeco@outlook.com</span>
           </a>
         </div>
       </div>

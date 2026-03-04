@@ -85,7 +85,7 @@ export default function Contact({ onNavigate }: ContactProps) {
               <div className="h-px w-16 bg-blue-500/50"></div>
               <p className="text-white text-base md:text-lg font-light">Request a Quote or Ask a Question</p>
             </div>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
               Contact <span className="text-blue-600">Us</span>
             </h1>
           </div>
@@ -128,7 +128,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                 </a>
               </div>
             </div>
-            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-64 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="/images/projects/dub104-amazon/1_Dub104_Amazon.jpg"
                 alt="Clad-Primeco project"
@@ -201,7 +201,7 @@ export default function Contact({ onNavigate }: ContactProps) {
             </div>
 
             {/* Right column — form card */}
-            <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8 md:p-10">
+            <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-4 sm:p-8 md:p-10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Name</label>
