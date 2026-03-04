@@ -243,7 +243,7 @@ export default function Home({ onNavigate }: HomeProps) {
       <section className="min-h-screen bg-slate-50 flex items-center pt-32 md:pt-36 lg:pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
           <div className="mb-16">
-            <p className="text-sm md:text-base lg:text-lg font-semibold text-slate-900 tracking-wider mb-4">
+            <p className="text-sm font-semibold text-blue-600 tracking-wider uppercase mb-4">
               What We Deliver
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
@@ -288,7 +288,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
                 <button
                   onClick={() => onNavigate('services')}
-                  className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn"
+                  className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   Learn more
                   <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform" />
@@ -323,7 +323,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
                 <button
                   onClick={() => onNavigate('services')}
-                  className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn"
+                  className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   Learn more
                   <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform" />
@@ -358,7 +358,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
                 <button
                   onClick={() => onNavigate('services')}
-                  className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn"
+                  className="text-slate-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   Learn more
                   <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform" />
@@ -475,13 +475,14 @@ export default function Home({ onNavigate }: HomeProps) {
                 <Instagram className="w-8 h-8 text-blue-500" />
               </div>
               <div className="md:ml-4 mt-4 md:mt-0 text-center md:text-left">
+                <div className="text-lg font-semibold text-gray-300 mb-1">Instagram</div>
                 <a
                   href="https://www.instagram.com/cladprimeco/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xl text-white hover:text-blue-500 transition-colors duration-300"
                 >
-                  Follow Us
+                  @cladprimeco
                 </a>
               </div>
             </div>

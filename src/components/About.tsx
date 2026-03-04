@@ -60,7 +60,7 @@ export default function About({ onNavigate }: AboutProps) {
         </div>
       </div>
 
-      <section className="bg-gray-100 pt-12 md:pt-16 pb-20 md:pb-32">
+      <section className="bg-slate-50 pt-12 md:pt-16 pb-20 md:pb-32">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
             <div>
@@ -164,7 +164,7 @@ export default function About({ onNavigate }: AboutProps) {
                   </div>
                   {index < 3 && (
                     <div className="hidden md:block absolute top-12 left-[calc(50%+60px)] w-[calc(100%-120px)] h-0.5 bg-slate-700">
-                      <ArrowRight className="absolute -right-2 -top-3 w-6 h-6 text-blue-500" />
+                      <ArrowRight className="absolute -right-2 -top-3 w-6 h-6 text-blue-600" />
                     </div>
                   )}
                 </div>
@@ -201,7 +201,7 @@ export default function About({ onNavigate }: AboutProps) {
                   </p>
                   <button
                     onClick={() => onNavigate(service.link as Page)}
-                    className="inline-flex items-center gap-2 text-black font-semibold hover:text-blue-600 hover:gap-3 transition-all duration-300"
+                    className="inline-flex items-center gap-2 text-slate-900 font-semibold hover:text-blue-600 hover:gap-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                   >
                     View service
                     <ArrowRight className="w-5 h-5" />
@@ -223,7 +223,7 @@ export default function About({ onNavigate }: AboutProps) {
           </p>
           <button
             onClick={() => onNavigate('contact')}
-            className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors inline-flex items-center gap-2 hover:gap-3 transition-all duration-300"
+            className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 inline-flex items-center gap-2 hover:gap-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
           >
             Request a Quote
             <ArrowRight className="w-5 h-5" />
@@ -271,13 +271,14 @@ export default function About({ onNavigate }: AboutProps) {
                 <Instagram className="w-8 h-8 text-blue-500" />
               </div>
               <div className="md:ml-4 mt-4 md:mt-0 text-center md:text-left">
+                <div className="text-lg font-semibold text-gray-300 mb-1">Instagram</div>
                 <a
                   href="https://www.instagram.com/cladprimeco/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xl text-white hover:text-blue-500 transition-colors duration-300"
                 >
-                  Follow Us
+                  @cladprimeco
                 </a>
               </div>
             </div>

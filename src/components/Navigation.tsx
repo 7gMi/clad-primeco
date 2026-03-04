@@ -60,7 +60,7 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
 
       <button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className={`md:hidden ${textColor} z-50 relative p-2`}
+        className={`md:hidden ${textColor} z-50 relative p-2 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1`}
         aria-label="Toggle menu"
         aria-expanded={mobileMenuOpen}
       >

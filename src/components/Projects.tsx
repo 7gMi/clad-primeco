@@ -276,21 +276,21 @@ export default function Projects({ onNavigate }: ProjectsProps) {
                 }}
                 className="group text-left rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-white"
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <img
                     src={project.images[0]}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <p className="text-blue-400 text-sm font-semibold mb-2">{project.serviceType}</p>
-                    <h3 className="text-white font-bold text-lg">{project.title}</h3>
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <p className="text-blue-400 text-sm font-semibold mb-1.5">{project.serviceType}</p>
+                    <h3 className="text-white font-bold text-lg leading-snug">{project.title}</h3>
                   </div>
                 </div>
-                <div className="p-4">
-                  <p className="text-slate-600 text-sm mb-2">{project.location}</p>
-                  <p className="text-slate-500 text-xs">{project.year}</p>
+                <div className="p-5">
+                  <p className="text-slate-600 text-sm font-medium mb-1">{project.location}</p>
+                  <p className="text-slate-400 text-xs font-medium tracking-wide">{project.year}</p>
                 </div>
               </button>
             ))}
@@ -310,7 +310,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
                   setSelectedProject(null);
                   setCurrentImageIndex(0);
                 }}
-                className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+                className="p-2 hover:bg-slate-100 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-1"
               >
                 <X className="w-6 h-6 text-slate-600" />
               </button>
@@ -419,7 +419,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
                   setSelectedProject(null);
                   onNavigate('contact');
                 }}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center justify-center gap-2 transition-all"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center justify-center gap-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
                 Request a Quote for a Similar Project
                 <ArrowRight className="w-5 h-5" />
@@ -469,13 +469,14 @@ export default function Projects({ onNavigate }: ProjectsProps) {
                 <Instagram className="w-8 h-8 text-blue-500" />
               </div>
               <div className="md:ml-4 mt-4 md:mt-0 text-center md:text-left">
+                <div className="text-lg font-semibold text-gray-300 mb-1">Instagram</div>
                 <a
                   href="https://www.instagram.com/cladprimeco/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xl text-white hover:text-blue-500 transition-colors duration-300"
                 >
-                  Follow Us
+                  @cladprimeco
                 </a>
               </div>
             </div>

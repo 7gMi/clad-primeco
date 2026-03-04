@@ -138,7 +138,7 @@ export default function Services({ onNavigate }: ServicesProps) {
 
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
             {allServices.map((service) => {
               const Icon = service.icon;
               const isActive = selectedService === service.key;
@@ -217,7 +217,7 @@ export default function Services({ onNavigate }: ServicesProps) {
 
               <button
                 onClick={() => onNavigate('contact')}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:gap-3"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center gap-2 transition-all duration-300 hover:gap-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
                 Request a Quote
                 <ArrowRight className="w-5 h-5" />
@@ -301,13 +301,14 @@ export default function Services({ onNavigate }: ServicesProps) {
                 <Instagram className="w-8 h-8 text-blue-500" />
               </div>
               <div className="md:ml-4 mt-4 md:mt-0 text-center md:text-left">
+                <div className="text-lg font-semibold text-gray-300 mb-1">Instagram</div>
                 <a
                   href="https://www.instagram.com/cladprimeco/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xl text-white hover:text-blue-500 transition-colors duration-300"
                 >
-                  Follow Us
+                  @cladprimeco
                 </a>
               </div>
             </div>
