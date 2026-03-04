@@ -36,10 +36,10 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
             <img
               src="/images/logo/logo-mobile.png"
               alt="Clad-Primeco logo"
-              className={`h-auto transition-all duration-300 ${
+              className={`h-auto transition-all duration-300 rounded-lg ${
                 isScrolled
                   ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
-                  : 'w-[120px] sm:w-[140px] md:w-[160px] lg:w-[300px] brightness-0 invert'
+                  : 'w-[120px] sm:w-[140px] md:w-[160px] lg:w-[300px] bg-white/95 px-2 py-1 shadow-sm'
               }`}
             />
           </picture>
