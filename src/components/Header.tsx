@@ -24,7 +24,7 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-[100] px-4 sm:px-6 md:px-12 lg:px-16 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white shadow-lg py-2 sm:py-3'
+          ? 'bg-white/90 backdrop-blur-md shadow-sm py-2 sm:py-3 border-b border-slate-100'
           : 'bg-gradient-to-b from-black/60 via-black/30 to-transparent pt-2 md:pt-3 pb-3 sm:pb-4'
       }`}
     >
