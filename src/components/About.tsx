@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Building2, PenTool, FileText, CheckCircle, Check, Phone, Mail, Instagram } from 'lucide-react';
+import { ArrowRight, Building2, PenTool, FileText, CheckCircle, Check, Phone, Mail, Instagram, Thermometer, Palette, Umbrella } from 'lucide-react';
 import Header from './Header';
 import BackToTop from './BackToTop';
 import Footer from './Footer';
@@ -22,20 +22,29 @@ export default function About({ onNavigate }: AboutProps) {
   const services = [
     {
       title: 'Kingspan Cladding',
+      tagline: 'Thermal performance. Fire rating. On programme.',
       description: 'Kingspan insulated panels give you exceptional thermal performance, fire resistance, and a fast installation sequence — keeping your programme on track while future-proofing the building envelope.',
       image: '/images/kingspan-panel.jpg',
+      icon: Thermometer,
+      badge: '4 projects delivered',
       link: 'services'
     },
     {
       title: 'Aluminium Roof Deck',
+      tagline: 'Watertight. Maintenance-free. Built to spec.',
       description: 'A watertight, low-maintenance roof deck tailored to your project. Lightweight aluminium profiles are designed to your exact specifications — custom sizes, profiles, and finishes available.',
       image: '/images/aluminium-copings/aluminium-copings.jpg',
+      icon: Umbrella,
+      badge: '2 projects delivered',
       link: 'services'
     },
     {
-      title: 'Architectural Cladding Panels',
+      title: 'Architectural Panels',
+      tagline: 'Striking facades that perform for decades.',
       description: 'Give your building a striking, durable facade that performs for decades. Our architectural panels provide full weatherproofing while delivering the aesthetic finish your design demands.',
       image: '/images/architectural-panels/architectural-panels.jpg',
+      icon: Palette,
+      badge: '2 projects delivered',
       link: 'services'
     }
   ];
@@ -238,35 +247,58 @@ export default function About({ onNavigate }: AboutProps) {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    width="600"
-                    height="256"
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <div key={index} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-slate-100">
+                  {/* Image with overlay content */}
+                  <div className="relative h-56 overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      width="600"
+                      height="224"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
+                    {/* Badge top-right */}
+                    <div className="absolute top-4 right-4">
+                      <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/30 tracking-wide">
+                        {service.badge}
+                      </span>
+                    </div>
+
+                    {/* Icon bottom-left on image */}
+                    <div className="absolute bottom-4 left-4">
+                      <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/40 group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card body */}
+                  <div className="p-6">
+                    <p className="text-blue-600 text-xs font-semibold tracking-wider uppercase mb-2">
+                      {service.tagline}
+                    </p>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                      {service.description}
+                    </p>
+                    <button
+                      onClick={() => onNavigate(service.link as Page)}
+                      className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded group/btn"
+                    >
+                      View service
+                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4">{service.title}</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <button
-                    onClick={() => onNavigate(service.link as Page)}
-                    className="inline-flex items-center gap-2 text-slate-900 font-semibold hover:text-blue-600 hover:gap-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
-                  >
-                    View service
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
