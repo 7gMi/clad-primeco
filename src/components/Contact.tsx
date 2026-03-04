@@ -140,7 +140,7 @@ export default function Contact({ onNavigate }: ContactProps) {
       </section>
 
       {/* Form section */}
-      <section className="bg-slate-50 py-20">
+      <section id="contact-form" className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-start">
 
