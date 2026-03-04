@@ -43,7 +43,7 @@ const servicesData = {
     ],
     specifications: [
       { label: 'Panel Thickness', value: '40-200mm' },
-      { label: 'Width Options', value: 'Custom up to 1150mm' },
+      { label: 'Width Options', value: '1000-1200mm' },
       { label: 'Fire Rating', value: 'A2-s1, d0' },
       { label: 'Thermal Performance', value: 'U-values 0.11-0.28 W/m²K' }
     ]
