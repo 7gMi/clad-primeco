@@ -30,27 +30,31 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
     >
       <div className="flex justify-between items-center">
         <button className="logo-container cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded" onClick={() => onNavigate?.('home')} aria-label="Go to homepage">
-          <picture>
-            <source media="(min-width: 1024px)" srcSet="/images/logo/logo-desktop.png" />
-            <source media="(min-width: 768px)" srcSet="/images/logo/logo-tab.png" />
-            <img
-              src="/images/logo/logo-mobile.png"
-              alt="Clad-Primeco logo"
-              className={`h-auto transition-all duration-300 rounded-lg ${
-                isScrolled
-                  ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
-                  : 'w-[120px] sm:w-[140px] md:w-[160px] lg:w-[300px] bg-white/95 px-2 py-1 shadow-sm'
-              }`}
-            />
-          </picture>
-          {!isScrolled && (
-            <p
-              className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] mt-1 tracking-wide text-white transition-all duration-300 hidden sm:block"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              CLADDING PROFESSIONALS
-            </p>
-          )}
+          <div className={`transition-all duration-300 rounded-lg ${
+            isScrolled ? '' : 'bg-white/95 px-3 py-2 shadow-sm'
+          }`}>
+            <picture>
+              <source media="(min-width: 1024px)" srcSet="/images/logo/logo-desktop.png" />
+              <source media="(min-width: 768px)" srcSet="/images/logo/logo-tab.png" />
+              <img
+                src="/images/logo/logo-mobile.png"
+                alt="Clad-Primeco logo"
+                className={`h-auto transition-all duration-300 block ${
+                  isScrolled
+                    ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
+                    : 'w-[120px] sm:w-[140px] md:w-[160px] lg:w-[300px]'
+                }`}
+              />
+            </picture>
+            {!isScrolled && (
+              <p
+                className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] mt-1 tracking-widest text-slate-600 font-semibold transition-all duration-300 text-center hidden sm:block"
+                style={{ fontFamily: 'Georgia, serif' }}
+              >
+                CLADDING AND ROOFING PROFESSIONALS
+              </p>
+            )}
+          </div>
         </button>
 
         <Navigation onNavigate={onNavigate} isScrolled={isScrolled} currentPage={currentPage} />

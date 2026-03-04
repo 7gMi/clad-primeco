@@ -80,34 +80,35 @@ export default function Home({ onNavigate }: HomeProps) {
               layout shift when the image loads. The container reserves space via
               the className dimensions that mirror the img sizes below.
             */}
-            <picture>
-              <source media="(min-width: 1024px)" srcSet="/images/logo/logo-desktop.png" />
-              <source media="(min-width: 768px)" srcSet="/images/logo/logo-tab.png" />
-              <img
-                src="/images/logo/logo-mobile.png"
-                alt="Clad-Primeco logo"
-                width="120"
-                height="40"
-                // fetchpriority=high: logo is above the fold and contributes to LCP
-                fetchPriority="high"
-                // decoding=sync: ensures logo renders in the same frame as the
-                // rest of the header rather than causing a flash of missing logo
-                decoding="sync"
-                className={`h-auto transition-all duration-300 rounded-lg ${
-                  isScrolled
-                    ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
-                    : 'w-[120px] sm:w-[140px] md:w-[160px] lg:w-[300px] bg-white/95 px-2 py-1 shadow-sm'
-                }`}
-              />
-            </picture>
-            {!isScrolled && (
-              <p
-                className="text-[14px] md:text-[16px] lg:text-[18px] mt-1 tracking-wide text-white transition-all duration-300"
-                style={{ fontFamily: 'Georgia, serif' }}
-              >
-                CLADDING PROFESSIONALS
-              </p>
-            )}
+            <div className={`transition-all duration-300 rounded-lg ${
+              isScrolled ? '' : 'bg-white/95 px-3 py-2 shadow-sm'
+            }`}>
+              <picture>
+                <source media="(min-width: 1024px)" srcSet="/images/logo/logo-desktop.png" />
+                <source media="(min-width: 768px)" srcSet="/images/logo/logo-tab.png" />
+                <img
+                  src="/images/logo/logo-mobile.png"
+                  alt="Clad-Primeco logo"
+                  width="120"
+                  height="40"
+                  fetchPriority="high"
+                  decoding="sync"
+                  className={`h-auto transition-all duration-300 block ${
+                    isScrolled
+                      ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
+                      : 'w-[120px] sm:w-[140px] md:w-[160px] lg:w-[300px]'
+                  }`}
+                />
+              </picture>
+              {!isScrolled && (
+                <p
+                  className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] mt-1 tracking-widest text-slate-600 font-semibold transition-all duration-300 text-center"
+                  style={{ fontFamily: 'Georgia, serif' }}
+                >
+                  CLADDING AND ROOFING PROFESSIONALS
+                </p>
+              )}
+            </div>
           </div>
 
           <Navigation onNavigate={onNavigate} isScrolled={isScrolled} currentPage="home" />
