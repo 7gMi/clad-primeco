@@ -117,13 +117,13 @@ export default function Projects({ onNavigate }: ProjectsProps) {
         status: 'Completed'
       },
       images: [
-        '/images/projects/bausch-lomb/1_Bausch%26lomb.jpg',
-        '/images/projects/bausch-lomb/2_Bausch%26lomb.jpg',
-        '/images/projects/bausch-lomb/3_Bausch%26lomb.jpg',
-        '/images/projects/bausch-lomb/4_Bausch%26lomb.jpg',
-        '/images/projects/bausch-lomb/5_Bausch%26lomb.jpg',
-        '/images/projects/bausch-lomb/6_Bausch%26lomb.jpg',
-        '/images/projects/bausch-lomb/10_Bausch%26lomb.jpg',
+        '/images/projects/bausch-lomb/1_Bauschandlomb.jpg',
+        '/images/projects/bausch-lomb/2_Bauschandlomb.jpg',
+        '/images/projects/bausch-lomb/3_Bauschandlomb.jpg',
+        '/images/projects/bausch-lomb/4_Bauschandlomb.jpg',
+        '/images/projects/bausch-lomb/5_Bauschandlomb.jpg',
+        '/images/projects/bausch-lomb/6_Bauschandlomb.jpg',
+        '/images/projects/bausch-lomb/10_Bauschandlomb.jpg',
       ],
       serviceType: 'Kingspan Systems'
     },
