@@ -80,7 +80,7 @@ export default function Home({ onNavigate }: HomeProps) {
               layout shift when the image loads. The container reserves space via
               the className dimensions that mirror the img sizes below.
             */}
-            <div className={`transition-all duration-300 rounded-lg ${
+            <div className={`transition-all duration-300 rounded-lg flex items-center gap-3 ${
               isScrolled ? '' : 'bg-white/95 px-3 py-2 shadow-sm'
             }`}>
               <picture>
@@ -93,19 +93,19 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="40"
                   fetchPriority="high"
                   decoding="sync"
-                  className={`h-auto transition-all duration-300 block ${
+                  className={`h-auto transition-all duration-300 block flex-shrink-0 ${
                     isScrolled
                       ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
-                      : 'w-[120px] sm:w-[140px] md:w-[160px] lg:w-[300px]'
+                      : 'w-[80px] sm:w-[90px] md:w-[110px] lg:w-[140px]'
                   }`}
                 />
               </picture>
               {!isScrolled && (
                 <p
-                  className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] mt-1 tracking-widest text-slate-600 font-semibold transition-all duration-300 text-center"
+                  className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[13px] tracking-widest text-slate-700 font-semibold leading-tight border-l border-slate-300 pl-3"
                   style={{ fontFamily: 'Georgia, serif' }}
                 >
-                  CLADDING AND ROOFING PROFESSIONALS
+                  CLADDING<br />AND ROOFING<br />PROFESSIONALS
                 </p>
               )}
             </div>
