@@ -98,7 +98,7 @@ Deno.serve(async (req: Request) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Clad-Primeco Website <noreply@cladprimeco.ie>",
+          from: "Clad-Primeco Website <onboarding@resend.dev>",
           to: [companyEmail],
           subject: `[Clad-Primeco] Nouveau message de contact — ${name}`,
           html: getCompanyNotificationEmail({ name, email, phone: phone ?? "", message, submittedAt }),
@@ -112,8 +112,8 @@ Deno.serve(async (req: Request) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Clad-Primeco <noreply@cladprimeco.ie>",
-          to: [email],
+          from: "Clad-Primeco <onboarding@resend.dev>",
+          to: [companyEmail],
           subject: "Thank you for contacting Clad-Primeco — We'll be in touch soon",
           html: getClientAutoReplyEmail(name),
         }),

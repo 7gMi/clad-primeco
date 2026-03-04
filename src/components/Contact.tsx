@@ -160,6 +160,7 @@ export default function Contact() {
                 onVerify={setToken}
                 onExpire={() => setToken(null)}
                 ref={captchaRef}
+                languageOverride="en"
               />
             </div>
 
