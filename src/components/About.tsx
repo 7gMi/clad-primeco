@@ -74,8 +74,8 @@ export default function About({ onNavigate }: AboutProps) {
                 <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-blue-100 rounded-br-xl z-0" />
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <img
-                    src="/images/about_gauche_.jpeg"
-                    alt="Clad Primeco project"
+                    src="/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.jpg"
+                    alt="Clad Primeco team at work"
                     className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
@@ -146,7 +146,7 @@ export default function About({ onNavigate }: AboutProps) {
                     </div>
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2.5 flex-1 text-center">
                       <div className="text-white font-bold text-xl leading-none">10k+</div>
-                      <div className="text-white/70 text-[10px] tracking-wide uppercase mt-1">m² installed</div>
+                      <div className="text-white/70 text-[10px] tracking-wide mt-1">m² installed</div>
                     </div>
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2.5 flex-1 text-center">
                       <div className="text-white font-bold text-xl leading-none">All</div>
