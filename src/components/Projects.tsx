@@ -35,12 +35,12 @@ export default function Projects({ onNavigate }: ProjectsProps) {
       title: 'Amazon — Dublin 104',
       client: 'Amazon',
       location: 'Dublin, Ireland',
-      year: 2025,
-      description: 'Large-scale cladding installation for Amazon\'s Dublin 104 facility. This project involved the supply and installation of high-performance cladding systems across the full building envelope, meeting strict client specifications and tight programme requirements.',
+      year: 2024,
+      description: 'Full building envelope package for Amazon\'s Dublin 104 logistics facility — one of the largest contracts in our portfolio. Works included 5,000 m² of architectural panels and Kingspan insulated panels, complete with window cills, door flashings and aluminium copings, delivered over 7 months to meet Amazon\'s demanding programme and quality standards.',
       specifications: {
-        surface: 'N/A',
-        materials: 'Architectural Cladding Systems',
-        duration: 'N/A',
+        surface: '5,000 m²',
+        materials: 'Architectural Panels · Kingspan · Window Cills · Door Flashings · Copings',
+        duration: 'July 2023 – January 2024',
         status: 'Completed'
       },
       images: [
@@ -59,12 +59,12 @@ export default function Projects({ onNavigate }: ProjectsProps) {
       title: 'Vantage Power Station — Dublin 01',
       client: 'Vantage Data Centers',
       location: 'Dublin, Ireland',
-      year: 2024,
-      description: 'Cladding works on the Vantage Power Station facility in Dublin. The project required precision installation of industrial cladding systems to meet the demanding technical requirements of a critical energy infrastructure facility.',
+      year: 2025,
+      description: 'Cladding package for Vantage\'s power station facility in Dublin city centre. Works covered 2,400 m² of Kingspan RW panels complete with copings, door flashings and window cills — installed to the exacting standards required for critical energy infrastructure, completed in 3 months.',
       specifications: {
-        surface: 'N/A',
-        materials: 'Industrial Cladding Systems',
-        duration: 'N/A',
+        surface: '2,400 m²',
+        materials: 'Kingspan RW Panels · Copings · Door Flashings · Window Cills',
+        duration: 'January 2025 (3 months)',
         status: 'Completed'
       },
       images: [
@@ -76,19 +76,19 @@ export default function Projects({ onNavigate }: ProjectsProps) {
         '/images/projects/dub01-vantage/15_Dub01_Vantage_Power_Station.jpg',
         '/images/projects/dub01-vantage/16_Dub01_Vantage_Power_Station.jpg',
       ],
-      serviceType: 'Industrial Cladding'
+      serviceType: 'Kingspan Cladding'
     },
     {
       id: 3,
       title: 'Carrigtwohil College',
       client: 'Department of Education',
       location: 'Carrigtwohil, Cork',
-      year: 2024,
-      description: 'Full cladding package for the new Carrigtwohil College building in Cork. The works included supply and installation of Kingspan insulated panels and architectural cladding systems, delivering both thermal performance and a modern aesthetic for the educational facility.',
+      year: 2023,
+      description: 'Kingspan cladding installation for the new Carrigtwohil College building in Cork. The 3,000 m² package included Kingspan insulated panels, door flashings and window cills — delivering thermal performance and a clean architectural finish for this new educational facility.',
       specifications: {
-        surface: 'N/A',
-        materials: 'Kingspan Panels + Architectural Systems',
-        duration: 'N/A',
+        surface: '3,000 m²',
+        materials: 'Kingspan Panels · Door Flashings · Window Cills',
+        duration: 'March – June 2023',
         status: 'Completed'
       },
       images: [
@@ -101,19 +101,19 @@ export default function Projects({ onNavigate }: ProjectsProps) {
         '/images/projects/carrigtwohil-college/10_Carrigtwohil_College_Cork.jpg',
         '/images/projects/carrigtwohil-college/11_Carrigtwohil_College_Cork.jpg',
       ],
-      serviceType: 'Mixed Systems'
+      serviceType: 'Kingspan Cladding'
     },
     {
       id: 4,
       title: 'Bausch & Lomb Facility',
       client: 'Bausch & Lomb',
       location: 'Waterford, Ireland',
-      year: 2023,
-      description: 'Cladding installation for the Bausch & Lomb manufacturing facility. This industrial project required high-precision cladding works to maintain the facility\'s operational continuity while achieving superior building envelope performance.',
+      year: 2025,
+      description: 'Cladding upgrade for Bausch & Lomb\'s pharmaceutical manufacturing facility in Waterford. The 3,000 m² programme of Kingspan architectural panels was carried out within an active facility, maintaining strict safety and quality protocols throughout the 4-month contract.',
       specifications: {
-        surface: 'N/A',
-        materials: 'Industrial Cladding Systems',
-        duration: 'N/A',
+        surface: '3,000 m²',
+        materials: 'Kingspan Architectural Panels',
+        duration: 'January – April 2025',
         status: 'Completed'
       },
       images: [
@@ -125,19 +125,19 @@ export default function Projects({ onNavigate }: ProjectsProps) {
         '/images/projects/bausch-lomb/6_Bauschandlomb.jpg',
         '/images/projects/bausch-lomb/10_Bauschandlomb.jpg',
       ],
-      serviceType: 'Kingspan Systems'
+      serviceType: 'Kingspan Cladding'
     },
     {
       id: 5,
       title: 'ABP Rathkeale',
       client: 'ABP Group',
       location: 'Rathkeale, Co. Limerick',
-      year: 2023,
-      description: 'Industrial cladding works for the ABP food processing facility in Rathkeale. The project involved full external cladding installation across multiple building sections, delivering a robust and thermally efficient envelope for this large-scale industrial client.',
+      year: 2026,
+      description: 'Roof and facade cladding for ABP\'s food processing facility in Rathkeale. The 1,600 m² contract covered Kingspan roof panels combined with aluminium RW facade cladding — delivered in just 2 months to keep the facility\'s expansion programme on schedule.',
       specifications: {
-        surface: 'N/A',
-        materials: 'Kingspan Insulated Panels',
-        duration: 'N/A',
+        surface: '1,600 m²',
+        materials: 'Kingspan Roof Panels · Aluminium RW Facade Cladding',
+        duration: 'November 2025 – January 2026',
         status: 'Completed'
       },
       images: [
@@ -149,19 +149,19 @@ export default function Projects({ onNavigate }: ProjectsProps) {
         '/images/projects/abp-rathkeale/6_ABP_Rathkeale.jpg',
         '/images/projects/abp-rathkeale/7_ABP_Rathkeale.jpg',
       ],
-      serviceType: 'Kingspan Systems'
+      serviceType: 'Mixed Systems'
     },
     {
       id: 6,
       title: 'Europort Rosslare',
       client: 'Rosslare Europort',
       location: 'Rosslare, Co. Wexford',
-      year: 2024,
-      description: 'Cladding installation at Rosslare Europort, one of Ireland\'s busiest ferry terminals. Works were carried out within an active port environment, requiring strict coordination with port operations to deliver the cladding package on schedule.',
+      year: 2025,
+      description: 'Roofing and cladding works at Rosslare Europort, one of Ireland\'s busiest ferry terminals. The contract covered 2,400 m² of standing seam roofing and cladding with door flashings and window cills — executed over 3 months within an active port environment requiring strict coordination with port operations.',
       specifications: {
-        surface: 'N/A',
-        materials: 'Architectural Cladding Systems',
-        duration: 'N/A',
+        surface: '2,400 m²',
+        materials: 'Standing Seam Roofing · Cladding · Door Flashings · Window Cills',
+        duration: 'June – August 2025',
         status: 'Completed'
       },
       images: [
@@ -174,19 +174,19 @@ export default function Projects({ onNavigate }: ProjectsProps) {
         '/images/projects/europort-rosslare/15.jpg',
         '/images/projects/europort-rosslare/16.jpg',
       ],
-      serviceType: 'Architectural Panels'
+      serviceType: 'Aluminium Roof Deck'
     },
     {
       id: 7,
       title: 'Lily Superstore',
       client: 'Lily Retail Group',
       location: 'Limerick, Ireland',
-      year: 2025,
-      description: 'Cladding and facade works for the Lily Superstore in Limerick. The project delivered a modern, high-quality exterior finish that enhances the retail building\'s visual identity while providing long-term weather protection and thermal performance.',
+      year: 2024,
+      description: 'Facade cladding package for the Lily Superstore in Limerick. The 4,000 m² contract included external cladding panels, aluminium copings, window cills and door flashings — delivered over 4 months to a tight retail programme, achieving a high-quality finish that enhances the building\'s commercial identity.',
       specifications: {
-        surface: 'N/A',
-        materials: 'Architectural Cladding',
-        duration: 'N/A',
+        surface: '4,000 m²',
+        materials: 'Cladding Panels · Copings · Window Cills · Door Flashings',
+        duration: 'February – June 2024',
         status: 'Completed'
       },
       images: [
@@ -206,12 +206,12 @@ export default function Projects({ onNavigate }: ProjectsProps) {
       title: 'Sandyford Warehouse & Depot',
       client: 'Confidential',
       location: 'Sandyford, Dublin',
-      year: 2025,
-      description: 'Supply and installation of cladding systems for a warehouse and depot facility in Sandyford Business District, Dublin. The project was completed on programme, delivering a durable and well-finished building envelope for the commercial client.',
+      year: 2024,
+      description: 'Fast-track Kingspan cladding installation for a warehouse and depot facility in Sandyford Business District, Dublin. The 1,700 m² package was completed in just 2 months, demonstrating our ability to deliver quality works to compressed programmes for commercial clients.',
       specifications: {
-        surface: 'N/A',
-        materials: 'Kingspan Panels',
-        duration: 'N/A',
+        surface: '1,700 m²',
+        materials: 'Kingspan Insulated Panels',
+        duration: 'February – March 2024',
         status: 'Completed'
       },
       images: [
@@ -222,7 +222,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
         '/images/projects/sandyford-warehouse/5_Sandyford_Warehouse_Depot.JPG',
         '/images/projects/sandyford-warehouse/6_Sandyford_Warehouse_Depot.JPG',
       ],
-      serviceType: 'Kingspan Systems'
+      serviceType: 'Kingspan Cladding'
     },
   ];
 
