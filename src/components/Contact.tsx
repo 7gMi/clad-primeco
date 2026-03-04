@@ -1,15 +1,15 @@
 import React, { useState, useRef } from 'react'
 import HCaptcha from '@hcaptcha/react-hcaptcha'
-import { Send, User, Mail, MessageSquare, CheckCircle, AlertCircle } from 'lucide-react'
+import { Send, User, Mail, MessageSquare, CheckCircle, AlertCircle, Phone } from 'lucide-react'
 
-type FormData = { name: string; email: string; message: string }
+type FormData = { name: string; email: string; phone: string; message: string }
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string
 const HCAPTCHA_SITEKEY = import.meta.env.VITE_HCAPTCHA_SITEKEY as string
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string
 
 export default function Contact() {
-  const [form, setForm] = useState<FormData>({ name: '', email: '', message: '' })
+  const [form, setForm] = useState<FormData>({ name: '', email: '', phone: '', message: '' })
   const [token, setToken] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState<string | null>(null)
@@ -48,7 +48,7 @@ export default function Contact() {
       }
 
       setSuccess('Message envoyé avec succès. Nous vous répondrons dans les plus brefs délais.')
-      setForm({ name: '', email: '', message: '' })
+      setForm({ name: '', email: '', phone: '', message: '' })
       captchaRef.current?.resetCaptcha()
       setToken(null)
     } catch (err: unknown) {
@@ -110,6 +110,25 @@ export default function Contact() {
                   placeholder="votre@email.com"
                   type="email"
                   required
+                  className="w-full pl-12 pr-4 py-3.5 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-slate-50 hover:bg-white"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-2">
+                Téléphone <span className="text-slate-400 font-normal">(optionnel)</span>
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Phone className="w-5 h-5 text-slate-400" />
+                </div>
+                <input
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="+353 xx xxx xxxx"
+                  type="tel"
                   className="w-full pl-12 pr-4 py-3.5 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-slate-50 hover:bg-white"
                 />
               </div>
