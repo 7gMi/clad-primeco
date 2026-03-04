@@ -311,13 +311,15 @@ export default function Contact({ onNavigate }: ContactProps) {
 
                 <div className="flex flex-col gap-3">
                   {HCAPTCHA_SITEKEY ? (
-                    <HCaptcha
-                      sitekey={HCAPTCHA_SITEKEY}
-                      onVerify={setToken}
-                      onExpire={() => setToken(null)}
-                      ref={captchaRef}
-                      languageOverride="en"
-                    />
+                    <div className="overflow-x-auto">
+                      <HCaptcha
+                        sitekey={HCAPTCHA_SITEKEY}
+                        onVerify={setToken}
+                        onExpire={() => setToken(null)}
+                        ref={captchaRef}
+                        languageOverride="en"
+                      />
+                    </div>
                   ) : (
                     <p className="text-red-500 text-sm">Captcha configuration error. Please contact us directly at cladprimeco@outlook.com.</p>
                   )}

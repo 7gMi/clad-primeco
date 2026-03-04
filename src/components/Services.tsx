@@ -80,7 +80,7 @@ const servicesData = {
       { label: 'Panel Size', value: 'Up to 3000mm length' },
       { label: 'Thickness', value: '10-25mm' },
       { label: 'Finishes', value: '50+ color options' },
-      { label: 'Fire Rating', value: 'A2-s1, d0' }
+      { label: 'Fire Rating', value: 'B-s1, d0 to A2-s1, d0 (system-dependent)' }
     ]
   },
   aluminium: {

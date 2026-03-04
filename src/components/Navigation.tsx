@@ -1,5 +1,5 @@
 import { Page, prefetchPage } from '../App';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Phone, Mail, ArrowRight } from 'lucide-react';
 
 interface NavigationProps {
@@ -16,10 +16,13 @@ const navItems = [
   { label: 'Contact',  page: 'contact'  as Page, number: '05' },
 ];
 
-export default function Navigation({ onNavigate, isScrolled, currentPage }: NavigationProps) {
+export default function Navigation({ onNavigate, isScrolled = false, currentPage }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const textColor = isScrolled ? 'text-slate-900' : 'text-white';
   const hoverColor = isScrolled ? 'hover:text-blue-600' : 'hover:text-blue-400';
+
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   const handleNavClick = (page?: Page) => {
     if (page) onNavigate?.(page);
@@ -32,6 +35,76 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
       ? 'text-blue-600 border-b-2 border-blue-600 pb-0.5'
       : 'text-blue-400 border-b-2 border-blue-400 pb-0.5';
   };
+
+  // C3+C4: Escape key + body scroll lock (iOS Safari compatible)
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    // Lock body scroll — iOS Safari requires position:fixed
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+
+    // C3: Escape closes the menu
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+        hamburgerRef.current?.focus();
+        return;
+      }
+
+      // C1: Focus trap — Tab cycles only within the panel
+      if (e.key === 'Tab' && panelRef.current) {
+        const focusable = Array.from(
+          panelRef.current.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+          )
+        );
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (!first || !last) return;
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Move focus into panel on open
+    const firstFocusable = panelRef.current?.querySelector<HTMLElement>(
+      'button:not([disabled]), a[href]'
+    );
+    firstFocusable?.focus();
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      // Restore scroll position
+      const savedY = parseInt(document.body.style.top || '0') * -1;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      window.scrollTo(0, savedY);
+    };
+  }, [mobileMenuOpen]);
+
+  // C2: inert on closed panel (keeps tab order clean when hidden)
+  useEffect(() => {
+    if (!panelRef.current) return;
+    if (mobileMenuOpen) {
+      panelRef.current.removeAttribute('inert');
+    } else {
+      panelRef.current.setAttribute('inert', '');
+    }
+  }, [mobileMenuOpen]);
 
   return (
     <>
@@ -56,6 +129,7 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
 
       {/* ── Hamburger — fixed in root stacking context, always above overlay ── */}
       <button
+        ref={hamburgerRef}
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         className={`md:hidden fixed top-3 right-4 z-[210] p-2 rounded-lg transition-colors duration-200
           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1
@@ -65,7 +139,7 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
         aria-controls="mobile-menu"
       >
         <span className={`block transition-all duration-300 ${mobileMenuOpen ? 'rotate-90' : 'rotate-0'}`}>
-          {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+          {mobileMenuOpen ? <X className="w-7 h-7" aria-hidden="true" /> : <Menu className="w-7 h-7" aria-hidden="true" />}
         </span>
       </button>
 
@@ -80,6 +154,7 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
 
       {/* ── Slide-in panel ── */}
       <div
+        ref={panelRef}
         id="mobile-menu"
         role="dialog"
         aria-modal="true"
@@ -113,7 +188,6 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
                 <li key={item.label}>
                   <button
                     onClick={() => handleNavClick(item.page)}
-                    onMouseEnter={() => prefetchPage(item.page)}
                     aria-current={isActive ? 'page' : undefined}
                     className={`w-full flex items-center justify-start gap-4 px-4 py-4 rounded-xl
                       transition-all duration-200 group
@@ -131,7 +205,7 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
                     <span className="text-xl font-semibold tracking-tight flex-1 text-left">
                       {item.label}
                     </span>
-                    <ArrowRight className={`w-4 h-4 flex-shrink-0 transition-all duration-200 ${
+                    <ArrowRight aria-hidden="true" className={`w-4 h-4 flex-shrink-0 transition-all duration-200 ${
                       isActive
                         ? 'opacity-100 text-blue-400'
                         : 'opacity-0 group-hover:opacity-50 group-hover:translate-x-1'
@@ -150,21 +224,21 @@ export default function Navigation({ onNavigate, isScrolled, currentPage }: Navi
           </p>
           <a
             href="tel:+353833468913"
-            className="flex items-center justify-start gap-3 text-white/55 hover:text-white transition-colors duration-200 group"
+            className="flex items-center justify-start gap-3 text-white/55 hover:text-white transition-colors duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:rounded-lg"
           >
             <div className="w-8 h-8 rounded-lg bg-blue-600/20 flex items-center justify-center
               group-hover:bg-blue-600/40 transition-colors duration-200 flex-shrink-0">
-              <Phone className="w-3.5 h-3.5 text-blue-400" />
+              <Phone aria-hidden="true" className="w-3.5 h-3.5 text-blue-400" />
             </div>
             <span className="text-sm font-medium">083 346 8913</span>
           </a>
           <a
             href="mailto:cladprimeco@outlook.com"
-            className="flex items-center justify-start gap-3 text-white/55 hover:text-white transition-colors duration-200 group"
+            className="flex items-center justify-start gap-3 text-white/55 hover:text-white transition-colors duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:rounded-lg"
           >
             <div className="w-8 h-8 rounded-lg bg-blue-600/20 flex items-center justify-center
               group-hover:bg-blue-600/40 transition-colors duration-200 flex-shrink-0">
-              <Mail className="w-3.5 h-3.5 text-blue-400" />
+              <Mail aria-hidden="true" className="w-3.5 h-3.5 text-blue-400" />
             </div>
             <span className="text-sm font-medium">cladprimeco@outlook.com</span>
           </a>

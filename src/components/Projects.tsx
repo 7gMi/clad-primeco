@@ -304,20 +304,26 @@ export default function Projects({ onNavigate }: ProjectsProps) {
       </section>
 
       {currentProject && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[150] flex items-start md:items-center justify-center p-4">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="project-modal-title"
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[150] flex items-start md:items-center justify-center p-4"
+        >
           <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[85vh] md:max-h-[90vh] overflow-y-auto mt-16 md:mt-0">
             <div className="sticky top-0 bg-white border-b border-slate-200 px-6 md:px-8 py-4 flex items-center justify-between z-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+              <h2 id="project-modal-title" className="text-2xl md:text-3xl font-bold text-slate-900">
                 {currentProject.title}
               </h2>
               <button
+                aria-label="Close project detail"
                 onClick={() => {
                   setSelectedProject(null);
                   setCurrentImageIndex(0);
                 }}
                 className="p-2 hover:bg-slate-100 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-1"
               >
-                <X className="w-6 h-6 text-slate-600" />
+                <X className="w-6 h-6 text-slate-600" aria-hidden="true" />
               </button>
             </div>
 
