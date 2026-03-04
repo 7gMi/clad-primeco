@@ -377,10 +377,10 @@ export default function Home({ onNavigate }: HomeProps) {
               <div className="md:ml-4 mt-4 md:mt-0 text-center md:text-left">
                 <div className="text-lg font-semibold text-gray-300 mb-1">Email</div>
                 <a
-                  href="mailto:cladprimeco@gmail.com"
+                  href="mailto:cladprimeco@outlook.com"
                   className="text-base md:text-lg text-white hover:text-blue-500 transition-colors duration-300"
                 >
-                  cladprimeco@gmail.com
+                  cladprimeco@outlook.com
                 </a>
               </div>
               <div className="hidden md:block absolute top-1/2 -right-4 w-px h-1/2 bg-white/30 transform -translate-y-1/2"></div>

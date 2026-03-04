@@ -113,13 +113,13 @@ export default function Contact({ onNavigate }: ContactProps) {
                     <p className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">083 346 8913</p>
                   </div>
                 </a>
-                <a href="mailto:cladprimeco@gmail.com" className="flex items-center gap-5 group">
+                <a href="mailto:cladprimeco@outlook.com" className="flex items-center gap-5 group">
                   <div className="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <p className="text-sm text-slate-500 font-medium">Email</p>
-                    <p className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">cladprimeco@gmail.com</p>
+                    <p className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">cladprimeco@outlook.com</p>
                   </div>
                 </a>
               </div>
@@ -345,10 +345,10 @@ export default function Contact({ onNavigate }: ContactProps) {
               <div className="md:ml-4 mt-4 md:mt-0 text-center md:text-left">
                 <div className="text-lg font-semibold text-gray-300 mb-1">Email</div>
                 <a
-                  href="mailto:cladprimeco@gmail.com"
+                  href="mailto:cladprimeco@outlook.com"
                   className="text-base md:text-lg text-white hover:text-blue-500 transition-colors duration-300"
                 >
-                  cladprimeco@gmail.com
+                  cladprimeco@outlook.com
                 </a>
               </div>
               <div className="hidden md:block absolute top-1/2 -right-4 w-px h-1/2 bg-white/30 transform -translate-y-1/2"></div>
