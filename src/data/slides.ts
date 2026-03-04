@@ -23,7 +23,7 @@ export const slides: Slide[] = [
   },
   {
     id: 3,
-    background: '/images/backgrounds/school_carrigtohil.png',
+    background: '/images/backgrounds/school_carrigtohil.jpg',
     tagline: 'Eco-Friendly Materials / Sustainable Building',
     title: 'Durable Aluminium Cladding Systems',
     subtitle: 'Modern, eco-conscious cladding made from sustainable materials. Zero maintenance, maximum durability and safe for both your project and the environment.'

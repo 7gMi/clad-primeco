@@ -42,7 +42,7 @@ export default function About({ onNavigate }: AboutProps) {
 
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
-        style={{ backgroundImage: 'url(/images/backgrounds/school_carrigtohil.png)' }}
+        style={{ backgroundImage: 'url(/images/backgrounds/school_carrigtohil.jpg)' }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative h-full flex items-center px-8 md:px-16 lg:px-24">

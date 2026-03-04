@@ -218,7 +218,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   until the user scrolls near it (~1 viewport away).
                 */}
                 <img
-                  src="/images/backgrounds/school_carrigtohil.png"
+                  src="/images/backgrounds/school_carrigtohil.jpg"
                   alt="Carrigtwohil school project — example of our cladding work"
                   width="800"
                   height="500"
