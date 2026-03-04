@@ -179,7 +179,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                   </div>
                   <div>
                     <p className="font-semibold text-slate-900 mb-1">Serving the Munster region</p>
-                    <p className="text-slate-500 text-sm leading-relaxed">Based in Cork, we work across commercial and industrial sites throughout the south of Ireland.</p>
+                    <p className="text-slate-500 text-sm leading-relaxed">Based in Dublin, we deliver commercial and industrial cladding projects across Ireland.</p>
                   </div>
                 </div>
               </div>
@@ -191,7 +191,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                 </div>
                 <div>
                   <p className="text-xs text-slate-500 font-medium">Based in</p>
-                  <p className="text-sm font-bold text-slate-900">Cork, Ireland</p>
+                  <p className="text-sm font-bold text-slate-900">Dublin, Ireland</p>
                 </div>
               </div>
             </div>

@@ -31,7 +31,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               />
             </picture>
             <p className="text-slate-400 text-sm leading-relaxed">
-              Professional cladding and roofing specialists based in Cork, Ireland.
+              Professional cladding and roofing specialists based in Dublin, Ireland.
               Quality craftsmanship for industrial and commercial projects.
             </p>
           </div>
@@ -96,7 +96,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
         <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2">
           <p className="text-slate-500 text-xs">© 2026 Clad-Primeco. All rights reserved.</p>
-          <p className="text-slate-600 text-xs">Cork, Ireland</p>
+          <p className="text-slate-600 text-xs">Dublin, Ireland</p>
         </div>
       </div>
     </footer>
