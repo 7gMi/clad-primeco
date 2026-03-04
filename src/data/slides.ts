@@ -9,7 +9,7 @@ export interface Slide {
 export const slides: Slide[] = [
   {
     id: 1,
-    background: '/images/backgrounds/kingspan-panel copy.jpg',
+    background: '/images/backgrounds/kingspan-panel.jpg',
     tagline: 'Professional Grade / Guaranteed Quality',
     title: 'Professional Kingspan Cladding Systems',
     subtitle: "Ireland's trusted partner for high-performance insulated panels. From small projects to large-scale developments, we deliver quality materials on time, every time."

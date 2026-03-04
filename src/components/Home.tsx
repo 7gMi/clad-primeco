@@ -88,15 +88,11 @@ export default function Home({ onNavigate }: HomeProps) {
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className={`absolute inset-0 transition-opacity duration-800 ease-in-out ${
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-in-out ${
                 currentSlide === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
               }`}
+              style={{ backgroundImage: `url(${slide.background})` }}
             >
-              <img
-                src={slide.background}
-                alt={slide.title}
-                className="absolute inset-0 w-full h-full object-cover object-center"
-              />
               <div className="absolute inset-0 bg-black/40" />
             </div>
           ))}
@@ -116,6 +112,7 @@ export default function Home({ onNavigate }: HomeProps) {
                     tagline={slide.tagline}
                     title={slide.title}
                     subtitle={slide.subtitle}
+                    onNavigate={onNavigate}
                   />
                 </div>
               ))}

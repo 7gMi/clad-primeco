@@ -1,14 +1,13 @@
-import { useState } from 'react';
+import { Page } from '../App';
 
 interface HeroCardProps {
   tagline: string;
   title: string;
   subtitle: string;
+  onNavigate: (page: Page) => void;
 }
 
-export default function HeroCard({ tagline, title, subtitle }: HeroCardProps) {
-  const [activeButton, setActiveButton] = useState<'projects' | 'quote'>('projects');
-
+export default function HeroCard({ tagline, title, subtitle, onNavigate }: HeroCardProps) {
   return (
     <div className="hero-card max-w-4xl">
       <p className="text-blue-400 text-sm md:text-base lg:text-lg mb-4 font-medium tracking-wider uppercase">
@@ -25,22 +24,14 @@ export default function HeroCard({ tagline, title, subtitle }: HeroCardProps) {
 
       <div className="flex flex-wrap gap-4">
         <button
-          onClick={() => setActiveButton('projects')}
-          className={`border-2 px-8 py-4 rounded-3xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap focus:outline-none focus:ring-0 ${
-            activeButton === 'projects'
-              ? 'bg-blue-600 border-blue-600 text-white'
-              : 'bg-transparent hover:bg-white/10 border-white text-white'
-          }`}
+          onClick={() => onNavigate('projects')}
+          className="bg-blue-600 border-2 border-blue-600 text-white px-8 py-4 rounded-3xl text-lg font-semibold transition-all duration-300 hover:bg-blue-700 hover:border-blue-700 hover:scale-105 shadow-lg whitespace-nowrap focus:outline-none"
         >
           Our Projects
         </button>
         <button
-          onClick={() => setActiveButton('quote')}
-          className={`border-2 px-8 py-4 rounded-3xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap focus:outline-none focus:ring-0 ${
-            activeButton === 'quote'
-              ? 'bg-blue-600 border-blue-600 text-white'
-              : 'bg-transparent hover:bg-white/10 border-white text-white'
-          }`}
+          onClick={() => onNavigate('contact')}
+          className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-3xl text-lg font-semibold transition-all duration-300 hover:bg-white/10 hover:scale-105 shadow-lg whitespace-nowrap focus:outline-none"
         >
           Free Consultation
         </button>

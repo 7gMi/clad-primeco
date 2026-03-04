@@ -32,130 +32,186 @@ export default function Projects({ onNavigate }: ProjectsProps) {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'Amazon Data Center - Dublin',
-      client: 'Amazon Web Services',
+      title: 'Amazon — Dublin 104',
+      client: 'Amazon',
       location: 'Dublin, Ireland',
-      year: 2024,
-      description: 'Large-scale data center facility with architectural cladding systems. This project showcases our ability to deliver premium cladding solutions for mission-critical infrastructure. The installation featured custom architectural panels with precision engineering to meet strict AWS specifications.',
+      year: 2025,
+      description: 'Large-scale cladding installation for Amazon\'s Dublin 104 facility. This project involved the supply and installation of high-performance cladding systems across the full building envelope, meeting strict client specifications and tight programme requirements.',
       specifications: {
-        surface: '45,000 m²',
-        materials: 'Architectural Panels + Kingspan Systems',
-        duration: '18 months',
+        surface: 'N/A',
+        materials: 'Architectural Cladding Systems',
+        duration: 'N/A',
         status: 'Completed'
       },
       images: [
-        '/images/architectural-panels/amazon1.jpg',
-        '/images/architectural-panels/amazon2.jpg',
-        '/images/architectural-panels/amazon4.jpg',
-        '/images/architectural-panels/amazon_3.jpg'
+        '/images/projects/dub104-amazon/1_Dub104_Amazon.jpg',
+        '/images/projects/dub104-amazon/2_Dub104_Amazon.jpg',
+        '/images/projects/dub104-amazon/3_Dub104_Amazon.jpg',
+        '/images/projects/dub104-amazon/4_Dub104_Amazon.jpg',
+        '/images/projects/dub104-amazon/6_Dub104_Amazon.jpg',
+        '/images/projects/dub104-amazon/10_Dub104_Amazon.JPG',
+        '/images/projects/dub104-amazon/11_Dub104_Amazon.JPG',
       ],
       serviceType: 'Architectural Panels'
     },
     {
       id: 2,
-      title: 'Carrigtwohill School Complex',
-      client: 'Department of Education',
-      location: 'Cork, Ireland',
-      year: 2023,
-      description: 'Modern educational facility featuring comprehensive cladding solutions. This project combined both Kingspan insulated panels for thermal efficiency and architectural panels for aesthetic appeal. The school achieved LEED certification partly through our high-performance cladding systems.',
+      title: 'Vantage Power Station — Dublin 01',
+      client: 'Vantage Data Centers',
+      location: 'Dublin, Ireland',
+      year: 2024,
+      description: 'Cladding works on the Vantage Power Station facility in Dublin. The project required precision installation of industrial cladding systems to meet the demanding technical requirements of a critical energy infrastructure facility.',
       specifications: {
-        surface: '28,500 m²',
-        materials: 'Kingspan Panels + Architectural Systems',
-        duration: '14 months',
+        surface: 'N/A',
+        materials: 'Industrial Cladding Systems',
+        duration: 'N/A',
         status: 'Completed'
       },
       images: [
-        '/images/backgrounds/school_carrigtohil.png',
-        '/images/backgrounds/school_carrigtohil copy.png',
-        '/images/architectural-panels/amazon1 copy.jpg',
-        '/images/backgrounds/amazon-dub104.jpg'
+        '/images/projects/dub01-vantage/10_Dub01_Vantage_Power_Station.jpg',
+        '/images/projects/dub01-vantage/11_Dub01_Vantage_Power_Station.jpg',
+        '/images/projects/dub01-vantage/12_Dub01_Vantage_Power_Station.jpg',
+        '/images/projects/dub01-vantage/13_Dub01_Vantage_Power_Station.jpg',
+        '/images/projects/dub01-vantage/14_Dub01_Vantage_Power_Station.jpg',
+        '/images/projects/dub01-vantage/15_Dub01_Vantage_Power_Station.jpg',
+        '/images/projects/dub01-vantage/16_Dub01_Vantage_Power_Station.jpg',
+      ],
+      serviceType: 'Industrial Cladding'
+    },
+    {
+      id: 3,
+      title: 'Carrigtwohil College',
+      client: 'Department of Education',
+      location: 'Carrigtwohil, Cork',
+      year: 2024,
+      description: 'Full cladding package for the new Carrigtwohil College building in Cork. The works included supply and installation of Kingspan insulated panels and architectural cladding systems, delivering both thermal performance and a modern aesthetic for the educational facility.',
+      specifications: {
+        surface: 'N/A',
+        materials: 'Kingspan Panels + Architectural Systems',
+        duration: 'N/A',
+        status: 'Completed'
+      },
+      images: [
+        '/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.jpg',
+        '/images/projects/carrigtwohil-college/2_Carrigtwohil_College_Cork.jpg',
+        '/images/projects/carrigtwohil-college/3_Carrigtwohil_College_Cork.jpg',
+        '/images/projects/carrigtwohil-college/4_Carrigtwohil_College_Cork.jpg',
+        '/images/projects/carrigtwohil-college/5_Carrigtwohil_College_Cork.jpg',
+        '/images/projects/carrigtwohil-college/6_Carrigtwohil_College_Cork.jpg',
+        '/images/projects/carrigtwohil-college/10_Carrigtwohil_College_Cork.jpg',
+        '/images/projects/carrigtwohil-college/11_Carrigtwohil_College_Cork.jpg',
       ],
       serviceType: 'Mixed Systems'
     },
     {
-      id: 3,
-      title: 'Industrial Warehouse - Cork',
-      client: 'Logistics Plus',
-      location: 'Cork, Ireland',
+      id: 4,
+      title: 'Bausch & Lomb Facility',
+      client: 'Bausch & Lomb',
+      location: 'Waterford, Ireland',
       year: 2023,
-      description: 'High-performance warehouse facility with premium insulation and rapid installation. This project demonstrates our expertise in industrial applications, delivering superior thermal performance and durability. The facility now operates at 40% lower energy costs.',
+      description: 'Cladding installation for the Bausch & Lomb manufacturing facility. This industrial project required high-precision cladding works to maintain the facility\'s operational continuity while achieving superior building envelope performance.',
       specifications: {
-        surface: '32,000 m²',
-        materials: 'Kingspan Panels 100mm',
-        duration: '9 months',
+        surface: 'N/A',
+        materials: 'Industrial Cladding Systems',
+        duration: 'N/A',
         status: 'Completed'
       },
       images: [
-        '/images/kingspan-panel.jpg',
-        '/images/backgrounds/kingspan-panel.jpg',
-        '/images/backgrounds/kingspan-panel copy.jpg',
-        '/images/architectural-panels/amazon2 copy.jpg'
+        '/images/projects/bausch-lomb/1_Bausch%26lomb.jpg',
+        '/images/projects/bausch-lomb/2_Bausch%26lomb.jpg',
+        '/images/projects/bausch-lomb/3_Bausch%26lomb.jpg',
+        '/images/projects/bausch-lomb/4_Bausch%26lomb.jpg',
+        '/images/projects/bausch-lomb/5_Bausch%26lomb.jpg',
+        '/images/projects/bausch-lomb/6_Bausch%26lomb.jpg',
+        '/images/projects/bausch-lomb/10_Bausch%26lomb.jpg',
       ],
       serviceType: 'Kingspan Systems'
     },
     {
-      id: 4,
-      title: 'Commercial Office Building - Dublin',
-      client: 'Commercial Developers Ltd',
-      location: 'Dublin, Ireland',
-      year: 2022,
-      description: 'Premium office building with architectural cladding creating a striking modern facade. This project required precision installation of custom architectural panels with integrated drainage systems. The building became an architectural landmark in Dublin\'s financial district.',
+      id: 5,
+      title: 'ABP Rathkeale',
+      client: 'ABP Group',
+      location: 'Rathkeale, Co. Limerick',
+      year: 2023,
+      description: 'Industrial cladding works for the ABP food processing facility in Rathkeale. The project involved full external cladding installation across multiple building sections, delivering a robust and thermally efficient envelope for this large-scale industrial client.',
       specifications: {
-        surface: '18,500 m²',
-        materials: 'Premium Architectural Panels',
-        duration: '12 months',
+        surface: 'N/A',
+        materials: 'Kingspan Insulated Panels',
+        duration: 'N/A',
         status: 'Completed'
       },
       images: [
-        '/images/backgrounds/aluminium-cladding.jpg',
-        '/images/aluminium-copings/aluminium-copings.jpg',
-        '/images/architectural-panels/amazon1 copy.jpg',
-        '/images/backgrounds/kingspan-panel.jpg'
+        '/images/projects/abp-rathkeale/1_ABP_Rathkeale.jpg',
+        '/images/projects/abp-rathkeale/2_ABP_Rathkeale.jpg',
+        '/images/projects/abp-rathkeale/3_ABP_Rathkeale.jpg',
+        '/images/projects/abp-rathkeale/4_ABP_Rathkeale.jpg',
+        '/images/projects/abp-rathkeale/5_ABP_Rathkeale.jpg',
+        '/images/projects/abp-rathkeale/6_ABP_Rathkeale.jpg',
+        '/images/projects/abp-rathkeale/7_ABP_Rathkeale.jpg',
+      ],
+      serviceType: 'Kingspan Systems'
+    },
+    {
+      id: 6,
+      title: 'Europort Rosslare',
+      client: 'Rosslare Europort',
+      location: 'Rosslare, Co. Wexford',
+      year: 2024,
+      description: 'Cladding installation at Rosslare Europort, one of Ireland\'s busiest ferry terminals. Works were carried out within an active port environment, requiring strict coordination with port operations to deliver the cladding package on schedule.',
+      specifications: {
+        surface: 'N/A',
+        materials: 'Architectural Cladding Systems',
+        duration: 'N/A',
+        status: 'Completed'
+      },
+      images: [
+        '/images/projects/europort-rosslare/12_Europort_Rosslare_Wexford.jpg',
+        '/images/projects/europort-rosslare/17_Europort_Rosslare_Wexford.jpg',
       ],
       serviceType: 'Architectural Panels'
     },
     {
-      id: 5,
-      title: 'Aluminium Copings Installation - Multiple Sites',
-      client: 'National Building Services',
-      location: 'Ireland (National)',
-      year: 2023,
-      description: 'Comprehensive aluminium copings and trim installation across multiple industrial facilities. This contract showcased our expertise in finishing systems and precision metalwork. All installations completed to specification with zero defects.',
+      id: 7,
+      title: 'Lily Superstore',
+      client: 'Lily Retail Group',
+      location: 'Limerick, Ireland',
+      year: 2025,
+      description: 'Cladding and facade works for the Lily Superstore in Limerick. The project delivered a modern, high-quality exterior finish that enhances the retail building\'s visual identity while providing long-term weather protection and thermal performance.',
       specifications: {
-        surface: '12,500 m (linear)',
-        materials: 'Anodized Aluminium Profiles',
-        duration: '6 months',
+        surface: 'N/A',
+        materials: 'Architectural Cladding',
+        duration: 'N/A',
         status: 'Completed'
       },
       images: [
-        '/images/aluminium-copings/aluminium-copings.jpg',
-        '/images/aluminium-copings/aluminium-coppings-1.jpg',
-        '/images/aluminium-copings/aluminium-coppings-2.jpg',
-        '/images/aluminium-copings/aluminium-coppings-3.jpg'
+        '/images/projects/lily-superstore/14_Lily_Superstore_Limerick.jpg',
+        '/images/projects/lily-superstore/16_Lily_Superstore_Limerick.jpg',
       ],
-      serviceType: 'Aluminium Systems'
+      serviceType: 'Architectural Panels'
     },
     {
-      id: 6,
-      title: 'Healthcare Facility - Galway',
-      client: 'Irish Health Systems',
-      location: 'Galway, Ireland',
-      year: 2022,
-      description: 'Modern healthcare facility with fire-rated cladding systems and enhanced insulation. This project required specialized fire protection cladding meeting stringent healthcare standards. The facility features state-of-the-art thermal and acoustic performance.',
+      id: 8,
+      title: 'Sandyford Warehouse & Depot',
+      client: 'Confidential',
+      location: 'Sandyford, Dublin',
+      year: 2025,
+      description: 'Supply and installation of cladding systems for a warehouse and depot facility in Sandyford Business District, Dublin. The project was completed on programme, delivering a durable and well-finished building envelope for the commercial client.',
       specifications: {
-        surface: '22,000 m²',
-        materials: 'Fire-Rated Panels + Kingspan',
-        duration: '16 months',
+        surface: 'N/A',
+        materials: 'Kingspan Panels',
+        duration: 'N/A',
         status: 'Completed'
       },
       images: [
-        '/images/backgrounds/4k.jpg',
-        '/images/architectural-panels/architectural-panels.jpg',
-        '/images/backgrounds/kingspan-panel.jpg',
-        '/images/backgrounds/aluminium-cladding.jpg'
+        '/images/projects/sandyford-warehouse/1_Sandyford_Warehouse_Depot.JPG',
+        '/images/projects/sandyford-warehouse/2_Sandyford_Warehouse_Depot.JPG',
+        '/images/projects/sandyford-warehouse/3_Sandyford_Warehouse_Depot.JPG',
+        '/images/projects/sandyford-warehouse/4_Sandyford_Warehouse_Depot.JPG',
+        '/images/projects/sandyford-warehouse/5_Sandyford_Warehouse_Depot.JPG',
+        '/images/projects/sandyford-warehouse/6_Sandyford_Warehouse_Depot.JPG',
       ],
-      serviceType: 'Specialized Systems'
-    }
+      serviceType: 'Kingspan Systems'
+    },
   ];
 
   const currentProject = selectedProject !== null ? projects.find(p => p.id === selectedProject) : null;
@@ -231,7 +287,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
       </section>
 
       {currentProject && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[150] flex items-center justify-center p-4 pt-20 md:pt-4">
           <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="sticky top-0 bg-white border-b border-slate-200 px-6 md:px-8 py-4 flex items-center justify-between z-10">
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
@@ -273,7 +329,7 @@ export default function Projects({ onNavigate }: ProjectsProps) {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   {currentProject.images.map((image, index) => (
                     <button
                       key={index}
