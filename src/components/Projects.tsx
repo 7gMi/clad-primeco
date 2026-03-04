@@ -186,6 +186,12 @@ export default function Projects({ onNavigate }: ProjectsProps) {
       images: [
         '/images/projects/lily-superstore/14_Lily_Superstore_Limerick.jpg',
         '/images/projects/lily-superstore/16_Lily_Superstore_Limerick.jpg',
+        '/images/projects/lily-superstore/10.jpg',
+        '/images/projects/lily-superstore/11_.jpg',
+        '/images/projects/lily-superstore/12.jpg',
+        '/images/projects/lily-superstore/13.jpg',
+        '/images/projects/lily-superstore/15.jpg',
+        '/images/projects/lily-superstore/17.jpg',
       ],
       serviceType: 'Architectural Panels'
     },
