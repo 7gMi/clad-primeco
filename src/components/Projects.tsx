@@ -167,6 +167,12 @@ export default function Projects({ onNavigate }: ProjectsProps) {
       images: [
         '/images/projects/europort-rosslare/12_Europort_Rosslare_Wexford.jpg',
         '/images/projects/europort-rosslare/17_Europort_Rosslare_Wexford.jpg',
+        '/images/projects/europort-rosslare/10.jpg',
+        '/images/projects/europort-rosslare/11.jpg',
+        '/images/projects/europort-rosslare/13.jpg',
+        '/images/projects/europort-rosslare/14.jpg',
+        '/images/projects/europort-rosslare/15.jpg',
+        '/images/projects/europort-rosslare/16.jpg',
       ],
       serviceType: 'Architectural Panels'
     },
