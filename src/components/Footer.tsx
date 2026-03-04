@@ -72,11 +72,11 @@ export default function Footer({ onNavigate }: FooterProps) {
               </li>
               <li>
                 <a
-                  href="mailto:info@cladprimeco.ie"
+                  href="mailto:cladprimeco@outlook.com"
                   className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-sm"
                 >
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  info@cladprimeco.ie
+                  cladprimeco@outlook.com
                 </a>
               </li>
               <li>
