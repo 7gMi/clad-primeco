@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react'
 import HCaptcha from '@hcaptcha/react-hcaptcha'
-import { Send, User, Mail, MessageSquare, CheckCircle, AlertCircle, Phone, Instagram, MapPin, Clock, ArrowRight } from 'lucide-react'
+import { Send, User, Mail, MessageSquare, CheckCircle, AlertCircle, Phone, Instagram, MapPin, ChevronDown } from 'lucide-react'
 import Header from './Header'
 import BackToTop from './BackToTop'
 import { Page } from '../App'
 
-type FormData = { name: string; email: string; phone: string; message: string }
+type FormData = { name: string; email: string; phone: string; service: string; message: string }
 
 interface ContactProps {
   onNavigate: (page: Page) => void;
@@ -16,14 +16,14 @@ const HCAPTCHA_SITEKEY = import.meta.env.VITE_HCAPTCHA_SITEKEY as string
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string
 
 export default function Contact({ onNavigate }: ContactProps) {
-  const [form, setForm] = useState<FormData>({ name: '', email: '', phone: '', message: '' })
+  const [form, setForm] = useState<FormData>({ name: '', email: '', phone: '', service: '', message: '' })
   const [token, setToken] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const captchaRef = useRef<HCaptcha | null>(null)
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
@@ -39,13 +39,17 @@ export default function Contact({ onNavigate }: ContactProps) {
 
     setLoading(true)
     try {
+      const messageWithService = form.service
+        ? `Service: ${form.service}\n\n${form.message}`
+        : form.message
+
       const res = await fetch(`${SUPABASE_URL}/functions/v1/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
         },
-        body: JSON.stringify({ ...form, hcaptchaToken: token }),
+        body: JSON.stringify({ ...form, message: messageWithService, hcaptchaToken: token }),
       })
 
       const body = await res.json().catch(() => ({}))
@@ -55,7 +59,7 @@ export default function Contact({ onNavigate }: ContactProps) {
       }
 
       setSuccess('Message sent successfully. We will get back to you as soon as possible.')
-      setForm({ name: '', email: '', phone: '', message: '' })
+      setForm({ name: '', email: '', phone: '', service: '', message: '' })
       captchaRef.current?.resetCaptcha()
       setToken(null)
     } catch (err: unknown) {
@@ -178,8 +182,8 @@ export default function Contact({ onNavigate }: ContactProps) {
                     <span className="text-white text-sm font-bold">03</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900 mb-1">Serving the Munster region</p>
-                    <p className="text-slate-500 text-sm leading-relaxed">Based in Dublin, we deliver commercial and industrial cladding projects across Ireland.</p>
+                    <p className="font-semibold text-slate-900 mb-1">Serving all of Ireland</p>
+                    <p className="text-slate-500 text-sm leading-relaxed">Based in Dublin, we deliver commercial and industrial cladding projects nationwide.</p>
                   </div>
                 </div>
               </div>
@@ -250,6 +254,30 @@ export default function Contact({ onNavigate }: ContactProps) {
                       type="tel"
                       className="w-full pl-12 pr-4 py-3.5 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-slate-50 focus:bg-white"
                     />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Service <span className="text-slate-400 font-normal">(optional)</span>
+                  </label>
+                  <div className="relative">
+                    <select
+                      name="service"
+                      value={form.service}
+                      onChange={handleChange}
+                      className="w-full pl-4 pr-10 py-3.5 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-slate-50 focus:bg-white appearance-none"
+                    >
+                      <option value="">Select a service...</option>
+                      <option value="Kingspan Cladding">Kingspan Cladding</option>
+                      <option value="Architectural Panels">Architectural Panels</option>
+                      <option value="Aluminium Copings & Roof Deck">Aluminium Copings &amp; Roof Deck</option>
+                      <option value="Fire Protection Cladding">Fire Protection Cladding</option>
+                      <option value="Other">Other / Not sure</option>
+                    </select>
+                    <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                      <ChevronDown className="w-5 h-5 text-slate-400" />
+                    </div>
                   </div>
                 </div>
 
