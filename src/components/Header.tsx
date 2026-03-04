@@ -39,7 +39,7 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
               className={`h-auto transition-all duration-300 ${
                 isScrolled
                   ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
-                  : 'w-[120px] sm:w-[140px] md:w-[160px] lg:w-[300px]'
+                  : 'w-[120px] sm:w-[140px] md:w-[160px] lg:w-[300px] brightness-0 invert'
               }`}
             />
           </picture>
