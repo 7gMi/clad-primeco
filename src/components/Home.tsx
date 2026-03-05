@@ -50,7 +50,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
 
   return (
-    <div className="h-screen overflow-y-auto bg-white home-scroll-container">
+    <div className="h-screen overflow-y-auto overflow-x-hidden bg-white home-scroll-container">
       <Header onNavigate={onNavigate} currentPage="home" isHomePage />
 
       {/* Hero slider section */}
@@ -147,8 +147,8 @@ export default function Home({ onNavigate }: HomeProps) {
               </ul>
             </div>
             <div className="lg:w-1/2 relative">
-              <div className="absolute -top-6 -left-6 w-24 h-24 border-t-4 border-l-4 border-blue-600 rounded-tl-3xl"></div>
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 border-b-4 border-r-4 border-blue-600 rounded-br-3xl"></div>
+              <div className="hidden sm:block absolute -top-6 -left-6 w-24 h-24 border-t-4 border-l-4 border-blue-600 rounded-tl-3xl"></div>
+              <div className="hidden sm:block absolute -bottom-6 -right-6 w-24 h-24 border-b-4 border-r-4 border-blue-600 rounded-br-3xl"></div>
 
               <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                 {/*
@@ -167,7 +167,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   className="w-full h-full object-cover object-center"
                 />
 
-                <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-6 max-w-xs border-l-4 border-blue-600">
+                <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-4 sm:p-6 max-w-[200px] sm:max-w-xs border-l-4 border-blue-600">
                   <h4 className="text-xl font-bold text-slate-900 mb-2">Trusted Across Ireland</h4>
                   <p className="text-sm text-slate-600 leading-relaxed">
                     Amazon, Vantage Data Centers, Bausch & Lomb — completed on time, to specification

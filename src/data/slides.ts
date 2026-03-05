@@ -23,7 +23,7 @@ export const slides: Slide[] = [
   },
   {
     id: 3,
-    background: '/images/backgrounds/school_carrigtohil.jpg',
+    background: '/images/architectural-panels/amazon4.jpg',
     tagline: 'From Cork to Dublin. Brief to Handover.',
     title: 'One Contractor. Every System. Zero Delays.',
     subtitle: 'Kingspan panels, architectural facades, aluminium roof deck — managed by one specialist team. We protect your programme from first fixing to final sign-off.'
