@@ -1,4 +1,4 @@
-import { Page } from '../App';
+import { Page, ServiceType } from '../App';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { slides } from '../data/slides';
 import HeroCard from './HeroCard';
@@ -8,7 +8,7 @@ import Header from './Header';
 import BackToTop from './BackToTop';
 
 interface HomeProps {
-  onNavigate: (page: Page) => void;
+  onNavigate: (page: Page, projectId?: number, serviceType?: ServiceType) => void;
 }
 
 export default function Home({ onNavigate }: HomeProps) {
@@ -227,7 +227,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   High-performance insulated panels delivering exceptional thermal efficiency and fast installation — keeping your programme on track.
                 </p>
                 <button
-                  onClick={() => onNavigate('contact')}
+                  onClick={() => onNavigate('services', undefined, 'kingspan')}
                   className="text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   Get Kingspan Pricing
@@ -266,7 +266,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   Striking, durable facades that perform for decades — full weatherproofing with the aesthetic finish your design demands.
                 </p>
                 <button
-                  onClick={() => onNavigate('contact')}
+                  onClick={() => onNavigate('services', undefined, 'architectural')}
                   className="text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   Discuss Your Facade
@@ -305,7 +305,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   Watertight, low-maintenance roof deck and copings — lightweight aluminium profiles to your exact specifications.
                 </p>
                 <button
-                  onClick={() => onNavigate('contact')}
+                  onClick={() => onNavigate('services', undefined, 'aluminium')}
                   className="text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   Request Specifications

@@ -5,11 +5,12 @@ import BackToTop from './BackToTop';
 import Footer from './Footer';
 import { Page } from '../App';
 
+import { ServiceType } from '../App';
+
 interface ServicesProps {
   onNavigate: (page: Page, projectId?: number) => void;
+  initialService?: ServiceType | null;
 }
-
-type ServiceType = 'kingspan' | 'architectural' | 'aluminium';
 
 const servicesData = {
   kingspan: {
@@ -120,8 +121,8 @@ const servicesData = {
   },
 };
 
-export default function Services({ onNavigate }: ServicesProps) {
-  const [selectedService, setSelectedService] = useState<ServiceType>('kingspan');
+export default function Services({ onNavigate, initialService }: ServicesProps) {
+  const [selectedService, setSelectedService] = useState<ServiceType>(initialService ?? 'kingspan');
 
   const currentService = servicesData[selectedService];
   const CurrentIcon = currentService.icon;

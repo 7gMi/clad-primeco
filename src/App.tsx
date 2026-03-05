@@ -4,6 +4,7 @@ import FloatingCTA from './components/FloatingCTA';
 import { useAuth } from './hooks/useAuth';
 
 export type Page = 'home' | 'about' | 'contact' | 'services' | 'projects' | 'admin';
+export type ServiceType = 'kingspan' | 'architectural' | 'aluminium';
 
 // Lazy-loaded page components — each produces a separate JS chunk.
 // This means the initial bundle only contains Home + FloatingCTA,
@@ -48,6 +49,7 @@ function App() {
   const [displayedPage, setDisplayedPage] = useState<Page>('home');
   const [isVisible, setIsVisible] = useState(true);
   const [initialProjectId, setInitialProjectId] = useState<number | null>(null);
+  const [initialService, setInitialService] = useState<ServiceType | null>(null);
   const { session, loading, logout } = useAuth();
   const transitionRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -77,10 +79,11 @@ function App() {
   }, [displayedPage]);
 
   // M11: cancel pending transition if user navigates again quickly
-  const handleNavigate = useCallback((page: Page, projectId?: number) => {
-    if (page === displayedPage && !projectId) return;
+  const handleNavigate = useCallback((page: Page, projectId?: number, serviceType?: ServiceType) => {
+    if (page === displayedPage && !projectId && !serviceType) return;
     if (transitionRef.current) clearTimeout(transitionRef.current);
     setInitialProjectId(projectId ?? null);
+    setInitialService(serviceType ?? null);
     setIsVisible(false);
     transitionRef.current = setTimeout(() => {
       setDisplayedPage(page);
@@ -102,7 +105,7 @@ function App() {
       <div className={`transition-opacity duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
         {displayedPage === 'home' && <Home onNavigate={handleNavigate} />}
         {displayedPage === 'about' && <About onNavigate={handleNavigate} />}
-        {displayedPage === 'services' && <Services onNavigate={handleNavigate} />}
+        {displayedPage === 'services' && <Services onNavigate={handleNavigate} initialService={initialService} />}
         {displayedPage === 'projects' && <Projects onNavigate={handleNavigate} initialProjectId={initialProjectId} />}
         {displayedPage === 'contact' && <Contact onNavigate={handleNavigate} />}
       </div>
