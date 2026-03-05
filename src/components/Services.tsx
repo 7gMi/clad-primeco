@@ -391,7 +391,12 @@ export default function Services({ onNavigate, initialService }: ServicesProps) 
               </div>
 
               <button
-                onClick={() => onNavigate('contact')}
+                onClick={() => {
+                  onNavigate('contact');
+                  setTimeout(() => {
+                    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }, 300);
+                }}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center gap-2 transition-all duration-300 hover:gap-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
                 Request a Quote
