@@ -105,7 +105,7 @@ export default function Contact({ onNavigate }: ContactProps) {
       {/* Hero */}
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
-        style={{ backgroundImage: 'url(/images/projects/sandyford-warehouse/1_Sandyford_Warehouse_Depot.JPG)' }}
+        style={{ backgroundImage: "url('/images/architectural-panels/amazon2 copy copy.jpg')" }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative h-full flex items-center px-8 md:px-16 lg:px-24">
