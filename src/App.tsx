@@ -6,6 +6,18 @@ import { useAuth } from './hooks/useAuth';
 export type Page = 'home' | 'about' | 'contact' | 'services' | 'projects' | 'admin';
 export type ServiceType = 'kingspan' | 'architectural' | 'aluminium';
 
+/** Call before onNavigate('contact') to scroll to the form instead of page top. */
+export function navigateToContactForm(onNavigate: (page: Page) => void) {
+  (window as any).__skipScrollTop = true;
+  onNavigate('contact');
+  const scrollToForm = () => {
+    const el = document.getElementById('contact-form');
+    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    setTimeout(scrollToForm, 200);
+  };
+  setTimeout(scrollToForm, 400);
+}
+
 // Lazy-loaded page components — each produces a separate JS chunk.
 // This means the initial bundle only contains Home + FloatingCTA,
 // keeping Time-to-Interactive low on the first visit.
@@ -64,8 +76,12 @@ function App() {
     };
   }, []);
 
-  // Scroll to top on page change
+  // Scroll to top on page change (unless a scroll-to-section is pending)
   useEffect(() => {
+    if ((window as any).__skipScrollTop) {
+      (window as any).__skipScrollTop = false;
+      return;
+    }
     if (displayedPage === 'home') {
       const container = document.querySelector('.home-scroll-container');
       if (container) {

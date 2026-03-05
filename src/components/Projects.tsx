@@ -3,7 +3,7 @@ import { ArrowRight, Phone, Mail, Instagram, ChevronLeft, ChevronRight, X } from
 import Header from './Header';
 import BackToTop from './BackToTop';
 import Footer from './Footer';
-import { Page } from '../App';
+import { Page, navigateToContactForm } from '../App';
 
 interface ProjectsProps {
   onNavigate: (page: Page, projectId?: number) => void;
@@ -451,7 +451,7 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
               <button
                 onClick={() => {
                   setSelectedProject(null);
-                  onNavigate('contact');
+                  navigateToContactForm(onNavigate);
                 }}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center justify-center gap-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >

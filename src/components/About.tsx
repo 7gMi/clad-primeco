@@ -3,10 +3,10 @@ import { ArrowRight, Building2, PenTool, FileText, CheckCircle, Check, Phone, Ma
 import Header from './Header';
 import BackToTop from './BackToTop';
 import Footer from './Footer';
-import { Page } from '../App';
+import { Page, ServiceType, navigateToContactForm } from '../App';
 
 interface AboutProps {
-  onNavigate: (page: Page) => void;
+  onNavigate: (page: Page, projectId?: number, serviceType?: ServiceType) => void;
 }
 
 export default function About({ onNavigate }: AboutProps) {
@@ -19,7 +19,7 @@ export default function About({ onNavigate }: AboutProps) {
     { number: '04', title: 'Finishing', icon: CheckCircle }
   ];
 
-  const services = [
+  const services: { title: string; tagline: string; description: string; image: string; imageAlt: string; icon: typeof Thermometer; badge: string; serviceType: ServiceType }[] = [
     {
       title: 'Kingspan Cladding',
       tagline: 'Thermal performance. Fire rating. On programme.',
@@ -28,6 +28,7 @@ export default function About({ onNavigate }: AboutProps) {
       imageAlt: 'Kingspan insulated panels installed on a commercial building facade',
       icon: Thermometer,
       badge: '4 projects delivered',
+      serviceType: 'kingspan',
     },
     {
       title: 'Aluminium Roof Deck',
@@ -37,6 +38,7 @@ export default function About({ onNavigate }: AboutProps) {
       imageAlt: 'Aluminium roof deck and coping system on a commercial building',
       icon: Umbrella,
       badge: '2 projects delivered',
+      serviceType: 'aluminium',
     },
     {
       title: 'Architectural Panels',
@@ -46,6 +48,7 @@ export default function About({ onNavigate }: AboutProps) {
       imageAlt: 'Architectural cladding panels on a modern building facade',
       icon: Palette,
       badge: '2 projects delivered',
+      serviceType: 'architectural',
     }
   ];
 
@@ -289,7 +292,7 @@ export default function About({ onNavigate }: AboutProps) {
                       {service.description}
                     </p>
                     <button
-                      onClick={() => onNavigate('services')}
+                      onClick={() => onNavigate('services', undefined, service.serviceType)}
                       className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded group/btn"
                     >
                       View service
@@ -312,7 +315,7 @@ export default function About({ onNavigate }: AboutProps) {
             Send us your drawings or brief — we'll come back with a detailed, competitive quote.
           </p>
           <button
-            onClick={() => onNavigate('contact')}
+            onClick={() => navigateToContactForm(onNavigate)}
             className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 inline-flex items-center gap-2 hover:gap-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
           >
             Request a Quote

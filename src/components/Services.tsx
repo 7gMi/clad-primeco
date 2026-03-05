@@ -3,9 +3,7 @@ import { ArrowRight, Thermometer, Palette, Umbrella, Phone, Mail, Instagram, Che
 import Header from './Header';
 import BackToTop from './BackToTop';
 import Footer from './Footer';
-import { Page } from '../App';
-
-import { ServiceType } from '../App';
+import { Page, ServiceType, navigateToContactForm } from '../App';
 
 interface ServicesProps {
   onNavigate: (page: Page, projectId?: number) => void;
@@ -391,15 +389,7 @@ export default function Services({ onNavigate, initialService }: ServicesProps) 
               </div>
 
               <button
-                onClick={() => {
-                  onNavigate('contact');
-                  const scrollToForm = () => {
-                    const el = document.getElementById('contact-form');
-                    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
-                    setTimeout(scrollToForm, 200);
-                  };
-                  setTimeout(scrollToForm, 400);
-                }}
+                onClick={() => navigateToContactForm(onNavigate)}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center gap-2 transition-all duration-300 hover:gap-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
                 Request a Quote

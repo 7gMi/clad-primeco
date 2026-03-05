@@ -1,5 +1,5 @@
 import { Phone } from 'lucide-react';
-import { Page } from '../App';
+import { Page, navigateToContactForm } from '../App';
 
 interface HeroCardProps {
   tagline: string;
@@ -25,15 +25,7 @@ export default function HeroCard({ tagline, title, subtitle, onNavigate }: HeroC
 
       <div className="flex flex-wrap gap-3 sm:gap-4">
         <button
-          onClick={() => {
-            onNavigate('contact');
-            const scrollToForm = () => {
-              const el = document.getElementById('contact-form');
-              if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
-              setTimeout(scrollToForm, 200);
-            };
-            setTimeout(scrollToForm, 400);
-          }}
+          onClick={() => navigateToContactForm(onNavigate)}
           className="bg-blue-600 border-2 border-blue-600 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-3xl text-base sm:text-lg font-semibold transition-all duration-300 hover:bg-blue-700 hover:border-blue-700 hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent"
         >
           Get a Quote — 24h Response

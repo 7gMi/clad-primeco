@@ -1,5 +1,5 @@
 import { MessageSquare } from 'lucide-react';
-import { Page } from '../App';
+import { Page, navigateToContactForm } from '../App';
 
 interface FloatingCTAProps {
   currentPage: Page;
@@ -10,11 +10,7 @@ export default function FloatingCTA({ currentPage, onNavigate }: FloatingCTAProp
   if (currentPage === 'contact' || currentPage === 'admin') return null;
 
   function handleClick() {
-    onNavigate('contact');
-    // Wait for the contact page to render, then scroll to the form
-    setTimeout(() => {
-      document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 300);
+    navigateToContactForm(onNavigate);
   }
 
   return (
