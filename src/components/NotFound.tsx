@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../constants/routes';
-import Header from './Header';
-import Footer from './Footer';
 
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden flex flex-col">
-      <Header />
       <main className="flex-1 flex items-center justify-center pt-20 pb-20 px-4">
         <div className="text-center max-w-md">
           <p className="text-7xl font-bold text-blue-600 mb-4">404</p>
@@ -22,7 +19,6 @@ export default function NotFound() {
           </Link>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

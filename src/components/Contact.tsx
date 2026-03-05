@@ -4,10 +4,6 @@ import { ROUTES } from '../constants/routes'
 import { usePageMeta } from '../hooks/usePageMeta'
 import HCaptcha from '@hcaptcha/react-hcaptcha'
 import { Send, User, Mail, MessageSquare, CheckCircle, AlertCircle, Phone, MapPin, ChevronDown } from 'lucide-react'
-import ContactBar from './ContactBar'
-import Header from './Header'
-import BackToTop from './BackToTop'
-import Footer from './Footer'
 
 type FormData = { name: string; email: string; phone: string; service: string; message: string }
 
@@ -116,8 +112,6 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      <Header />
-
       <main>
       {/* Hero */}
       <div
@@ -411,11 +405,6 @@ export default function Contact() {
       </section>
 
       </main>
-
-      <ContactBar />
-
-      <Footer />
-      <BackToTop />
     </div>
   )
 }

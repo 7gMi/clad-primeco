@@ -1,7 +1,11 @@
 import { lazy, Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import FloatingCTA from './components/FloatingCTA';
 import ScrollToTop from './components/ScrollToTop';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ContactBar from './components/ContactBar';
+import BackToTop from './components/BackToTop';
 
 // Lazy-loaded page components — each produces a separate JS chunk.
 export const LazyHome = lazy(() => import('./components/Home'));
@@ -22,12 +26,18 @@ function PageLoader() {
   );
 }
 
-/** Main layout — wraps all public pages with FloatingCTA + scroll management. */
+/** Main layout — wraps all public pages with Header, Footer, and shared UI. */
 export function Layout() {
+  const isHomePage = useLocation().pathname === '/';
+
   return (
     <Suspense fallback={<PageLoader />}>
       <ScrollToTop />
+      <Header isHomePage={isHomePage} />
       <Outlet />
+      <ContactBar />
+      <Footer />
+      <BackToTop />
       <FloatingCTA />
     </Suspense>
   );

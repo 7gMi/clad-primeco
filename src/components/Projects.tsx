@@ -1,10 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight, X } from 'lucide-react';
-import ContactBar from './ContactBar';
-import Header from './Header';
-import BackToTop from './BackToTop';
-import Footer from './Footer';
 import { ROUTES } from '../constants/routes';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { projects } from '../data/projects';
@@ -74,8 +70,6 @@ export default function Projects() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-
       <main>
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
@@ -281,10 +275,6 @@ export default function Projects() {
       )}
 
       </main>
-
-      <ContactBar />
-      <Footer />
-      <BackToTop />
     </div>
   );
 }

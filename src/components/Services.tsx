@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowRight, Thermometer, Palette, Umbrella, Check, ExternalLink } from 'lucide-react';
-import ContactBar from './ContactBar';
-import Header from './Header';
-import BackToTop from './BackToTop';
-import Footer from './Footer';
 import { ROUTES, ServiceType } from '../constants/routes';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { servicesData } from '../data/services';
@@ -46,8 +42,6 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-
       <main>
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
@@ -317,11 +311,6 @@ export default function Services() {
       </section>
 
       </main>
-
-      <ContactBar />
-
-      <Footer />
-      <BackToTop />
     </div>
   );
 }

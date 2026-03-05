@@ -5,11 +5,8 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { slides } from '../data/slides';
 import HeroCard from './HeroCard';
 import SlideIndicators from './SlideIndicators';
-import { ArrowRight, Thermometer, Palette, Droplets, PenTool, FileText, CheckCircle, Building2, Quote } from 'lucide-react';
-import ContactBar from './ContactBar';
-import Header from './Header';
-import Footer from './Footer';
-import BackToTop from './BackToTop';
+import { ArrowRight, Thermometer, Palette, Droplets, Quote } from 'lucide-react';
+import ProcessSection from './ProcessSection';
 import { testimonials } from '../data/testimonials';
 
 export default function Home() {
@@ -21,7 +18,6 @@ export default function Home() {
   });
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [selectedProcess, setSelectedProcess] = useState<number | null>(null);
   // Use a ref for the transitioning flag to avoid stale closure issues in
   // setInterval and to prevent unnecessary re-renders on every transition tick.
   const isTransitioningRef = useRef(false);
@@ -64,8 +60,6 @@ export default function Home() {
 
   return (
     <div className="h-screen overflow-y-auto overflow-x-hidden bg-white home-scroll-container">
-      <Header isHomePage />
-
       <main>
       {/* Hero slider section */}
       <div className="relative w-full h-screen overflow-hidden bg-black">
@@ -331,70 +325,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Process section */}
-      <section className="bg-slate-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <p className="text-blue-400 text-sm font-semibold tracking-wider uppercase mb-3">
-              How We Work
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold">Our Process</h2>
-            <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
-              A structured, proven approach — from initial survey through to final sign-off. No surprises. No delays that come from our side.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {[
-              { number: '01', title: 'Planning', icon: FileText },
-              { number: '02', title: 'Design', icon: PenTool },
-              { number: '03', title: 'Construct', icon: Building2 },
-              { number: '04', title: 'Finishing', icon: CheckCircle }
-            ].map((step, index) => {
-              const Icon = step.icon;
-              const isSelected = selectedProcess === index;
-              return (
-                <div key={step.number} className="relative">
-                  <div className="text-center">
-                    <button
-                      onClick={() => setSelectedProcess(isSelected ? null : index)}
-                      className="relative inline-flex items-center justify-center mb-6 group cursor-pointer transition-all duration-300"
-                      aria-pressed={isSelected}
-                      aria-label={`Step ${step.number}: ${step.title}`}
-                    >
-                      {isSelected && (
-                        <div className="absolute inset-0 w-28 h-28 -top-4 -left-4 rounded-full bg-white/20 animate-pulse"></div>
-                      )}
-                      <div className={`relative w-20 h-20 rounded-full transition-all duration-300 flex items-center justify-center ${
-                        isSelected
-                          ? 'bg-white'
-                          : 'bg-blue-600 group-hover:scale-110 group-hover:bg-blue-500'
-                      }`}>
-                        <Icon className={`w-10 h-10 transition-all duration-300 ${
-                          isSelected ? 'text-blue-600' : 'text-white'
-                        }`} />
-                      </div>
-                    </button>
-                    <div className={`text-4xl md:text-6xl font-bold mb-2 transition-colors duration-300 ${
-                      isSelected ? 'text-blue-400' : 'text-slate-600'
-                    }`}>
-                      {step.number}
-                    </div>
-                    <h3 className={`text-xl md:text-2xl font-semibold transition-colors duration-300 ${
-                      isSelected ? 'text-blue-400' : 'text-white'
-                    }`}>{step.title}</h3>
-                  </div>
-                  {index < 3 && (
-                    <div className="hidden md:block absolute top-10 left-[calc(50%+50px)] w-[calc(100%-100px)] h-0.5 bg-slate-700">
-                      <ArrowRight className="absolute -right-2 -top-3 w-6 h-6 text-blue-600" />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <ProcessSection subtitle="A structured, proven approach — from initial survey through to final sign-off. No surprises. No delays that come from our side." />
 
       {/* Testimonials section */}
       {testimonials.length > 0 && (
@@ -434,11 +365,6 @@ export default function Home() {
       )}
 
       </main>
-
-      <ContactBar />
-
-      <Footer />
-      <BackToTop />
     </div>
   );
 }

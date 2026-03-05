@@ -1,13 +1,9 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../constants/routes';
 import { ServiceType } from '../constants/routes';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { ArrowRight, Building2, PenTool, FileText, CheckCircle, Check, Thermometer, Palette, Umbrella } from 'lucide-react';
-import ContactBar from './ContactBar';
-import Header from './Header';
-import BackToTop from './BackToTop';
-import Footer from './Footer';
+import { ArrowRight, Check, Thermometer, Palette, Umbrella } from 'lucide-react';
+import ProcessSection from './ProcessSection';
 
 export default function About() {
   const navigate = useNavigate();
@@ -16,15 +12,6 @@ export default function About() {
     title: 'About Us | Clad-Primeco',
     description: 'Learn about Clad-Primeco — specialist cladding and roofing contractors based in Dublin, delivering projects across Ireland.',
   });
-
-  const [selectedProcess, setSelectedProcess] = useState<number | null>(null);
-
-  const processSteps = [
-    { number: '01', title: 'Planning', icon: FileText },
-    { number: '02', title: 'Design', icon: PenTool },
-    { number: '03', title: 'Construct', icon: Building2 },
-    { number: '04', title: 'Finishing', icon: CheckCircle }
-  ];
 
   const services: { title: string; tagline: string; description: string; image: string; imageAlt: string; icon: typeof Thermometer; badge: string; serviceType: ServiceType }[] = [
     {
@@ -61,8 +48,6 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-
       <main>
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
@@ -189,64 +174,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-slate-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <p className="text-blue-400 text-sm font-semibold tracking-wider uppercase mb-3">
-              How We Work
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Process</h2>
-            <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              A clear, structured process — from pre-construction planning through to final inspection. We keep you informed at every stage so there are no surprises on site.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {processSteps.map((step, index) => {
-              const Icon = step.icon;
-              const isSelected = selectedProcess === index;
-              return (
-                <div key={step.number} className="relative">
-                  <div className="text-center">
-                    <button
-                      onClick={() => setSelectedProcess(isSelected ? null : index)}
-                      className="relative inline-flex items-center justify-center mb-6 group cursor-pointer transition-all duration-300"
-                      aria-pressed={isSelected}
-                      aria-label={`Step ${step.number}: ${step.title}`}
-                    >
-                      {isSelected && (
-                        <div className="absolute -inset-4 rounded-full bg-white/20 animate-pulse"></div>
-                      )}
-                      <div className={`relative w-20 h-20 rounded-full transition-all duration-300 flex items-center justify-center ${
-                        isSelected
-                          ? 'bg-white'
-                          : 'bg-blue-600 group-hover:scale-110 group-hover:bg-blue-500'
-                      }`}>
-                        <Icon className={`w-10 h-10 transition-all duration-300 ${
-                          isSelected ? 'text-blue-600' : 'text-white'
-                        }`} />
-                      </div>
-                    </button>
-                    <div className={`text-4xl md:text-6xl font-bold mb-2 transition-colors duration-300 ${
-                      isSelected ? 'text-blue-400' : 'text-slate-600'
-                    }`}>
-                      {step.number}
-                    </div>
-                    <h3 className={`text-xl md:text-2xl font-semibold transition-colors duration-300 ${
-                      isSelected ? 'text-blue-400' : 'text-white'
-                    }`}>{step.title}</h3>
-                  </div>
-                  {index < 3 && (
-                    <div className="hidden md:block absolute top-10 left-[calc(50%+50px)] w-[calc(100%-100px)] h-0.5 bg-slate-700">
-                      <ArrowRight className="absolute -right-2 -top-[11px] w-6 h-6 text-blue-600" />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <ProcessSection subtitle="A clear, structured process — from pre-construction planning through to final inspection. We keep you informed at every stage so there are no surprises on site." />
 
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4">
@@ -333,10 +261,6 @@ export default function About() {
       </section>
 
       </main>
-
-      <ContactBar />
-      <Footer />
-      <BackToTop />
     </div>
   );
 }
