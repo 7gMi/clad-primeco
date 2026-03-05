@@ -4,8 +4,7 @@ import { slides } from '../data/slides';
 import HeroCard from './HeroCard';
 import SlideIndicators from './SlideIndicators';
 import { ArrowRight, Thermometer, Palette, Droplets, PenTool, FileText, CheckCircle, Phone, Mail, Instagram, Building2 } from 'lucide-react';
-import Navigation from './Navigation';
-import Logo from './Logo';
+import Header from './Header';
 import BackToTop from './BackToTop';
 
 interface HomeProps {
@@ -15,7 +14,6 @@ interface HomeProps {
 export default function Home({ onNavigate }: HomeProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedProcess, setSelectedProcess] = useState<number | null>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
   // Use a ref for the transitioning flag to avoid stale closure issues in
   // setInterval and to prevent unnecessary re-renders on every transition tick.
   const isTransitioningRef = useRef(false);
@@ -50,56 +48,10 @@ export default function Home({ onNavigate }: HomeProps) {
     return () => clearInterval(timer);
   }, []); // empty deps — all state is read via functional updaters or refs
 
-  useEffect(() => {
-    // PERFORMANCE: passive:true tells the browser the handler never calls
-    // preventDefault() — allows smooth scrolling without blocking the main thread.
-    const handleScroll = (e: Event) => {
-      const target = e.target as HTMLElement;
-      setIsScrolled(target.scrollTop > 100);
-    };
-
-    const scrollContainer = document.querySelector('.home-scroll-container');
-    if (scrollContainer) {
-      scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
-      return () => scrollContainer.removeEventListener('scroll', handleScroll);
-    }
-  }, []);
 
   return (
     <div className="h-screen overflow-y-auto bg-white home-scroll-container">
-      <header
-        className={`fixed top-0 left-0 right-0 z-[100] px-4 sm:px-6 md:px-12 lg:px-16 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/90 backdrop-blur-md shadow-sm py-2 sm:py-3 border-b border-slate-100'
-            : 'bg-gradient-to-b from-black/60 via-black/30 to-transparent pt-2 md:pt-3 pb-3 sm:pb-4'
-        }`}
-      >
-        <div className="flex justify-between items-center">
-          <button className="logo-container cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded" onClick={() => onNavigate('home')} aria-label="Go to homepage">
-            <div className={`transition-all duration-300 rounded-lg flex items-center gap-3 ${
-              isScrolled ? '' : 'bg-white/95 px-3 py-2 shadow-sm'
-            }`}>
-              <Logo
-                className={`h-auto transition-all duration-300 block flex-shrink-0 ${
-                  isScrolled
-                    ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
-                    : 'w-[80px] sm:w-[90px] md:w-[110px] lg:w-[140px]'
-                }`}
-              />
-              {!isScrolled && (
-                <p
-                  className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[13px] tracking-widest text-slate-700 font-semibold leading-tight border-l border-slate-300 pl-3"
-                  style={{ fontFamily: 'Georgia, serif' }}
-                >
-                  CLADDING<br />AND ROOFING<br />SPECIALISTS
-                </p>
-              )}
-            </div>
-          </button>
-
-          <Navigation onNavigate={onNavigate} isScrolled={isScrolled} currentPage="home" />
-        </div>
-      </header>
+      <Header onNavigate={onNavigate} currentPage="home" isHomePage />
 
       {/* Hero slider section */}
       <div className="relative w-full h-screen overflow-hidden bg-black">
@@ -124,7 +76,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </div>
           ))}
 
-          <div className="relative z-20 h-full flex flex-col justify-center pt-36 sm:pt-32 md:pt-28 pb-16 px-6 md:px-12 lg:px-16">
+          <div className="relative z-20 h-full flex flex-col justify-center pt-[110px] sm:pt-[100px] md:pt-[90px] lg:pt-[140px] pb-16 px-6 md:px-10 lg:px-16">
             <div className="flex-shrink-0 w-full">
               {slides.map((slide, index) => (
                 <div

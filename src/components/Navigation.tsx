@@ -18,8 +18,6 @@ const navItems = [
 
 export default function Navigation({ onNavigate, isScrolled = false, currentPage }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const textColor = isScrolled ? 'text-slate-900' : 'text-white';
-  const hoverColor = isScrolled ? 'hover:text-blue-600' : 'hover:text-blue-400';
 
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -29,18 +27,11 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
     setMobileMenuOpen(false);
   };
 
-  const getActiveClass = (page: Page): string => {
-    if (currentPage !== page) return '';
-    return isScrolled
-      ? 'text-blue-600 border-b-2 border-blue-600 pb-0.5'
-      : 'text-blue-400 border-b-2 border-blue-400 pb-0.5';
-  };
-
   // C3+C4: Escape key + body scroll lock (iOS Safari compatible)
   useEffect(() => {
     if (!mobileMenuOpen) return;
 
-    // Lock body scroll — iOS Safari requires position:fixed
+    // Lock body scroll -- iOS Safari requires position:fixed
     const scrollY = window.scrollY;
     document.body.style.position = 'fixed';
     document.body.style.top = `-${scrollY}px`;
@@ -55,7 +46,7 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
         return;
       }
 
-      // C1: Focus trap — Tab cycles only within the panel
+      // C1: Focus trap -- Tab cycles only within the panel
       if (e.key === 'Tab' && panelRef.current) {
         const focusable = Array.from(
           panelRef.current.querySelectorAll<HTMLElement>(
@@ -108,42 +99,80 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
 
   return (
     <>
-      {/* ── Desktop nav ── */}
-      <nav aria-label="Main navigation" className="hidden md:block">
-        <ul className="flex gap-8 lg:gap-10">
-          {navItems.map((item) => (
-            <li key={item.label}>
-              <button
-                onClick={() => onNavigate?.(item.page)}
-                onMouseEnter={() => prefetchPage(item.page)}
-                onFocus={() => prefetchPage(item.page)}
-                aria-current={currentPage === item.page ? 'page' : undefined}
-                className={`${textColor} ${hoverColor} ${getActiveClass(item.page)} text-[14px] md:text-[16px] lg:text-[18px] transition-colors duration-300 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:rounded`}
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
+      {/* -- Desktop nav -- */}
+      <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1 lg:gap-2">
+        {navItems.map((item) => {
+          const isActive = currentPage === item.page;
+          return (
+            <button
+              key={item.label}
+              onClick={() => onNavigate?.(item.page)}
+              onMouseEnter={() => prefetchPage(item.page)}
+              onFocus={() => prefetchPage(item.page)}
+              aria-current={isActive ? 'page' : undefined}
+              className={`relative px-3 lg:px-4 py-2 text-[14px] lg:text-[15px] font-medium tracking-wide transition-colors duration-200 rounded-md
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1
+                ${isScrolled
+                  ? isActive
+                    ? 'text-[#1B3564] bg-slate-100'
+                    : 'text-slate-700 hover:text-[#1B3564] hover:bg-slate-50'
+                  : isActive
+                    ? 'text-white bg-white/15'
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                }
+              `}
+            >
+              {item.label}
+              {/* Active indicator bar */}
+              {isActive && (
+                <span
+                  className={`absolute bottom-0 left-3 right-3 h-[2px] rounded-full ${
+                    isScrolled ? 'bg-[#1B3564]' : 'bg-white'
+                  }`}
+                />
+              )}
+            </button>
+          );
+        })}
+
+        {/* CTA button in desktop nav */}
+        <button
+          onClick={() => onNavigate?.('contact')}
+          onMouseEnter={() => prefetchPage('contact')}
+          className={`ml-2 lg:ml-4 px-5 py-2 text-[13px] lg:text-[14px] font-semibold rounded-md transition-all duration-200
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+            ${isScrolled
+              ? 'bg-[#1B3564] text-white hover:bg-[#152a50] shadow-sm'
+              : 'bg-white text-[#1B3564] hover:bg-white/90 shadow-sm'
+            }
+          `}
+        >
+          Get a Quote
+        </button>
       </nav>
 
-      {/* ── Hamburger — fixed in root stacking context, always above overlay ── */}
+      {/* -- Hamburger -- fixed position so it stays above the overlay (z-200) when menu is open */}
       <button
         ref={hamburgerRef}
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className={`md:hidden fixed top-3 right-4 z-[210] p-2 rounded-lg transition-colors duration-200
+        className={`md:hidden fixed top-[14px] right-4 z-[210] p-2.5 rounded-lg transition-all duration-200
           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1
-          ${mobileMenuOpen ? 'text-white' : textColor}`}
+          ${mobileMenuOpen
+            ? 'text-white'
+            : isScrolled
+              ? 'text-slate-800 hover:bg-slate-100'
+              : 'text-white hover:bg-white/10'
+          }`}
         aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={mobileMenuOpen}
         aria-controls="mobile-menu"
       >
-        <span className={`block transition-all duration-300 ${mobileMenuOpen ? 'rotate-90' : 'rotate-0'}`}>
-          {mobileMenuOpen ? <X className="w-7 h-7" aria-hidden="true" /> : <Menu className="w-7 h-7" aria-hidden="true" />}
+        <span className={`block transition-transform duration-300 ${mobileMenuOpen ? 'rotate-90' : 'rotate-0'}`}>
+          {mobileMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
         </span>
       </button>
 
-      {/* ── Backdrop ── */}
+      {/* -- Backdrop -- */}
       <div
         onClick={() => setMobileMenuOpen(false)}
         aria-hidden="true"
@@ -152,7 +181,7 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
           ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       />
 
-      {/* ── Slide-in panel ── */}
+      {/* -- Slide-in panel -- */}
       <div
         ref={panelRef}
         id="mobile-menu"
@@ -165,8 +194,8 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
           transition-transform duration-300 ease-in-out shadow-2xl
           ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
-        {/* Blue accent bar at top */}
-        <div className="h-1 bg-blue-600 w-full flex-shrink-0" />
+        {/* Brand navy accent bar at top */}
+        <div className="h-1 bg-[#1B3564] w-full flex-shrink-0" />
 
         {/* Brand header */}
         <div className="px-6 pt-6 pb-6 border-b border-white/10 flex-shrink-0">

@@ -83,7 +83,7 @@ function App() {
     transitionRef.current = setTimeout(() => {
       setDisplayedPage(page);
       setIsVisible(true);
-    }, 200);
+    }, 100);
   }, [displayedPage]);
 
   if (displayedPage === 'admin') {
@@ -97,7 +97,7 @@ function App() {
 
   return (
     <Suspense fallback={<PageLoader />}>
-      <div className={`transition-opacity duration-200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`transition-opacity duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
         {displayedPage === 'home' && <Home onNavigate={handleNavigate} />}
         {displayedPage === 'about' && <About onNavigate={handleNavigate} />}
         {displayedPage === 'services' && <Services onNavigate={handleNavigate} />}
