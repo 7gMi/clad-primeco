@@ -105,7 +105,7 @@ export default function Contact({ onNavigate }: ContactProps) {
       {/* Hero */}
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
-        style={{ backgroundImage: "url('/images/architectural-panels/amazon2 copy copy.jpg')" }}
+        style={{ backgroundImage: "url('/images/architectural-panels/amazon2 copy copy.webp')" }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative h-full flex items-center px-8 md:px-16 lg:px-24">
@@ -159,7 +159,7 @@ export default function Contact({ onNavigate }: ContactProps) {
             </div>
             <div className="relative h-64 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/images/projects/dub01-vantage/10_Dub01_Vantage_Power_Station.jpg"
+                src="/images/projects/dub01-vantage/10_Dub01_Vantage_Power_Station.webp"
                 alt="Clad Primeco team at work"
                 className="w-full h-full object-cover"
               />

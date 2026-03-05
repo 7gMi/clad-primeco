@@ -158,7 +158,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   until the user scrolls near it (~1 viewport away).
                 */}
                 <img
-                  src="/images/backgrounds/school_carrigtohil.jpg"
+                  src="/images/backgrounds/school_carrigtohil.webp"
                   alt="Carrigtwohil school project — example of our cladding work"
                   width="800"
                   height="500"
@@ -201,7 +201,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <div className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100 hover:-translate-y-1">
               <div className="relative h-52 overflow-hidden">
                 <img
-                  src="/images/kingspan-panel.jpg"
+                  src="/images/kingspan-panel.webp"
                   alt="Kingspan insulated panels"
                   width="600"
                   height="208"
@@ -240,7 +240,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <div className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100 hover:-translate-y-1">
               <div className="relative h-52 overflow-hidden">
                 <img
-                  src="/images/architectural-panels/amazon4.jpg"
+                  src="/images/architectural-panels/amazon4.webp"
                   alt="Architectural cladding panels"
                   width="600"
                   height="208"
@@ -279,7 +279,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <div className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100 hover:-translate-y-1">
               <div className="relative h-52 overflow-hidden">
                 <img
-                  src="/images/aluminium-copings/aluminium-copings.jpg"
+                  src="/images/aluminium-copings/aluminium-copings.webp"
                   alt="Aluminium coping systems"
                   width="600"
                   height="208"

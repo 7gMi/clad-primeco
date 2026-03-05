@@ -46,14 +46,14 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         status: 'Completed'
       },
       images: [
-        '/images/projects/dub104-amazon/2_Dub104_Amazon.jpg',
-        '/images/projects/dub104-amazon/10_Dub104_Amazon.JPG',
-        '/images/projects/dub104-amazon/11_Dub104_Amazon.JPG',
-        '/images/projects/dub104-amazon/1_Dub104_Amazon.jpg',
-        '/images/projects/dub104-amazon/3_Dub104_Amazon.jpg',
-        '/images/projects/dub104-amazon/4_Dub104_Amazon.jpg',
-        '/images/projects/dub104-amazon/6_Dub104_Amazon.jpg',
-        '/images/projects/dub104-amazon/5.jpg',
+        '/images/projects/dub104-amazon/2_Dub104_Amazon.webp',
+        '/images/projects/dub104-amazon/10_Dub104_Amazon.webp',
+        '/images/projects/dub104-amazon/11_Dub104_Amazon.webp',
+        '/images/projects/dub104-amazon/1_Dub104_Amazon.webp',
+        '/images/projects/dub104-amazon/3_Dub104_Amazon.webp',
+        '/images/projects/dub104-amazon/4_Dub104_Amazon.webp',
+        '/images/projects/dub104-amazon/6_Dub104_Amazon.webp',
+        '/images/projects/dub104-amazon/5.webp',
       ],
       serviceType: 'Architectural Panels'
     },
@@ -71,14 +71,14 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         status: 'Completed'
       },
       images: [
-        '/images/projects/dub01-vantage/12_Dub01_Vantage_Power_Station.jpg',
-        '/images/projects/dub01-vantage/15_Dub01_Vantage_Power_Station.jpg',
-        '/images/projects/dub01-vantage/16_Dub01_Vantage_Power_Station.jpg',
-        '/images/projects/dub01-vantage/10_Dub01_Vantage_Power_Station.jpg',
-        '/images/projects/dub01-vantage/11_Dub01_Vantage_Power_Station.jpg',
-        '/images/projects/dub01-vantage/13_Dub01_Vantage_Power_Station.jpg',
-        '/images/projects/dub01-vantage/14_Dub01_Vantage_Power_Station.jpg',
-        '/images/projects/dub01-vantage/17.jpg',
+        '/images/projects/dub01-vantage/12_Dub01_Vantage_Power_Station.webp',
+        '/images/projects/dub01-vantage/15_Dub01_Vantage_Power_Station.webp',
+        '/images/projects/dub01-vantage/16_Dub01_Vantage_Power_Station.webp',
+        '/images/projects/dub01-vantage/10_Dub01_Vantage_Power_Station.webp',
+        '/images/projects/dub01-vantage/11_Dub01_Vantage_Power_Station.webp',
+        '/images/projects/dub01-vantage/13_Dub01_Vantage_Power_Station.webp',
+        '/images/projects/dub01-vantage/14_Dub01_Vantage_Power_Station.webp',
+        '/images/projects/dub01-vantage/17.webp',
       ],
       serviceType: 'Kingspan Cladding'
     },
@@ -96,14 +96,14 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         status: 'Completed'
       },
       images: [
-        '/images/projects/carrigtwohil-college/5_Carrigtwohil_College_Cork.jpg',
-        '/images/projects/carrigtwohil-college/10_Carrigtwohil_College_Cork.jpg',
-        '/images/projects/carrigtwohil-college/11_Carrigtwohil_College_Cork.jpg',
-        '/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.jpg',
-        '/images/projects/carrigtwohil-college/2_Carrigtwohil_College_Cork.jpg',
-        '/images/projects/carrigtwohil-college/3_Carrigtwohil_College_Cork.jpg',
-        '/images/projects/carrigtwohil-college/4_Carrigtwohil_College_Cork.jpg',
-        '/images/projects/carrigtwohil-college/6_Carrigtwohil_College_Cork.jpg',
+        '/images/projects/carrigtwohil-college/5_Carrigtwohil_College_Cork.webp',
+        '/images/projects/carrigtwohil-college/10_Carrigtwohil_College_Cork.webp',
+        '/images/projects/carrigtwohil-college/11_Carrigtwohil_College_Cork.webp',
+        '/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.webp',
+        '/images/projects/carrigtwohil-college/2_Carrigtwohil_College_Cork.webp',
+        '/images/projects/carrigtwohil-college/3_Carrigtwohil_College_Cork.webp',
+        '/images/projects/carrigtwohil-college/4_Carrigtwohil_College_Cork.webp',
+        '/images/projects/carrigtwohil-college/6_Carrigtwohil_College_Cork.webp',
       ],
       serviceType: 'Kingspan Cladding'
     },
@@ -121,14 +121,14 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         status: 'Completed'
       },
       images: [
-        '/images/projects/bausch-lomb/1_Bauschandlomb.jpg',
-        '/images/projects/bausch-lomb/2_Bauschandlomb.jpg',
-        '/images/projects/bausch-lomb/3_Bauschandlomb.jpg',
-        '/images/projects/bausch-lomb/4_Bauschandlomb.jpg',
-        '/images/projects/bausch-lomb/5_Bauschandlomb.jpg',
-        '/images/projects/bausch-lomb/6_Bauschandlomb.jpg',
-        '/images/projects/bausch-lomb/10_Bauschandlomb.jpg',
-        '/images/projects/bausch-lomb/11.jpg',
+        '/images/projects/bausch-lomb/1_Bauschandlomb.webp',
+        '/images/projects/bausch-lomb/2_Bauschandlomb.webp',
+        '/images/projects/bausch-lomb/3_Bauschandlomb.webp',
+        '/images/projects/bausch-lomb/4_Bauschandlomb.webp',
+        '/images/projects/bausch-lomb/5_Bauschandlomb.webp',
+        '/images/projects/bausch-lomb/6_Bauschandlomb.webp',
+        '/images/projects/bausch-lomb/10_Bauschandlomb.webp',
+        '/images/projects/bausch-lomb/11.webp',
       ],
       serviceType: 'Kingspan Cladding'
     },
@@ -146,13 +146,13 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         status: 'Completed'
       },
       images: [
-        '/images/projects/abp-rathkeale/1_ABP_Rathkeale.jpg',
-        '/images/projects/abp-rathkeale/2_ABP_Rathkeale.jpg',
-        '/images/projects/abp-rathkeale/3_ABP_Rathkeale.jpg',
-        '/images/projects/abp-rathkeale/4_ABP_Rathkeale.jpg',
-        '/images/projects/abp-rathkeale/5_ABP_Rathkeale.jpg',
-        '/images/projects/abp-rathkeale/6_ABP_Rathkeale.jpg',
-        '/images/projects/abp-rathkeale/7_ABP_Rathkeale.jpg',
+        '/images/projects/abp-rathkeale/1_ABP_Rathkeale.webp',
+        '/images/projects/abp-rathkeale/2_ABP_Rathkeale.webp',
+        '/images/projects/abp-rathkeale/3_ABP_Rathkeale.webp',
+        '/images/projects/abp-rathkeale/4_ABP_Rathkeale.webp',
+        '/images/projects/abp-rathkeale/5_ABP_Rathkeale.webp',
+        '/images/projects/abp-rathkeale/6_ABP_Rathkeale.webp',
+        '/images/projects/abp-rathkeale/7_ABP_Rathkeale.webp',
       ],
       serviceType: 'Mixed Systems'
     },
@@ -170,14 +170,14 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         status: 'Completed'
       },
       images: [
-        '/images/projects/europort-rosslare/12_Europort_Rosslare_Wexford.jpg',
-        '/images/projects/europort-rosslare/11.jpg',
-        '/images/projects/europort-rosslare/13.jpg',
+        '/images/projects/europort-rosslare/12_Europort_Rosslare_Wexford.webp',
+        '/images/projects/europort-rosslare/11.webp',
+        '/images/projects/europort-rosslare/13.webp',
         '/images/projects/europort-rosslare/15.jpg',
-        '/images/projects/europort-rosslare/17_Europort_Rosslare_Wexford.jpg',
-        '/images/projects/europort-rosslare/10.jpg',
-        '/images/projects/europort-rosslare/14.jpg',
-        '/images/projects/europort-rosslare/16.jpg',
+        '/images/projects/europort-rosslare/17_Europort_Rosslare_Wexford.webp',
+        '/images/projects/europort-rosslare/10.webp',
+        '/images/projects/europort-rosslare/14.webp',
+        '/images/projects/europort-rosslare/16.webp',
       ],
       serviceType: 'Aluminium Roof Deck'
     },
@@ -195,14 +195,14 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         status: 'Completed'
       },
       images: [
-        '/images/projects/lily-superstore/10.jpg',
-        '/images/projects/lily-superstore/12.jpg',
-        '/images/projects/lily-superstore/15.jpg',
-        '/images/projects/lily-superstore/16_Lily_Superstore_Limerick.jpg',
-        '/images/projects/lily-superstore/17.jpg',
-        '/images/projects/lily-superstore/14_Lily_Superstore_Limerick.jpg',
+        '/images/projects/lily-superstore/10.webp',
+        '/images/projects/lily-superstore/12.webp',
+        '/images/projects/lily-superstore/15.webp',
+        '/images/projects/lily-superstore/16_Lily_Superstore_Limerick.webp',
+        '/images/projects/lily-superstore/17.webp',
+        '/images/projects/lily-superstore/14_Lily_Superstore_Limerick.webp',
         '/images/projects/lily-superstore/11_.jpg',
-        '/images/projects/lily-superstore/13.jpg',
+        '/images/projects/lily-superstore/13.webp',
       ],
       serviceType: 'Architectural Panels'
     },
@@ -220,12 +220,12 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         status: 'Completed'
       },
       images: [
-        '/images/projects/sandyford-warehouse/1_Sandyford_Warehouse_Depot.JPG',
-        '/images/projects/sandyford-warehouse/2_Sandyford_Warehouse_Depot.JPG',
-        '/images/projects/sandyford-warehouse/3_Sandyford_Warehouse_Depot.JPG',
-        '/images/projects/sandyford-warehouse/4_Sandyford_Warehouse_Depot.JPG',
-        '/images/projects/sandyford-warehouse/5_Sandyford_Warehouse_Depot.JPG',
-        '/images/projects/sandyford-warehouse/6_Sandyford_Warehouse_Depot.JPG',
+        '/images/projects/sandyford-warehouse/1_Sandyford_Warehouse_Depot.webp',
+        '/images/projects/sandyford-warehouse/2_Sandyford_Warehouse_Depot.webp',
+        '/images/projects/sandyford-warehouse/3_Sandyford_Warehouse_Depot.webp',
+        '/images/projects/sandyford-warehouse/4_Sandyford_Warehouse_Depot.webp',
+        '/images/projects/sandyford-warehouse/5_Sandyford_Warehouse_Depot.webp',
+        '/images/projects/sandyford-warehouse/6_Sandyford_Warehouse_Depot.webp',
       ],
       serviceType: 'Kingspan Cladding'
     },
@@ -263,7 +263,7 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
 
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
-        style={{ backgroundImage: 'url(/images/backgrounds/4k.jpg)' }}
+        style={{ backgroundImage: 'url(/images/backgrounds/4k.webp)' }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative h-full flex items-center px-8 md:px-16 lg:px-24">

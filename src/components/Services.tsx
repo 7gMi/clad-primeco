@@ -31,14 +31,14 @@ const servicesData = {
       'Cold storage facilities',
       'Commercial buildings'
     ],
-    image: '/images/kingspan-panel.jpg',
+    image: '/images/kingspan-panel.webp',
     icon: Thermometer,
     projectCount: 4,
     projects: [
-      { id: 2, name: 'Vantage Power Station', location: 'Dublin 01', surface: '2,400 m²', image: '/images/projects/dub01-vantage/12_Dub01_Vantage_Power_Station.jpg' },
-      { id: 3, name: 'Carrigtwohil College', location: 'Cork', surface: '3,000 m²', image: '/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.jpg' },
-      { id: 4, name: 'Bausch & Lomb', location: 'Waterford', surface: '3,000 m²', image: '/images/projects/bausch-lomb/1_Bauschandlomb.jpg' },
-      { id: 8, name: 'Sandyford Warehouse', location: 'Dublin', surface: '1,700 m²', image: '/images/projects/sandyford-warehouse/1_Sandyford_Warehouse_Depot.JPG' },
+      { id: 2, name: 'Vantage Power Station', location: 'Dublin 01', surface: '2,400 m²', image: '/images/projects/dub01-vantage/12_Dub01_Vantage_Power_Station.webp' },
+      { id: 3, name: 'Carrigtwohil College', location: 'Cork', surface: '3,000 m²', image: '/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.webp' },
+      { id: 4, name: 'Bausch & Lomb', location: 'Waterford', surface: '3,000 m²', image: '/images/projects/bausch-lomb/1_Bauschandlomb.webp' },
+      { id: 8, name: 'Sandyford Warehouse', location: 'Dublin', surface: '1,700 m²', image: '/images/projects/sandyford-warehouse/1_Sandyford_Warehouse_Depot.webp' },
     ],
     specifications: [
       { label: 'Panel Thickness', value: '40-200mm' },
@@ -78,12 +78,12 @@ const servicesData = {
       'Mixed-use developments',
       'Residential buildings'
     ],
-    image: '/images/architectural-panels/amazon4.jpg',
+    image: '/images/architectural-panels/amazon4.webp',
     icon: Palette,
     projectCount: 2,
     projects: [
-      { id: 1, name: 'Amazon Dublin 104', location: 'Dublin', surface: '5,000 m²', image: '/images/projects/dub104-amazon/1_Dub104_Amazon.jpg' },
-      { id: 7, name: 'Lily Superstore', location: 'Limerick', surface: '4,000 m²', image: '/images/projects/lily-superstore/14_Lily_Superstore_Limerick.jpg' },
+      { id: 1, name: 'Amazon Dublin 104', location: 'Dublin', surface: '5,000 m²', image: '/images/projects/dub104-amazon/1_Dub104_Amazon.webp' },
+      { id: 7, name: 'Lily Superstore', location: 'Limerick', surface: '4,000 m²', image: '/images/projects/lily-superstore/14_Lily_Superstore_Limerick.webp' },
     ],
     specifications: [
       { label: 'Panel Size', value: 'Up to 3000mm length' },
@@ -123,12 +123,12 @@ const servicesData = {
       'Window and door surrounds',
       'Architectural trim details'
     ],
-    image: '/images/aluminium-copings/aluminium-copings.jpg',
+    image: '/images/aluminium-copings/aluminium-copings.webp',
     icon: Umbrella,
     projectCount: 2,
     projects: [
-      { id: 5, name: 'ABP Rathkeale', location: 'Co. Limerick', surface: '1,600 m²', image: '/images/projects/abp-rathkeale/1_ABP_Rathkeale.jpg' },
-      { id: 6, name: 'Europort Rosslare', location: 'Co. Wexford', surface: '2,400 m²', image: '/images/projects/europort-rosslare/12_Europort_Rosslare_Wexford.jpg' },
+      { id: 5, name: 'ABP Rathkeale', location: 'Co. Limerick', surface: '1,600 m²', image: '/images/projects/abp-rathkeale/1_ABP_Rathkeale.webp' },
+      { id: 6, name: 'Europort Rosslare', location: 'Co. Wexford', surface: '2,400 m²', image: '/images/projects/europort-rosslare/12_Europort_Rosslare_Wexford.webp' },
     ],
     specifications: [
       { label: 'Material', value: 'Aluminium 6063-T6' },
@@ -170,7 +170,7 @@ export default function Services({ onNavigate, initialService }: ServicesProps) 
 
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
-        style={{ backgroundImage: 'url(/images/backgrounds/kingspan-panel.jpg)' }}
+        style={{ backgroundImage: 'url(/images/backgrounds/kingspan-panel.webp)' }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative h-full flex items-center px-8 md:px-16 lg:px-24">

@@ -24,7 +24,7 @@ export default function About({ onNavigate }: AboutProps) {
       title: 'Kingspan Cladding',
       tagline: 'Thermal performance. Fire rating. On programme.',
       description: 'Kingspan insulated panels give you exceptional thermal performance, fire resistance, and a fast installation sequence — keeping your programme on track while future-proofing the building envelope.',
-      image: '/images/kingspan-panel.jpg',
+      image: '/images/kingspan-panel.webp',
       imageAlt: 'Kingspan insulated panels installed on a commercial building facade',
       icon: Thermometer,
       badge: '4 projects delivered',
@@ -34,7 +34,7 @@ export default function About({ onNavigate }: AboutProps) {
       title: 'Aluminium Roof Deck',
       tagline: 'Watertight. Maintenance-free. Built to spec.',
       description: 'A watertight, low-maintenance roof deck tailored to your project. Lightweight aluminium profiles are designed to your exact specifications — custom sizes, profiles, and finishes available.',
-      image: '/images/aluminium-copings/aluminium-copings.jpg',
+      image: '/images/aluminium-copings/aluminium-copings.webp',
       imageAlt: 'Aluminium roof deck and coping system on a commercial building',
       icon: Umbrella,
       badge: '2 projects delivered',
@@ -44,7 +44,7 @@ export default function About({ onNavigate }: AboutProps) {
       title: 'Architectural Panels',
       tagline: 'Striking facades that perform for decades.',
       description: 'Give your building a striking, durable facade that performs for decades. Our architectural panels provide full weatherproofing while delivering the aesthetic finish your design demands.',
-      image: '/images/architectural-panels/architectural-panels.jpg',
+      image: '/images/architectural-panels/architectural-panels.webp',
       imageAlt: 'Architectural cladding panels on a modern building facade',
       icon: Palette,
       badge: '2 projects delivered',
@@ -58,7 +58,7 @@ export default function About({ onNavigate }: AboutProps) {
 
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
-        style={{ backgroundImage: 'url(/images/backgrounds/school_carrigtohil.jpg)' }}
+        style={{ backgroundImage: 'url(/images/backgrounds/school_carrigtohil.webp)' }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative h-full flex items-center px-8 md:px-16 lg:px-24">
@@ -87,7 +87,7 @@ export default function About({ onNavigate }: AboutProps) {
                 <div className="hidden sm:block absolute -bottom-4 -right-4 w-8 h-8 bg-blue-100 rounded-br-xl z-0" />
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <img
-                    src="/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.jpg"
+                    src="/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.webp"
                     alt="Clad Primeco team at work on Carrigtwohil College"
                     width="800"
                     height="600"
@@ -150,7 +150,7 @@ export default function About({ onNavigate }: AboutProps) {
                 <div className="hidden sm:block absolute -bottom-4 -left-4 w-8 h-8 bg-blue-100 rounded-bl-xl z-0" />
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <img
-                    src="/images/about_image_droite_.jpeg"
+                    src="/images/about_image_droite_.webp"
                     alt="Clad Primeco cladding installation in progress"
                     width="800"
                     height="600"
