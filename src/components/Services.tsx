@@ -6,7 +6,7 @@ import Footer from './Footer';
 import { Page } from '../App';
 
 interface ServicesProps {
-  onNavigate: (page: Page) => void;
+  onNavigate: (page: Page, projectId?: number) => void;
 }
 
 type ServiceType = 'kingspan' | 'architectural' | 'aluminium';
@@ -36,10 +36,10 @@ const servicesData = {
     icon: Thermometer,
     projectCount: 4,
     projects: [
-      { name: 'Vantage Power Station', location: 'Dublin 01', surface: '2,400 m²', image: '/images/projects/dub01-vantage/12_Dub01_Vantage_Power_Station.jpg' },
-      { name: 'Carrigtwohil College', location: 'Cork', surface: '3,000 m²', image: '/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.jpg' },
-      { name: 'Bausch & Lomb', location: 'Waterford', surface: '3,000 m²', image: '/images/projects/bausch-lomb/1_Bauschandlomb.jpg' },
-      { name: 'Sandyford Warehouse', location: 'Dublin', surface: '1,700 m²', image: '/images/projects/sandyford-warehouse/1_Sandyford_Warehouse_Depot.JPG' },
+      { id: 2, name: 'Vantage Power Station', location: 'Dublin 01', surface: '2,400 m²', image: '/images/projects/dub01-vantage/12_Dub01_Vantage_Power_Station.jpg' },
+      { id: 3, name: 'Carrigtwohil College', location: 'Cork', surface: '3,000 m²', image: '/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.jpg' },
+      { id: 4, name: 'Bausch & Lomb', location: 'Waterford', surface: '3,000 m²', image: '/images/projects/bausch-lomb/1_Bauschandlomb.jpg' },
+      { id: 8, name: 'Sandyford Warehouse', location: 'Dublin', surface: '1,700 m²', image: '/images/projects/sandyford-warehouse/1_Sandyford_Warehouse_Depot.JPG' },
     ],
     specifications: [
       { label: 'Panel Thickness', value: '40-200mm' },
@@ -73,8 +73,8 @@ const servicesData = {
     icon: Palette,
     projectCount: 2,
     projects: [
-      { name: 'Amazon Dublin 104', location: 'Dublin', surface: '5,000 m²', image: '/images/projects/dub104-amazon/1_Dub104_Amazon.jpg' },
-      { name: 'Lily Superstore', location: 'Limerick', surface: '4,000 m²', image: '/images/projects/lily-superstore/14_Lily_Superstore_Limerick.jpg' },
+      { id: 1, name: 'Amazon Dublin 104', location: 'Dublin', surface: '5,000 m²', image: '/images/projects/dub104-amazon/1_Dub104_Amazon.jpg' },
+      { id: 7, name: 'Lily Superstore', location: 'Limerick', surface: '4,000 m²', image: '/images/projects/lily-superstore/14_Lily_Superstore_Limerick.jpg' },
     ],
     specifications: [
       { label: 'Panel Size', value: 'Up to 3000mm length' },
@@ -108,8 +108,8 @@ const servicesData = {
     icon: Umbrella,
     projectCount: 2,
     projects: [
-      { name: 'ABP Rathkeale', location: 'Co. Limerick', surface: '1,600 m²', image: '/images/projects/abp-rathkeale/1_ABP_Rathkeale.jpg' },
-      { name: 'Europort Rosslare', location: 'Co. Wexford', surface: '2,400 m²', image: '/images/projects/europort-rosslare/12_Europort_Rosslare_Wexford.jpg' },
+      { id: 5, name: 'ABP Rathkeale', location: 'Co. Limerick', surface: '1,600 m²', image: '/images/projects/abp-rathkeale/1_ABP_Rathkeale.jpg' },
+      { id: 6, name: 'Europort Rosslare', location: 'Co. Wexford', surface: '2,400 m²', image: '/images/projects/europort-rosslare/12_Europort_Rosslare_Wexford.jpg' },
     ],
     specifications: [
       { label: 'Material', value: 'Aluminium 6063-T6' },
@@ -190,7 +190,7 @@ export default function Services({ onNavigate }: ServicesProps) {
                   {/* Gradient overlay — stronger when active */}
                   <div className={`absolute inset-0 transition-all duration-300 ${
                     isActive
-                      ? 'bg-gradient-to-t from-blue-900/95 via-blue-900/60 to-black/20'
+                      ? 'bg-gradient-to-t from-[#1B3564]/95 via-[#1B3564]/50 to-black/20'
                       : 'bg-gradient-to-t from-black/90 via-black/50 to-black/10'
                   }`} />
 
@@ -198,7 +198,7 @@ export default function Services({ onNavigate }: ServicesProps) {
                   <div className="absolute top-4 right-4">
                     <span className={`text-xs font-bold px-3 py-1.5 rounded-full tracking-wider ${
                       isActive
-                        ? 'bg-blue-500 text-white'
+                        ? 'bg-white text-[#1B3564]'
                         : 'bg-white/20 backdrop-blur-sm text-white border border-white/30'
                     }`}>
                       {service.projectCount} projects
@@ -207,7 +207,7 @@ export default function Services({ onNavigate }: ServicesProps) {
 
                   {/* Active indicator top bar */}
                   {isActive && (
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-blue-500" />
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-white" />
                   )}
 
                   {/* Content */}
@@ -216,10 +216,10 @@ export default function Services({ onNavigate }: ServicesProps) {
                     <div className="mb-4 relative inline-flex">
                       <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 ${
                         isActive
-                          ? 'bg-blue-600 shadow-lg shadow-blue-500/50 ring-2 ring-blue-400 ring-offset-2 ring-offset-transparent'
-                          : 'bg-white/15 backdrop-blur-sm group-hover:bg-blue-600 group-hover:shadow-lg group-hover:shadow-blue-500/40'
+                          ? 'bg-white shadow-lg shadow-white/30 ring-2 ring-white/50 ring-offset-2 ring-offset-transparent'
+                          : 'bg-white/15 backdrop-blur-sm group-hover:bg-white/30 group-hover:shadow-lg'
                       }`}>
-                        <Icon className="w-7 h-7 text-white" />
+                        <Icon className={`w-7 h-7 transition-colors duration-300 ${isActive ? 'text-[#1B3564]' : 'text-white'}`} />
                       </div>
                     </div>
                     <h3 className="text-white font-bold text-lg leading-snug mb-2">
@@ -320,7 +320,7 @@ export default function Services({ onNavigate }: ServicesProps) {
               {currentService.projects.map((project) => (
                 <button
                   key={project.name}
-                  onClick={() => onNavigate('projects')}
+                  onClick={() => onNavigate('projects', project.id)}
                   className="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-44 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 >
                   <img

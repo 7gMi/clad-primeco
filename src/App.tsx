@@ -47,6 +47,7 @@ function PageLoader() {
 function App() {
   const [displayedPage, setDisplayedPage] = useState<Page>('home');
   const [isVisible, setIsVisible] = useState(true);
+  const [initialProjectId, setInitialProjectId] = useState<number | null>(null);
   const { session, loading, logout } = useAuth();
   const transitionRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -76,9 +77,10 @@ function App() {
   }, [displayedPage]);
 
   // M11: cancel pending transition if user navigates again quickly
-  const handleNavigate = useCallback((page: Page) => {
-    if (page === displayedPage) return;
+  const handleNavigate = useCallback((page: Page, projectId?: number) => {
+    if (page === displayedPage && !projectId) return;
     if (transitionRef.current) clearTimeout(transitionRef.current);
+    setInitialProjectId(projectId ?? null);
     setIsVisible(false);
     transitionRef.current = setTimeout(() => {
       setDisplayedPage(page);
@@ -101,7 +103,7 @@ function App() {
         {displayedPage === 'home' && <Home onNavigate={handleNavigate} />}
         {displayedPage === 'about' && <About onNavigate={handleNavigate} />}
         {displayedPage === 'services' && <Services onNavigate={handleNavigate} />}
-        {displayedPage === 'projects' && <Projects onNavigate={handleNavigate} />}
+        {displayedPage === 'projects' && <Projects onNavigate={handleNavigate} initialProjectId={initialProjectId} />}
         {displayedPage === 'contact' && <Contact onNavigate={handleNavigate} />}
       </div>
       <FloatingCTA currentPage={displayedPage} onNavigate={handleNavigate} />

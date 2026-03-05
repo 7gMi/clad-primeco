@@ -6,7 +6,8 @@ import Footer from './Footer';
 import { Page } from '../App';
 
 interface ProjectsProps {
-  onNavigate: (page: Page) => void;
+  onNavigate: (page: Page, projectId?: number) => void;
+  initialProjectId?: number | null;
 }
 
 interface Project {
@@ -26,8 +27,8 @@ interface Project {
   serviceType: string;
 }
 
-export default function Projects({ onNavigate }: ProjectsProps) {
-  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+export default function Projects({ onNavigate, initialProjectId }: ProjectsProps) {
+  const [selectedProject, setSelectedProject] = useState<number | null>(initialProjectId ?? null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const projects: Project[] = [
