@@ -139,9 +139,12 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
         <button
           onClick={() => {
             onNavigate?.('contact');
-            setTimeout(() => {
-              document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 300);
+            const scrollToForm = () => {
+              const el = document.getElementById('contact-form');
+              if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+              setTimeout(scrollToForm, 200);
+            };
+            setTimeout(scrollToForm, 400);
           }}
           onMouseEnter={() => prefetchPage('contact')}
           className={`ml-2 lg:ml-4 px-5 py-2 text-[13px] lg:text-[14px] font-semibold rounded-md transition-all duration-200
