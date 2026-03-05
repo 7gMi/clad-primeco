@@ -25,7 +25,12 @@ export default function HeroCard({ tagline, title, subtitle, onNavigate }: HeroC
 
       <div className="flex flex-wrap gap-3 sm:gap-4">
         <button
-          onClick={() => onNavigate('contact')}
+          onClick={() => {
+            onNavigate('contact');
+            setTimeout(() => {
+              document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+          }}
           className="bg-blue-600 border-2 border-blue-600 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-3xl text-base sm:text-lg font-semibold transition-all duration-300 hover:bg-blue-700 hover:border-blue-700 hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent"
         >
           Get a Quote — 24h Response
