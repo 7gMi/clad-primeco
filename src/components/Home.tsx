@@ -59,7 +59,7 @@ export default function Home() {
 
 
   return (
-    <div className="h-screen overflow-y-auto overflow-x-hidden bg-white home-scroll-container">
+    <div className="min-h-screen bg-white">
       <main>
       {/* Hero slider section */}
       <div className="relative w-full h-screen overflow-hidden bg-black">

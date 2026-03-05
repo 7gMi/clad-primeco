@@ -21,10 +21,6 @@
     aspect-ratio: 16 / 9;
   }
 
-  .home-scroll-container {
-    scrollbar-gutter: stable;
-    overflow-x: hidden;
-  }
 }
 
 @keyframes slideInRight {

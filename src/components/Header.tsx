@@ -5,11 +5,7 @@ import Logo from './Logo';
 import { ROUTES } from '../constants/routes';
 
 interface HeaderProps {
-  /**
-   * When true, the header starts transparent over the hero slider and
-   * listens to the `.home-scroll-container` for scroll events instead of
-   * `window`. Used only on the Home page.
-   */
+  /** When true, the header starts transparent over the hero slider. */
   isHomePage?: boolean;
 }
 
@@ -19,26 +15,13 @@ export default function Header({ isHomePage = false }: HeaderProps) {
   const { pathname } = useLocation();
 
   const handleScroll = useCallback(() => {
-    if (isHomePage) {
-      const container = document.querySelector('.home-scroll-container');
-      if (container) setIsScrolled(container.scrollTop > 50);
-    } else {
-      setIsScrolled(window.scrollY > 50);
-    }
-  }, [isHomePage]);
+    setIsScrolled(window.scrollY > 50);
+  }, []);
 
   useEffect(() => {
-    if (isHomePage) {
-      const container = document.querySelector('.home-scroll-container');
-      if (container) {
-        container.addEventListener('scroll', handleScroll, { passive: true });
-        return () => container.removeEventListener('scroll', handleScroll);
-      }
-    } else {
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      return () => window.removeEventListener('scroll', handleScroll);
-    }
-  }, [isHomePage, handleScroll]);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
 
   const showTransparent = !isScrolled;
 

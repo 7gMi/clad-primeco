@@ -6,16 +6,7 @@ export default function BackToTop() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = (e: Event) => {
-      const target = e.target as Element;
-      const scrollTop = target.scrollTop ?? window.scrollY;
-      const docHeight = target.scrollHeight - target.clientHeight;
-      const pct = docHeight > 0 ? scrollTop / docHeight : 0;
-      setProgress(pct);
-      setVisible(scrollTop > 200);
-    };
-
-    const handleWindowScroll = () => {
+    const handleScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? scrollTop / docHeight : 0;
@@ -23,14 +14,8 @@ export default function BackToTop() {
       setVisible(scrollTop > 200);
     };
 
-    const scrollContainer = document.querySelector('.home-scroll-container');
-    if (scrollContainer) {
-      scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
-      return () => scrollContainer.removeEventListener('scroll', handleScroll);
-    } else {
-      window.addEventListener('scroll', handleWindowScroll, { passive: true });
-      return () => window.removeEventListener('scroll', handleWindowScroll);
-    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   if (!visible) return null;
@@ -44,11 +29,7 @@ export default function BackToTop() {
 
   return (
     <button
-      onClick={() => {
-        const c = document.querySelector('.home-scroll-container');
-        if (c) c.scrollTo({ top: 0, behavior: 'smooth' });
-        else window.scrollTo({ top: 0, behavior: 'smooth' });
-      }}
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       className="fixed bottom-6 left-6 z-[200] w-11 h-11 rounded-full bg-slate-800/80 hover:bg-slate-700 text-white flex items-center justify-center shadow-lg backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
       aria-label={`Back to top — ${Math.round(progress * 100)}% scrolled`}
     >
