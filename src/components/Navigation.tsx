@@ -137,7 +137,12 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
 
         {/* CTA button in desktop nav */}
         <button
-          onClick={() => onNavigate?.('contact')}
+          onClick={() => {
+            onNavigate?.('contact');
+            setTimeout(() => {
+              document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+          }}
           onMouseEnter={() => prefetchPage('contact')}
           className={`ml-2 lg:ml-4 px-5 py-2 text-[13px] lg:text-[14px] font-semibold rounded-md transition-all duration-200
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2

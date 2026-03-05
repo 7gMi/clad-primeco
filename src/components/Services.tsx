@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Thermometer, Palette, Umbrella, Phone, Mail, Instagram, Check } from 'lucide-react';
+import { ArrowRight, Thermometer, Palette, Umbrella, Phone, Mail, Instagram, Check, ExternalLink } from 'lucide-react';
 import Header from './Header';
 import BackToTop from './BackToTop';
 import Footer from './Footer';
@@ -47,7 +47,17 @@ const servicesData = {
       { label: 'Width Options', value: '1000-1200mm' },
       { label: 'Fire Rating', value: 'A2-s1, d0' },
       { label: 'Thermal Performance', value: 'U-values 0.11-0.28 W/m²K' }
-    ]
+    ],
+    materials: {
+      heading: 'Kingspan Certified Installer',
+      description: 'We are trained installers of the full Kingspan insulated panel range — including KS1000 RW, KS600, and QuadCore systems. Every installation follows Kingspan\'s specification guidelines to ensure warranty compliance and peak thermal performance.',
+      products: [
+        { name: 'KS1000 RW', detail: 'Wall panel — PIR core, 0.15 W/m²K' },
+        { name: 'KS600', detail: 'Trapezoidal roof — spanning up to 6m' },
+        { name: 'QuadCore', detail: 'Next-gen insulation — 20% better thermal' },
+      ],
+      link: { url: 'https://www.kingspan.com/ie/en/products/insulated-panels/', label: 'View Kingspan Range' },
+    }
   },
   architectural: {
     title: 'Architectural Panels',
@@ -82,7 +92,17 @@ const servicesData = {
       { label: 'Thickness', value: '10-25mm' },
       { label: 'Finishes', value: '50+ color options' },
       { label: 'Fire Rating', value: 'B-s1, d0 to A2-s1, d0 (system-dependent)' }
-    ]
+    ],
+    materials: {
+      heading: 'Premium Facade Materials',
+      description: 'We work with industry-leading fibre cement and composite panel systems — including Cedral, Equitone, and Kingspan Optimo facades. Each material is selected to match your design intent, fire requirements, and budget.',
+      products: [
+        { name: 'Fibre Cement', detail: 'Weather-resistant, non-combustible finish' },
+        { name: 'Composite Panels', detail: 'Lightweight, wide colour range' },
+        { name: 'Kingspan Optimo', detail: 'Insulated facade — thermal + aesthetic' },
+      ],
+      link: { url: 'https://www.kingspan.com/ie/en/products/insulated-panels/facade-systems/', label: 'View Kingspan Facades' },
+    }
   },
   aluminium: {
     title: 'Aluminium Copings & Roof Deck',
@@ -117,7 +137,17 @@ const servicesData = {
       { label: 'Thickness', value: '1.5-3mm' },
       { label: 'Profiles', value: '15+ standard options' },
       { label: 'Finish', value: 'Anodized or painted' }
-    ]
+    ],
+    materials: {
+      heading: 'Aluminium Systems & Flashings',
+      description: 'All copings, flashings, and roof deck profiles are fabricated from marine-grade aluminium to our exact specifications. We supply pressed aluminium copings, standing seam roof deck, and bespoke flashings — powder-coated or mill-finished to suit your project.',
+      products: [
+        { name: 'Pressed Copings', detail: 'Parapet protection — custom lengths' },
+        { name: 'Standing Seam', detail: 'Watertight roof deck — clip-fix system' },
+        { name: 'Bespoke Flashings', detail: 'Door, window & junction details' },
+      ],
+      link: { url: 'https://www.kingspan.com/ie/en/products/insulated-panels/roof-panels/', label: 'View Kingspan Roof Systems' },
+    }
   },
 };
 
@@ -244,25 +274,55 @@ export default function Services({ onNavigate, initialService }: ServicesProps) 
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-start">
 
-            {/* Left — image */}
-            <div className="relative h-64 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={currentService.image}
-                alt={currentService.title}
-                width="800"
-                height="500"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute top-8 left-8 bg-blue-600 p-5 rounded-2xl shadow-xl shadow-blue-600/40 ring-4 ring-blue-400/30">
-                <CurrentIcon className="w-10 h-10 text-white" />
-              </div>
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-black/60 backdrop-blur-sm rounded-xl px-4 py-3">
-                  <p className="text-white/60 text-xs font-semibold tracking-wider uppercase mb-1">Completed projects</p>
-                  <p className="text-white font-bold text-lg">{currentService.projectCount} projects delivered</p>
+            {/* Left — image + materials (desktop) */}
+            <div>
+              <div className="relative h-64 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={currentService.image}
+                  alt={currentService.title}
+                  width="800"
+                  height="500"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-8 left-8 bg-blue-600 p-5 rounded-2xl shadow-xl shadow-blue-600/40 ring-4 ring-blue-400/30">
+                  <CurrentIcon className="w-10 h-10 text-white" />
                 </div>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="bg-black/60 backdrop-blur-sm rounded-xl px-4 py-3">
+                    <p className="text-white/60 text-xs font-semibold tracking-wider uppercase mb-1">Completed projects</p>
+                    <p className="text-white font-bold text-lg">{currentService.projectCount} projects delivered</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Materials block — desktop only */}
+              <div className="hidden md:block mt-6 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <h3 className="font-bold text-slate-900 text-lg mb-3">{currentService.materials.heading}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-5">
+                  {currentService.materials.description}
+                </p>
+                <div className="space-y-3 mb-5">
+                  {currentService.materials.products.map((product) => (
+                    <div key={product.name} className="flex items-start gap-3 bg-slate-50 rounded-lg p-3">
+                      <div className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 flex-shrink-0" />
+                      <div>
+                        <p className="font-semibold text-slate-900 text-sm">{product.name}</p>
+                        <p className="text-slate-500 text-xs">{product.detail}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href={currentService.materials.link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm transition-colors"
+                >
+                  {currentService.materials.link.label}
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
             </div>
 
