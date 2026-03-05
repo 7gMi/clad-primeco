@@ -47,7 +47,7 @@ const servicesData = {
       { label: 'Thermal Performance', value: 'U-values 0.11-0.28 W/m²K' }
     ],
     materials: {
-      heading: 'Kingspan Certified Installer',
+      heading: 'Experienced Kingspan Installer',
       description: 'We are trained installers of the full Kingspan insulated panel range — including KS1000 RW, KS600, and QuadCore systems. Every installation follows Kingspan\'s specification guidelines to ensure warranty compliance and peak thermal performance.',
       products: [
         { name: 'KS1000 RW', detail: 'Wall panel — PIR core, 0.15 W/m²K' },
