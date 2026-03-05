@@ -2,9 +2,9 @@
 
 ## 📋 RÉSUMÉ DU PROJET
 
-Ce projet est un site web professionnel pour **Clad-Primeco**, une entreprise irlandaise spécialisée dans les systèmes de bardage (cladding). Le site existe en **deux versions** :
-1. **Version React/TypeScript** (principale, production-ready)
-2. **Version HTML/CSS/JS vanilla** (dans le dossier `html-version/`)
+Ce projet est un site web professionnel pour **Clad-Primeco**, une entreprise irlandaise spécialisée dans les systèmes de bardage (cladding).
+- **Version React/TypeScript** (principale, production, déployée sur Vercel)
+- Version HTML/CSS/JS archivée dans le repo `clad-primeco_v1.0`
 
 ---
 

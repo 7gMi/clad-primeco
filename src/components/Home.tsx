@@ -68,19 +68,14 @@ export default function Home({ onNavigate }: HomeProps) {
   return (
     <div className="h-screen overflow-y-auto bg-white home-scroll-container">
       <header
-        className={`fixed top-0 left-0 right-0 z-[100] px-6 md:px-12 lg:px-16 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[100] px-4 sm:px-6 md:px-12 lg:px-16 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/90 backdrop-blur-md shadow-sm py-3 border-b border-slate-100'
-            : 'bg-gradient-to-b from-black/60 via-black/30 to-transparent pt-2 md:pt-3 pb-4'
+            ? 'bg-white/90 backdrop-blur-md shadow-sm py-2 sm:py-3 border-b border-slate-100'
+            : 'bg-gradient-to-b from-black/60 via-black/30 to-transparent pt-2 md:pt-3 pb-3 sm:pb-4'
         }`}
       >
         <div className="flex justify-between items-center">
-          <div className="logo-container cursor-pointer" onClick={() => onNavigate('home')}>
-            {/*
-              CLS FIX: Explicit width/height on the picture element wrapper prevents
-              layout shift when the image loads. The container reserves space via
-              the className dimensions that mirror the img sizes below.
-            */}
+          <button className="logo-container cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded" onClick={() => onNavigate('home')} aria-label="Go to homepage">
             <div className={`transition-all duration-300 rounded-lg flex items-center gap-3 ${
               isScrolled ? '' : 'bg-white/95 px-3 py-2 shadow-sm'
             }`}>
@@ -100,7 +95,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 </p>
               )}
             </div>
-          </div>
+          </button>
 
           <Navigation onNavigate={onNavigate} isScrolled={isScrolled} currentPage="home" />
         </div>
@@ -447,7 +442,7 @@ export default function Home({ onNavigate }: HomeProps) {
               <div className="md:ml-4 mt-4 md:mt-0 text-center md:text-left">
                 <div className="text-lg font-semibold text-gray-300 mb-1">Phone</div>
                 <a
-                  href="tel:0833468913"
+                  href="tel:+353833468913"
                   className="text-xl text-white hover:text-blue-500 transition-colors duration-300"
                 >
                   083 346 8913
