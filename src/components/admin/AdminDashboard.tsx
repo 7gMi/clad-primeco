@@ -48,6 +48,13 @@ export default function AdminDashboard({ session, onLogout }: Props) {
     searchTimer.current = setTimeout(() => setDebouncedSearch(v), 300)
   }
 
+  // Bug #11: cleanup debounce timer on unmount
+  useEffect(() => {
+    return () => {
+      if (searchTimer.current) clearTimeout(searchTimer.current)
+    }
+  }, [])
+
   function handleStatus(v: StatusFilter) { setStatus(v); setPage(1) }
   function handlePeriod(v: PeriodFilter) { setPeriod(v); setPage(1) }
 
@@ -78,7 +85,8 @@ export default function AdminDashboard({ session, onLogout }: Props) {
       let query = supabase.from('contact_messages').select('*', { count: 'exact' })
 
       if (debouncedSearch) {
-        query = query.or(`name.ilike.%${debouncedSearch}%,email.ilike.%${debouncedSearch}%`)
+        const safe = debouncedSearch.replace(/[%_\\(),."']/g, '\\$&')
+        query = query.or(`name.ilike.%${safe}%,email.ilike.%${safe}%`)
       }
       if (status !== 'all') query = query.eq('status', status)
       const periodStart = getPeriodStart(period)

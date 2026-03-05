@@ -36,12 +36,13 @@ export default function AdminLogin() {
         <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+              <label htmlFor="admin-email" className="block text-sm font-semibold text-slate-700 mb-2">Email</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Mail className="w-4 h-4 text-slate-400" />
                 </div>
                 <input
+                  id="admin-email"
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
@@ -53,12 +54,13 @@ export default function AdminLogin() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Password</label>
+              <label htmlFor="admin-password" className="block text-sm font-semibold text-slate-700 mb-2">Password</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Lock className="w-4 h-4 text-slate-400" />
                 </div>
                 <input
+                  id="admin-password"
                   type="password"
                   value={password}
                   onChange={e => setPassword(e.target.value)}

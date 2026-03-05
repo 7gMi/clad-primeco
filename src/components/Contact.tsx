@@ -68,9 +68,9 @@ export default function Contact() {
 
     // M7: phone validation (optional field — only validate if non-empty)
     if (form.phone.trim() !== '') {
-      const phoneRegex = /^(\+353|0)[0-9\s]{7,14}$/
+      const phoneRegex = /^[+]?[\d\s\-().]{7,20}$/
       if (!phoneRegex.test(form.phone.trim())) {
-        setError('Please enter a valid Irish phone number (e.g. 083 346 8913).')
+        setError('Please enter a valid phone number.')
         submittingRef.current = false
         return
       }
@@ -324,7 +324,7 @@ export default function Contact() {
                       <option value="">Select a service...</option>
                       <option value="Kingspan Cladding">Kingspan Cladding</option>
                       <option value="Architectural Panels">Architectural Panels</option>
-                      <option value="Aluminium Copings & Roof Deck">Aluminium Copings &amp; Roof Deck</option>
+                      <option value="Aluminium Copings & Roof Deck">Aluminium Copings & Roof Deck</option>
                       <option value="Other">Other / Not sure</option>
                     </select>
                     <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">

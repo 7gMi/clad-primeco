@@ -55,6 +55,23 @@ export default function Projects() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [currentProject, nextImage, prevImage]);
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (!currentProject) return;
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      window.scrollTo(0, scrollY);
+    };
+  }, [currentProject]);
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -124,6 +141,7 @@ export default function Projects() {
           aria-modal="true"
           aria-labelledby="project-modal-title"
           className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[150] flex items-start md:items-center justify-center p-4"
+          onClick={(e) => { if (e.target === e.currentTarget) { setSelectedProject(null); setCurrentImageIndex(0); } }}
         >
           <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[85vh] md:max-h-[90vh] overflow-y-auto mt-16 md:mt-0">
             <div className="sticky top-0 bg-white border-b border-slate-200 px-6 md:px-8 py-4 flex items-center justify-between z-10">

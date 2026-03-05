@@ -52,16 +52,28 @@ export default function AdminTable({ messages, loading, total, page, pageSize, o
 
   async function handleStatusChange(msg: Message) {
     setUpdating(msg.id)
-    await supabase.from('contact_messages').update({ status: STATUS_NEXT[msg.status] }).eq('id', msg.id)
-    setUpdating(null)
-    onRefresh()
+    try {
+      const { error } = await supabase.from('contact_messages').update({ status: STATUS_NEXT[msg.status] }).eq('id', msg.id)
+      if (error) { console.error('[AdminTable] status update error:', error.message); return }
+      onRefresh()
+    } catch (err) {
+      console.error('[AdminTable] status update exception:', err)
+    } finally {
+      setUpdating(null)
+    }
   }
 
   async function handleDelete() {
     if (!deleteId) return
-    await supabase.from('contact_messages').delete().eq('id', deleteId)
-    setDeleteId(null)
-    onRefresh()
+    try {
+      const { error } = await supabase.from('contact_messages').delete().eq('id', deleteId)
+      if (error) { console.error('[AdminTable] delete error:', error.message); return }
+      onRefresh()
+    } catch (err) {
+      console.error('[AdminTable] delete exception:', err)
+    } finally {
+      setDeleteId(null)
+    }
   }
 
   if (loading) {
@@ -181,9 +193,16 @@ export default function AdminTable({ messages, loading, total, page, pageSize, o
 
       {/* Delete confirmation modal */}
       {deleteId && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="delete-modal-title"
+          className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4"
+          onClick={(e) => { if (e.target === e.currentTarget) setDeleteId(null) }}
+          onKeyDown={(e) => { if (e.key === 'Escape') setDeleteId(null) }}
+        >
           <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-sm w-full">
-            <h3 className="font-bold text-slate-900 text-lg mb-2">Delete message?</h3>
+            <h3 id="delete-modal-title" className="font-bold text-slate-900 text-lg mb-2">Delete message?</h3>
             <p className="text-slate-500 text-sm mb-6">This action cannot be undone.</p>
             <div className="flex gap-3">
               <button

@@ -25,6 +25,7 @@ export default function Home() {
   // Use a ref for the transitioning flag to avoid stale closure issues in
   // setInterval and to prevent unnecessary re-renders on every transition tick.
   const isTransitioningRef = useRef(false);
+  const transitionTimerRef = useRef<ReturnType<typeof setTimeout>>();
 
   // PERFORMANCE: stable handleSlideChange — no re-creation on every render.
   // Using a ref for isTransitioning means this callback never goes stale
@@ -33,7 +34,8 @@ export default function Home() {
     if (isTransitioningRef.current) return;
     isTransitioningRef.current = true;
     setCurrentSlide(index);
-    setTimeout(() => {
+    clearTimeout(transitionTimerRef.current);
+    transitionTimerRef.current = setTimeout(() => {
       isTransitioningRef.current = false;
     }, 800);
   }, []); // empty deps — safe because we read/write via ref
@@ -53,7 +55,10 @@ export default function Home() {
       });
     }, 6000);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+      clearTimeout(transitionTimerRef.current);
+    };
   }, []); // empty deps — all state is read via functional updaters or refs
 
 

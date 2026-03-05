@@ -4,11 +4,6 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
 
-  // Exclude lucide-react from pre-bundling (large icon lib — imported per icon)
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
-
   build: {
     // Target modern browsers — smaller output, no legacy polyfills
     target: 'es2020',

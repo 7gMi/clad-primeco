@@ -12,18 +12,19 @@ function getCorsOrigin(req: Request): string {
   return ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
 }
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "",  // set dynamically per request
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Client-Info, Apikey, x-supabase-client",
-};
-
 const RATE_LIMIT_MAX = 3;
 const RATE_LIMIT_WINDOW_HOURS = 1;
 
+function buildCorsHeaders(req: Request) {
+  return {
+    "Access-Control-Allow-Origin": getCorsOrigin(req),
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Client-Info, Apikey, x-supabase-client",
+  };
+}
+
 Deno.serve(async (req: Request) => {
-  // Set dynamic CORS origin per request
-  corsHeaders["Access-Control-Allow-Origin"] = getCorsOrigin(req);
+  const corsHeaders = buildCorsHeaders(req);
 
   // Handle CORS preflight
   if (req.method === "OPTIONS") {
