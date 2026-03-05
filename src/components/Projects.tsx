@@ -46,13 +46,13 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         status: 'Completed'
       },
       images: [
-        '/images/projects/dub104-amazon/1_Dub104_Amazon.jpg',
         '/images/projects/dub104-amazon/2_Dub104_Amazon.jpg',
+        '/images/projects/dub104-amazon/10_Dub104_Amazon.JPG',
+        '/images/projects/dub104-amazon/11_Dub104_Amazon.JPG',
+        '/images/projects/dub104-amazon/1_Dub104_Amazon.jpg',
         '/images/projects/dub104-amazon/3_Dub104_Amazon.jpg',
         '/images/projects/dub104-amazon/4_Dub104_Amazon.jpg',
         '/images/projects/dub104-amazon/6_Dub104_Amazon.jpg',
-        '/images/projects/dub104-amazon/10_Dub104_Amazon.JPG',
-        '/images/projects/dub104-amazon/11_Dub104_Amazon.JPG',
       ],
       serviceType: 'Architectural Panels'
     },
@@ -70,13 +70,13 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         status: 'Completed'
       },
       images: [
-        '/images/projects/dub01-vantage/10_Dub01_Vantage_Power_Station.jpg',
-        '/images/projects/dub01-vantage/11_Dub01_Vantage_Power_Station.jpg',
         '/images/projects/dub01-vantage/12_Dub01_Vantage_Power_Station.jpg',
-        '/images/projects/dub01-vantage/13_Dub01_Vantage_Power_Station.jpg',
-        '/images/projects/dub01-vantage/14_Dub01_Vantage_Power_Station.jpg',
         '/images/projects/dub01-vantage/15_Dub01_Vantage_Power_Station.jpg',
         '/images/projects/dub01-vantage/16_Dub01_Vantage_Power_Station.jpg',
+        '/images/projects/dub01-vantage/10_Dub01_Vantage_Power_Station.jpg',
+        '/images/projects/dub01-vantage/11_Dub01_Vantage_Power_Station.jpg',
+        '/images/projects/dub01-vantage/13_Dub01_Vantage_Power_Station.jpg',
+        '/images/projects/dub01-vantage/14_Dub01_Vantage_Power_Station.jpg',
       ],
       serviceType: 'Kingspan Cladding'
     },
@@ -94,14 +94,14 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         status: 'Completed'
       },
       images: [
+        '/images/projects/carrigtwohil-college/5_Carrigtwohil_College_Cork.jpg',
+        '/images/projects/carrigtwohil-college/10_Carrigtwohil_College_Cork.jpg',
+        '/images/projects/carrigtwohil-college/11_Carrigtwohil_College_Cork.jpg',
         '/images/projects/carrigtwohil-college/1_Carrigtwohil_College_Cork.jpg',
         '/images/projects/carrigtwohil-college/2_Carrigtwohil_College_Cork.jpg',
         '/images/projects/carrigtwohil-college/3_Carrigtwohil_College_Cork.jpg',
         '/images/projects/carrigtwohil-college/4_Carrigtwohil_College_Cork.jpg',
-        '/images/projects/carrigtwohil-college/5_Carrigtwohil_College_Cork.jpg',
         '/images/projects/carrigtwohil-college/6_Carrigtwohil_College_Cork.jpg',
-        '/images/projects/carrigtwohil-college/10_Carrigtwohil_College_Cork.jpg',
-        '/images/projects/carrigtwohil-college/11_Carrigtwohil_College_Cork.jpg',
       ],
       serviceType: 'Kingspan Cladding'
     },
@@ -168,12 +168,12 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
       },
       images: [
         '/images/projects/europort-rosslare/12_Europort_Rosslare_Wexford.jpg',
-        '/images/projects/europort-rosslare/17_Europort_Rosslare_Wexford.jpg',
-        '/images/projects/europort-rosslare/10.jpg',
         '/images/projects/europort-rosslare/11.jpg',
         '/images/projects/europort-rosslare/13.jpg',
-        '/images/projects/europort-rosslare/14.jpg',
         '/images/projects/europort-rosslare/15.jpg',
+        '/images/projects/europort-rosslare/17_Europort_Rosslare_Wexford.jpg',
+        '/images/projects/europort-rosslare/10.jpg',
+        '/images/projects/europort-rosslare/14.jpg',
         '/images/projects/europort-rosslare/16.jpg',
       ],
       serviceType: 'Aluminium Roof Deck'
@@ -192,14 +192,14 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         status: 'Completed'
       },
       images: [
-        '/images/projects/lily-superstore/14_Lily_Superstore_Limerick.jpg',
-        '/images/projects/lily-superstore/16_Lily_Superstore_Limerick.jpg',
         '/images/projects/lily-superstore/10.jpg',
-        '/images/projects/lily-superstore/11_.jpg',
         '/images/projects/lily-superstore/12.jpg',
-        '/images/projects/lily-superstore/13.jpg',
         '/images/projects/lily-superstore/15.jpg',
+        '/images/projects/lily-superstore/16_Lily_Superstore_Limerick.jpg',
         '/images/projects/lily-superstore/17.jpg',
+        '/images/projects/lily-superstore/14_Lily_Superstore_Limerick.jpg',
+        '/images/projects/lily-superstore/11_.jpg',
+        '/images/projects/lily-superstore/13.jpg',
       ],
       serviceType: 'Architectural Panels'
     },
@@ -342,11 +342,11 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
 
             <div className="p-6 md:p-8">
               <div className="mb-8">
-                <div className="relative h-56 md:h-96 bg-slate-200 rounded-xl overflow-hidden mb-4">
+                <div className="relative h-56 md:h-96 bg-slate-900 rounded-xl overflow-hidden mb-4">
                   <img
                     src={currentProject.images[currentImageIndex]}
                     alt={`${currentProject.title} - Image ${currentImageIndex + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                   <button
                     onClick={prevImage}
