@@ -63,6 +63,7 @@ export default function About() {
     <div className="min-h-screen bg-white">
       <Header />
 
+      <main>
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
         style={{ backgroundImage: 'url(/images/backgrounds/school_carrigtohil.webp)' }}
@@ -330,6 +331,8 @@ export default function About() {
           </button>
         </div>
       </section>
+
+      </main>
 
       <ContactBar />
       <Footer />

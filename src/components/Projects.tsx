@@ -59,6 +59,7 @@ export default function Projects() {
     <div className="min-h-screen bg-white">
       <Header />
 
+      <main>
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
         style={{ backgroundImage: 'url(/images/backgrounds/4k.webp)' }}
@@ -260,6 +261,8 @@ export default function Projects() {
           </div>
         </div>
       )}
+
+      </main>
 
       <ContactBar />
       <Footer />

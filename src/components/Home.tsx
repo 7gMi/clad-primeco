@@ -61,6 +61,7 @@ export default function Home() {
     <div className="h-screen overflow-y-auto overflow-x-hidden bg-white home-scroll-container">
       <Header isHomePage />
 
+      <main>
       {/* Hero slider section */}
       <div className="relative w-full h-screen overflow-hidden bg-black">
         <div className="relative w-full h-full">
@@ -426,6 +427,8 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      </main>
 
       <ContactBar />
 

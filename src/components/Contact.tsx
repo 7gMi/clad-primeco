@@ -118,6 +118,7 @@ export default function Contact() {
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Header />
 
+      <main>
       {/* Hero */}
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
@@ -408,6 +409,8 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <ContactBar />
 

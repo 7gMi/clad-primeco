@@ -53,39 +53,49 @@ export default function AdminDashboard({ session, onLogout }: Props) {
 
   const fetchStats = useCallback(async () => {
     setStatsLoading(true)
-    const weekStart = getPeriodStart('week')!
+    try {
+      const weekStart = getPeriodStart('week')!
 
-    const [{ count: t }, { count: n }, { count: w }] = await Promise.all([
-      supabase.from('contact_messages').select('*', { count: 'exact', head: true }),
-      supabase.from('contact_messages').select('*', { count: 'exact', head: true }).eq('status', 'new'),
-      supabase.from('contact_messages').select('*', { count: 'exact', head: true }).gte('created_at', weekStart),
-    ])
+      const [{ count: t }, { count: n }, { count: w }] = await Promise.all([
+        supabase.from('contact_messages').select('*', { count: 'exact', head: true }),
+        supabase.from('contact_messages').select('*', { count: 'exact', head: true }).eq('status', 'new'),
+        supabase.from('contact_messages').select('*', { count: 'exact', head: true }).gte('created_at', weekStart),
+      ])
 
-    setStatsTotal(t ?? 0)
-    setNewCount(n ?? 0)
-    setThisWeek(w ?? 0)
-    setStatsLoading(false)
+      setStatsTotal(t ?? 0)
+      setNewCount(n ?? 0)
+      setThisWeek(w ?? 0)
+    } catch (err) {
+      console.error('[AdminDashboard] fetchStats error:', err)
+    } finally {
+      setStatsLoading(false)
+    }
   }, [])
 
   const fetchMessages = useCallback(async () => {
     setLoading(true)
-    let query = supabase.from('contact_messages').select('*', { count: 'exact' })
+    try {
+      let query = supabase.from('contact_messages').select('*', { count: 'exact' })
 
-    if (debouncedSearch) {
-      query = query.or(`name.ilike.%${debouncedSearch}%,email.ilike.%${debouncedSearch}%`)
+      if (debouncedSearch) {
+        query = query.or(`name.ilike.%${debouncedSearch}%,email.ilike.%${debouncedSearch}%`)
+      }
+      if (status !== 'all') query = query.eq('status', status)
+      const periodStart = getPeriodStart(period)
+      if (periodStart) query = query.gte('created_at', periodStart)
+
+      const from = (page - 1) * PAGE_SIZE
+      const { data, count } = await query
+        .order('created_at', { ascending: false })
+        .range(from, from + PAGE_SIZE - 1)
+
+      setMessages((data as Message[]) ?? [])
+      setTotal(count ?? 0)
+    } catch (err) {
+      console.error('[AdminDashboard] fetchMessages error:', err)
+    } finally {
+      setLoading(false)
     }
-    if (status !== 'all') query = query.eq('status', status)
-    const periodStart = getPeriodStart(period)
-    if (periodStart) query = query.gte('created_at', periodStart)
-
-    const from = (page - 1) * PAGE_SIZE
-    const { data, count } = await query
-      .order('created_at', { ascending: false })
-      .range(from, from + PAGE_SIZE - 1)
-
-    setMessages((data as Message[]) ?? [])
-    setTotal(count ?? 0)
-    setLoading(false)
   }, [debouncedSearch, status, period, page])
 
   useEffect(() => { fetchStats() }, [fetchStats])

@@ -1,8 +1,19 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { getCompanyNotificationEmail, getClientAutoReplyEmail } from "./email-templates.ts";
 
+const ALLOWED_ORIGINS = [
+  "https://cladprimeco.ie",
+  "https://www.cladprimeco.ie",
+  "https://clad-primeco.vercel.app",
+];
+
+function getCorsOrigin(req: Request): string {
+  const origin = req.headers.get("Origin") ?? "";
+  return ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+}
+
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Origin": "",  // set dynamically per request
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Client-Info, Apikey, x-supabase-client",
 };
@@ -11,6 +22,9 @@ const RATE_LIMIT_MAX = 3;
 const RATE_LIMIT_WINDOW_HOURS = 1;
 
 Deno.serve(async (req: Request) => {
+  // Set dynamic CORS origin per request
+  corsHeaders["Access-Control-Allow-Origin"] = getCorsOrigin(req);
+
   // Handle CORS preflight
   if (req.method === "OPTIONS") {
     return new Response(null, { status: 200, headers: corsHeaders });
