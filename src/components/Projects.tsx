@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { ArrowRight, Phone, Mail, Instagram, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Header from './Header';
 import BackToTop from './BackToTop';
@@ -230,17 +230,29 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
 
   const currentProject = selectedProject !== null ? projects.find(p => p.id === selectedProject) : null;
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     if (currentProject) {
       setCurrentImageIndex((prev) => (prev + 1) % currentProject.images.length);
     }
-  };
+  }, [currentProject]);
 
-  const prevImage = () => {
+  const prevImage = useCallback(() => {
     if (currentProject) {
       setCurrentImageIndex((prev) => (prev - 1 + currentProject.images.length) % currentProject.images.length);
     }
-  };
+  }, [currentProject]);
+
+  // Keyboard navigation: ArrowLeft/Right for images, Escape to close
+  useEffect(() => {
+    if (!currentProject) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') nextImage();
+      else if (e.key === 'ArrowLeft') prevImage();
+      else if (e.key === 'Escape') { setSelectedProject(null); setCurrentImageIndex(0); }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentProject, nextImage, prevImage]);
 
   return (
     <div className="min-h-screen bg-white">

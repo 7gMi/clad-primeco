@@ -297,6 +297,38 @@ export default function Services({ onNavigate }: ServicesProps) {
                 </div>
               </div>
 
+              {/* ── Completed projects for this service ── */}
+              <div className="mb-8">
+                <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
+                  Completed Projects
+                </p>
+                <div className="grid grid-cols-2 gap-3">
+                  {currentService.projects.map((project) => (
+                    <button
+                      key={project.name}
+                      onClick={() => onNavigate('projects', project.id)}
+                      className="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-36 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    >
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        width="300"
+                        height="144"
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 to-black/10" />
+                      <div className="absolute bottom-0 left-0 right-0 p-3">
+                        <p className="text-blue-400 text-[10px] font-semibold mb-0.5">{project.surface}</p>
+                        <p className="text-white font-bold text-xs leading-snug">{project.name}</p>
+                        <p className="text-white/60 text-[10px] mt-0.5">{project.location}</p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <button
                 onClick={() => onNavigate('contact')}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center gap-2 transition-all duration-300 hover:gap-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
@@ -304,42 +336,6 @@ export default function Services({ onNavigate }: ServicesProps) {
                 Request a Quote
                 <ArrowRight className="w-5 h-5" />
               </button>
-            </div>
-          </div>
-
-          {/* ── Completed projects for this service ── */}
-          <div className="mt-16">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="h-px bg-slate-300 flex-1" />
-              <p className="text-slate-500 font-semibold text-sm uppercase tracking-wider">
-                Completed with this system
-              </p>
-              <div className="h-px bg-slate-300 flex-1" />
-            </div>
-            <div className={`grid gap-6 ${currentService.projects.length === 2 ? 'grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'}`}>
-              {currentService.projects.map((project) => (
-                <button
-                  key={project.name}
-                  onClick={() => onNavigate('projects', project.id)}
-                  className="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-44 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                >
-                  <img
-                    src={project.image}
-                    alt={project.name}
-                    width="400"
-                    height="176"
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 to-black/10" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <p className="text-blue-400 text-xs font-semibold mb-1">{project.surface}</p>
-                    <p className="text-white font-bold text-sm leading-snug">{project.name}</p>
-                    <p className="text-white/60 text-xs mt-0.5">{project.location}</p>
-                  </div>
-                </button>
-              ))}
             </div>
           </div>
         </div>
