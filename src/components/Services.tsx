@@ -1,14 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowRight, Thermometer, Palette, Umbrella, Phone, Mail, Instagram, Check, ExternalLink } from 'lucide-react';
 import Header from './Header';
 import BackToTop from './BackToTop';
 import Footer from './Footer';
-import { Page, ServiceType, navigateToContactForm } from '../App';
-
-interface ServicesProps {
-  onNavigate: (page: Page, projectId?: number) => void;
-  initialService?: ServiceType | null;
-}
+import { ROUTES, ServiceType } from '../constants/routes';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 const servicesData = {
   kingspan: {
@@ -149,11 +146,24 @@ const servicesData = {
   },
 };
 
-export default function Services({ onNavigate, initialService }: ServicesProps) {
-  const [selectedService, setSelectedService] = useState<ServiceType>(initialService ?? 'kingspan');
+export default function Services() {
+  const navigate = useNavigate();
+  const { serviceType: serviceParam } = useParams<{ serviceType?: string }>();
+  const [selectedService, setSelectedService] = useState<ServiceType>((serviceParam as ServiceType) ?? 'kingspan');
+
+  useEffect(() => {
+    if (serviceParam && serviceParam in servicesData) {
+      setSelectedService(serviceParam as ServiceType);
+    }
+  }, [serviceParam]);
 
   const currentService = servicesData[selectedService];
   const CurrentIcon = currentService.icon;
+
+  usePageMeta({
+    title: `${currentService.title} | Clad-Primeco Services`,
+    description: currentService.tagline,
+  });
 
   const allServices = Object.entries(servicesData).map(([key, data]) => ({
     key: key as ServiceType,
@@ -166,7 +176,7 @@ export default function Services({ onNavigate, initialService }: ServicesProps) 
 
   return (
     <div className="min-h-screen bg-white">
-      <Header onNavigate={onNavigate} currentPage="services" />
+      <Header />
 
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
@@ -365,7 +375,7 @@ export default function Services({ onNavigate, initialService }: ServicesProps) 
                   {currentService.projects.map((project) => (
                     <button
                       key={project.name}
-                      onClick={() => onNavigate('projects', project.id)}
+                      onClick={() => navigate(ROUTES.PROJECT(project.id))}
                       className="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-36 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     >
                       <img
@@ -389,7 +399,7 @@ export default function Services({ onNavigate, initialService }: ServicesProps) 
               </div>
 
               <button
-                onClick={() => navigateToContactForm(onNavigate)}
+                onClick={() => navigate(ROUTES.CONTACT, { state: { scrollToForm: true } })}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center gap-2 transition-all duration-300 hover:gap-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
                 Request a Quote

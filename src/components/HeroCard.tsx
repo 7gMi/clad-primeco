@@ -1,14 +1,16 @@
 import { Phone } from 'lucide-react';
-import { Page, navigateToContactForm } from '../App';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../constants/routes';
 
 interface HeroCardProps {
   tagline: string;
   title: string;
   subtitle: string;
-  onNavigate: (page: Page) => void;
 }
 
-export default function HeroCard({ tagline, title, subtitle, onNavigate }: HeroCardProps) {
+export default function HeroCard({ tagline, title, subtitle }: HeroCardProps) {
+  const navigate = useNavigate();
+
   return (
     <div className="hero-card max-w-4xl">
       <p className="text-blue-400 text-sm md:text-base lg:text-lg mb-4 font-medium tracking-wider uppercase">
@@ -25,13 +27,13 @@ export default function HeroCard({ tagline, title, subtitle, onNavigate }: HeroC
 
       <div className="flex flex-wrap gap-3 sm:gap-4">
         <button
-          onClick={() => navigateToContactForm(onNavigate)}
+          onClick={() => navigate(ROUTES.CONTACT, { state: { scrollToForm: true } })}
           className="bg-blue-600 border-2 border-blue-600 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-3xl text-base sm:text-lg font-semibold transition-all duration-300 hover:bg-blue-700 hover:border-blue-700 hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent"
         >
           Get a Quote — 24h Response
         </button>
         <button
-          onClick={() => onNavigate('projects')}
+          onClick={() => navigate(ROUTES.PROJECTS)}
           className="bg-transparent border-2 border-white text-white px-5 sm:px-8 py-3 sm:py-4 rounded-3xl text-base sm:text-lg font-semibold transition-all duration-300 hover:bg-white/10 hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
         >
           See Our Work

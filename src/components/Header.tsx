@@ -1,11 +1,10 @@
 import { useEffect, useState, useCallback } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Navigation from './Navigation';
 import Logo from './Logo';
-import { Page } from '../App';
+import { ROUTES } from '../constants/routes';
 
 interface HeaderProps {
-  onNavigate?: (page: Page) => void;
-  currentPage?: Page;
   /**
    * When true, the header starts transparent over the hero slider and
    * listens to the `.home-scroll-container` for scroll events instead of
@@ -14,8 +13,10 @@ interface HeaderProps {
   isHomePage?: boolean;
 }
 
-export default function Header({ onNavigate, currentPage, isHomePage = false }: HeaderProps) {
+export default function Header({ isHomePage = false }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const handleScroll = useCallback(() => {
     if (isHomePage) {
@@ -39,8 +40,6 @@ export default function Header({ onNavigate, currentPage, isHomePage = false }: 
     }
   }, [isHomePage, handleScroll]);
 
-  // All pages have a hero section with a background image, so the header
-  // starts transparent and transitions to white on scroll.
   const showTransparent = !isScrolled;
 
   return (
@@ -51,7 +50,6 @@ export default function Header({ onNavigate, currentPage, isHomePage = false }: 
           : 'bg-white/95 backdrop-blur-md shadow-[0_1px_3px_rgba(0,0,0,0.08)] border-b border-slate-200/60'
       }`}
     >
-      {/* Top accent line -- brand navy, visible in both states */}
       <div
         className={`h-[2px] w-full transition-colors duration-300 ${
           showTransparent ? 'bg-transparent' : 'bg-[#1B3564]'
@@ -65,13 +63,11 @@ export default function Header({ onNavigate, currentPage, isHomePage = false }: 
             : 'py-1.5 md:py-2 max-w-full'
         }`}
       >
-        {/* Logo area */}
         <button
           className="group flex items-center gap-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md"
-          onClick={() => onNavigate?.('home')}
+          onClick={() => navigate(ROUTES.HOME)}
           aria-label="Go to homepage"
         >
-          {/* Logo card -- white card only in transparent state for contrast */}
           <div
             className={`flex items-center transition-all duration-300 ease-in-out rounded-md ${
               showTransparent
@@ -87,7 +83,6 @@ export default function Header({ onNavigate, currentPage, isHomePage = false }: 
               }`}
             />
 
-            {/* Tagline -- always rendered for smooth transitions, hidden via opacity + max-width */}
             <div
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
                 showTransparent
@@ -105,11 +100,9 @@ export default function Header({ onNavigate, currentPage, isHomePage = false }: 
           </div>
         </button>
 
-        {/* Desktop navigation + mobile hamburger */}
         <Navigation
-          onNavigate={onNavigate}
           isScrolled={!showTransparent}
-          currentPage={currentPage}
+          currentPath={pathname}
         />
       </div>
     </header>

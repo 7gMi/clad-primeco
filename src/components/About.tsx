@@ -1,15 +1,21 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../constants/routes';
+import { ServiceType } from '../constants/routes';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { ArrowRight, Building2, PenTool, FileText, CheckCircle, Check, Phone, Mail, Instagram, Thermometer, Palette, Umbrella } from 'lucide-react';
 import Header from './Header';
 import BackToTop from './BackToTop';
 import Footer from './Footer';
-import { Page, ServiceType, navigateToContactForm } from '../App';
 
-interface AboutProps {
-  onNavigate: (page: Page, projectId?: number, serviceType?: ServiceType) => void;
-}
+export default function About() {
+  const navigate = useNavigate();
 
-export default function About({ onNavigate }: AboutProps) {
+  usePageMeta({
+    title: 'About Us | Clad-Primeco',
+    description: 'Learn about Clad-Primeco — specialist cladding and roofing contractors based in Dublin, delivering projects across Ireland.',
+  });
+
   const [selectedProcess, setSelectedProcess] = useState<number | null>(null);
 
   const processSteps = [
@@ -54,7 +60,7 @@ export default function About({ onNavigate }: AboutProps) {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header onNavigate={onNavigate} currentPage="about" />
+      <Header />
 
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
@@ -292,7 +298,7 @@ export default function About({ onNavigate }: AboutProps) {
                       {service.description}
                     </p>
                     <button
-                      onClick={() => onNavigate('services', undefined, service.serviceType)}
+                      onClick={() => navigate(ROUTES.SERVICE(service.serviceType))}
                       className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded group/btn"
                     >
                       View service
@@ -315,7 +321,7 @@ export default function About({ onNavigate }: AboutProps) {
             Send us your drawings or brief — we'll come back with a detailed, competitive quote.
           </p>
           <button
-            onClick={() => navigateToContactForm(onNavigate)}
+            onClick={() => navigate(ROUTES.CONTACT, { state: { scrollToForm: true } })}
             className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 inline-flex items-center gap-2 hover:gap-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
           >
             Request a Quote

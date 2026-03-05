@@ -1,14 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowRight, Phone, Mail, Instagram, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Header from './Header';
 import BackToTop from './BackToTop';
 import Footer from './Footer';
-import { Page, navigateToContactForm } from '../App';
-
-interface ProjectsProps {
-  onNavigate: (page: Page, projectId?: number) => void;
-  initialProjectId?: number | null;
-}
+import { ROUTES } from '../constants/routes';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 interface Project {
   id: number;
@@ -27,9 +24,25 @@ interface Project {
   serviceType: string;
 }
 
-export default function Projects({ onNavigate, initialProjectId }: ProjectsProps) {
-  const [selectedProject, setSelectedProject] = useState<number | null>(initialProjectId ?? null);
+export default function Projects() {
+  const navigate = useNavigate();
+  const { projectId } = useParams<{ projectId?: string }>();
+  const [selectedProject, setSelectedProject] = useState<number | null>(projectId ? Number(projectId) : null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (projectId) {
+      setSelectedProject(Number(projectId));
+      setCurrentImageIndex(0);
+    } else {
+      setSelectedProject(null);
+    }
+  }, [projectId]);
+
+  usePageMeta({
+    title: 'Our Projects | Clad-Primeco',
+    description: 'Featured cladding and roofing projects across Ireland — Amazon, Vantage Data Centers, Bausch & Lomb, and more.',
+  });
 
   const projects: Project[] = [
     {
@@ -259,7 +272,7 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
 
   return (
     <div className="min-h-screen bg-white">
-      <Header onNavigate={onNavigate} currentPage="projects" />
+      <Header />
 
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
@@ -451,7 +464,7 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
               <button
                 onClick={() => {
                   setSelectedProject(null);
-                  navigateToContactForm(onNavigate);
+                  navigate(ROUTES.CONTACT, { state: { scrollToForm: true } });
                 }}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center justify-center gap-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >

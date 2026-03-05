@@ -1,44 +1,43 @@
-import { Page, prefetchPage, navigateToContactForm } from '../App';
 import { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, Phone, Mail, ArrowRight } from 'lucide-react';
+import { ROUTES, prefetchRoute } from '../constants/routes';
 
 interface NavigationProps {
-  onNavigate?: (page: Page) => void;
   isScrolled?: boolean;
-  currentPage?: Page;
+  currentPath?: string;
 }
 
 const navItems = [
-  { label: 'Home',     page: 'home'     as Page, number: '01' },
-  { label: 'About',    page: 'about'    as Page, number: '02' },
-  { label: 'Services', page: 'services' as Page, number: '03' },
-  { label: 'Projects', page: 'projects' as Page, number: '04' },
-  { label: 'Contact',  page: 'contact'  as Page, number: '05' },
+  { label: 'Home',     path: ROUTES.HOME,     number: '01' },
+  { label: 'About',    path: ROUTES.ABOUT,    number: '02' },
+  { label: 'Services', path: ROUTES.SERVICES, number: '03' },
+  { label: 'Projects', path: ROUTES.PROJECTS, number: '04' },
+  { label: 'Contact',  path: ROUTES.CONTACT,  number: '05' },
 ];
 
-export default function Navigation({ onNavigate, isScrolled = false, currentPage }: NavigationProps) {
+export default function Navigation({ isScrolled = false, currentPath }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
-  const handleNavClick = (page?: Page) => {
-    if (page) onNavigate?.(page);
-    setMobileMenuOpen(false);
+  const isActive = (path: string) => {
+    if (path === '/') return currentPath === '/';
+    return currentPath?.startsWith(path) ?? false;
   };
 
   // C3+C4: Escape key + body scroll lock (iOS Safari compatible)
   useEffect(() => {
     if (!mobileMenuOpen) return;
 
-    // Lock body scroll -- iOS Safari requires position:fixed
     const scrollY = window.scrollY;
     document.body.style.position = 'fixed';
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = '100%';
     document.body.style.overflow = 'hidden';
 
-    // C3: Escape closes the menu
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setMobileMenuOpen(false);
@@ -46,7 +45,6 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
         return;
       }
 
-      // C1: Focus trap -- Tab cycles only within the panel
       if (e.key === 'Tab' && panelRef.current) {
         const focusable = Array.from(
           panelRef.current.querySelectorAll<HTMLElement>(
@@ -69,7 +67,6 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
 
     document.addEventListener('keydown', handleKeyDown);
 
-    // Move focus into panel on open
     const firstFocusable = panelRef.current?.querySelector<HTMLElement>(
       'button:not([disabled]), a[href]'
     );
@@ -77,7 +74,6 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      // Restore scroll position
       const savedY = parseInt(document.body.style.top || '0') * -1;
       document.body.style.position = '';
       document.body.style.top = '';
@@ -87,7 +83,6 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
     };
   }, [mobileMenuOpen]);
 
-  // C2: inert on closed panel (keeps tab order clean when hidden)
   useEffect(() => {
     if (!panelRef.current) return;
     if (mobileMenuOpen) {
@@ -102,43 +97,42 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
       {/* -- Desktop nav -- */}
       <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1 lg:gap-2">
         {navItems.map((item) => {
-          const isActive = currentPage === item.page;
+          const active = isActive(item.path);
           return (
-            <button
+            <Link
               key={item.label}
-              onClick={() => onNavigate?.(item.page)}
-              onMouseEnter={() => prefetchPage(item.page)}
-              onFocus={() => prefetchPage(item.page)}
-              aria-current={isActive ? 'page' : undefined}
+              to={item.path}
+              onMouseEnter={() => prefetchRoute(item.path)}
+              onFocus={() => prefetchRoute(item.path)}
+              aria-current={active ? 'page' : undefined}
               className={`relative px-3 lg:px-4 py-2 text-[14px] lg:text-[15px] font-medium tracking-wide transition-colors duration-200 rounded-md
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1
                 ${isScrolled
-                  ? isActive
+                  ? active
                     ? 'text-[#1B3564] bg-slate-100'
                     : 'text-slate-700 hover:text-[#1B3564] hover:bg-slate-50'
-                  : isActive
+                  : active
                     ? 'text-white bg-white/15'
                     : 'text-white/80 hover:text-white hover:bg-white/10'
                 }
               `}
             >
               {item.label}
-              {/* Active indicator bar */}
-              {isActive && (
+              {active && (
                 <span
                   className={`absolute bottom-0 left-3 right-3 h-[2px] rounded-full ${
                     isScrolled ? 'bg-[#1B3564]' : 'bg-white'
                   }`}
                 />
               )}
-            </button>
+            </Link>
           );
         })}
 
         {/* CTA button in desktop nav */}
         <button
-          onClick={() => navigateToContactForm(onNavigate!)}
-          onMouseEnter={() => prefetchPage('contact')}
+          onClick={() => navigate(ROUTES.CONTACT, { state: { scrollToForm: true } })}
+          onMouseEnter={() => prefetchRoute(ROUTES.CONTACT)}
           className={`ml-2 lg:ml-4 px-5 py-2 text-[13px] lg:text-[14px] font-semibold rounded-md transition-all duration-200
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
             ${isScrolled
@@ -151,7 +145,7 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
         </button>
       </nav>
 
-      {/* -- Hamburger -- fixed position so it stays above the overlay (z-200) when menu is open */}
+      {/* -- Hamburger -- */}
       <button
         ref={hamburgerRef}
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -194,10 +188,8 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
           transition-transform duration-300 ease-in-out shadow-2xl
           ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
-        {/* Brand navy accent bar at top */}
         <div className="h-1 bg-[#1B3564] w-full flex-shrink-0" />
 
-        {/* Brand header */}
         <div className="px-6 pt-6 pb-6 border-b border-white/10 flex-shrink-0">
           <div className="flex items-center gap-1">
             <span className="text-white font-bold text-2xl tracking-wide">CLAD</span>
@@ -208,26 +200,26 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
           </p>
         </div>
 
-        {/* Nav items */}
         <nav aria-label="Mobile navigation" className="flex-1 px-4 py-6 overflow-y-auto">
           <ul className="space-y-2">
             {navItems.map((item) => {
-              const isActive = currentPage === item.page;
+              const active = isActive(item.path);
               return (
                 <li key={item.label}>
-                  <button
-                    onClick={() => handleNavClick(item.page)}
-                    aria-current={isActive ? 'page' : undefined}
+                  <Link
+                    to={item.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                    aria-current={active ? 'page' : undefined}
                     className={`w-full flex items-center justify-start gap-4 px-4 py-4 rounded-xl
                       transition-all duration-200 group
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset
-                      ${isActive
+                      ${active
                         ? 'bg-blue-600/15 text-blue-400 border border-blue-500/20'
                         : 'text-white/70 hover:bg-white/5 hover:text-white border border-transparent'
                       }`}
                   >
                     <span className={`text-[10px] font-mono font-bold tracking-widest flex-shrink-0 ${
-                      isActive ? 'text-blue-500' : 'text-white/25 group-hover:text-white/40'
+                      active ? 'text-blue-500' : 'text-white/25 group-hover:text-white/40'
                     }`}>
                       {item.number}
                     </span>
@@ -235,18 +227,17 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
                       {item.label}
                     </span>
                     <ArrowRight aria-hidden="true" className={`w-4 h-4 flex-shrink-0 transition-all duration-200 ${
-                      isActive
+                      active
                         ? 'opacity-100 text-blue-400'
                         : 'opacity-0 group-hover:opacity-50 group-hover:translate-x-1'
                     }`} />
-                  </button>
+                  </Link>
                 </li>
               );
             })}
           </ul>
         </nav>
 
-        {/* Contact footer */}
         <div className="px-6 py-5 border-t border-white/10 space-y-3 flex-shrink-0">
           <p className="text-white/30 text-[10px] tracking-widest uppercase font-semibold mb-4">
             Get in Touch

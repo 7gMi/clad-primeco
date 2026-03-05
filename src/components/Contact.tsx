@@ -1,22 +1,36 @@
-import React, { useState, useRef, useCallback } from 'react'
+import React, { useState, useRef, useCallback, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import { usePageMeta } from '../hooks/usePageMeta'
 import HCaptcha from '@hcaptcha/react-hcaptcha'
 import { Send, User, Mail, MessageSquare, CheckCircle, AlertCircle, Phone, Instagram, MapPin, ChevronDown } from 'lucide-react'
 import Header from './Header'
 import BackToTop from './BackToTop'
 import Footer from './Footer'
-import { Page } from '../App'
 
 type FormData = { name: string; email: string; phone: string; service: string; message: string }
-
-interface ContactProps {
-  onNavigate: (page: Page) => void;
-}
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string
 const HCAPTCHA_SITEKEY = import.meta.env.VITE_HCAPTCHA_SITEKEY as string
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string
 
-export default function Contact({ onNavigate }: ContactProps) {
+export default function Contact() {
+  const location = useLocation()
+
+  usePageMeta({
+    title: 'Contact Us | Clad-Primeco',
+    description: 'Request a quote or ask a question. We respond within 24 hours.',
+  })
+
+  // Scroll to contact form if navigated with scrollToForm state
+  useEffect(() => {
+    if (location.state?.scrollToForm) {
+      const el = document.getElementById('contact-form')
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }, [location.state])
+
   const [form, setForm] = useState<FormData>({ name: '', email: '', phone: '', service: '', message: '' })
   const [token, setToken] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
@@ -100,7 +114,7 @@ export default function Contact({ onNavigate }: ContactProps) {
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      <Header onNavigate={onNavigate} currentPage="contact" />
+      <Header />
 
       {/* Hero */}
       <div

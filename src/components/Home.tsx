@@ -1,4 +1,6 @@
-import { Page, ServiceType } from '../App';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../constants/routes';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { slides } from '../data/slides';
 import HeroCard from './HeroCard';
@@ -7,11 +9,14 @@ import { ArrowRight, Thermometer, Palette, Droplets, PenTool, FileText, CheckCir
 import Header from './Header';
 import BackToTop from './BackToTop';
 
-interface HomeProps {
-  onNavigate: (page: Page, projectId?: number, serviceType?: ServiceType) => void;
-}
+export default function Home() {
+  const navigate = useNavigate();
 
-export default function Home({ onNavigate }: HomeProps) {
+  usePageMeta({
+    title: 'Clad-Primeco | Cladding & Roofing Contractors — Dublin, Ireland',
+    description: 'Specialist cladding and roofing contractors. Kingspan panels, architectural cladding, aluminium copings — installed across Ireland.',
+  });
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedProcess, setSelectedProcess] = useState<number | null>(null);
   // Use a ref for the transitioning flag to avoid stale closure issues in
@@ -51,7 +56,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
   return (
     <div className="h-screen overflow-y-auto overflow-x-hidden bg-white home-scroll-container">
-      <Header onNavigate={onNavigate} currentPage="home" isHomePage />
+      <Header isHomePage />
 
       {/* Hero slider section */}
       <div className="relative w-full h-screen overflow-hidden bg-black">
@@ -91,7 +96,6 @@ export default function Home({ onNavigate }: HomeProps) {
                     tagline={slide.tagline}
                     title={slide.title}
                     subtitle={slide.subtitle}
-                    onNavigate={onNavigate}
                   />
                 </div>
               ))}
@@ -227,7 +231,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   High-performance insulated panels delivering exceptional thermal efficiency and fast installation — keeping your programme on track.
                 </p>
                 <button
-                  onClick={() => onNavigate('services', undefined, 'kingspan')}
+                  onClick={() => navigate(ROUTES.SERVICE('kingspan'))}
                   className="text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   Get Kingspan Pricing
@@ -266,7 +270,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   Striking, durable facades that perform for decades — full weatherproofing with the aesthetic finish your design demands.
                 </p>
                 <button
-                  onClick={() => onNavigate('services', undefined, 'architectural')}
+                  onClick={() => navigate(ROUTES.SERVICE('architectural'))}
                   className="text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   Discuss Your Facade
@@ -305,7 +309,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   Watertight, low-maintenance roof deck and copings — lightweight aluminium profiles to your exact specifications.
                 </p>
                 <button
-                  onClick={() => onNavigate('services', undefined, 'aluminium')}
+                  onClick={() => navigate(ROUTES.SERVICE('aluminium'))}
                   className="text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 >
                   Request Specifications

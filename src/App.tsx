@@ -1,53 +1,16 @@
-import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
-import Home from './components/Home';
+import { lazy, Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 import FloatingCTA from './components/FloatingCTA';
-import { useAuth } from './hooks/useAuth';
-
-export type Page = 'home' | 'about' | 'contact' | 'services' | 'projects' | 'admin';
-export type ServiceType = 'kingspan' | 'architectural' | 'aluminium';
-
-/** Call before onNavigate('contact') to scroll to the form instead of page top. */
-export function navigateToContactForm(onNavigate: (page: Page) => void) {
-  (window as any).__skipScrollTop = true;
-  onNavigate('contact');
-  const scrollToForm = () => {
-    const el = document.getElementById('contact-form');
-    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
-    setTimeout(scrollToForm, 200);
-  };
-  setTimeout(scrollToForm, 400);
-}
+import ScrollToTop from './components/ScrollToTop';
 
 // Lazy-loaded page components — each produces a separate JS chunk.
-// This means the initial bundle only contains Home + FloatingCTA,
-// keeping Time-to-Interactive low on the first visit.
-const About = lazy(() => import('./components/About'));
-const Services = lazy(() => import('./components/Services'));
-const Projects = lazy(() => import('./components/Projects'));
-const Contact = lazy(() => import('./components/Contact'));
-const AdminLogin = lazy(() => import('./components/admin/AdminLogin'));
-const AdminDashboard = lazy(() => import('./components/admin/AdminDashboard'));
-
-// Prefetch map — maps each Page value to the dynamic import that loads it.
-// Called on pointer hover / focus so the chunk is in the browser cache by
-// the time the user clicks, eliminating the Suspense fallback delay.
-const prefetchMap: Partial<Record<Page, () => Promise<unknown>>> = {
-  about: () => import('./components/About'),
-  services: () => import('./components/Services'),
-  projects: () => import('./components/Projects'),
-  contact: () => import('./components/Contact'),
-};
-
-/**
- * Trigger a prefetch for the given page's JS chunk.
- * Using `import()` here tells Vite/Rollup to emit a <link rel="modulepreload">
- * hint in the HTML (when using dynamic import), and at runtime it queues the
- * network request at low priority so it doesn't compete with critical resources.
- */
-export function prefetchPage(page: Page): void {
-  const loader = prefetchMap[page];
-  if (loader) loader();
-}
+export const LazyHome = lazy(() => import('./components/Home'));
+export const LazyAbout = lazy(() => import('./components/About'));
+export const LazyServices = lazy(() => import('./components/Services'));
+export const LazyProjects = lazy(() => import('./components/Projects'));
+export const LazyContact = lazy(() => import('./components/Contact'));
+export const LazyAdminLogin = lazy(() => import('./components/admin/AdminLogin'));
+export const LazyAdminDashboard = lazy(() => import('./components/admin/AdminDashboard'));
 
 function PageLoader() {
   return (
@@ -57,77 +20,24 @@ function PageLoader() {
   );
 }
 
-function App() {
-  const [displayedPage, setDisplayedPage] = useState<Page>('home');
-  const [isVisible, setIsVisible] = useState(true);
-  const [initialProjectId, setInitialProjectId] = useState<number | null>(null);
-  const [initialService, setInitialService] = useState<ServiceType | null>(null);
-  const { session, loading, logout } = useAuth();
-  const transitionRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    if (window.location.hash === '#admin') {
-      setDisplayedPage('admin');
-      // M10: clean the hash from the URL immediately
-      history.replaceState(null, '', window.location.pathname);
-    }
-    return () => {
-      if (transitionRef.current) clearTimeout(transitionRef.current);
-    };
-  }, []);
-
-  // Scroll to top on page change (unless a scroll-to-section is pending)
-  useEffect(() => {
-    if ((window as any).__skipScrollTop) {
-      (window as any).__skipScrollTop = false;
-      return;
-    }
-    if (displayedPage === 'home') {
-      const container = document.querySelector('.home-scroll-container');
-      if (container) {
-        container.scrollTo({ top: 0, behavior: 'instant' });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'instant' });
-      }
-    } else {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
-  }, [displayedPage]);
-
-  // M11: cancel pending transition if user navigates again quickly
-  const handleNavigate = useCallback((page: Page, projectId?: number, serviceType?: ServiceType) => {
-    if (page === displayedPage && !projectId && !serviceType) return;
-    if (transitionRef.current) clearTimeout(transitionRef.current);
-    setInitialProjectId(projectId ?? null);
-    setInitialService(serviceType ?? null);
-    setIsVisible(false);
-    transitionRef.current = setTimeout(() => {
-      setDisplayedPage(page);
-      setIsVisible(true);
-    }, 100);
-  }, [displayedPage]);
-
-  if (displayedPage === 'admin') {
-    if (loading) return <PageLoader />;
-    return (
-      <Suspense fallback={<PageLoader />}>
-        {!session ? <AdminLogin /> : <AdminDashboard session={session} onLogout={logout} />}
-      </Suspense>
-    );
-  }
-
+/** Main layout — wraps all public pages with FloatingCTA + scroll management. */
+export function Layout() {
   return (
     <Suspense fallback={<PageLoader />}>
-      <div className={`transition-opacity duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-        {displayedPage === 'home' && <Home onNavigate={handleNavigate} />}
-        {displayedPage === 'about' && <About onNavigate={handleNavigate} />}
-        {displayedPage === 'services' && <Services onNavigate={handleNavigate} initialService={initialService} />}
-        {displayedPage === 'projects' && <Projects onNavigate={handleNavigate} initialProjectId={initialProjectId} />}
-        {displayedPage === 'contact' && <Contact onNavigate={handleNavigate} />}
-      </div>
-      <FloatingCTA currentPage={displayedPage} onNavigate={handleNavigate} />
+      <ScrollToTop />
+      <Outlet />
+      <FloatingCTA />
     </Suspense>
   );
 }
 
-export default App;
+/** Admin layout — no header, no FloatingCTA. */
+export function AdminLayout() {
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <Outlet />
+    </Suspense>
+  );
+}
+
+export default Layout;
