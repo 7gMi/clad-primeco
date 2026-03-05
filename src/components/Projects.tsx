@@ -53,6 +53,7 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         '/images/projects/dub104-amazon/3_Dub104_Amazon.jpg',
         '/images/projects/dub104-amazon/4_Dub104_Amazon.jpg',
         '/images/projects/dub104-amazon/6_Dub104_Amazon.jpg',
+        '/images/projects/dub104-amazon/5.jpg',
       ],
       serviceType: 'Architectural Panels'
     },
@@ -77,6 +78,7 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         '/images/projects/dub01-vantage/11_Dub01_Vantage_Power_Station.jpg',
         '/images/projects/dub01-vantage/13_Dub01_Vantage_Power_Station.jpg',
         '/images/projects/dub01-vantage/14_Dub01_Vantage_Power_Station.jpg',
+        '/images/projects/dub01-vantage/17.jpg',
       ],
       serviceType: 'Kingspan Cladding'
     },
@@ -126,6 +128,7 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
         '/images/projects/bausch-lomb/5_Bauschandlomb.jpg',
         '/images/projects/bausch-lomb/6_Bauschandlomb.jpg',
         '/images/projects/bausch-lomb/10_Bauschandlomb.jpg',
+        '/images/projects/bausch-lomb/11.jpg',
       ],
       serviceType: 'Kingspan Cladding'
     },
@@ -373,7 +376,7 @@ export default function Projects({ onNavigate, initialProjectId }: ProjectsProps
                       key={`${currentProject.id}-${index}`}
                       aria-label={`View photo ${index + 1} of ${currentProject.images.length}`}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`relative h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                      className={`relative h-24 rounded-lg overflow-hidden border-2 transition-all ${
                         currentImageIndex === index
                           ? 'border-blue-600'
                           : 'border-slate-200 hover:border-slate-300'
