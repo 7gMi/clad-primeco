@@ -175,7 +175,7 @@ export default function Navigation({ onNavigate, isScrolled = false, currentPage
             <span className="text-blue-500 font-bold text-2xl tracking-wide">PRIMECO</span>
           </div>
           <p className="text-white/40 text-xs tracking-widest uppercase mt-1 font-medium text-left">
-            Cladding & Roofing Professionals
+            Cladding and Roofing Bespoke Specialists
           </p>
         </div>
 

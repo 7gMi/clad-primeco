@@ -5,6 +5,7 @@ import HeroCard from './HeroCard';
 import SlideIndicators from './SlideIndicators';
 import { ArrowRight, Thermometer, Palette, Droplets, PenTool, FileText, CheckCircle, Phone, Mail, Instagram, Building2 } from 'lucide-react';
 import Navigation from './Navigation';
+import Logo from './Logo';
 import BackToTop from './BackToTop';
 
 interface HomeProps {
@@ -83,29 +84,19 @@ export default function Home({ onNavigate }: HomeProps) {
             <div className={`transition-all duration-300 rounded-lg flex items-center gap-3 ${
               isScrolled ? '' : 'bg-white/95 px-3 py-2 shadow-sm'
             }`}>
-              <picture>
-                <source media="(min-width: 1024px)" srcSet="/images/logo/logo-desktop.png" />
-                <source media="(min-width: 768px)" srcSet="/images/logo/logo-tab.png" />
-                <img
-                  src="/images/logo/logo-mobile.png"
-                  alt="Clad-Primeco logo"
-                  width="120"
-                  height="40"
-                  fetchPriority="high"
-                  decoding="sync"
-                  className={`h-auto transition-all duration-300 block flex-shrink-0 ${
-                    isScrolled
-                      ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
-                      : 'w-[80px] sm:w-[90px] md:w-[110px] lg:w-[140px]'
-                  }`}
-                />
-              </picture>
+              <Logo
+                className={`h-auto transition-all duration-300 block flex-shrink-0 ${
+                  isScrolled
+                    ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
+                    : 'w-[80px] sm:w-[90px] md:w-[110px] lg:w-[140px]'
+                }`}
+              />
               {!isScrolled && (
                 <p
                   className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[13px] tracking-widest text-slate-700 font-semibold leading-tight border-l border-slate-300 pl-3"
                   style={{ fontFamily: 'Georgia, serif' }}
                 >
-                  CLADDING<br />AND ROOFING<br />PROFESSIONALS
+                  CLADDING<br />AND ROOFING<br />SPECIALISTS
                 </p>
               )}
             </div>
@@ -138,7 +129,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </div>
           ))}
 
-          <div className="relative z-20 h-full flex flex-col justify-center pt-24 md:pt-28 pb-16 px-6 md:px-12 lg:px-16">
+          <div className="relative z-20 h-full flex flex-col justify-center pt-36 sm:pt-32 md:pt-28 pb-16 px-6 md:px-12 lg:px-16">
             <div className="flex-shrink-0 w-full">
               {slides.map((slide, index) => (
                 <div
@@ -504,7 +495,7 @@ export default function Home({ onNavigate }: HomeProps) {
       <footer className="bg-black text-gray-400 py-6 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-sm md:text-base">
-            &copy;2023-2026 Clad Primeco Professional Cladding - Industrial Building Solutions. All rights reserved.
+            &copy;2023-2026 Clad Primeco Cladding and Roofing Specialists - Industrial Building Solutions. All rights reserved.
           </p>
         </div>
       </footer>

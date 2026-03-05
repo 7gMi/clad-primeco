@@ -7,7 +7,7 @@ export default function Footer() {
           <a href="mailto:cladprimeco@outlook.com" className="hover:text-white transition-colors duration-200">cladprimeco@outlook.com</a>
         </div>
         <p className="text-sm md:text-base">
-          &copy;2023-2026 Clad Primeco Professional Cladding - Industrial Building Solutions. All rights reserved.
+          &copy;2023-2026 Clad Primeco Cladding and Roofing Specialists - Industrial Building Solutions. All rights reserved.
         </p>
       </div>
     </footer>

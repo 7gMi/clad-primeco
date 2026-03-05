@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Navigation from './Navigation';
+import Logo from './Logo';
 import { Page } from '../App';
 
 interface HeaderProps {
@@ -33,25 +34,19 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
           <div className={`transition-all duration-300 rounded-lg flex items-center gap-3 ${
             isScrolled ? '' : 'bg-white/95 px-3 py-2 shadow-sm'
           }`}>
-            <picture>
-              <source media="(min-width: 1024px)" srcSet="/images/logo/logo-desktop.png" />
-              <source media="(min-width: 768px)" srcSet="/images/logo/logo-tab.png" />
-              <img
-                src="/images/logo/logo-mobile.png"
-                alt="Clad-Primeco logo"
-                className={`h-auto transition-all duration-300 block flex-shrink-0 ${
-                  isScrolled
-                    ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
-                    : 'w-[80px] sm:w-[90px] md:w-[110px] lg:w-[140px]'
-                }`}
-              />
-            </picture>
+            <Logo
+              className={`h-auto transition-all duration-300 block flex-shrink-0 ${
+                isScrolled
+                  ? 'w-[80px] sm:w-[100px] md:w-[120px] lg:w-[180px]'
+                  : 'w-[80px] sm:w-[90px] md:w-[110px] lg:w-[140px]'
+              }`}
+            />
             {!isScrolled && (
               <p
                 className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[13px] tracking-widest text-slate-700 font-semibold leading-tight border-l border-slate-300 pl-3"
                 style={{ fontFamily: 'Georgia, serif' }}
               >
-                CLADDING<br />AND ROOFING<br />PROFESSIONALS
+                CLADDING<br />AND ROOFING<br />SPECIALISTS
               </p>
             )}
           </div>
