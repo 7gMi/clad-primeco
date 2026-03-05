@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
+import { ROUTES } from '../constants/routes'
 import { usePageMeta } from '../hooks/usePageMeta'
 import HCaptcha from '@hcaptcha/react-hcaptcha'
 import { Send, User, Mail, MessageSquare, CheckCircle, AlertCircle, Phone, MapPin, ChevronDown } from 'lucide-react'
@@ -365,7 +366,9 @@ export default function Contact() {
                     <p className="text-red-500 text-sm">Captcha configuration error. Please contact us directly at cladprimeco@outlook.com.</p>
                   )}
                   <p className="text-xs text-slate-400 leading-relaxed">
-                    By submitting this form, you agree to our Privacy Policy. Your data is used solely to respond to your enquiry and is never shared with third parties.
+                    By submitting this form, you agree to our{' '}
+                    <Link to={ROUTES.PRIVACY} className="text-blue-600 hover:underline">Privacy Policy</Link>.
+                    Your data is used solely to respond to your enquiry and is never shared with third parties.
                   </p>
                 </div>
 

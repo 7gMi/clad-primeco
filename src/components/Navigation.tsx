@@ -87,6 +87,10 @@ export default function Navigation({ isScrolled = false, currentPath }: Navigati
     if (!panelRef.current) return;
     if (mobileMenuOpen) {
       panelRef.current.removeAttribute('inert');
+      // Prefetch top routes when mobile menu opens (no hover on touch)
+      prefetchRoute(ROUTES.CONTACT);
+      prefetchRoute(ROUTES.SERVICES);
+      prefetchRoute(ROUTES.PROJECTS);
     } else {
       panelRef.current.setAttribute('inert', '');
     }

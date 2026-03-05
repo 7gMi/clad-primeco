@@ -157,7 +157,7 @@ export const projects: Project[] = [
       '/images/projects/europort-rosslare/12_Europort_Rosslare_Wexford.webp',
       '/images/projects/europort-rosslare/11.webp',
       '/images/projects/europort-rosslare/13.webp',
-      '/images/projects/europort-rosslare/15.jpg',
+      '/images/projects/europort-rosslare/15.webp',
       '/images/projects/europort-rosslare/17_Europort_Rosslare_Wexford.webp',
       '/images/projects/europort-rosslare/10.webp',
       '/images/projects/europort-rosslare/14.webp',
@@ -185,7 +185,7 @@ export const projects: Project[] = [
       '/images/projects/lily-superstore/16_Lily_Superstore_Limerick.webp',
       '/images/projects/lily-superstore/17.webp',
       '/images/projects/lily-superstore/14_Lily_Superstore_Limerick.webp',
-      '/images/projects/lily-superstore/11_.jpg',
+      '/images/projects/lily-superstore/11_.webp',
       '/images/projects/lily-superstore/13.webp',
     ],
     serviceType: 'Architectural Panels'

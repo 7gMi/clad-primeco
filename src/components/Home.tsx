@@ -5,10 +5,12 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { slides } from '../data/slides';
 import HeroCard from './HeroCard';
 import SlideIndicators from './SlideIndicators';
-import { ArrowRight, Thermometer, Palette, Droplets, PenTool, FileText, CheckCircle, Building2 } from 'lucide-react';
+import { ArrowRight, Thermometer, Palette, Droplets, PenTool, FileText, CheckCircle, Building2, Quote } from 'lucide-react';
 import ContactBar from './ContactBar';
 import Header from './Header';
+import Footer from './Footer';
 import BackToTop from './BackToTop';
+import { testimonials } from '../data/testimonials';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -388,15 +390,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials section */}
+      {testimonials.length > 0 && (
+        <section className="bg-slate-50 py-20">
+          <div className="max-w-7xl mx-auto px-4 md:px-6">
+            <div className="text-center mb-16">
+              <p className="text-blue-600 text-sm font-semibold tracking-wider uppercase mb-3">
+                Testimonials
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+                What Our Clients <span className="text-blue-600">Say</span>
+              </h2>
+              <p className="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
+                Don't just take our word for it — hear from contractors and project managers who trust us to deliver.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {testimonials.map((t) => (
+                <div
+                  key={t.id}
+                  className="bg-white rounded-2xl shadow-md border border-slate-100 p-8 flex flex-col"
+                >
+                  <Quote className="w-8 h-8 text-blue-600/20 mb-4 flex-shrink-0" aria-hidden="true" />
+                  <p className="text-slate-700 leading-relaxed flex-1 mb-6">
+                    "{t.text}"
+                  </p>
+                  <div className="border-t border-slate-100 pt-4">
+                    <p className="font-semibold text-slate-900">{t.name}</p>
+                    <p className="text-sm text-slate-500">{t.role}, {t.company}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <ContactBar />
 
-      <footer className="bg-black text-gray-400 py-6 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-sm md:text-base">
-            &copy;2023-2026 Clad Primeco Cladding and Roofing Specialists - Industrial Building Solutions. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
       <BackToTop />
     </div>
   );

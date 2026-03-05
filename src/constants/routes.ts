@@ -8,6 +8,7 @@ export const ROUTES = {
   PROJECTS: '/projects',
   PROJECT: (id: number) => `/projects/${id}`,
   CONTACT: '/contact',
+  PRIVACY: '/privacy-policy',
   ADMIN: '/admin',
 } as const;
 
@@ -17,6 +18,7 @@ export const prefetchMap: Record<string, () => Promise<unknown>> = {
   [ROUTES.SERVICES]: () => import('../components/Services'),
   [ROUTES.PROJECTS]: () => import('../components/Projects'),
   [ROUTES.CONTACT]: () => import('../components/Contact'),
+  [ROUTES.PRIVACY]: () => import('../components/PrivacyPolicy'),
 };
 
 export function prefetchRoute(path: string): void {

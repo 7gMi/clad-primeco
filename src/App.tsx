@@ -9,6 +9,8 @@ export const LazyAbout = lazy(() => import('./components/About'));
 export const LazyServices = lazy(() => import('./components/Services'));
 export const LazyProjects = lazy(() => import('./components/Projects'));
 export const LazyContact = lazy(() => import('./components/Contact'));
+export const LazyPrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
+export const LazyNotFound = lazy(() => import('./components/NotFound'));
 export const LazyAdminLogin = lazy(() => import('./components/admin/AdminLogin'));
 export const LazyAdminDashboard = lazy(() => import('./components/admin/AdminDashboard'));
 

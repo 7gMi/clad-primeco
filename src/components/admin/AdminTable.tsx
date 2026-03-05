@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 import { Mail, Trash2, ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
 
@@ -97,8 +97,8 @@ export default function AdminTable({ messages, loading, total, page, pageSize, o
             </thead>
             <tbody className="divide-y divide-slate-100">
               {messages.map(msg => (
-                <>
-                  <tr key={msg.id} className="hover:bg-slate-50 transition-colors">
+                <Fragment key={msg.id}>
+                  <tr className="hover:bg-slate-50 transition-colors">
                     <td className="px-4 py-3 text-slate-500 whitespace-nowrap text-xs">{formatDate(msg.created_at)}</td>
                     <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{msg.name}</td>
                     <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{msg.email}</td>
@@ -148,7 +148,7 @@ export default function AdminTable({ messages, loading, total, page, pageSize, o
                       <td colSpan={6} className="px-4 py-3 text-slate-600 text-sm">{msg.message}</td>
                     </tr>
                   )}
-                </>
+                </Fragment>
               ))}
             </tbody>
           </table>

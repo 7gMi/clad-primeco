@@ -9,9 +9,12 @@ import {
   LazyServices,
   LazyProjects,
   LazyContact,
+  LazyPrivacyPolicy,
+  LazyNotFound,
   LazyAdminLogin,
   LazyAdminDashboard,
 } from './App';
+import ErrorBoundary from './components/ErrorBoundary';
 import AdminGuard from './components/admin/AdminGuard';
 import './index.css';
 
@@ -26,6 +29,8 @@ const router = createBrowserRouter([
       { path: 'projects', element: <LazyProjects /> },
       { path: 'projects/:projectId', element: <LazyProjects /> },
       { path: 'contact', element: <LazyContact /> },
+      { path: 'privacy-policy', element: <LazyPrivacyPolicy /> },
+      { path: '*', element: <LazyNotFound /> },
     ],
   },
   {
@@ -39,6 +44,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ErrorBoundary>
+      <RouterProvider router={router} />
+    </ErrorBoundary>
   </StrictMode>
 );
