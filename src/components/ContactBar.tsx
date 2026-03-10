@@ -13,6 +13,7 @@ export default function ContactBar() {
               <div className="text-lg font-semibold text-gray-300 mb-1">Phone</div>
               <a
                 href="tel:+353833468913"
+                aria-label="Call Clad-Primeco at 083 346 8913"
                 className="text-xl text-white hover:text-blue-500 transition-colors duration-300"
               >
                 083 346 8913
@@ -29,6 +30,7 @@ export default function ContactBar() {
               <div className="text-lg font-semibold text-gray-300 mb-1">Email</div>
               <a
                 href="mailto:cladprimeco@outlook.com"
+                aria-label="Email Clad-Primeco at cladprimeco@outlook.com"
                 className="text-base md:text-lg text-white hover:text-blue-500 transition-colors duration-300"
               >
                 cladprimeco@outlook.com
@@ -47,6 +49,7 @@ export default function ContactBar() {
                 href="https://www.instagram.com/cladprimeco/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Follow Clad-Primeco on Instagram"
                 className="text-xl text-white hover:text-blue-500 transition-colors duration-300"
               >
                 @cladprimeco

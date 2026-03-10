@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { FileText, PenTool, Building2, CheckCircle, ArrowRight } from 'lucide-react';
 
 const processSteps = [
@@ -13,8 +12,6 @@ interface ProcessSectionProps {
 }
 
 export default function ProcessSection({ subtitle }: ProcessSectionProps) {
-  const [selectedProcess, setSelectedProcess] = useState<number | null>(null);
-
   return (
     <section className="bg-slate-900 text-white py-20">
       <div className="max-w-7xl mx-auto px-4">
@@ -31,41 +28,22 @@ export default function ProcessSection({ subtitle }: ProcessSectionProps) {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {processSteps.map((step, index) => {
             const Icon = step.icon;
-            const isSelected = selectedProcess === index;
             return (
               <div key={step.number} className="relative">
                 <div className="text-center">
-                  <button
-                    onClick={() => setSelectedProcess(isSelected ? null : index)}
-                    className="relative inline-flex items-center justify-center mb-6 group cursor-pointer transition-all duration-300"
-                    aria-pressed={isSelected}
-                    aria-label={`Step ${step.number}: ${step.title}`}
-                  >
-                    {isSelected && (
-                      <div className="absolute inset-0 w-28 h-28 -top-4 -left-4 rounded-full bg-white/20 animate-pulse"></div>
-                    )}
-                    <div className={`relative w-20 h-20 rounded-full transition-all duration-300 flex items-center justify-center ${
-                      isSelected
-                        ? 'bg-white'
-                        : 'bg-blue-600 group-hover:scale-110 group-hover:bg-blue-500'
-                    }`}>
-                      <Icon className={`w-10 h-10 transition-all duration-300 ${
-                        isSelected ? 'text-blue-600' : 'text-white'
-                      }`} />
+                  <div className="relative inline-flex items-center justify-center mb-6 group">
+                    <div className="relative w-20 h-20 rounded-full bg-blue-600 group-hover:scale-110 group-hover:bg-blue-500 transition-all duration-300 flex items-center justify-center">
+                      <Icon className="w-10 h-10 text-white" aria-hidden="true" />
                     </div>
-                  </button>
-                  <div className={`text-4xl md:text-6xl font-bold mb-2 transition-colors duration-300 ${
-                    isSelected ? 'text-blue-400' : 'text-slate-600'
-                  }`}>
+                  </div>
+                  <div className="text-4xl md:text-6xl font-bold mb-2 text-slate-600">
                     {step.number}
                   </div>
-                  <h3 className={`text-xl md:text-2xl font-semibold transition-colors duration-300 ${
-                    isSelected ? 'text-blue-400' : 'text-white'
-                  }`}>{step.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">{step.title}</h3>
                 </div>
                 {index < 3 && (
                   <div className="hidden md:block absolute top-10 left-[calc(50%+50px)] w-[calc(100%-100px)] h-0.5 bg-slate-700">
-                    <ArrowRight className="absolute -right-2 -top-3 w-6 h-6 text-blue-600" />
+                    <ArrowRight className="absolute -right-2 -top-3 w-6 h-6 text-blue-600" aria-hidden="true" />
                   </div>
                 )}
               </div>
