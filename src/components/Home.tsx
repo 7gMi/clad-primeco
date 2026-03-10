@@ -62,6 +62,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <main>
       {/* Hero slider section */}
+      <h1 className="sr-only">Cladding &amp; Roofing Contractors in Dublin, Ireland</h1>
       <div className="relative w-full h-screen overflow-hidden bg-black">
         <div className="relative w-full h-full">
           {slides.map((slide, index) => (

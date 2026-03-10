@@ -10,22 +10,22 @@ export const slides: Slide[] = [
   {
     id: 1,
     background: '/images/backgrounds/school_carrigtohil.webp',
-    tagline: 'Built to Perform',
-    title: 'College Carrigtwohill',
-    subtitle: "Trusted by Ireland's leading contractors and developers. We deliver high-performance Kingspan systems on time, on programme, and to specification — every project, every time."
+    tagline: 'Kingspan Certified Installer',
+    title: 'Cladding Systems Installed to Programme',
+    subtitle: 'College Carrigtwohill — delivered on spec, on schedule, with full Kingspan warranty compliance.'
   },
   {
     id: 2,
     background: '/images/backgrounds/amazon-dub104.webp',
     tagline: 'Facades That Win Work',
-    title: 'Amazon DUB104',
-    subtitle: 'From Amazon Dublin to Vantage Data Centers — we bring precision and pace to every facade. Durable finishes, tight deadlines, zero compromise on quality.'
+    title: 'Data Centre & Commercial Cladding Specialists',
+    subtitle: 'Amazon DUB104. Vantage Data Centres. Precision-installed facades under fast-track programmes across Ireland.'
   },
   {
     id: 3,
     background: '/images/projects/sandyford-warehouse/1_Sandyford_Warehouse_Depot.webp',
-    tagline: 'From Cork to Dublin. Brief to Handover.',
-    title: 'Sandyford Warehouse Depot',
-    subtitle: 'Kingspan panels, architectural facades, aluminium roof deck — managed by one specialist team. We protect your programme from first fixing to final sign-off.'
+    tagline: 'One Team. Every System. Cork to Dublin.',
+    title: 'Kingspan Panels, Architectural Facades, Aluminium Roof Deck',
+    subtitle: 'Sandyford Warehouse Depot — full envelope delivery by a single specialist contractor, from first fix to handover.'
   }
 ];

@@ -161,6 +161,10 @@ export default function Projects() {
                     src={currentProject.images[currentImageIndex]}
                     alt={`${currentProject.title} - Image ${currentImageIndex + 1}`}
                     className="w-full h-full object-contain"
+                    width="800"
+                    height="500"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <button
                     onClick={prevImage}

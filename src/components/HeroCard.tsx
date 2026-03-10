@@ -17,9 +17,9 @@ export default function HeroCard({ tagline, title, subtitle }: HeroCardProps) {
         {tagline}
       </p>
 
-      <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+      <h2 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
         {title}
-      </h1>
+      </h2>
 
       <p className="text-gray-200 text-base md:text-lg lg:text-xl mb-8 md:mb-10 leading-relaxed max-w-3xl">
         {subtitle}

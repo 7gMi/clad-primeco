@@ -173,6 +173,10 @@ export default function Contact() {
                 src="/images/projects/dub01-vantage/10_Dub01_Vantage_Power_Station.webp"
                 alt="Clad Primeco team at work"
                 className="w-full h-full object-cover"
+                width="800"
+                height="500"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
