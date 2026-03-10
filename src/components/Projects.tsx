@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { ROUTES } from '../constants/routes';
@@ -39,16 +39,42 @@ export default function Projects() {
     }
   }, [currentProject]);
 
-  // Keyboard navigation: ArrowLeft/Right for images, Escape to close
+  const modalRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
+
+  // Focus trap + keyboard navigation
   useEffect(() => {
     if (!currentProject) return;
+    triggerRef.current = document.activeElement as HTMLElement;
+    // Auto-focus close button
+    const closeBtn = modalRef.current?.querySelector<HTMLButtonElement>('[aria-label="Close project detail"]');
+    closeBtn?.focus();
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight') nextImage();
       else if (e.key === 'ArrowLeft') prevImage();
       else if (e.key === 'Escape') { setSelectedProject(null); setCurrentImageIndex(0); }
+      else if (e.key === 'Tab') {
+        const focusable = modalRef.current?.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusable?.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      triggerRef.current?.focus();
+    };
   }, [currentProject, nextImage, prevImage]);
 
   // Lock body scroll when modal is open
@@ -131,6 +157,7 @@ export default function Projects() {
 
       {currentProject && (
         <div
+          ref={modalRef}
           role="dialog"
           aria-modal="true"
           aria-labelledby="project-modal-title"
@@ -163,7 +190,7 @@ export default function Projects() {
                     className="w-full h-full object-contain"
                     width="800"
                     height="500"
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
                   />
                   <button

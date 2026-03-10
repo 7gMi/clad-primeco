@@ -116,7 +116,7 @@ export default function Contact() {
       {/* Hero */}
       <div
         className="relative h-[66vh] bg-cover bg-center pt-20"
-        style={{ backgroundImage: "url('/images/architectural-panels/amazon2 copy copy.webp')" }}
+        style={{ backgroundImage: "url('/images/architectural-panels/amazon2.webp')" }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative h-full flex items-center px-8 md:px-16 lg:px-24">
@@ -148,7 +148,7 @@ export default function Contact() {
                 Got a project coming up? Send us your brief or drawings and we will come back with a detailed, competitive quote. No sales process — just straight answers from the people who do the work.
               </p>
               <div className="space-y-5">
-                <a href="tel:+353833468913" className="flex items-center gap-5 group">
+                <a href="tel:+353833468913" aria-label="Call Clad-Primeco at 083 346 8913" className="flex items-center gap-5 group">
                   <div className="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
@@ -157,7 +157,7 @@ export default function Contact() {
                     <p className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">083 346 8913</p>
                   </div>
                 </a>
-                <a href="mailto:cladprimeco@outlook.com" className="flex items-center gap-5 group">
+                <a href="mailto:cladprimeco@outlook.com" aria-label="Email Clad-Primeco at cladprimeco@outlook.com" className="flex items-center gap-5 group">
                   <div className="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     <Mail className="w-6 h-6 text-white" />
                   </div>

@@ -11,7 +11,7 @@ export default function Footer() {
           <Link to={ROUTES.PRIVACY} className="hover:text-white transition-colors duration-200">Privacy Policy</Link>
         </div>
         <p className="text-sm md:text-base">
-          &copy;2023-2026 Clad Primeco Cladding and Roofing Specialists - Industrial Building Solutions. All rights reserved.
+          &copy;2023-{new Date().getFullYear()} Clad Primeco Cladding and Roofing Specialists - Industrial Building Solutions. All rights reserved.
         </p>
       </div>
     </footer>
