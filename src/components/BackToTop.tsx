@@ -3,9 +3,8 @@ import { ArrowUp } from 'lucide-react';
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
-  const progressRef = useRef(0);
+  const [progress, setProgress] = useState(0);
   const rafRef = useRef<number>();
-  const [, forceRender] = useState(0);
 
   const handleScroll = useCallback(() => {
     if (rafRef.current) return;
@@ -13,13 +12,10 @@ export default function BackToTop() {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? scrollTop / docHeight : 0;
-      progressRef.current = pct;
-      const nowVisible = scrollTop > 200;
-      setVisible(prev => {
-        if (prev !== nowVisible) return nowVisible;
-        return prev;
-      });
-      forceRender(n => n + 1);
+
+      setVisible(scrollTop > 200);
+      setProgress(pct);
+
       rafRef.current = undefined;
     });
   }, []);
@@ -34,7 +30,6 @@ export default function BackToTop() {
 
   if (!visible) return null;
 
-  const progress = progressRef.current;
   const size = 44;
   const strokeWidth = 3;
   const radius = (size - strokeWidth) / 2;

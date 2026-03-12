@@ -11,8 +11,6 @@ import {
   LazyContact,
   LazyPrivacyPolicy,
   LazyNotFound,
-  LazyAdminLogin,
-  LazyAdminDashboard,
 } from './App';
 import ErrorBoundary from './components/ErrorBoundary';
 import AdminGuard from './components/admin/AdminGuard';

@@ -9,6 +9,7 @@ interface HeaderProps {
   isHomePage?: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function Header({ isHomePage = false }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();

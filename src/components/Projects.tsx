@@ -156,13 +156,14 @@ export default function Projects() {
       </section>
 
       {currentProject && (
-        <div
+        <div // eslint-disable-line jsx-a11y/no-noninteractive-element-interactions
           ref={modalRef}
           role="dialog"
           aria-modal="true"
           aria-labelledby="project-modal-title"
           className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[150] flex items-start md:items-center justify-center p-4"
           onClick={(e) => { if (e.target === e.currentTarget) { setSelectedProject(null); setCurrentImageIndex(0); } }}
+          onKeyDown={(e) => { if (e.key === 'Escape') { setSelectedProject(null); setCurrentImageIndex(0); } }}
         >
           <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[85vh] md:max-h-[90vh] overflow-y-auto mt-16 md:mt-0">
             <div className="sticky top-0 bg-white border-b border-slate-200 px-6 md:px-8 py-4 flex items-center justify-between z-10">
@@ -186,7 +187,7 @@ export default function Projects() {
                 <div className="relative h-56 md:h-96 bg-slate-900 rounded-xl overflow-hidden mb-4">
                   <img
                     src={currentProject.images[currentImageIndex]}
-                    alt={`${currentProject.title} - Image ${currentImageIndex + 1}`}
+                    alt={`${currentProject.title} — ${currentImageIndex + 1}`}
                     className="w-full h-full object-contain"
                     width="800"
                     height="500"
@@ -226,7 +227,7 @@ export default function Projects() {
                     >
                       <img
                         src={image}
-                        alt={`${currentProject.title} — photo ${index + 1} of ${currentProject.images.length}`}
+                        alt={`${currentProject.title} — ${index + 1} of ${currentProject.images.length}`}
                         width="200"
                         height="80"
                         loading="lazy"

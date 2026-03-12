@@ -1,0 +1,22 @@
+{
+  "name": "Clad-Primeco | Cladding & Roofing Contractors",
+  "short_name": "Clad-Primeco",
+  "description": "Specialist cladding and roofing contractors — Dublin, Ireland",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1B3564",
+  "icons": [
+    {
+      "src": "/images/logo/favicon.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo/logo-cladprimeco.webp",
+      "sizes": "200x194",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}
