@@ -28,7 +28,7 @@ export default function Footer() {
             <span>
               Designed & built by{' '}
               <span className="font-medium text-gray-400 transition-colors duration-300 group-hover:text-blue-400">
-                Mihai Gaïna
+                Mihai Gaina
               </span>
             </span>
             <span className="text-gray-600 transition-all duration-300 group-hover:text-blue-400 group-hover:translate-x-0.5">
