@@ -7,6 +7,7 @@ module.exports = {
       numberOfRuns: 3,
       settings: {
         preset: 'desktop',
+        chromeFlags: '--headless=new --no-sandbox',
       },
     },
     assert: {
