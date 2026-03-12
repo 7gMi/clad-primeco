@@ -13,6 +13,17 @@ export default function Footer() {
         <p className="text-sm md:text-base">
           &copy;2023-{new Date().getFullYear()} Clad Primeco Cladding and Roofing Specialists - Industrial Building Solutions. All rights reserved.
         </p>
+        <p className="text-xs text-gray-500">
+          Site by{' '}
+          <a
+            href="https://mihaigaina.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white transition-colors duration-200"
+          >
+            Mihai Gaïna
+          </a>
+        </p>
       </div>
     </footer>
   );
