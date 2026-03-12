@@ -4,13 +4,7 @@ import Navigation from './Navigation';
 import Logo from './Logo';
 import { ROUTES } from '../constants/routes';
 
-interface HeaderProps {
-  /** When true, the header starts transparent over the hero slider. */
-  isHomePage?: boolean;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function Header({ isHomePage = false }: HeaderProps) {
+export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const { pathname } = useLocation();

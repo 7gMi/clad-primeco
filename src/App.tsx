@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import FloatingCTA from './components/FloatingCTA';
 import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
@@ -28,8 +28,6 @@ function PageLoader() {
 
 /** Main layout — wraps all public pages with Header, Footer, and shared UI. */
 export function Layout() {
-  const isHomePage = useLocation().pathname === '/';
-
   return (
     <Suspense fallback={<PageLoader />}>
       <ScrollToTop />
@@ -39,7 +37,7 @@ export function Layout() {
       >
         Skip to main content
       </a>
-      <Header isHomePage={isHomePage} />
+      <Header />
       <main id="main-content">
         <Outlet />
       </main>
