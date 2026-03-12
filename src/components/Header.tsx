@@ -42,9 +42,7 @@ export default function Header({ isHomePage = false }: HeaderProps) {
 
       <div
         className={`mx-auto flex items-center justify-between transition-all duration-300 ease-in-out px-4 sm:px-6 md:px-10 lg:px-16 ${
-          showTransparent
-            ? 'py-2 md:py-3 max-w-full'
-            : 'py-1.5 md:py-2 max-w-full'
+          showTransparent ? 'py-2 md:py-3 max-w-full' : 'py-1.5 md:py-2 max-w-full'
         }`}
       >
         <button
@@ -69,25 +67,24 @@ export default function Header({ isHomePage = false }: HeaderProps) {
 
             <div
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                showTransparent
-                  ? 'max-w-[200px] opacity-100 ml-0'
-                  : 'max-w-0 opacity-0 ml-0'
+                showTransparent ? 'max-w-[200px] opacity-100 ml-0' : 'max-w-0 opacity-0 ml-0'
               }`}
             >
               <p
                 className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-[12px] tracking-[0.15em] text-[#1B3564] font-semibold leading-tight border-l-2 border-[#1B3564]/30 pl-3 whitespace-nowrap"
                 style={{ fontFamily: "'Segoe UI', 'Helvetica Neue', Arial, sans-serif" }}
               >
-                CLADDING<br />AND ROOFING<br />SPECIALISTS
+                CLADDING
+                <br />
+                AND ROOFING
+                <br />
+                SPECIALISTS
               </p>
             </div>
           </div>
         </button>
 
-        <Navigation
-          isScrolled={!showTransparent}
-          currentPath={pathname}
-        />
+        <Navigation isScrolled={!showTransparent} currentPath={pathname} />
       </div>
     </header>
   );

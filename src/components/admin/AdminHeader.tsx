@@ -1,10 +1,10 @@
-import { LogOut, Bell } from 'lucide-react'
-import { Session } from '@supabase/supabase-js'
+import { LogOut, Bell } from 'lucide-react';
+import { Session } from '@supabase/supabase-js';
 
 interface Props {
-  session: Session
-  newCount: number
-  onLogout: () => void
+  session: Session;
+  newCount: number;
+  onLogout: () => void;
 }
 
 export default function AdminHeader({ session, newCount, onLogout }: Props) {
@@ -37,5 +37,5 @@ export default function AdminHeader({ session, newCount, onLogout }: Props) {
         </button>
       </div>
     </header>
-  )
+  );
 }

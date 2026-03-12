@@ -1,24 +1,24 @@
-import { useState } from 'react'
-import { Lock, Mail } from 'lucide-react'
-import { useAuth } from '../../hooks/useAuth'
+import { useState } from 'react';
+import { Lock, Mail } from 'lucide-react';
+import { useAuth } from '../../hooks/useAuth';
 
 export default function AdminLogin() {
-  const { login } = useAuth()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState<string | null>(null)
-  const [loading, setLoading] = useState(false)
+  const { login } = useAuth();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setError(null)
-    setLoading(true)
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
     try {
-      await login(email, password)
+      await login(email, password);
     } catch {
-      setError('Invalid email or password.')
+      setError('Invalid email or password.');
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
@@ -36,7 +36,12 @@ export default function AdminLogin() {
         <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label htmlFor="admin-email" className="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+              <label
+                htmlFor="admin-email"
+                className="block text-sm font-semibold text-slate-700 mb-2"
+              >
+                Email
+              </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Mail className="w-4 h-4 text-slate-400" />
@@ -45,7 +50,7 @@ export default function AdminLogin() {
                   id="admin-email"
                   type="email"
                   value={email}
-                  onChange={e => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="admin@cladprimeco.ie"
                   className="w-full pl-11 pr-4 py-3 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-50"
@@ -54,7 +59,12 @@ export default function AdminLogin() {
             </div>
 
             <div>
-              <label htmlFor="admin-password" className="block text-sm font-semibold text-slate-700 mb-2">Password</label>
+              <label
+                htmlFor="admin-password"
+                className="block text-sm font-semibold text-slate-700 mb-2"
+              >
+                Password
+              </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Lock className="w-4 h-4 text-slate-400" />
@@ -63,7 +73,7 @@ export default function AdminLogin() {
                   id="admin-password"
                   type="password"
                   value={password}
-                  onChange={e => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="••••••••"
                   className="w-full pl-11 pr-4 py-3 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-50"
@@ -72,7 +82,9 @@ export default function AdminLogin() {
             </div>
 
             {error && (
-              <p className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-xl px-4 py-3">{error}</p>
+              <p className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                {error}
+              </p>
             )}
 
             <button
@@ -86,5 +98,5 @@ export default function AdminLogin() {
         </div>
       </div>
     </div>
-  )
+  );
 }

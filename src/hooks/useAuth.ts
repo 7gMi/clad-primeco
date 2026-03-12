@@ -1,32 +1,34 @@
-import { useEffect, useState } from 'react'
-import { Session } from '@supabase/supabase-js'
-import { supabase } from '../lib/supabase'
+import { useEffect, useState } from 'react';
+import { Session } from '@supabase/supabase-js';
+import { supabase } from '../lib/supabase';
 
 export function useAuth() {
-  const [session, setSession] = useState<Session | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [session, setSession] = useState<Session | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
-      setSession(data.session)
-      setLoading(false)
-    })
+      setSession(data.session);
+      setLoading(false);
+    });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
 
-    return () => subscription.unsubscribe()
-  }, [])
+    return () => subscription.unsubscribe();
+  }, []);
 
   async function login(email: string, password: string) {
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) throw error
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) throw error;
   }
 
   async function logout() {
-    await supabase.auth.signOut()
+    await supabase.auth.signOut();
   }
 
-  return { session, loading, login, logout }
+  return { session, loading, login, logout };
 }

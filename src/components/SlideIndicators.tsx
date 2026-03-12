@@ -4,7 +4,11 @@ interface SlideIndicatorsProps {
   onSlideChange: (index: number) => void;
 }
 
-export default function SlideIndicators({ totalSlides, currentSlide, onSlideChange }: SlideIndicatorsProps) {
+export default function SlideIndicators({
+  totalSlides,
+  currentSlide,
+  onSlideChange,
+}: SlideIndicatorsProps) {
   return (
     <div className="flex gap-2 sm:gap-3 justify-center mt-6 sm:mt-8 md:mt-12">
       {Array.from({ length: totalSlides }).map((_, index) => (

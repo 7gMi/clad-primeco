@@ -6,12 +6,22 @@ export default function Footer() {
     <footer className="bg-black text-gray-400 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 py-6 text-center space-y-2">
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
-          <a href="tel:+353833468913" className="hover:text-white transition-colors duration-200">083 346 8913</a>
-          <a href="mailto:cladprimeco@outlook.com" className="hover:text-white transition-colors duration-200">cladprimeco@outlook.com</a>
-          <Link to={ROUTES.PRIVACY} className="hover:text-white transition-colors duration-200">Privacy Policy</Link>
+          <a href="tel:+353833468913" className="hover:text-white transition-colors duration-200">
+            083 346 8913
+          </a>
+          <a
+            href="mailto:cladprimeco@outlook.com"
+            className="hover:text-white transition-colors duration-200"
+          >
+            cladprimeco@outlook.com
+          </a>
+          <Link to={ROUTES.PRIVACY} className="hover:text-white transition-colors duration-200">
+            Privacy Policy
+          </Link>
         </div>
         <p className="text-sm md:text-base">
-          &copy;2023-{new Date().getFullYear()} Clad Primeco Cladding and Roofing Specialists - Industrial Building Solutions. All rights reserved.
+          &copy;2023-{new Date().getFullYear()} Clad Primeco Cladding and Roofing Specialists -
+          Industrial Building Solutions. All rights reserved.
         </p>
       </div>
 

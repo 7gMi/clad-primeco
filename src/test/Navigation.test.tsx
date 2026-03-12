@@ -29,9 +29,7 @@ describe('Navigation', () => {
   it('marks current page as active (aria-current)', () => {
     renderNav({ currentPath: '/about' });
     const aboutLinks = screen.getAllByRole('link', { name: 'About' });
-    const desktopAbout = aboutLinks.find(
-      (link) => link.getAttribute('aria-current') === 'page',
-    );
+    const desktopAbout = aboutLinks.find((link) => link.getAttribute('aria-current') === 'page');
     expect(desktopAbout).toBeDefined();
   });
 

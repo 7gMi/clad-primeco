@@ -34,9 +34,7 @@ const router = createBrowserRouter([
   {
     path: 'admin',
     element: <AdminLayout />,
-    children: [
-      { index: true, element: <AdminGuard /> },
-    ],
+    children: [{ index: true, element: <AdminGuard /> }],
   },
 ]);
 
@@ -45,5 +43,5 @@ createRoot(document.getElementById('root')!).render(
     <ErrorBoundary>
       <RouterProvider router={router} />
     </ErrorBoundary>
-  </StrictMode>
+  </StrictMode>,
 );

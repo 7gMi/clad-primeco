@@ -20,9 +20,7 @@ export default function ProcessSection({ subtitle }: ProcessSectionProps) {
             How We Work
           </p>
           <h2 className="text-4xl md:text-5xl font-bold">Our Process</h2>
-          <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
-            {subtitle}
-          </p>
+          <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
@@ -43,7 +41,10 @@ export default function ProcessSection({ subtitle }: ProcessSectionProps) {
                 </div>
                 {index < 3 && (
                   <div className="hidden md:block absolute top-10 left-[calc(50%+50px)] w-[calc(100%-100px)] h-0.5 bg-slate-700">
-                    <ArrowRight className="absolute -right-2 -top-3 w-6 h-6 text-blue-600" aria-hidden="true" />
+                    <ArrowRight
+                      className="absolute -right-2 -top-3 w-6 h-6 text-blue-600"
+                      aria-hidden="true"
+                    />
                   </div>
                 )}
               </div>

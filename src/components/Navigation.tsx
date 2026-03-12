@@ -9,11 +9,11 @@ interface NavigationProps {
 }
 
 const navItems = [
-  { label: 'Home',     path: ROUTES.HOME,     number: '01' },
-  { label: 'About',    path: ROUTES.ABOUT,    number: '02' },
+  { label: 'Home', path: ROUTES.HOME, number: '01' },
+  { label: 'About', path: ROUTES.ABOUT, number: '02' },
   { label: 'Services', path: ROUTES.SERVICES, number: '03' },
   { label: 'Projects', path: ROUTES.PROJECTS, number: '04' },
-  { label: 'Contact',  path: ROUTES.CONTACT,  number: '05' },
+  { label: 'Contact', path: ROUTES.CONTACT, number: '05' },
 ];
 
 export default function Navigation({ isScrolled = false, currentPath }: NavigationProps) {
@@ -48,8 +48,8 @@ export default function Navigation({ isScrolled = false, currentPath }: Navigati
       if (e.key === 'Tab' && panelRef.current) {
         const focusable = Array.from(
           panelRef.current.querySelectorAll<HTMLElement>(
-            'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
-          )
+            'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])',
+          ),
         );
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
@@ -68,7 +68,7 @@ export default function Navigation({ isScrolled = false, currentPath }: Navigati
     document.addEventListener('keydown', handleKeyDown);
 
     const firstFocusable = panelRef.current?.querySelector<HTMLElement>(
-      'button:not([disabled]), a[href]'
+      'button:not([disabled]), a[href]',
     );
     firstFocusable?.focus();
 
@@ -111,13 +111,14 @@ export default function Navigation({ isScrolled = false, currentPath }: Navigati
               aria-current={active ? 'page' : undefined}
               className={`relative px-3 lg:px-4 py-2 text-[14px] lg:text-[15px] font-medium tracking-wide transition-colors duration-200 rounded-md
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1
-                ${isScrolled
-                  ? active
-                    ? 'text-[#1B3564] bg-slate-100'
-                    : 'text-slate-700 hover:text-[#1B3564] hover:bg-slate-50'
-                  : active
-                    ? 'text-white bg-white/15'
-                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                ${
+                  isScrolled
+                    ? active
+                      ? 'text-[#1B3564] bg-slate-100'
+                      : 'text-slate-700 hover:text-[#1B3564] hover:bg-slate-50'
+                    : active
+                      ? 'text-white bg-white/15'
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
                 }
               `}
             >
@@ -139,9 +140,10 @@ export default function Navigation({ isScrolled = false, currentPath }: Navigati
           onMouseEnter={() => prefetchRoute(ROUTES.CONTACT)}
           className={`ml-2 lg:ml-4 px-5 py-2 text-[13px] lg:text-[14px] font-semibold rounded-md transition-all duration-200
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
-            ${isScrolled
-              ? 'bg-[#1B3564] text-white hover:bg-[#152a50] shadow-sm'
-              : 'bg-white text-[#1B3564] hover:bg-white/90 shadow-sm'
+            ${
+              isScrolled
+                ? 'bg-[#1B3564] text-white hover:bg-[#152a50] shadow-sm'
+                : 'bg-white text-[#1B3564] hover:bg-white/90 shadow-sm'
             }
           `}
         >
@@ -155,18 +157,25 @@ export default function Navigation({ isScrolled = false, currentPath }: Navigati
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         className={`md:hidden fixed top-[14px] right-4 z-[210] p-2.5 rounded-lg transition-all duration-200
           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1
-          ${mobileMenuOpen
-            ? 'text-white'
-            : isScrolled
-              ? 'text-slate-800 hover:bg-slate-100'
-              : 'text-white hover:bg-white/10'
+          ${
+            mobileMenuOpen
+              ? 'text-white'
+              : isScrolled
+                ? 'text-slate-800 hover:bg-slate-100'
+                : 'text-white hover:bg-white/10'
           }`}
         aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={mobileMenuOpen}
         aria-controls="mobile-menu"
       >
-        <span className={`block transition-transform duration-300 ${mobileMenuOpen ? 'rotate-90' : 'rotate-0'}`}>
-          {mobileMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
+        <span
+          className={`block transition-transform duration-300 ${mobileMenuOpen ? 'rotate-90' : 'rotate-0'}`}
+        >
+          {mobileMenuOpen ? (
+            <X className="w-6 h-6" aria-hidden="true" />
+          ) : (
+            <Menu className="w-6 h-6" aria-hidden="true" />
+          )}
         </span>
       </button>
 
@@ -217,24 +226,30 @@ export default function Navigation({ isScrolled = false, currentPath }: Navigati
                     className={`w-full flex items-center justify-start gap-4 px-4 py-4 rounded-xl
                       transition-all duration-200 group
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset
-                      ${active
-                        ? 'bg-blue-600/15 text-blue-400 border border-blue-500/20'
-                        : 'text-white/70 hover:bg-white/5 hover:text-white border border-transparent'
+                      ${
+                        active
+                          ? 'bg-blue-600/15 text-blue-400 border border-blue-500/20'
+                          : 'text-white/70 hover:bg-white/5 hover:text-white border border-transparent'
                       }`}
                   >
-                    <span className={`text-[10px] font-mono font-bold tracking-widest flex-shrink-0 ${
-                      active ? 'text-blue-500' : 'text-white/25 group-hover:text-white/40'
-                    }`}>
+                    <span
+                      className={`text-[10px] font-mono font-bold tracking-widest flex-shrink-0 ${
+                        active ? 'text-blue-500' : 'text-white/25 group-hover:text-white/40'
+                      }`}
+                    >
                       {item.number}
                     </span>
                     <span className="text-xl font-semibold tracking-tight flex-1 text-left">
                       {item.label}
                     </span>
-                    <ArrowRight aria-hidden="true" className={`w-4 h-4 flex-shrink-0 transition-all duration-200 ${
-                      active
-                        ? 'opacity-100 text-blue-400'
-                        : 'opacity-0 group-hover:opacity-50 group-hover:translate-x-1'
-                    }`} />
+                    <ArrowRight
+                      aria-hidden="true"
+                      className={`w-4 h-4 flex-shrink-0 transition-all duration-200 ${
+                        active
+                          ? 'opacity-100 text-blue-400'
+                          : 'opacity-0 group-hover:opacity-50 group-hover:translate-x-1'
+                      }`}
+                    />
                   </Link>
                 </li>
               );
@@ -250,8 +265,10 @@ export default function Navigation({ isScrolled = false, currentPath }: Navigati
             href="tel:+353833468913"
             className="flex items-center justify-start gap-3 text-white/55 hover:text-white transition-colors duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:rounded-lg"
           >
-            <div className="w-8 h-8 rounded-lg bg-blue-600/20 flex items-center justify-center
-              group-hover:bg-blue-600/40 transition-colors duration-200 flex-shrink-0">
+            <div
+              className="w-8 h-8 rounded-lg bg-blue-600/20 flex items-center justify-center
+              group-hover:bg-blue-600/40 transition-colors duration-200 flex-shrink-0"
+            >
               <Phone aria-hidden="true" className="w-3.5 h-3.5 text-blue-400" />
             </div>
             <span className="text-sm font-medium">083 346 8913</span>
@@ -260,8 +277,10 @@ export default function Navigation({ isScrolled = false, currentPath }: Navigati
             href="mailto:cladprimeco@outlook.com"
             className="flex items-center justify-start gap-3 text-white/55 hover:text-white transition-colors duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:rounded-lg"
           >
-            <div className="w-8 h-8 rounded-lg bg-blue-600/20 flex items-center justify-center
-              group-hover:bg-blue-600/40 transition-colors duration-200 flex-shrink-0">
+            <div
+              className="w-8 h-8 rounded-lg bg-blue-600/20 flex items-center justify-center
+              group-hover:bg-blue-600/40 transition-colors duration-200 flex-shrink-0"
+            >
               <Mail aria-hidden="true" className="w-3.5 h-3.5 text-blue-400" />
             </div>
             <span className="text-sm font-medium">cladprimeco@outlook.com</span>
