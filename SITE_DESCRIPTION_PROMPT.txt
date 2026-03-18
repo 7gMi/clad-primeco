@@ -1,0 +1,424 @@
+PROMPT POUR REPRODUIRE LE SITE CLAD-PRIMECO EN HTML
+=====================================================
+
+Créez un site web professionnel pour "Clad-Primeco", une entreprise irlandaise spécialisée dans les systèmes de bardage (cladding). Le site doit être moderne, élégant et adaptatif (responsive).
+
+STRUCTURE DU SITE
+-----------------
+Le site comporte 3 pages principales :
+1. HOME (Accueil)
+2. ABOUT (À propos)
+3. CONTACT (Contact)
+
+Il n'y a PAS de footer en bas des pages.
+
+HEADER (EN-TÊTE) - Présent sur toutes les pages
+------------------------------------------------
+
+CARACTÉRISTIQUES :
+- Position : Fixed en haut de page
+- Comportement au scroll :
+  * Avant le scroll (position initiale) :
+    - Fond : dégradé noir transparent (from-black/60 via-black/30 to-transparent)
+    - Logo plus grand
+    - Texte "CLADDING PROFESSIONALS" visible sous le logo en blanc (police Georgia serif)
+    - Navigation en texte blanc
+
+  * Après le scroll (100px+) :
+    - Fond : blanc avec ombre
+    - Logo plus petit
+    - Texte "CLADDING PROFESSIONALS" disparaît
+    - Navigation en texte gris foncé
+
+CONTENU DU HEADER :
+- Logo : 3 versions responsive (mobile, tablette, desktop)
+- Navigation (visible uniquement sur desktop/tablette) :
+  * Home
+  * About
+  * Services (ancre #services)
+  * Projects (ancre #projects)
+  * Contact
+
+COULEURS PRINCIPALES
+--------------------
+- Bleu principal : #2563eb (blue-600)
+- Fond sombre : slate-900, gray-900
+- Fond clair : blanc, slate-50
+- Texte : slate-900 pour les titres, slate-700/600 pour le corps
+
+=====================================================
+PAGE HOME
+=====================================================
+
+SECTION 1 : HERO SLIDER (Plein écran)
+--------------------------------------
+- Hauteur : 100vh
+- Fond : Noir
+- 3 slides qui défilent automatiquement (toutes les 6 secondes)
+- Transition douce entre les slides (fade in/out)
+- Chaque slide contient :
+  * Image de fond avec overlay noir transparent
+  * Carte centrée avec :
+    - Tagline (petite typographie en bleu)
+    - Titre principal (très grand, en gras)
+    - Sous-titre descriptif
+  * Indicateurs de slides en bas (3 points cliquables)
+
+SLIDES CONTENU :
+Slide 1 :
+- Tagline : "Professional Grade / Guaranteed Quality"
+- Titre : "Professional Kingspan Cladding Systems"
+- Sous-titre : "Ireland's trusted partner for high-performance insulated panels..."
+
+Slide 2 :
+- Tagline : "Trusted Partner / Certified Solutions"
+- Titre : "Build Your Architectural Vision"
+- Sous-titre : "Our drive to succeed comes from delivering trusted cladding solutions..."
+
+Slide 3 :
+- Tagline : "Eco-Friendly Materials / Sustainable Building"
+- Titre : "Durable Aluminium Cladding Systems"
+- Sous-titre : "Modern, eco-conscious cladding made from sustainable materials..."
+
+SECTION 2 : ABOUT US (Plein écran, fond blanc)
+-----------------------------------------------
+- Titre centré : "About US" (About en noir, US en bleu)
+- Lignes décoratives horizontales de chaque côté du titre
+- Disposition en 2 colonnes :
+
+COLONNE GAUCHE :
+- Titre : "Our Strategic Goals"
+- Paragraphe explicatif
+- Liste à puces avec icônes flèches bleues :
+  * Client Excellence
+  * Nurturing the potential of our people
+  * Continually improving performance standards
+
+COLONNE DROITE :
+- Grande image avec bordures décoratives bleues dans les coins
+- Carte blanche en overlay en bas à droite avec :
+  * Titre : "Excellence"
+  * Texte : "Building tomorrow's industrial solutions..."
+
+SECTION 3 : OUR SOLUTIONS (Fond gris clair slate-50)
+-----------------------------------------------------
+- Petit texte : "What We Offer"
+- Grand titre : "Our Solutions"
+- Paragraphe descriptif
+
+3 CARTES DE SERVICES :
+Disposition en grille (3 colonnes sur desktop)
+
+CARTE 1 : Kingspan Panels
+- Image en haut
+- Icône bleu (Building2) qui déborde de l'image
+- Titre "Kingspan Panels"
+- Bouton "View service" avec flèche
+
+CARTE 2 : Architectural Panels
+- Image en haut
+- Icône bleu (Layers) qui déborde de l'image
+- Titre "Architectural Panels"
+- Bouton "View service" avec flèche
+
+CARTE 3 : Aluminium Copings
+- Image en haut
+- Icône bleu (Shield) qui déborde de l'image
+- Titre "Aluminium Copings"
+- Bouton "View service" avec flèche
+
+Effets hover sur les cartes :
+- Ombre plus prononcée
+- Image zoom léger
+- Icône scale up
+- Flèche du bouton translate vers la droite
+
+SECTION 4 : OUR PROCESS (Fond noir slate-900)
+----------------------------------------------
+- Texte en blanc
+- Titre centré : "Our Process"
+- Sous-titre : "How We Work"
+- 4 étapes en grille horizontale :
+
+ÉTAPE 01 : Planning (icône FileText)
+ÉTAPE 02 : Design (icône PenTool)
+ÉTAPE 03 : Construct (icône Building2)
+ÉTAPE 04 : Finishing (icône CheckCircle)
+
+Chaque étape :
+- Grand numéro en gris foncé (01, 02, 03, 04)
+- Icône dans cercle bleu (cliquable avec effet hover)
+- Titre de l'étape
+- Flèches bleues entre les étapes
+
+SECTION 5 : CONTACT (Fond noir, min-height 33vh)
+-------------------------------------------------
+Disposition en grille (3 colonnes sur desktop, 1 colonne sur mobile)
+Bordure blanche semi-transparente avec coins arrondis
+
+3 BLOCS DE CONTACT :
+
+BLOC 1 : Phone
+- Icône Phone dans cercle avec bordure bleue
+- Label "Phone" en gris clair
+- Numéro : 083 346 8913 (lien cliquable)
+- Effet hover : icône scale up
+
+BLOC 2 : Email
+- Icône Mail dans cercle avec bordure bleue
+- Label "Email" en gris clair
+- Email : cladprimeco@gmail.com (lien cliquable)
+- Effet hover : icône scale up
+
+BLOC 3 : Instagram
+- Icône Instagram dans cercle avec bordure bleue
+- Texte : "Follow Us" (lien vers Instagram)
+- Effet hover : icône scale up
+
+RESPONSIVE MOBILE :
+- Layout change de horizontal à vertical
+- Icône centrée en haut
+- Texte centré en dessous avec espacement (mt-4)
+- Séparateurs verticaux cachés sur mobile
+
+FOOTER (En bas de la page Home)
+--------------------------------
+- Fond noir
+- Bordure supérieure grise
+- Texte centré gris clair :
+  "©2025 Clad Primeco Professional Cladding - Industrial Building Solutions. All rights reserved."
+
+=====================================================
+PAGE ABOUT
+=====================================================
+
+SECTION 1 : HERO BANNER (60vh)
+-------------------------------
+- Image de fond avec overlay noir
+- Texte centré en blanc :
+  * Titre : "About Us"
+  * Sous-titre : "Building Excellence Through Innovation and Quality"
+
+SECTION 2 : STRATEGIC GOALS
+----------------------------
+- Fond blanc
+- 2 colonnes :
+  * Gauche : Texte "Our Strategic Goals" + liste à puces
+  * Droite : Image
+
+SECTION 3 : OUR PROCESS (Fond noir slate-900)
+----------------------------------------------
+- Texte en blanc
+- Titre centré : "Our Process"
+- Sous-titre : "How We Work"
+- 4 étapes en grille horizontale :
+
+ÉTAPE 01 : Planning (icône FileText)
+ÉTAPE 02 : Design (icône PenTool)
+ÉTAPE 03 : Construct (icône Building2)
+ÉTAPE 04 : Finishing (icône CheckCircle)
+
+Chaque étape :
+- Grand numéro en gris foncé (01, 02, 03, 04)
+- Icône dans cercle bleu avec effet hover
+- Titre de l'étape
+- Flèches bleues entre les étapes
+
+SECTION 4 : OUR SERVICES (Fond blanc)
+--------------------------------------
+- Texte bleu : "What We Do"
+- Grand titre : "Our Services"
+
+3 CARTES DE SERVICES :
+Disposition en grille (3 colonnes sur desktop)
+
+CARTE 1 : Fibre Cement Cladding
+- Image en haut avec effet zoom au hover
+- Titre en gras
+- Description détaillée
+- Bouton "View service" avec flèche animée
+
+CARTE 2 : Aluminium Copings
+- Image en haut avec effet zoom au hover
+- Titre en gras
+- Description détaillée
+- Bouton "View service" avec flèche animée
+
+CARTE 3 : Architectural Cladding Panels
+- Image en haut avec effet zoom au hover
+- Titre en gras
+- Description détaillée
+- Bouton "View service" avec flèche animée
+
+SECTION 5 : CALL TO ACTION (Fond bleu)
+---------------------------------------
+- Titre : "Ready to Start Your Project?"
+- Texte : "Get in touch with us today for a consultation"
+- Grand bouton blanc "Contact Us" avec flèche animée
+
+SECTION 6 : CONTACT (Fond noir, min-height 33vh)
+-------------------------------------------------
+Disposition en grille (3 colonnes sur desktop, 1 colonne sur mobile)
+Bordure blanche semi-transparente avec coins arrondis
+
+3 BLOCS DE CONTACT :
+
+BLOC 1 : Phone
+- Icône Phone dans cercle avec bordure bleue
+- Label "Phone" en gris clair
+- Numéro : 083 346 8913 (lien cliquable)
+- Effet hover : icône scale up
+
+BLOC 2 : Email
+- Icône Mail dans cercle avec bordure bleue
+- Label "Email" en gris clair
+- Email : cladprimeco@gmail.com (lien cliquable)
+- Effet hover : icône scale up
+
+BLOC 3 : Instagram
+- Icône Instagram dans cercle avec bordure bleue
+- Texte : "Follow Us" (lien vers Instagram)
+- Effet hover : icône scale up
+
+RESPONSIVE MOBILE :
+- Layout change de horizontal à vertical (flex-col)
+- Icône centrée en haut
+- Texte centré en dessous avec espacement (mt-4)
+- Séparateurs verticaux cachés sur mobile
+- Gap augmenté entre les blocs (gap-8)
+
+=====================================================
+PAGE CONTACT
+=====================================================
+
+- Fond : Dégradé sombre (gray-900 via gray-800)
+- Padding top : 24 (pour le header)
+
+SECTION TITRE CENTRALE
+-----------------------
+- Petit texte bleu : "Get in touch"
+- Grand titre blanc : "Contact Us"
+- Paragraphe gris
+
+SECTION PRINCIPALE : 2 COLONNES
+--------------------------------
+
+COLONNE GAUCHE : FORMULAIRE DE CONTACT
+- Fond : blanc semi-transparent avec blur
+- Bordure : blanc transparent
+- Coins arrondis : 3xl
+- Titre : "Send us a message"
+- Champs du formulaire :
+  * Full Name
+  * Email Address
+  * Phone Number
+  * Message (textarea)
+- Bouton bleu : "Send Message" (pleine largeur, effet hover scale)
+
+COLONNE DROITE : 3 CARTES D'INFORMATION
+Même style visuel (fond semi-transparent, bordures arrondies)
+
+CARTE 1 : Contact Information
+- Icône Phone : +353 (83) 346 9813
+- Icône Mail : info@cladprimeco.ie
+- Icône MapPin : Dublin, Ireland
+Chaque information a une icône dans un cercle bleu
+
+CARTE 2 : Our Solutions
+- Texte descriptif sur les services de Clad Primeco
+
+CARTE 3 : Follow us on
+- 3 boutons de réseaux sociaux (cercles bleus) :
+  * Facebook
+  * Instagram (lien réel : https://www.instagram.com/cladprimeco/)
+  * LinkedIn
+- Effet hover : scale up
+
+=====================================================
+DESIGN & ANIMATIONS
+=====================================================
+
+TYPOGRAPHIE :
+- Titres : Police bold, tailles 4xl à 6xl
+- Corps : Police régulière/medium, tailles lg à xl
+- Taglines : Uppercase, tracking-wide, petites tailles
+
+ESPACEMENT :
+- Sections : padding 20 (py-20)
+- Éléments : gaps de 6 à 16
+- Container max : 7xl (max-w-7xl)
+
+ANIMATIONS & TRANSITIONS :
+- Hover sur boutons : changement de couleur + scale
+- Hover sur cartes : ombre accentuée + zoom image
+- Transitions : duration-300 ou duration-500
+- Slider : fade in/out avec opacity
+
+BORDURES & OMBRES :
+- Cartes : shadow-lg, hover:shadow-2xl
+- Inputs : border blanc transparent, focus:ring-2 bleu
+- Coins arrondis : lg, xl, 2xl, 3xl selon les éléments
+
+RESPONSIVE :
+- Mobile first
+- Breakpoints : md (768px), lg (1024px)
+- Grids : 1 col mobile, 2-3 cols desktop
+- Images : object-cover pour maintenir proportions
+- Section contact : Layout vertical (flex-col) sur mobile, horizontal (flex-row) sur desktop
+- Texte centré sur mobile, aligné à gauche sur desktop
+- Gap augmenté entre éléments sur mobile (gap-8)
+
+ICÔNES :
+Utiliser lucide-react ou des icônes SVG similaires pour :
+- ArrowRight, Building2, Layers, Shield
+- Pencil, Hammer, CheckCircle
+- Phone, Mail, MapPin
+- Facebook, Instagram, Linkedin
+- ChevronLeft, ChevronRight
+
+=====================================================
+IMAGES NÉCESSAIRES
+=====================================================
+
+LOGOS :
+- logo-mobile.png
+- logo-tab.png
+- logo-desktop.png
+
+BACKGROUNDS :
+- kingspan-panel.jpg (slide 1)
+- architectural-panels.jpg (slide 2)
+- school_carrigtohil.jpg (slide 3 + section about)
+- aluminium-copings.jpg (optional)
+
+SERVICES :
+- kingspan-panel.jpg (carte Kingspan)
+- amazon_3.jpg (carte Architectural)
+
+GALERIES :
+- polestar1.jpg, polestar2.jpg, polestar3.jpg
+- aluminium-coppings-1/2/3.jpg
+- amazon1.jpg, amazon2.jpg, amazon_3.jpg
+
+=====================================================
+POINTS IMPORTANTS
+=====================================================
+
+1. Footer présent uniquement sur la page HOME
+2. Header fixed avec comportement au scroll (changement de couleur après 100px)
+3. Navigation uniquement visible sur desktop/tablette
+4. Slider automatique sur la page home (6 secondes par slide)
+5. Section contact (fond noir) présente sur HOME et ABOUT
+6. Section "Our Process" interactive avec hover effects
+7. Formulaire de contact fonctionnel sur page CONTACT
+8. Transitions fluides partout (duration-300/500)
+9. Design moderne, professionnel, épuré
+10. Responsive sur tous les écrans (mobile-first)
+11. Utiliser Tailwind CSS et lucide-react pour les icônes
+12. Effets hover sur tous les éléments interactifs
+13. Layout adaptatif : vertical sur mobile, horizontal sur desktop
+14. Sections contact avec icônes alignées verticalement sur mobile
+
+=====================================================
+FIN DU PROMPT
+=====================================================
