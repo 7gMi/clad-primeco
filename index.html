@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en-IE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Theme color for browser chrome (improves perceived performance) -->
+    <meta name="theme-color" content="#1e40af" />
+
+    <!-- Primary Meta -->
+    <title>Clad-Primeco | Cladding &amp; Roofing Contractors — Dublin, Ireland</title>
+    <meta name="description" content="Clad-Primeco are Ireland's specialist cladding contractor — Kingspan systems, architectural panels and aluminium copings, supplied and installed on programme. Trusted by leading contractors. Request a quote in 24h." />
+    <meta name="keywords" content="cladding contractors Ireland, Kingspan cladding Dublin, architectural cladding panels Ireland, aluminium copings Ireland, roofing contractors Dublin, industrial cladding Ireland, commercial cladding Ireland, building facade contractors" />
+    <meta name="author" content="Clad-Primeco Ltd" />
+    <meta name="designer" content="Mihai Gaina — https://mihaigaina.dev" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://cladprimeco.ie" />
+    <link rel="alternate" hreflang="en-ie" href="https://cladprimeco.ie" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Clad-Primeco" />
+    <meta property="og:title" content="Clad-Primeco | Cladding &amp; Roofing Contractors — Dublin, Ireland" />
+    <meta property="og:description" content="On-programme cladding installation across Ireland. Kingspan systems, architectural facades, aluminium copings — trusted by Amazon, Vantage Data Centers, and Bausch &amp; Lomb. Get your quote today." />
+    <meta property="og:url" content="https://cladprimeco.ie" />
+    <meta property="og:image" content="https://cladprimeco.ie/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_IE" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Clad-Primeco | Cladding &amp; Roofing Contractors — Ireland" />
+    <meta name="twitter:description" content="Specialist cladding and roofing contractors. Kingspan panels, architectural cladding, aluminium copings — installed across Ireland." />
+    <meta name="twitter:image" content="https://cladprimeco.ie/images/og-image.jpg" />
+
+    <!-- Favicon + PWA -->
+    <link rel="icon" type="image/png" href="/images/logo/favicon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!--
+      PERFORMANCE: Preconnect to third-party origins.
+      preconnect = DNS + TCP + TLS handshake done early.
+      crossorigin required for CORS assets (fonts, scripts from CDN).
+    -->
+    <link rel="preconnect" href="https://tyhqyfufzzoszafqnekf.supabase.co" />
+    <link rel="preconnect" href="https://hcaptcha.com" />
+    <link rel="preconnect" href="https://newassets.hcaptcha.com" crossorigin />
+    <link rel="preconnect" href="https://js.hcaptcha.com" crossorigin />
+
+    <!--
+      DNS-prefetch as fallback for browsers that don't support preconnect,
+      and for additional third-party hosts that may be hit later.
+    -->
+    <link rel="dns-prefetch" href="https://www.instagram.com" />
+    <link rel="dns-prefetch" href="https://js.hcaptcha.com" />
+
+    <!--
+      LCP OPTIMISATION: Preload the first hero background image.
+      This is the Largest Contentful Paint element — loaded via CSS background-image
+      so the browser cannot discover it from HTML. Preloading it explicitly
+      reduces LCP by 600-1200ms on typical connections.
+
+      as="image" + imagesrcset is not needed here because this is a full-screen
+      background served at a single URL. The fetchpriority=high hint tells the
+      browser to treat this fetch as high-priority alongside render-blocking resources.
+    -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/backgrounds/school_carrigtohil.webp"
+      fetchpriority="high"
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Contractor",
+      "name": "Clad-Primeco",
+      "alternateName": "Clad Prime & Co. Ltd",
+      "description": "Specialist cladding and roofing contractors based in Dublin, Ireland. Supplying and installing Kingspan panels, architectural cladding and aluminium copings across Ireland.",
+      "url": "https://cladprimeco.ie",
+      "telephone": "+353833468913",
+      "email": "cladprimeco@outlook.com",
+      "sameAs": [
+        "https://www.instagram.com/cladprimeco"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dublin",
+        "addressRegion": "County Dublin",
+        "addressCountry": "IE"
+      },
+      "areaServed": { "@type": "Country", "name": "Ireland" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cladding & Roofing Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kingspan Cladding Systems" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Architectural Cladding Panels" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aluminium Copings & Roof Deck" } }
+        ]
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Mihai Gaina",
+        "url": "https://mihaigaina.dev",
+        "jobTitle": "Web Developer"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
